@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- A-Grade Bows: Carnage Bow -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="288" />
+	</item>
+	<item>
+		<!-- A-Grade Bows: Carnage Bow - Critical Bleed -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4831" />
+	</item>
+	<item>
+		<!-- A-Grade Bows: Carnage Bow - Critical Bleed -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5609" />
+	</item>
+	<item>
+		<!-- A-Grade Bows: Carnage Bow - Light -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5608" />
+	</item>
+	<item>
+		<!-- A-Grade Bows: Carnage Bow - Mana Up -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4832" />
+	</item>
+	<item>
+		<!-- A-Grade Bows: Carnage Bow - Mana Up -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5610" />
+	</item>
+	<item>
+		<!-- A-Grade Bows: Carnage Bow - Quick Recovery -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4833" />
+	</item>
+	<item>
+		<!-- A-Grade Bows: Shyeed's Bow -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8684" />
+	</item>
+	<item>
+		<!-- A-Grade Bows: Shyeed's Bow - Cheap Shot -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8806" />
+	</item>
+	<item>
+		<!-- A-Grade Bows: Shyeed's Bow - Focus -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8807" />
+	</item>
+	<item>
+		<!-- A-Grade Bows: Shyeed's Bow - Quick Recovery -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8808" />
+	</item>
+	<item>
+		<!-- A-Grade Bows: Soul Bow -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="289" />
+	</item>
+	<item>
+		<!-- A-Grade Bows: Soul Bow - Cheap Shot -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5611" />
+	</item>
+	<item>
+		<!-- A-Grade Bows: Soul Bow - Critical Poison -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5613" />
+	</item>
+	<item>
+		<!-- A-Grade Bows: Soul Bow - Quick Recovery -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5612" />
+	</item>
+</list>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- C-Grade Robe Armor: Demon's Stockings -->
+		<ingredient count="460000" id="57" />
+		<production count="1" id="472" />
+	</item>
+	<item>
+		<!-- C-Grade Robe Armor: Demon's Tunic -->
+		<ingredient count="736000" id="57" />
+		<production count="1" id="441" />
+	</item>
+	<item>
+		<!-- C-Grade Robe Armor: Divine Stockings -->
+		<ingredient count="671000" id="57" />
+		<production count="1" id="473" />
+	</item>
+	<item>
+		<!-- C-Grade Robe Armor: Divine Tunic -->
+		<ingredient count="1070000" id="57" />
+		<production count="1" id="442" />
+	</item>
+	<item>
+		<!-- C-Grade Robe Armor: Karmian Stockings -->
+		<ingredient count="237000" id="57" />
+		<production count="1" id="471" />
+	</item>
+	<item>
+		<!-- C-Grade Robe Armor: Karmian Tunic -->
+		<ingredient count="379000" id="57" />
+		<production count="1" id="439" />
+	</item>
+	<item>
+		<!-- C-Grade Robe Armor: Robe of Seal -->
+		<ingredient count="707000" id="57" />
+		<production count="1" id="440" />
+	</item>
+</list>

@@ -1,0 +1,31 @@
+Installing MariaDB/MySQL system tables in '/home/jserodio/Emulation/wingames/L2-offline/L2J-Offline-OneClick/runtime-linux/mariadb-data' ...
+OK
+
+To start mariadbd at boot time you have to copy
+support-files/mariadb.service to the right place for your system
+
+
+PLEASE REMEMBER TO SET A PASSWORD FOR THE MariaDB root USER !
+To do so, start the server, then issue the following command:
+
+'/home/jserodio/Emulation/wingames/L2-offline/L2J-Offline-OneClick/runtime-linux/mariadb/bin/mariadb-secure-installation'
+
+which will also give you the option of removing the test
+databases and anonymous user created by default.  This is
+strongly recommended for production servers.
+
+See the MariaDB Knowledgebase at https://mariadb.com/kb
+
+You can start the MariaDB daemon with:
+cd '/home/jserodio/Emulation/wingames/L2-offline/L2J-Offline-OneClick/runtime-linux/mariadb' ; /home/jserodio/Emulation/wingames/L2-offline/L2J-Offline-OneClick/runtime-linux/mariadb/bin/mariadbd-safe --datadir='/home/jserodio/Emulation/wingames/L2-offline/L2J-Offline-OneClick/runtime-linux/mariadb-data'
+
+You can test the MariaDB daemon with mariadb-test-run.pl
+cd '/home/jserodio/Emulation/wingames/L2-offline/L2J-Offline-OneClick/runtime-linux/mariadb/mariadb-test' ; perl mariadb-test-run.pl
+
+Please report any problems at https://mariadb.org/jira
+
+The latest information about MariaDB is available at https://mariadb.org/.
+
+Consider joining MariaDB's strong and vibrant community:
+https://mariadb.org/get-involved/
+

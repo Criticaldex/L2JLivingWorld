@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- C-Grade Bows: Akat Long Bow -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="283" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Akat Long Bow - Evasion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4820" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Akat Long Bow - Guidance -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4819" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Akat Long Bow - Miser -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4821" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Crystallized Ice Bow -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="281" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Crystallized Ice Bow - Evasion -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4811" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Crystallized Ice Bow - Guidance -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4810" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Crystallized Ice Bow - Quick Recovery -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4812" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Elemental Bow -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="282" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Elemental Bow - Guidance -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4813" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Elemental Bow - Miser -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4814" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Elemental Bow - Quick Recovery -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4815" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Eminence Bow -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="286" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Eminence Bow - Cheap Shot -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4824" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Eminence Bow - Guidance -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4822" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Eminence Bow - Miser -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4823" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Noble Elven Bow -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="285" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Noble Elven Bow - Cheap Shot -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4818" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Noble Elven Bow - Evasion -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4816" />
+	</item>
+	<item>
+		<!-- C-Grade Bows: Noble Elven Bow - Miser -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4817" />
+	</item>
+</list>

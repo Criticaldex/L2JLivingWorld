@@ -1,0 +1,18 @@
+{
+  "zell": {
+    "party": [],
+    "player": "Zell",
+    "social": [
+      {
+        "seen": 1789506140,
+        "text": "Player has been friendly/appreciative."
+      }
+    ],
+    "trade": [
+      {
+        "seen": 1789506213,
+        "text": "Player often uses warehouse as a meeting point."
+      }
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- A-Grade Light Armor: Apella Brigandine -->
+		<ingredient count="5643300" id="57" />
+		<production count="1" id="7864" />
+	</item>
+	<item>
+		<!-- A-Grade Light Armor: Dark Crystal Leather Armor -->
+		<ingredient count="3470000" id="57" />
+		<production count="1" id="2385" />
+	</item>
+	<item>
+		<!-- A-Grade Light Armor: Dark Crystal Leggings -->
+		<ingredient count="2170000" id="57" />
+		<production count="1" id="2389" />
+	</item>
+	<item>
+		<!-- A-Grade Light Armor: Leather Armor of Nightmare -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="2394" />
+	</item>
+	<item>
+		<!-- A-Grade Light Armor: Majestic Leather Armor -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="2395" />
+	</item>
+	<item>
+		<!-- A-Grade Light Armor: Sealed Apella Brigandine -->
+		<ingredient count="5643300" id="57" />
+		<production count="1" id="7874" />
+	</item>
+	<item>
+		<!-- A-Grade Light Armor: Sealed Dark Crystal Leather Armor -->
+		<ingredient count="3470000" id="57" />
+		<production count="1" id="5297" />
+	</item>
+	<item>
+		<!-- A-Grade Light Armor: Sealed Dark Crystal Leggings -->
+		<ingredient count="2170000" id="57" />
+		<production count="1" id="5298" />
+	</item>
+	<item>
+		<!-- A-Grade Light Armor: Sealed Leather Armor of Nightmare -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="5320" />
+	</item>
+	<item>
+		<!-- A-Grade Light Armor: Sealed Majestic Leather Armor -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="5323" />
+	</item>
+	<item>
+		<!-- A-Grade Light Armor: Sealed Tallum Leather Armor -->
+		<ingredient count="5080000" id="57" />
+		<production count="1" id="5301" />
+	</item>
+	<item>
+		<!-- A-Grade Light Armor: Tallum Leather Armor -->
+		<ingredient count="5080000" id="57" />
+		<production count="1" id="2393" />
+	</item>
+	<item>
+		<!-- A-Grade Light Armor: Unicorn Leather Armor -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="410" />
+	</item>
+</list>

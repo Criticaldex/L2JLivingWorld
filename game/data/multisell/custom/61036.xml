@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- C-Grade Dual: Artisan's Sword*Elven Long Sword -->
+		<ingredient count="2470000" id="57" />
+		<production count="1" id="2545" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Artisan's Sword*Sword of Revolution -->
+		<ingredient count="2120000" id="57" />
+		<production count="1" id="2544" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Bastard Sword*Elven Long Sword -->
+		<ingredient count="2470000" id="57" />
+		<production count="1" id="2532" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Bastard Sword*Sword of Revolution -->
+		<ingredient count="2120000" id="57" />
+		<production count="1" id="2531" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Crimson Sword*Crimson Sword -->
+		<ingredient count="1960000" id="57" />
+		<production count="1" id="2551" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Crimson Sword*Elven Long Sword -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="2554" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Crimson Sword*Elven Sword -->
+		<ingredient count="1960000" id="57" />
+		<production count="1" id="2552" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Crimson Sword*Sword of Revolution -->
+		<ingredient count="2470000" id="57" />
+		<production count="1" id="2553" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Elven Long Sword*Elven Long Sword -->
+		<ingredient count="3820000" id="57" />
+		<production count="1" id="2560" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Elven Sword*Elven Long Sword -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="2557" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Elven Sword*Elven Sword -->
+		<ingredient count="1960000" id="57" />
+		<production count="1" id="2555" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Elven Sword*Sword of Revolution -->
+		<ingredient count="2470000" id="57" />
+		<production count="1" id="2556" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Katana*Katana -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="2582" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Katana*Spirit Sword -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="2583" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Knight's Sword*Elven Long Sword -->
+		<ingredient count="2470000" id="57" />
+		<production count="1" id="2550" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Knight's Sword*Sword of Revolution -->
+		<ingredient count="2120000" id="57" />
+		<production count="1" id="2549" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Saber*Elven Long Sword -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="2524" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Saber*Sword of Revolution -->
+		<ingredient count="1960000" id="57" />
+		<production count="1" id="2523" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Shamshir*Katana -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="2573" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Shamshir*Shamshir -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="2572" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Shamshir*Spirit Sword -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="2574" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Spinebone Sword*Elven Long Sword -->
+		<ingredient count="2470000" id="57" />
+		<production count="1" id="2539" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Spinebone Sword*Sword of Revolution -->
+		<ingredient count="2120000" id="57" />
+		<production count="1" id="2538" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Spirit Sword*Spirit Sword -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="2591" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Stormbringer*Katana -->
+		<ingredient count="5280000" id="57" />
+		<production count="1" id="2563" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Stormbringer*Shamshir -->
+		<ingredient count="5280000" id="57" />
+		<production count="1" id="2562" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Stormbringer*Spirit Sword -->
+		<ingredient count="5280000" id="57" />
+		<production count="1" id="2564" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Stormbringer*Stormbringer -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="2561" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Sword of Revolution*Elven Long Sword -->
+		<ingredient count="3340000" id="57" />
+		<production count="1" id="2559" />
+	</item>
+	<item>
+		<!-- C-Grade Dual: Sword of Revolution*Sword of Revolution -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="2558" />
+	</item>
+</list>

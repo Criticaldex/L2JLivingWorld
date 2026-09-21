@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- Blessed Scroll of Escape -->
+		<ingredient count="1500000" id="57" />
+		<production count="10" id="1538" />
+	</item>
+	<item>
+		<!-- Blessed Scroll of Escape: Castle -->
+		<ingredient count="800000" id="57" />
+		<production count="10" id="5859" />
+	</item>
+	<item>
+		<!-- Blessed Scroll of Escape: Clan Hall -->
+		<ingredient count="1000000" id="57" />
+		<production count="10" id="5858" />
+	</item>
+	<item>
+		<!-- Scroll of Escape -->
+		<ingredient count="500" id="57" />
+		<production count="1" id="736" />
+	</item>
+	<item>
+		<!-- Scroll of Escape - Ketra Orc Village -->
+		<ingredient count="350000" id="57" />
+		<production count="10" id="7618" />
+	</item>
+	<item>
+		<!-- Scroll of Escape - Varka Silenos Village -->
+		<ingredient count="350000" id="57" />
+		<production count="10" id="7619" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Aden Castle Town -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7132" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Dark Elf Village -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7119" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Dark Elf Village -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="7556" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Dwarven Village -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7121" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Dwarven Village -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="7558" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Elven Village -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7118" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Elven Village -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="7555" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Floran -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7125" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Giran Castle Town -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7126" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Giran Castle Town -->
+		<ingredient count="300000" id="57" />
+		<production count="10" id="7559" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Gludin Village -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7122" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Hardin's Private Academy -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7127" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Heine -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7128" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Hunters Village -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7131" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Ivory Tower -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7130" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Orc Village -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7120" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Orc Village -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="7557" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Talking Island -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7117" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to Talking Island -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="7554" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to the Rune Township -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7134" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to the Town of Dion -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7124" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to the Town of Gludio -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7123" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to the Town of Goddard -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7133" />
+	</item>
+	<item>
+		<!-- Scroll of Escape to the Town of Schuttgart. -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7135" />
+	</item>
+	<item>
+		<!-- Scroll of Escape: Castle -->
+		<ingredient count="5000" id="57" />
+		<production count="10" id="1830" />
+	</item>
+	<item>
+		<!-- Scroll of Escape: Clan Hall -->
+		<ingredient count="5000" id="57" />
+		<production count="10" id="1829" />
+	</item>
+	<item>
+		<!-- Scroll of Escape: Orc Village -->
+		<ingredient count="1000000" id="57" />
+		<production count="10" id="6663" />
+	</item>
+	<item>
+		<!-- Scroll of Escape: Silenos Village -->
+		<ingredient count="1000000" id="57" />
+		<production count="10" id="6664" />
+	</item>
+</list>

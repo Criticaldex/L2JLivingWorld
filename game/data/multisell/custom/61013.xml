@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- A-Grade Swords: Dark Legion's Edge -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="2500" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Dark Legion's Edge - Critical Damage -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5647" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Dark Legion's Edge - Health -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5648" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Dragon Slayer -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="81" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Dragon Slayer - Critical Bleed -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5645" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Dragon Slayer - Critical Drain -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5646" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Dragon Slayer - Health -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5644" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Elemental Sword -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="150" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Elemental Sword - Empower -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5640" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Elemental Sword - M. Atk. -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5638" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Elemental Sword - Magic Paralyze -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5639" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Infernal Master -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="7884" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Infernal Master - Critical Damage -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8109" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Infernal Master - Focus -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8110" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Infernal Master - Haste -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8108" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Phantom Sword -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="85" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Sirra's Blade -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8678" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Sirra's Blade - Critical Poison -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8790" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Sirra's Blade - Haste -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8788" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Sirra's Blade - Health -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8789" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Sword of Ipos -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8679" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Sword of Ipos - Focus -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8791" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Sword of Ipos - Haste -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8792" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Sword of Ipos - Health -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8793" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Sword of Life -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="149" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Sword of Miracles -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="151" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Sword of Miracles - Acumen -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5643" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Sword of Miracles - M. Atk. -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5641" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Sword of Miracles - Magic Silence -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5642" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Tallum Blade -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="80" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Tallum Blade - Anger -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5637" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Tallum Blade - Critical Poison -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5635" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Tallum Blade - Haste -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5636" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Tallum Blade - Health -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4720" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Tallum Blade - Rsk. Evasion -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4721" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Tallum Blade - Rsk. Haste -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4722" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Tear of Darkness -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="147" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Themis' Tongue -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8686" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Themis' Tongue - Magic Focus -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8814" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Themis' Tongue - Mana Up -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8812" />
+	</item>
+	<item>
+		<!-- A-Grade Swords: Themis' Tongue - Mental Shield -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8813" />
+	</item>
+</list>

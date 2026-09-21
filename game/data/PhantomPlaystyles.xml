@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Per-class combat playstyles for recruited phantom party members.
+	Loaded at boot; reload live with //phantom playstyle.
+
+	A <playstyle> covers a class LINEAGE. `classIds` lists every PlayerClass id it applies to; a member
+	resolves by its EXACT class id, and skills it hasn't learned are skipped at runtime - so one entry can
+	span a whole career. Document order = priority: each tick the engine casts the FIRST entry whose
+	conditions pass. A skill the class knows but this file does not list is deliberately never used.
+
+	`role` (optional) disambiguates lineages whose CLASS is shared between two archetypes: a level 20-39
+	Human archer and dagger are both a plain Rogue (id 7), so class id alone can't tell them apart. A
+	role-specific playstyle wins over a role-agnostic one. Valid roles are the party roles:
+	TANK, WARRIOR, ARCHER, DAGGER, MONK, SINGER, DANCER, NUKER.
+
+	<skill> attributes:
+	  id           - skill id (level resolved from what the member learned)
+	  name         - documentation only (the id is authoritative)
+	  use          - OPENER | ROTATION | AOE | DEBUFF | CONTROL | PANIC | LIMIT | PULL
+	                 (PANIC/LIMIT target self; LIMIT additionally needs a ready healer)
+	                 PULL is special: it is the ranged opener the CAMP PULLER uses to tag a mob (so a nuker
+	                 shoots it instead of running in to body-pull) and is read ONLY by the pull hook, never by
+	                 the combat rotation. Use a cheap single-target nuke. Its `when` is ignored - the pull hook
+	                 supplies its own gating (in cast range, and above the role's MP reserve). TANKS pull with
+	                 Aggression, which is manager-owned and handled in code, so it is NOT listed here.
+	  when         - comma-separated AND conditions:
+	                 ALWAYS, TARGET_HP_BELOW (hpBelow), TARGET_HP_ABOVE (hpAbove),
+	                 SELF_HP_BELOW (selfHpBelow), MP_ABOVE (mpAbove), MOBS_NEAR (mobsAtLeast),
+	                 MOBS_UNSPOILED (mobsAtLeast), REAR, CHARGES (chargesAtLeast), CHARGES_BELOW (chargesBelow),
+	                 DEBUFF_MISSING, SELF_ABNORMAL_FREE, NOT_SPOILED, DURABLE_TARGET, HEALER_READY,
+	                 ONCE_PER_TARGET, UNDER_ATTACK
+	  minLevel/maxLevel - the level window this entry applies in. Unlearned skills are skipped anyway, so
+	                 minLevel is rarely needed; maxLevel is what RETIRES an outgrown skill (a level 80
+	                 archer still knows Power Shot, so only an explicit cap stops it being used).
+	  paceMs       - optional per-entry pacing floor (engine default ~1.6-2.5s between casts)
+
+	Mechanics (cast range, MP, reuse, reagents, weapon requirements, cast-time HP gates like Frenzy's)
+	come from the skill data at runtime and are never written here. Listing a skill the member can't
+	currently cast is harmless - it is simply skipped.
+
+	FAIL-SAFE: if a member knows NONE of its playstyle's level-applicable skills, the engine does not take
+	over at all and the member keeps stock auto-use behavior. This system can only add competence.
+
+	NOT covered on purpose:
+	- Support classes (Cleric/Bishop/Cardinal, Prophet/Hierophant, Elven Elder/Eva's Saint, Shillien
+	  Elder/Shillien Saint, Overlord/Dominator, Warcryer/Doomcryer): their combat behavior is the party
+	  manager's support tick (heals/buffs/recharge/cleanse/res), which already plays the class.
+	- Summoner lineages (Warlock/Arcana Lord, Elemental Summoner/Elemental Master, Phantom
+	  Summoner/Spectral Master): servitor control is a later phase.
+	- Manager-owned skills - NEVER list these: Ultimate Defense (110), Aggression (28), Aura of Hate (18),
+	  Sleep (1069), Dryad Root (1201), Resurrection (1016), heals, songs and dances. The party manager
+	  casts them with its own threat/survival/CC/support logic.
+	- Toggles and stances (Arcane Power, Focus Death, Dead Eye, Parry Stance...): auto-buff upkeep handles
+	  plain self-buffs; toggle management is out of scope in this version.
+	- Spoil/Sweeper (loot integration) and cubic upkeep (needs a "cubic missing" condition).
+-->
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xsd/PhantomPlaystyles.xsd">
+
+	<!-- =====================================================================================
+	     BASE STARTING CLASSES (levels 1-19, BEFORE the 1st class transfer). These are the nine
+	     race-and-type root classes a character wears until its 1st transfer (~level 20), after
+	     which its class id changes and one of the entries further down takes over. A recruited
+	     member is level-matched to the player, so a low-level party is built from these ids -
+	     without an entry here an early-game phantom kept stock auto-attack and never used a skill.
+
+	     The kit at this tier is tiny (a base class learns its first real skills at level 5-7 and
+	     has only a handful before transfer) - so, as elsewhere, that handful IS the playstyle.
+	     Heals, self/party buff toggles and the manager-owned CC list stay out (same rules as the
+	     rest of this file); what remains is the class's actual offensive/utility skills. Members
+	     below the learn level simply know none of these and fall back to stock behavior (fail-safe).
+	     ===================================================================================== -->
+
+	<!-- Human Fighter (0) -> every human fighter career. Weapon-agnostic like the Warrior generic:
+	     the bow/dagger/blunt hit each fail their weapon check unless the rolled weapon fits, so only
+	     the matching one fires. -->
+	<playstyle name="Human Fighter (base)" classIds="0">
+		<skill id="56" name="Power Shot"   use="ROTATION" when="MP_ABOVE" mpAbove="40" paceMs="4000" />
+		<skill id="16" name="Mortal Blow"  use="ROTATION" when="MP_ABOVE" mpAbove="30" />
+		<skill id="3"  name="Power Strike" use="ROTATION" when="MP_ABOVE" mpAbove="40" />
+	</playstyle>
+
+	<!-- Elven Fighter (18) -> temple knight / swordsinger / scout lines. Same three-weapon spread;
+	     its auras (77/91) and Elemental Heal are toggles/self-heal and stay manager/upkeep-owned. -->
+	<playstyle name="Elven Fighter (base)" classIds="18">
+		<skill id="56" name="Power Shot"   use="ROTATION" when="MP_ABOVE" mpAbove="40" paceMs="4000" />
+		<skill id="16" name="Mortal Blow"  use="ROTATION" when="MP_ABOVE" mpAbove="30" />
+		<skill id="3"  name="Power Strike" use="ROTATION" when="MP_ABOVE" mpAbove="40" />
+	</playstyle>
+
+	<!-- Dark Fighter (31) -> palus knight / assassin lines. Adds Drain Health for sustain. -->
+	<playstyle name="Dark Fighter (base)" classIds="31">
+		<skill id="56" name="Power Shot"   use="ROTATION" when="MP_ABOVE" mpAbove="40" paceMs="4000" />
+		<skill id="16" name="Mortal Blow"  use="ROTATION" when="MP_ABOVE" mpAbove="30" />
+		<skill id="70" name="Drain Health" use="ROTATION" when="MP_ABOVE" mpAbove="40" />
+		<skill id="3"  name="Power Strike" use="ROTATION" when="MP_ABOVE" mpAbove="45" />
+	</playstyle>
+
+	<!-- Orc Fighter (44) -> raider/destroyer + monk/tyrant lines. Fists and blunt. -->
+	<playstyle name="Orc Fighter (base)" classIds="44">
+		<skill id="29" name="Iron Punch"   use="ROTATION" when="MP_ABOVE" mpAbove="40" />
+		<skill id="3"  name="Power Strike" use="ROTATION" when="MP_ABOVE" mpAbove="45" />
+	</playstyle>
+
+	<!-- Dwarven Fighter (53) -> scavenger/bounty hunter + artisan/warsmith. No attack skills at base;
+	     its one combat-relevant early skill is Spoil (learned at 10) - same NOT_SPOILED handling as
+	     the Dwarf 2nd classes. Below 10 it knows nothing here and just auto-attacks. -->
+	<playstyle name="Dwarven Fighter (base)" classIds="53">
+		<skill id="254" name="Spoil" use="DEBUFF" when="NOT_SPOILED" />
+	</playstyle>
+
+	<!-- Human Mystic (10) -> wizard AND cleric roots. Only the offense is listed (heals are
+	     manager-owned): element bolts, the HP-drain nuke, and the two early curses on durable targets. -->
+	<playstyle name="Human Mystic (base)" classIds="10">
+		<skill id="1177" name="Wind Strike"     use="PULL"     when="ALWAYS" />
+		<skill id="1168" name="Curse: Poison"   use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" />
+		<skill id="1164" name="Curse: Weakness"  use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" />
+		<skill id="1147" name="Vampiric Touch"   use="ROTATION" when="MP_ABOVE" mpAbove="30" />
+		<skill id="1184" name="Ice Bolt"         use="ROTATION" when="MP_ABOVE" mpAbove="30" />
+		<skill id="1177" name="Wind Strike"      use="ROTATION" when="ALWAYS" />
+	</playstyle>
+
+	<!-- Elven Mystic (25) -> spellsinger/summoner + oracle/elder roots. Wind Shackle slows atk spd. -->
+	<playstyle name="Elven Mystic (base)" classIds="25">
+		<skill id="1177" name="Wind Strike"      use="PULL"     when="ALWAYS" />
+		<skill id="1206" name="Wind Shackle"     use="CONTROL"  when="DEBUFF_MISSING,DURABLE_TARGET" paceMs="8000" />
+		<skill id="1164" name="Curse: Weakness"  use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" />
+		<skill id="1184" name="Ice Bolt"         use="ROTATION" when="MP_ABOVE" mpAbove="30" />
+		<skill id="1177" name="Wind Strike"      use="ROTATION" when="ALWAYS" />
+	</playstyle>
+
+	<!-- Dark Mystic (38) -> spellhowler/summoner + shillien oracle/elder roots. -->
+	<playstyle name="Dark Mystic (base)" classIds="38">
+		<skill id="1177" name="Wind Strike"     use="PULL"     when="ALWAYS" />
+		<skill id="1206" name="Wind Shackle"    use="CONTROL"  when="DEBUFF_MISSING,DURABLE_TARGET" paceMs="8000" />
+		<skill id="1168" name="Curse: Poison"   use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" />
+		<skill id="1147" name="Vampiric Touch"  use="ROTATION" when="MP_ABOVE" mpAbove="30" />
+		<skill id="1184" name="Ice Bolt"        use="ROTATION" when="MP_ABOVE" mpAbove="30" />
+		<skill id="1177" name="Wind Strike"     use="ROTATION" when="ALWAYS" />
+	</playstyle>
+
+	<!-- Orc Mystic (49) -> shaman roots (overlord/warcryer). No plain bolt - its damage is the HP-drains;
+	     Venom is its early durable-target poison. Soul Cry (toggle), Chant of Battle (party buff) and the
+	     fear/sleep CC are deliberately left to upkeep / the manager. -->
+	<playstyle name="Orc Mystic (base)" classIds="49">
+		<skill id="1095" name="Venom"       use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" />
+		<skill id="1100" name="Chill Flame" use="ROTATION" when="MP_ABOVE" mpAbove="35" />
+		<skill id="1090" name="Life Drain"  use="ROTATION" when="MP_ABOVE" mpAbove="30" />
+	</playstyle>
+
+	<!-- =====================================================================================
+	     GENERIC 1st CLASSES (levels 20-39). These ids are shared by two or more 2nd-class
+	     lineages and cannot be told apart by role, so they get one honest generic playstyle.
+	     At this tier a character has 3-6 real combat skills; that IS the playstyle.
+	     ===================================================================================== -->
+
+	<!-- Warrior (1) -> Gladiator / Warlord. Sword-blunt smash, blunt stun, pole sweep: whichever the
+	     member's rolled weapon allows (the others fail their weapon check and are skipped). -->
+	<playstyle name="Warrior (1st class)" classIds="1">
+		<skill id="121" name="Battle Roar"  use="PANIC"    when="SELF_HP_BELOW" selfHpBelow="45" />
+		<skill id="245" name="Wild Sweep"   use="AOE"      when="MOBS_NEAR" mobsAtLeast="2" />
+		<skill id="100" name="Stun Attack"  use="CONTROL"  when="DEBUFF_MISSING" paceMs="6000" />
+		<skill id="255" name="Power Smash"  use="ROTATION" when="MP_ABOVE" mpAbove="25" />
+		<skill id="3"   name="Power Strike" use="ROTATION" when="MP_ABOVE" mpAbove="45" />
+	</playstyle>
+
+	<!-- Human Knight (4) -> Paladin / Dark Avenger. Taunts and UD are manager-owned. -->
+	<playstyle name="Human Knight (1st class)" classIds="4">
+		<skill id="92" name="Shield Stun"   use="CONTROL"  when="DEBUFF_MISSING" paceMs="6000" />
+		<skill id="70" name="Drain Health"  use="ROTATION" when="MP_ABOVE" mpAbove="35" />
+		<skill id="3"  name="Power Strike"  use="ROTATION" when="MP_ABOVE" mpAbove="50" />
+	</playstyle>
+
+	<!-- Elven Knight (19) -> Temple Knight / Swordsinger. Very thin at this tier by design. -->
+	<playstyle name="Elven Knight (1st class)" classIds="19">
+		<skill id="102" name="Entangle"     use="CONTROL"  when="DEBUFF_MISSING" paceMs="8000" />
+		<skill id="3"   name="Power Strike" use="ROTATION" when="MP_ABOVE" mpAbove="40" />
+	</playstyle>
+
+	<!-- Palus Knight (32) -> Shillien Knight / Bladedancer. The DE tank line debuffs early. -->
+	<playstyle name="Palus Knight (1st class)" classIds="32">
+		<skill id="105" name="Freezing Strike" use="CONTROL"  when="DEBUFF_MISSING" paceMs="8000" />
+		<skill id="115" name="Power Break"     use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" />
+		<skill id="129" name="Poison"          use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" />
+		<skill id="223" name="Sting"           use="ROTATION" when="MP_ABOVE" mpAbove="30" />
+		<skill id="70"  name="Drain Health"    use="ROTATION" when="MP_ABOVE" mpAbove="40" />
+	</playstyle>
+
+	<!-- Human Wizard (11) -> Sorcerer / Necromancer / Warlock. Sleep (1069) is manager-owned CC. -->
+	<playstyle name="Human Wizard (1st class)" classIds="11">
+		<skill id="1177" name="Wind Strike"  use="PULL"     when="ALWAYS" />
+		<skill id="1181" name="Flame Strike" use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" />
+		<skill id="1220" name="Blaze"        use="ROTATION" when="MP_ABOVE" mpAbove="35" />
+		<skill id="1274" name="Energy Bolt"  use="ROTATION" when="MP_ABOVE" mpAbove="30" />
+		<skill id="1184" name="Ice Bolt"     use="ROTATION" when="MP_ABOVE" mpAbove="25" />
+		<skill id="1177" name="Wind Strike"  use="ROTATION" when="ALWAYS" />
+	</playstyle>
+
+	<!-- Elven Wizard (26) -> Spellsinger / Elemental Summoner. -->
+	<playstyle name="Elven Wizard (1st class)" classIds="26">
+		<skill id="1177" name="Wind Strike"  use="PULL"     when="ALWAYS" />
+		<skill id="1181" name="Flame Strike" use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" />
+		<skill id="1175" name="Aqua Swirl"   use="ROTATION" when="MP_ABOVE" mpAbove="35" />
+		<skill id="1274" name="Energy Bolt"  use="ROTATION" when="MP_ABOVE" mpAbove="30" />
+		<skill id="1184" name="Ice Bolt"     use="ROTATION" when="MP_ABOVE" mpAbove="25" />
+		<skill id="1177" name="Wind Strike"  use="ROTATION" when="ALWAYS" />
+	</playstyle>
+
+	<!-- Dark Wizard (39) -> Spellhowler / Phantom Summoner. -->
+	<playstyle name="Dark Wizard (1st class)" classIds="39">
+		<skill id="1177" name="Wind Strike"   use="PULL"     when="ALWAYS" />
+		<skill id="1181" name="Flame Strike"  use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" />
+		<skill id="1178" name="Twister"       use="ROTATION" when="MP_ABOVE" mpAbove="35" />
+		<skill id="1266" name="Shadow Spark"  use="ROTATION" when="MP_ABOVE" mpAbove="30" />
+		<skill id="1184" name="Ice Bolt"      use="ROTATION" when="MP_ABOVE" mpAbove="25" />
+		<skill id="1177" name="Wind Strike"   use="ROTATION" when="ALWAYS" />
+	</playstyle>
+
+	<!-- =====================================================================================
+	     FIGHTER LINEAGES. Each spans its whole career: the low-level workhorse sits at the
+	     bottom of the list, so it only fires before the better skills exist (or in their gaps).
+	     ===================================================================================== -->
+
+	<!-- Gladiator line: bank sonic charges, spend them in bursts; barrier when focused.
+	     Sonic Focus arrives at 40, so 20-39 is carried by the Warrior (1st class) block above. -->
+	<playstyle name="Duelist" classIds="2,88">
+		<skill id="442" name="Sonic Barrier"      use="PANIC"    when="SELF_HP_BELOW,UNDER_ATTACK" selfHpBelow="35" />
+		<skill id="121" name="Battle Roar"        use="PANIC"    when="SELF_HP_BELOW" selfHpBelow="40" />
+		<skill id="7"   name="Sonic Storm"        use="AOE"      when="MOBS_NEAR,CHARGES" mobsAtLeast="3" chargesAtLeast="3" />
+		<skill id="9"   name="Sonic Buster"       use="AOE"      when="MOBS_NEAR,CHARGES" mobsAtLeast="2" chargesAtLeast="3" />
+		<skill id="5"   name="Double Sonic Slash" use="ROTATION" when="CHARGES" chargesAtLeast="3" />
+		<skill id="6"   name="Sonic Blaster"      use="ROTATION" when="CHARGES" chargesAtLeast="3" />
+		<skill id="8"   name="Sonic Focus"        use="ROTATION" when="CHARGES_BELOW" chargesBelow="4" />
+		<skill id="1"   name="Triple Slash"       use="ROTATION" when="MP_ABOVE" mpAbove="30" />
+		<skill id="190" name="Fatal Strike"       use="ROTATION" when="MP_ABOVE" mpAbove="35" maxLevel="59" />
+		<skill id="255" name="Power Smash"        use="ROTATION" when="MP_ABOVE" mpAbove="40" maxLevel="45" />
+	</playstyle>
+
+	<!-- Warlord line: pole AoE - stun the stacked pack, then sweep it. -->
+	<playstyle name="Dreadnought" classIds="3,89">
+		<skill id="181" name="Revival"      use="PANIC"    when="SELF_HP_BELOW,UNDER_ATTACK" selfHpBelow="25" />
+		<skill id="121" name="Battle Roar"  use="PANIC"    when="SELF_HP_BELOW" selfHpBelow="40" />
+		<skill id="452" name="Shock Stomp"  use="CONTROL"  when="MOBS_NEAR" mobsAtLeast="2" paceMs="6000" />
+		<skill id="48"  name="Thunder Storm" use="AOE"     when="MOBS_NEAR" mobsAtLeast="3" />
+		<skill id="36"  name="Whirlwind"    use="AOE"      when="MOBS_NEAR" mobsAtLeast="2" />
+		<skill id="245" name="Wild Sweep"   use="AOE"      when="MOBS_NEAR" mobsAtLeast="2" maxLevel="45" />
+		<skill id="361" name="Shock Blast"  use="ROTATION" when="MP_ABOVE" mpAbove="20" />
+		<skill id="100" name="Stun Attack"  use="CONTROL"  when="DEBUFF_MISSING" paceMs="6000" maxLevel="45" />
+		<skill id="255" name="Power Smash"  use="ROTATION" when="MP_ABOVE" mpAbove="35" maxLevel="45" />
+	</playstyle>
+
+	<!-- Paladin line (TANK): threat/UD live in the manager; this is the control + self-save layer.
+	     Touch of Life deliberately absent - it is an ALLY save costing ~1215 of the CASTER's HP, so
+	     self-casting it at panic HP could kill the tank. It needs a future ally-target layer. -->
+	<playstyle name="Phoenix Knight" classIds="5,90">
+		<skill id="406" name="Angelic Icon"   use="LIMIT"    when="HEALER_READY,DURABLE_TARGET" />
+		<skill id="404" name="Mass Shackling" use="CONTROL"  when="MOBS_NEAR" mobsAtLeast="3" paceMs="10000" />
+		<skill id="92"  name="Shield Stun"    use="CONTROL"  when="DEBUFF_MISSING" paceMs="5000" />
+		<skill id="70"  name="Drain Health"   use="ROTATION" when="MP_ABOVE" mpAbove="40" maxLevel="55" />
+	</playstyle>
+
+	<!-- Dark Avenger line (TANK): debuff pressure between taunts. Panther deferred with the other pets. -->
+	<playstyle name="Hell Knight" classIds="6,91">
+		<skill id="342" name="Touch of Death" use="DEBUFF"   when="DURABLE_TARGET,ONCE_PER_TARGET" />
+		<skill id="92"  name="Shield Stun"    use="CONTROL"  when="DEBUFF_MISSING" paceMs="5000" />
+		<skill id="127" name="Hamstring"      use="CONTROL"  when="DEBUFF_MISSING" paceMs="8000" />
+		<skill id="70"  name="Drain Health"   use="ROTATION" when="MP_ABOVE" mpAbove="40" maxLevel="55" />
+	</playstyle>
+
+	<!-- Temple Knight line (TANK). -->
+	<playstyle name="Eva's Templar" classIds="20,99">
+		<skill id="400" name="Tribunal"     use="CONTROL"  when="DEBUFF_MISSING" paceMs="6000" />
+		<skill id="102" name="Entangle"     use="CONTROL"  when="DEBUFF_MISSING" paceMs="8000" />
+		<skill id="3"   name="Power Strike" use="ROTATION" when="MP_ABOVE" mpAbove="45" maxLevel="49" />
+	</playstyle>
+
+	<!-- Shillien Knight line (TANK): the debuff tank - Hex habitually, paralyze the big one. -->
+	<playstyle name="Shillien Templar" classIds="33,106">
+		<skill id="122" name="Hex"             use="DEBUFF"   when="DEBUFF_MISSING" />
+		<skill id="342" name="Touch of Death"  use="DEBUFF"   when="DURABLE_TARGET,ONCE_PER_TARGET" />
+		<skill id="352" name="Shield Bash"     use="CONTROL"  when="DEBUFF_MISSING" paceMs="5000" />
+		<skill id="279" name="Lightning Strike" use="CONTROL" when="DURABLE_TARGET" paceMs="15000" />
+		<skill id="105" name="Freezing Strike" use="CONTROL"  when="DEBUFF_MISSING" paceMs="8000" maxLevel="55" />
+		<skill id="289" name="Life Leech"      use="ROTATION" when="MP_ABOVE" mpAbove="40" maxLevel="59" />
+	</playstyle>
+
+	<!-- Swordsinger line (SINGER): songs dominate (manager-owned); Arrest between refreshes. -->
+	<playstyle name="Sword Muse" classIds="21,100">
+		<skill id="402" name="Arrest"       use="CONTROL"  when="DEBUFF_MISSING" paceMs="8000" />
+		<skill id="102" name="Entangle"     use="CONTROL"  when="DEBUFF_MISSING" paceMs="10000" maxLevel="55" />
+		<skill id="3"   name="Power Strike" use="ROTATION" when="MP_ABOVE" mpAbove="50" maxLevel="49" />
+	</playstyle>
+
+	<!-- Bladedancer line (DANCER): dances dominate (manager-owned); control between refreshes. -->
+	<playstyle name="Spectral Dancer" classIds="34,107">
+		<skill id="402" name="Arrest"          use="CONTROL"  when="DEBUFF_MISSING" paceMs="8000" />
+		<skill id="105" name="Freezing Strike" use="CONTROL"  when="DEBUFF_MISSING" paceMs="10000" maxLevel="55" />
+		<skill id="223" name="Sting"           use="ROTATION" when="MP_ABOVE" mpAbove="45" maxLevel="49" />
+	</playstyle>
+
+	<!-- =============================== DAGGERS (role-split) =============================== -->
+	<!-- Rogue/Elven Scout/Assassin are SHARED with the archer lines, hence role="DAGGER".
+	     Backstab and Deadly Blow only arrive at 40; 20-39 is carried by Mortal Blow and Bleed. -->
+
+	<playstyle name="Dagger (Human)" classIds="7,8,93" role="DAGGER">
+		<skill id="445" name="Mirage"           use="PANIC"    when="SELF_HP_BELOW,UNDER_ATTACK" selfHpBelow="35" />
+		<skill id="111" name="Ultimate Evasion" use="PANIC"    when="SELF_HP_BELOW,UNDER_ATTACK" selfHpBelow="40" />
+		<skill id="30"  name="Backstab"         use="ROTATION" when="REAR" />
+		<skill id="263" name="Deadly Blow"      use="ROTATION" when="ALWAYS" />
+		<skill id="344" name="Lethal Blow"      use="ROTATION" when="ALWAYS" />
+		<skill id="358" name="Bluff"            use="CONTROL"  when="DEBUFF_MISSING" paceMs="8000" />
+		<skill id="96"  name="Bleed"            use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" maxLevel="45" />
+		<skill id="16"  name="Mortal Blow"      use="ROTATION" when="MP_ABOVE" mpAbove="30" maxLevel="45" />
+	</playstyle>
+
+	<playstyle name="Dagger (Elf)" classIds="22,23,101" role="DAGGER">
+		<skill id="446" name="Dodge"            use="PANIC"    when="SELF_HP_BELOW,UNDER_ATTACK" selfHpBelow="25" />
+		<skill id="111" name="Ultimate Evasion" use="PANIC"    when="SELF_HP_BELOW,UNDER_ATTACK" selfHpBelow="40" />
+		<skill id="30"  name="Backstab"         use="ROTATION" when="REAR" />
+		<skill id="263" name="Deadly Blow"      use="ROTATION" when="ALWAYS" />
+		<skill id="344" name="Lethal Blow"      use="ROTATION" when="ALWAYS" />
+		<skill id="358" name="Bluff"            use="CONTROL"  when="DEBUFF_MISSING" paceMs="8000" />
+		<skill id="412" name="Sand Bomb"        use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" />
+		<skill id="96"  name="Bleed"            use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" maxLevel="45" />
+		<skill id="16"  name="Mortal Blow"      use="ROTATION" when="MP_ABOVE" mpAbove="30" maxLevel="45" />
+	</playstyle>
+
+	<playstyle name="Dagger (Dark Elf)" classIds="35,36,108" role="DAGGER">
+		<skill id="111" name="Ultimate Evasion" use="PANIC"    when="SELF_HP_BELOW,UNDER_ATTACK" selfHpBelow="40" />
+		<skill id="30"  name="Backstab"         use="ROTATION" when="REAR" />
+		<skill id="122" name="Hex"              use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" />
+		<skill id="263" name="Deadly Blow"      use="ROTATION" when="ALWAYS" />
+		<skill id="344" name="Lethal Blow"      use="ROTATION" when="ALWAYS" />
+		<skill id="358" name="Bluff"            use="CONTROL"  when="DEBUFF_MISSING" paceMs="8000" />
+		<skill id="96"  name="Bleed"            use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" maxLevel="45" />
+		<skill id="223" name="Sting"            use="ROTATION" when="MP_ABOVE" mpAbove="35" maxLevel="45" />
+		<skill id="16"  name="Mortal Blow"      use="ROTATION" when="MP_ABOVE" mpAbove="30" maxLevel="45" />
+	</playstyle>
+
+	<!-- =============================== ARCHERS (role-split) ===============================
+	     Power Shot is the ONLY offensive bow skill from 5 to 35 (Stunning Shot arrives at 36,
+	     Double Shot at 40) - so it is the low-level workhorse, retired at 46 once the real
+	     rotation exists.
+
+	     The MP gate matters more for archers than for anyone else: a BOW ATTACK ITSELF COSTS MP
+	     (weapon mp_consume, charged per shot), and at zero MP the engine refuses to attack at all.
+	     So MP is an archer's ammunition - a skill is only worth casting while there is plenty
+	     spare to keep shooting with. Power Shot's own 25s reuse already limits it, so the gate is
+	     the shooting reserve, not a spam guard. -->
+
+	<playstyle name="Archer (Human)" classIds="7,9,92" role="ARCHER">
+		<skill id="101" name="Stunning Shot"  use="CONTROL"  when="DEBUFF_MISSING" paceMs="6000" />
+		<skill id="354" name="Hamstring Shot" use="CONTROL"  when="DEBUFF_MISSING" paceMs="8000" />
+		<skill id="24"  name="Burst Shot"     use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" />
+		<skill id="19"  name="Double Shot"    use="ROTATION" when="ALWAYS" />
+		<skill id="343" name="Lethal Shot"    use="ROTATION" when="MP_ABOVE" mpAbove="40" />
+		<skill id="56"  name="Power Shot"     use="ROTATION" when="MP_ABOVE" mpAbove="40" maxLevel="45" paceMs="4000" />
+	</playstyle>
+
+	<playstyle name="Archer (Elf)" classIds="22,24,102" role="ARCHER">
+		<skill id="101" name="Stunning Shot"  use="CONTROL"  when="DEBUFF_MISSING" paceMs="6000" />
+		<skill id="354" name="Hamstring Shot" use="CONTROL"  when="DEBUFF_MISSING" paceMs="8000" />
+		<skill id="24"  name="Burst Shot"     use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" />
+		<skill id="19"  name="Double Shot"    use="ROTATION" when="ALWAYS" />
+		<skill id="343" name="Lethal Shot"    use="ROTATION" when="MP_ABOVE" mpAbove="40" />
+		<skill id="56"  name="Power Shot"     use="ROTATION" when="MP_ABOVE" mpAbove="40" maxLevel="45" paceMs="4000" />
+	</playstyle>
+
+	<playstyle name="Archer (Dark Elf)" classIds="35,37,109" role="ARCHER">
+		<skill id="101" name="Stunning Shot"  use="CONTROL"  when="DEBUFF_MISSING" paceMs="6000" />
+		<skill id="122" name="Hex"            use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" />
+		<skill id="354" name="Hamstring Shot" use="CONTROL"  when="DEBUFF_MISSING" paceMs="8000" />
+		<skill id="19"  name="Double Shot"    use="ROTATION" when="ALWAYS" />
+		<skill id="343" name="Lethal Shot"    use="ROTATION" when="MP_ABOVE" mpAbove="40" />
+		<skill id="56"  name="Power Shot"     use="ROTATION" when="MP_ABOVE" mpAbove="40" maxLevel="45" paceMs="4000" />
+	</playstyle>
+
+	<!-- =============================== NUKERS =============================== -->
+
+	<!-- Sorcerer line: fire. Element debuff first on anything durable, then pack AoEs (a real 3+ pack gets the AoE,
+	     not a single-target opener), then the single-target rotation. -->
+	<playstyle name="Archmage" classIds="12,94">
+		<skill id="1177" name="Wind Strike"       use="PULL"     when="ALWAYS" />
+		<skill id="1083" name="Surrender To Fire" use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" maxLevel="59" />
+		<skill id="1296" name="Rain of Fire"      use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" />
+		<skill id="1171" name="Blazing Circle"    use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" maxLevel="69" />
+		<skill id="1181" name="Flame Strike"      use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" maxLevel="45" />
+		<skill id="1230" name="Prominence"        use="ROTATION" when="ALWAYS" />
+		<skill id="1160" name="Slow"              use="CONTROL"  when="DEBUFF_MISSING,DURABLE_TARGET" paceMs="8000" />
+		<skill id="1220" name="Blaze"             use="ROTATION" when="MP_ABOVE" mpAbove="35" maxLevel="45" />
+		<skill id="1184" name="Ice Bolt"          use="ROTATION" when="MP_ABOVE" mpAbove="30" maxLevel="45" />
+	</playstyle>
+
+	<!-- Necromancer line: Death Spike needs Cursed Bones in the inventory - Vampiric Claw is the
+	     reagent-free fallback so a boneless Soultaker still fights. -->
+	<playstyle name="Soultaker" classIds="13,95">
+		<skill id="1177" name="Wind Strike"       use="PULL"     when="ALWAYS" />
+		<skill id="1263" name="Curse Gloom"       use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" />
+		<skill id="1064" name="Silence"           use="CONTROL"  when="DEBUFF_MISSING,DURABLE_TARGET" paceMs="10000" />
+		<skill id="1170" name="Anchor"            use="CONTROL"  when="DURABLE_TARGET" paceMs="15000" />
+		<skill id="1148" name="Death Spike"       use="ROTATION" when="ALWAYS" />
+		<skill id="1234" name="Vampiric Claw"     use="ROTATION" when="ALWAYS" />
+		<skill id="1083" name="Surrender To Fire" use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" maxLevel="45" />
+		<skill id="1220" name="Blaze"             use="ROTATION" when="MP_ABOVE" mpAbove="35" maxLevel="45" />
+		<skill id="1184" name="Ice Bolt"          use="ROTATION" when="MP_ABOVE" mpAbove="30" maxLevel="45" />
+	</playstyle>
+
+	<!-- Spellsinger line: water. Pack AoEs ahead of the single-target rotation. -->
+	<playstyle name="Mystic Muse" classIds="27,103">
+		<skill id="1177" name="Wind Strike"        use="PULL"     when="ALWAYS" />
+		<skill id="1071" name="Surrender To Water" use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" />
+		<skill id="1174" name="Frost Wall"         use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" />
+		<skill id="1181" name="Flame Strike"       use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" maxLevel="45" />
+		<skill id="1235" name="Hydro Blast"        use="ROTATION" when="ALWAYS" />
+		<skill id="1237" name="Ice Dagger"         use="ROTATION" when="MP_ABOVE" mpAbove="35" maxLevel="69" />
+		<skill id="1175" name="Aqua Swirl"         use="ROTATION" when="MP_ABOVE" mpAbove="35" maxLevel="45" />
+		<skill id="1184" name="Ice Bolt"           use="ROTATION" when="MP_ABOVE" mpAbove="30" maxLevel="45" />
+	</playstyle>
+
+	<!-- Spellhowler line: wind. Pack AoEs ahead of the single-target rotation. -->
+	<playstyle name="Storm Screamer" classIds="40,110">
+		<skill id="1177" name="Wind Strike"       use="PULL"     when="ALWAYS" />
+		<skill id="1074" name="Surrender To Wind" use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" />
+		<skill id="1176" name="Tempest"           use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" />
+		<skill id="1181" name="Flame Strike"      use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" maxLevel="45" />
+		<skill id="1239" name="Hurricane"         use="ROTATION" when="ALWAYS" />
+		<skill id="1064" name="Silence"           use="CONTROL"  when="DEBUFF_MISSING,DURABLE_TARGET" paceMs="10000" />
+		<skill id="1160" name="Slow"              use="CONTROL"  when="DEBUFF_MISSING,DURABLE_TARGET" paceMs="8000" />
+		<skill id="1234" name="Vampiric Claw"     use="ROTATION" when="MP_ABOVE" mpAbove="35" maxLevel="69" />
+		<skill id="1178" name="Twister"           use="ROTATION" when="MP_ABOVE" mpAbove="35" maxLevel="45" />
+		<skill id="1184" name="Ice Bolt"          use="ROTATION" when="MP_ABOVE" mpAbove="30" maxLevel="45" />
+	</playstyle>
+
+	<!-- =============================== ORC / DWARF =============================== -->
+
+	<!-- Destroyer line: the limit class. Frenzy (32) / Guts (36) / Zealot (76) enforce their own
+	     <=30% HP cast gate in skill data; HEALER_READY stops it being a suicide button. Battle Roar
+	     refills the bar afterwards - the classic Frenzy -> Battle Roar loop.
+	     Frenzy and Guts share the PINCH abnormal slot, so SELF_ABNORMAL_FREE keeps them mutually
+	     exclusive: Frenzy (higher priority) takes the slot for the offensive burst, and Guts is only
+	     allowed once Frenzy's buff has lapsed - never overwriting a live 10-minute Frenzy. Zealot is a
+	     different slot (PD_UP_SPECIAL) and does not compete. -->
+	<playstyle name="Titan" classIds="45,46,113">
+		<skill id="176" name="Frenzy"       use="LIMIT"    when="HEALER_READY,SELF_ABNORMAL_FREE,DURABLE_TARGET" />
+		<skill id="420" name="Zealot"       use="LIMIT"    when="HEALER_READY,DURABLE_TARGET" />
+		<skill id="139" name="Guts"         use="LIMIT"    when="HEALER_READY,SELF_ABNORMAL_FREE" />
+		<skill id="121" name="Battle Roar"  use="PANIC"    when="SELF_HP_BELOW" selfHpBelow="40" />
+		<skill id="347" name="Earthquake"   use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" />
+		<skill id="36"  name="Whirlwind"    use="AOE"      when="MOBS_NEAR" mobsAtLeast="2" />
+		<skill id="245" name="Wild Sweep"   use="AOE"      when="MOBS_NEAR" mobsAtLeast="2" maxLevel="45" />
+		<skill id="315" name="Crush of Doom" use="ROTATION" when="ALWAYS" />
+		<skill id="190" name="Fatal Strike" use="ROTATION" when="MP_ABOVE" mpAbove="30" />
+		<skill id="100" name="Stun Attack"  use="CONTROL"  when="DEBUFF_MISSING" paceMs="6000" maxLevel="45" />
+		<skill id="255" name="Power Smash"  use="ROTATION" when="MP_ABOVE" mpAbove="35" maxLevel="45" />
+		<skill id="29"  name="Iron Punch"   use="ROTATION" when="MP_ABOVE" mpAbove="40" maxLevel="45" />
+	</playstyle>
+
+	<!-- Tyrant line: force charges cycle from level 24 - build with Focused Force, spend on the
+	     fist skills. Force Barrier needs 4 charges, so it is gated on them as well as on HP. -->
+	<playstyle name="Grand Khavatari" classIds="47,48,114">
+		<skill id="443" name="Force Barrier"      use="PANIC"    when="SELF_HP_BELOW,UNDER_ATTACK,CHARGES" selfHpBelow="20" chargesAtLeast="4" />
+		<skill id="292" name="Bison Spirit Totem" use="LIMIT"    when="HEALER_READY,DURABLE_TARGET" />
+		<skill id="420" name="Zealot"             use="LIMIT"    when="HEALER_READY,DURABLE_TARGET" />
+		<skill id="35"  name="Force Storm"        use="AOE"      when="MOBS_NEAR,CHARGES" mobsAtLeast="3" chargesAtLeast="2" />
+		<skill id="17"  name="Force Burst"        use="AOE"      when="MOBS_NEAR,CHARGES" mobsAtLeast="2" chargesAtLeast="2" maxLevel="69" />
+		<skill id="284" name="Hurricane Assault"  use="ROTATION" when="CHARGES" chargesAtLeast="2" />
+		<skill id="50"  name="Focused Force"      use="ROTATION" when="CHARGES_BELOW" chargesBelow="5" />
+		<skill id="54"  name="Force Blaster"      use="ROTATION" when="CHARGES" chargesAtLeast="1" maxLevel="59" />
+		<skill id="120" name="Stunning Fist"      use="CONTROL"  when="DEBUFF_MISSING" paceMs="6000" maxLevel="59" />
+		<skill id="95"  name="Cripple"            use="CONTROL"  when="DEBUFF_MISSING" paceMs="8000" maxLevel="59" />
+		<skill id="29"  name="Iron Punch"         use="ROTATION" when="MP_ABOVE" mpAbove="40" maxLevel="45" />
+	</playstyle>
+
+	<!-- Bounty Hunter line: durable melee assist. Spoil economy integration comes later. -->
+	<playstyle name="Fortune Seeker" classIds="54,55,117">
+		<!-- Spoil first - it has to land BEFORE the thing dies to be worth anything, and it is the whole
+		     economic point of the class. NOT_SPOILED reads the mob's real spoil state instead of a
+		     fire-once ledger: a resisted attempt leaves the mob unspoiled so the phantom RETRIES, and an
+		     already-spoiled mob is skipped so no MP is wasted. Festival uses MOBS_UNSPOILED so it only
+		     fires when enough of the pack still needs spoiling. (Sweeper is corpse-targeted and still
+		     needs loot handling - deferred.) -->
+		<skill id="254" name="Spoil"        use="DEBUFF"   when="NOT_SPOILED" />
+		<skill id="302" name="Spoil Festival" use="AOE"    when="MOBS_UNSPOILED" mobsAtLeast="3" paceMs="10000" />
+		<skill id="100" name="Stun Attack"  use="CONTROL"  when="DEBUFF_MISSING" paceMs="5000" />
+		<skill id="260" name="Hammer Crush" use="CONTROL"  when="DEBUFF_MISSING" paceMs="6000" />
+		<skill id="36"  name="Whirlwind"    use="AOE"      when="MOBS_NEAR" mobsAtLeast="2" />
+		<skill id="245" name="Wild Sweep"   use="AOE"      when="MOBS_NEAR" mobsAtLeast="2" maxLevel="45" />
+	</playstyle>
+
+	<!-- Warsmith line: hammer control + armor pressure; golems deferred with the other summons. -->
+	<playstyle name="Maestro" classIds="56,57,118">
+		<!-- The Warsmith line learns Spoil too (Artisan, lv10) - same reasoning as Fortune Seeker. -->
+		<skill id="254" name="Spoil"        use="DEBUFF"   when="NOT_SPOILED" />
+		<skill id="260" name="Hammer Crush" use="CONTROL"  when="DEBUFF_MISSING" paceMs="5000" />
+		<skill id="362" name="Armor Crush"  use="ROTATION" when="ALWAYS" />
+		<skill id="36"  name="Whirlwind"    use="AOE"      when="MOBS_NEAR" mobsAtLeast="2" />
+		<skill id="100" name="Stun Attack"  use="CONTROL"  when="DEBUFF_MISSING" paceMs="6000" maxLevel="45" />
+		<skill id="245" name="Wild Sweep"   use="AOE"      when="MOBS_NEAR" mobsAtLeast="2" maxLevel="45" />
+	</playstyle>
+
+</list>

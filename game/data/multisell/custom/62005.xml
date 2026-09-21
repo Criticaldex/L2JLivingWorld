@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- Potions and Consumables: 1st Potion Recipe -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="3680" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: 2006 Battle Tournament - CP Potion -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="6409" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: 2006 Battle Tournament - Quick Healing Potion -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="6410" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: 2nd Potion Recipe -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="3681" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Baulro's Potion -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="1080" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Beginner's Potion -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="1073" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Blessed Scroll of Escape -->
+		<ingredient count="1500000" id="57" />
+		<production count="10" id="1538" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Blessed Scroll of Escape: Castle -->
+		<ingredient count="800000" id="57" />
+		<production count="10" id="5859" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Blessed Scroll of Escape: Clan Hall -->
+		<ingredient count="1000000" id="57" />
+		<production count="10" id="5858" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Blessed Scroll of Resurrection -->
+		<ingredient count="4090000" id="57" />
+		<production count="10" id="3936" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Blessed Scroll of Resurrection for Pets -->
+		<ingredient count="50000" id="57" />
+		<production count="10" id="6387" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: CP Potion -->
+		<ingredient count="2000" id="57" />
+		<production count="10" id="5591" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Decrease Haste Potion -->
+		<ingredient count="50000" id="57" />
+		<production count="10" id="4678" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Dye Potion - A -->
+		<ingredient count="200000" id="57" />
+		<production count="10" id="5238" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Dye Potion - B -->
+		<ingredient count="200000" id="57" />
+		<production count="10" id="5239" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Dye Potion - C -->
+		<ingredient count="200000" id="57" />
+		<production count="10" id="5240" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Dye Potion - D -->
+		<ingredient count="200000" id="57" />
+		<production count="10" id="5241" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of CP (A-Grade) -->
+		<ingredient count="50000" id="57" />
+		<production count="10" id="8638" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of CP (B-Grade) -->
+		<ingredient count="40000" id="57" />
+		<production count="10" id="8637" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of CP (C-Grade) -->
+		<ingredient count="30000" id="57" />
+		<production count="10" id="8636" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of CP (D-Grade) -->
+		<ingredient count="14000" id="57" />
+		<production count="10" id="8635" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of CP (No Grade) -->
+		<ingredient count="6000" id="57" />
+		<production count="10" id="8634" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of CP (S-Grade) -->
+		<ingredient count="60000" id="57" />
+		<production count="10" id="8639" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of Life (A-Grade) -->
+		<ingredient count="125000" id="57" />
+		<production count="10" id="8626" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of Life (B-Grade) -->
+		<ingredient count="100000" id="57" />
+		<production count="10" id="8625" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of Life (C-Grade) -->
+		<ingredient count="72000" id="57" />
+		<production count="10" id="8624" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of Life (D-Grade) -->
+		<ingredient count="34500" id="57" />
+		<production count="10" id="8623" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of Life (No Grade) -->
+		<ingredient count="13000" id="57" />
+		<production count="10" id="8622" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of Life (S-Grade) -->
+		<ingredient count="150000" id="57" />
+		<production count="10" id="8627" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of Mental Strength (A-Grade) -->
+		<ingredient count="144000" id="57" />
+		<production count="10" id="8632" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of Mental Strength (B-Grade) -->
+		<ingredient count="116000" id="57" />
+		<production count="10" id="8631" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of Mental Strength (C-Grade) -->
+		<ingredient count="87000" id="57" />
+		<production count="10" id="8630" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of Mental Strength (D-Grade) -->
+		<ingredient count="34000" id="57" />
+		<production count="10" id="8629" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of Mental Strength (No Grade) -->
+		<ingredient count="14000" id="57" />
+		<production count="10" id="8628" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Elixir of Mental Strength (S-Grade) -->
+		<ingredient count="168000" id="57" />
+		<production count="10" id="8633" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Endeavor Potion -->
+		<ingredient count="5000" id="57" />
+		<production count="10" id="733" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Energy Stone -->
+		<ingredient count="3500000" id="57" />
+		<production count="10" id="5589" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Facelifting Potion - A -->
+		<ingredient count="200000" id="57" />
+		<production count="10" id="5235" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Facelifting Potion - B -->
+		<ingredient count="200000" id="57" />
+		<production count="10" id="5236" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Facelifting Potion - C -->
+		<ingredient count="200000" id="57" />
+		<production count="10" id="5237" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Fisherman's Potion - Black -->
+		<ingredient count="50000" id="57" />
+		<production count="10" id="8201" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Fisherman's Potion - Blue -->
+		<ingredient count="50000" id="57" />
+		<production count="10" id="8195" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Fisherman's Potion - Green -->
+		<ingredient count="50000" id="57" />
+		<production count="10" id="8193" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Fisherman's Potion - Jade -->
+		<ingredient count="50000" id="57" />
+		<production count="10" id="8194" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Fisherman's Potion - Orange -->
+		<ingredient count="50000" id="57" />
+		<production count="10" id="8197" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Fisherman's Potion - Purple -->
+		<ingredient count="50000" id="57" />
+		<production count="10" id="8198" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Fisherman's Potion - White -->
+		<ingredient count="50000" id="57" />
+		<production count="10" id="8200" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Fisherman's Potion - Yellow -->
+		<ingredient count="50000" id="57" />
+		<production count="10" id="8196" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Fishing Potion -->
+		<ingredient count="50000" id="57" />
+		<production count="10" id="8202" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Greater CP Potion -->
+		<ingredient count="5000" id="57" />
+		<production count="10" id="5592" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Greater Haste Potion -->
+		<ingredient count="30000" id="57" />
+		<production count="10" id="1374" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Greater Healing Potion -->
+		<ingredient count="9000" id="57" />
+		<production count="10" id="1539" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Greater Magic Haste Potion -->
+		<ingredient count="60000" id="57" />
+		<production count="10" id="6036" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Greater Swift Attack Potion -->
+		<ingredient count="4090000" id="57" />
+		<production count="10" id="1375" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Hair Style Change Potion - A -->
+		<ingredient count="200000" id="57" />
+		<production count="10" id="5242" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Hair Style Change Potion - B -->
+		<ingredient count="200000" id="57" />
+		<production count="10" id="5243" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Hair Style Change Potion - C -->
+		<ingredient count="200000" id="57" />
+		<production count="10" id="5244" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Hair Style Change Potion - D -->
+		<ingredient count="200000" id="57" />
+		<production count="10" id="5245" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Hair Style Change Potion - E -->
+		<ingredient count="200000" id="57" />
+		<production count="10" id="5246" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Hair Style Change Potion - F -->
+		<ingredient count="200000" id="57" />
+		<production count="10" id="5247" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Hair Style Change Potion - G -->
+		<ingredient count="200000" id="57" />
+		<production count="10" id="5248" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Haste Potion -->
+		<ingredient count="12000" id="57" />
+		<production count="10" id="734" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Haste Potion -->
+		<ingredient count="50000" id="57" />
+		<production count="10" id="1062" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Healing Potion -->
+		<ingredient count="10000" id="57" />
+		<production count="10" id="727" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Healing Potion -->
+		<ingredient count="3300" id="57" />
+		<production count="10" id="1061" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Lesser Healing Potion -->
+		<ingredient count="900" id="57" />
+		<production count="10" id="1060" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Magic Haste Potion -->
+		<ingredient count="24000" id="57" />
+		<production count="10" id="6035" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Mana Potion -->
+		<ingredient count="20000" id="57" />
+		<production count="10" id="728" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Mimir's Elixir -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="6319" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Miracle Potion of Transferred Life -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="7605" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Mystery Potion -->
+		<ingredient count="100000" id="57" />
+		<production count="10" id="5234" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Potion of Alacrity -->
+		<ingredient count="24000" id="57" />
+		<production count="10" id="735" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Potion of Critical Escape -->
+		<ingredient count="1200" id="57" />
+		<production count="10" id="4677" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Potion of Recovery -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="3889" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Primeval Potion -->
+		<ingredient count="50000" id="57" />
+		<production count="10" id="8786" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Purifying Potion -->
+		<ingredient count="33300" id="57" />
+		<production count="10" id="1730" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Quick Healing Potion -->
+		<ingredient count="100000" id="57" />
+		<production count="10" id="1540" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape -->
+		<ingredient count="4000" id="57" />
+		<production count="10" id="736" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape - Ketra Orc Village -->
+		<ingredient count="350000" id="57" />
+		<production count="10" id="7618" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape - Varka Silenos Village -->
+		<ingredient count="350000" id="57" />
+		<production count="10" id="7619" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Aden Castle Town -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7132" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Dark Elf Village -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7119" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Dark Elf Village -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="7556" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Dwarven Village -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7121" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Dwarven Village -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="7558" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Elven Village -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7118" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Elven Village -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="7555" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Floran -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7125" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Giran Castle Town -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7126" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Giran Castle Town -->
+		<ingredient count="300000" id="57" />
+		<production count="10" id="7559" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Gludin Village -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7122" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Hardin's Private Academy -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7127" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Heine -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7128" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Hunters Village -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7131" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Ivory Tower -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7130" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Orc Village -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7120" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Orc Village -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="7557" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Talking Island -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7117" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to Talking Island -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="7554" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to the Rune Township -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7134" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to the Town of Dion -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7124" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to the Town of Gludio -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7123" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to the Town of Goddard -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7133" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape to the Town of Schuttgart. -->
+		<ingredient count="35000" id="57" />
+		<production count="10" id="7135" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape: Castle -->
+		<ingredient count="5000" id="57" />
+		<production count="10" id="1830" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape: Clan Hall -->
+		<ingredient count="5000" id="57" />
+		<production count="10" id="1829" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape: Orc Village -->
+		<ingredient count="1000000" id="57" />
+		<production count="10" id="6663" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Escape: Silenos Village -->
+		<ingredient count="1000000" id="57" />
+		<production count="10" id="6664" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Scroll of Resurrection -->
+		<ingredient count="185000" id="57" />
+		<production count="10" id="737" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Secret Book of Potion -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="3679" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Treant Potion -->
+		<ingredient count="8000" id="57" />
+		<production count="10" id="1694" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Wish Potion -->
+		<ingredient count="100" id="57" />
+		<production count="10" id="3467" />
+	</item>
+	<item>
+		<!-- Potions and Consumables: Zimenf's Potion -->
+		<ingredient count="10" id="57" />
+		<production count="10" id="1649" />
+	</item>
+</list>

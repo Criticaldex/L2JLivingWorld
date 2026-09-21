@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- A-Grade Dualfist: Blood Tornado -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="269" />
+	</item>
+	<item>
+		<!-- A-Grade Dualfist: Blood Tornado - Anger -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5622" />
+	</item>
+	<item>
+		<!-- A-Grade Dualfist: Blood Tornado - Critical Drain -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4807" />
+	</item>
+	<item>
+		<!-- A-Grade Dualfist: Blood Tornado - Focus -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5621" />
+	</item>
+	<item>
+		<!-- A-Grade Dualfist: Blood Tornado - Haste -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4809" />
+	</item>
+	<item>
+		<!-- A-Grade Dualfist: Blood Tornado - Haste -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5620" />
+	</item>
+	<item>
+		<!-- A-Grade Dualfist: Blood Tornado - Rsk. Evasion -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4808" />
+	</item>
+	<item>
+		<!-- A-Grade Dualfist: Dragon Grinder -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="270" />
+	</item>
+	<item>
+		<!-- A-Grade Dualfist: Dragon Grinder - Guidance -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5624" />
+	</item>
+	<item>
+		<!-- A-Grade Dualfist: Dragon Grinder - Health -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5625" />
+	</item>
+	<item>
+		<!-- A-Grade Dualfist: Dragon Grinder - Rsk. Evasion -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5623" />
+	</item>
+	<item>
+		<!-- A-Grade Dualfist: Sobekk's Hurricane -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8685" />
+	</item>
+	<item>
+		<!-- A-Grade Dualfist: Sobekk's Hurricane - Critical Drain -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8811" />
+	</item>
+	<item>
+		<!-- A-Grade Dualfist: Sobekk's Hurricane - Haste -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8810" />
+	</item>
+	<item>
+		<!-- A-Grade Dualfist: Sobekk's Hurricane - Rsk. Haste -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8809" />
+	</item>
+</list>

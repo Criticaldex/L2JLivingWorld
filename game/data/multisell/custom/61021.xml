@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- B-Grade Daggers: Demon's Dagger -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="234" />
+	</item>
+	<item>
+		<!-- B-Grade Daggers: Demon's Dagger - Critical Bleed -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4780" />
+	</item>
+	<item>
+		<!-- B-Grade Daggers: Demon's Dagger - Critical Damage -->
+		<ingredient count="200" id="57" />
+		<production count="1" id="6359" />
+	</item>
+	<item>
+		<!-- B-Grade Daggers: Demon's Dagger - Critical Poison -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4781" />
+	</item>
+	<item>
+		<!-- B-Grade Daggers: Demon's Dagger - Mortal Strike -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4782" />
+	</item>
+	<item>
+		<!-- B-Grade Daggers: Hell Knife -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="243" />
+	</item>
+	<item>
+		<!-- B-Grade Daggers: Hell Knife - Back Blow -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4787" />
+	</item>
+	<item>
+		<!-- B-Grade Daggers: Hell Knife - Focus -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4786" />
+	</item>
+	<item>
+		<!-- B-Grade Daggers: Hell Knife - Magic Regeneration -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="7813" />
+	</item>
+	<item>
+		<!-- B-Grade Daggers: Hell Knife - Magic Weakness -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="7815" />
+	</item>
+	<item>
+		<!-- B-Grade Daggers: Hell Knife - Mental Shield -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="7814" />
+	</item>
+	<item>
+		<!-- B-Grade Daggers: Hell Knife - Mortal Strike -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4788" />
+	</item>
+	<item>
+		<!-- B-Grade Daggers: Kris -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="229" />
+	</item>
+	<item>
+		<!-- B-Grade Daggers: Kris - Back Blow -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4779" />
+	</item>
+	<item>
+		<!-- B-Grade Daggers: Kris - Evasion -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4777" />
+	</item>
+	<item>
+		<!-- B-Grade Daggers: Kris - Focus -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4778" />
+	</item>
+</list>

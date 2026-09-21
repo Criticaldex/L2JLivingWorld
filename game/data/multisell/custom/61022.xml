@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- B-Grade Dual: Caliburs*Caliburs -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2606" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Caliburs*Samurai Long Sword -->
+		<ingredient count="11300000" id="57" />
+		<production count="1" id="2611" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Caliburs*Sword of Delusion -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2608" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Caliburs*Sword of Limit -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2607" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Caliburs*Sword of Nightmare -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2609" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Caliburs*Tsurugi -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2610" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Katana*Caliburs -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2585" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Katana*Samurai Long Sword -->
+		<ingredient count="9550000" id="57" />
+		<production count="1" id="2590" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Katana*Sword of Delusion -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2587" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Katana*Sword of Limit -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2586" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Katana*Sword of Nightmare -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2588" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Katana*Tsurugi -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2589" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Monster Only(Ahrimanes) -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="6722" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Shamshir*Caliburs -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2576" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Shamshir*Samurai Long Sword -->
+		<ingredient count="9550000" id="57" />
+		<production count="1" id="2581" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Shamshir*Sword of Delusion -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2578" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Shamshir*Sword of Limit -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2577" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Shamshir*Sword of Nightmare -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2579" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Shamshir*Tsurugi -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2580" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Spirit Sword*Caliburs -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2593" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Spirit Sword*Samurai Long Sword -->
+		<ingredient count="9550000" id="57" />
+		<production count="1" id="2598" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Spirit Sword*Sword of Delusion -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2595" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Spirit Sword*Sword of Limit -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2594" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Spirit Sword*Sword of Nightmare -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2596" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Spirit Sword*Tsurugi -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2597" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Stormbringer*Caliburs -->
+		<ingredient count="6980000" id="57" />
+		<production count="1" id="2566" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Stormbringer*Samurai Long sword -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2571" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Stormbringer*Sword of Delusion -->
+		<ingredient count="6980000" id="57" />
+		<production count="1" id="2568" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Stormbringer*Sword of Limit -->
+		<ingredient count="6980000" id="57" />
+		<production count="1" id="2567" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Stormbringer*Sword of Nightmare -->
+		<ingredient count="6980000" id="57" />
+		<production count="1" id="2569" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Stormbringer*Tsurugi -->
+		<ingredient count="6980000" id="57" />
+		<production count="1" id="2570" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Sword of Delusion*Samurai Long Sword -->
+		<ingredient count="11300000" id="57" />
+		<production count="1" id="2620" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Sword of Delusion*Sword of Delusion -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2617" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Sword of Delusion*Sword of Nightmare -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2618" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Sword of Delusion*Tsurugi -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2619" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Sword of Limit*Samurai Long Sword -->
+		<ingredient count="11300000" id="57" />
+		<production count="1" id="2616" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Sword of Limit*Sword of Delusion -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2613" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Sword of Limit*Sword of Limit -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2612" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Sword of Limit*Sword of Nightmare -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2614" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Sword of Limit*Tsurugi -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2615" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Sword of Nightmare*Samurai Long Sword -->
+		<ingredient count="11300000" id="57" />
+		<production count="1" id="2623" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Sword of Nightmare*Sword of Nightmare -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2621" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Sword of Nightmare*Tsurugi -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2622" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Tsurugi*Samurai Long Sword -->
+		<ingredient count="11300000" id="57" />
+		<production count="1" id="2625" />
+	</item>
+	<item>
+		<!-- B-Grade Dual: Tsurugi*Tsurugi -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2624" />
+	</item>
+</list>

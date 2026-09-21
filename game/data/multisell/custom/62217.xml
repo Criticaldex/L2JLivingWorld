@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- Carnage Bow and Mithril Arrow -->
+		<ingredient count="100" id="57" />
+		<production count="100" id="9108" />
+	</item>
+	<item>
+		<!-- Mithril -->
+		<ingredient count="40000" id="57" />
+		<production count="100" id="1683" />
+	</item>
+	<item>
+		<!-- Mithril Alloy -->
+		<ingredient count="1310000" id="57" />
+		<production count="100" id="1890" />
+	</item>
+	<item>
+		<!-- Mithril Banded Gaiters Material -->
+		<ingredient count="227700" id="57" />
+		<production count="100" id="1939" />
+	</item>
+	<item>
+		<!-- Mithril Banded Mail Material -->
+		<ingredient count="297500" id="57" />
+		<production count="100" id="1938" />
+	</item>
+	<item>
+		<!-- Mithril Bottle -->
+		<ingredient count="100" id="57" />
+		<production count="100" id="817" />
+	</item>
+	<item>
+		<!-- Mithril Clip -->
+		<ingredient count="100" id="57" />
+		<production count="100" id="3302" />
+	</item>
+	<item>
+		<!-- Mithril Dagger Blade -->
+		<ingredient count="2306200" id="57" />
+		<production count="100" id="2052" />
+	</item>
+	<item>
+		<!-- Mithril Mold -->
+		<ingredient count="100" id="57" />
+		<production count="100" id="3505" />
+	</item>
+	<item>
+		<!-- Mithril Ring Wire -->
+		<ingredient count="145500" id="57" />
+		<production count="100" id="1906" />
+	</item>
+	<item>
+		<!-- Mithril Scale Gaiters Material -->
+		<ingredient count="337100" id="57" />
+		<production count="100" id="2918" />
+	</item>
+	<item>
+		<!-- Pure Mithril Cup -->
+		<ingredient count="100" id="57" />
+		<production count="100" id="3150" />
+	</item>
+	<item>
+		<!-- Refined Mithril -->
+		<ingredient count="210000" id="57" />
+		<production count="100" id="1698" />
+	</item>
+	<item>
+		<!-- Soul Bow and Mithril Arrow -->
+		<ingredient count="100" id="57" />
+		<production count="100" id="9109" />
+	</item>
+	<item>
+		<!-- Tempered Mithril Gaiters Fragment -->
+		<ingredient count="376200" id="57" />
+		<production count="100" id="2935" />
+	</item>
+</list>

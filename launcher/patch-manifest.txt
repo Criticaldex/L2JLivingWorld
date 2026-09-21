@@ -1,0 +1,55 @@
+# Incremental patch manifest
+# ---------------------------------------------------------------------------
+# One path per line, RELATIVE TO THE PACK ROOT (i.e. the folder that has
+# game\, login\, libs\, launcher\, ...). These are the files that changed in
+# THIS release and should ship in L2J-Offline-Patch.zip so an existing tester
+# can unzip it over their install to update without touching their database.
+#
+# Rules:
+#   - libs\GameServer.jar is ALWAYS included automatically - do NOT list it.
+#   - Blank lines and lines starting with # are ignored.
+#   - Forward or back slashes are both fine.
+#   - Do NOT list files a tester may have customized (e.g. game\config\*.ini,
+#     especially Rates.ini) - overwriting those would reset their settings.
+#     Mention any new config keys in the release notes instead.
+#   - ACCUMULATE this list across releases: keep the prior entries AND add the
+#     datapack/config/html files that changed this time. The patch is a whole-file
+#     overlay of CURRENT content, so a single latest patch then brings any tester
+#     fully up to date - even one who skipped an earlier patch. Only remove an
+#     entry if that file was deleted/renamed (or became a customizable config that
+#     must not be overwritten). Java fixes need NO entry - they ride in the jar,
+#     which is always included and always cumulative.
+#   - The build FAILS if a listed file is missing from the pack, so a typo or a
+#     stale path can't ship a broken patch.
+#
+# ---- current release -------------------------------------------------------
+game/data/html/admin/rates.htm
+game/data/scripts/handlers/chat/commands/admin/AdminRates.java
+brain/fpc_brain.py
+brain/requirements.txt
+brain/setup_brain.bat
+brain/setup_brain.sh
+scripts/Check-Updates.bat
+scripts/Configure-Brain.bat
+launcher/update.ps1
+tools/l2admin/index.html
+tools/l2admin/native-bridge.js
+game/data/PhantomPlaystyles.xml
+game/data/xsd/PhantomPlaystyles.xsd
+game/data/PhantomPopulations.xml
+game/data/BotClans.xml
+game/data/xsd/BotClans.xsd
+game/data/crests
+game/data/scripts/handlers/chat/commands/admin/AdminPhantom.java
+game/data/scripts/handlers/MasterHandler.java
+game/data/scripts/handlers/skill/targets/Party.java
+game/data/skill icons
+images
+Start-Server.bat
+Stop-Server.bat
+launcher/launcher.ps1
+launcher/stop.ps1
+# launcher/assets/* is intentionally NOT patched: the running LivingWorld.exe holds
+# these open (e.g. launcher.ico as its window icon), so overwriting them mid-update
+# fails with a file-in-use error and aborts the whole patch. Ship changed launcher
+# assets in the full pack instead.

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="settings" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:attribute name="recruitClanChance" type="xs:int" use="optional" />
+						<xs:attribute name="fakePlayerClanChance" type="xs:int" use="optional" />
+						<xs:attribute name="pledgeCrestFile" type="xs:string" use="optional" />
+						<xs:attribute name="allyCrestFile" type="xs:string" use="optional" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="clan" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="key" type="xs:string" use="required" />
+						<xs:attribute name="name" type="xs:string" use="required" />
+						<xs:attribute name="level" type="xs:int" use="optional" />
+						<xs:attribute name="crestSet" type="xs:string" use="optional" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="alliance" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="member" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="clan" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="name" type="xs:string" use="required" />
+						<xs:attribute name="leader" type="xs:string" use="required" />
+						<xs:attribute name="crestSet" type="xs:string" use="optional" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- C-Grade Swords: Berserker Blade -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="5286" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Berserker Blade - Critical Damage -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="6348" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Berserker Blade - Focus -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="6347" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Berserker Blade - Haste -->
+		<ingredient count="8700" id="57" />
+		<production count="1" id="6349" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Caliburs -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="75" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Caliburs - Critical Damage -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4698" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Caliburs - Focus -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4697" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Caliburs - Guidance -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4696" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Ecliptic Sword -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="7888" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Ecliptic Sword - Empower -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8114" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Ecliptic Sword - M. Atk. -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8115" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Ecliptic Sword - Magic Silence -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8116" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Flamberge -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="71" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Flamberge - Critical Damage -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4711" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Flamberge - Focus -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4712" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Flamberge - Light -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4713" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Homunkulus's Sword -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="84" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Homunkulus's Sword - Acumen -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="6313" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Homunkulus's Sword - Conversion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="6314" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Homunkulus's Sword - Magic Paralyze -->
+		<ingredient count="500" id="57" />
+		<production count="1" id="6315" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Katana -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="74" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Katana - Critical Damage -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4688" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Katana - Focus -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4687" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Katana - Haste -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4689" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Mysterious Sword -->
+		<ingredient count="2291770" id="57" />
+		<production count="1" id="7887" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Mysterious Sword - Acumen -->
+		<ingredient count="2291770" id="57" />
+		<production count="1" id="8111" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Mysterious Sword - M. Atk. -->
+		<ingredient count="2291770" id="57" />
+		<production count="1" id="8112" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Mysterious Sword - Magic Weakness -->
+		<ingredient count="2291770" id="57" />
+		<production count="1" id="8113" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Nephilim Lord -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="5800" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Pa'agrian Sword -->
+		<ingredient count="4295590" id="57" />
+		<production count="1" id="7882" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Pa'agrian Sword - Critical Drain -->
+		<ingredient count="4295590" id="57" />
+		<production count="1" id="8104" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Pa'agrian Sword - Focus -->
+		<ingredient count="4295590" id="57" />
+		<production count="1" id="8102" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Pa'agrian Sword - Health -->
+		<ingredient count="4295590" id="57" />
+		<production count="1" id="8103" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Samurai Longsword -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="135" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Samurai Longsword - Critical Damage -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4709" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Samurai Longsword - Focus -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4708" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Samurai Longsword - Haste -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4710" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Shamshir -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="73" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Shamshir - Back Blow -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4685" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Shamshir - Guidance -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4684" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Shamshir - Rsk. Evasion -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4686" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Spirit Sword -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="131" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Spirit Sword - Critical Damage -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4690" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Spirit Sword - Critical Poison -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4691" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Spirit Sword - Haste -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4692" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Stormbringer -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="72" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Stormbringer - Critical Anger -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4681" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Stormbringer - Focus -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4682" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Stormbringer - Light -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4683" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Sword of Delusion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="76" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Sword of Delusion - Health -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4700" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Sword of Delusion - Rsk. Haste -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4701" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Sword of Limit -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="132" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Sword of Limit - Critical Drain -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="6308" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Sword of Limit - Guidance -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="6307" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Sword of Limit - Health -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="6309" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Sword of Nightmare -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="134" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Sword of Nightmare - Focus -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4706" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Sword of Nightmare - Health -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4705" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Sword of Nightmare - Light -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4707" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Sword of Valakas (1-Handed) -->
+		<ingredient count="1" id="57" />
+		<production count="1" id="9136" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Sword of Whispering Death -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="145" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Sword of Whispering Death - Empower -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="6310" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Sword of Whispering Death - M. Atk. -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="6311" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Sword of Whispering Death - Magic Silence -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="6312" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Test Rapier -->
+		<ingredient count="7969000" id="57" />
+		<production count="1" id="8935" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Tomb Savant A -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="5793" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Tomb Savant A -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="5797" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Tomb Savant B -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="5794" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Tomb Savant B -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="5798" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Tsurugi -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="77" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Tsurugi - Critical Damage -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4703" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Tsurugi - Focus -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4702" />
+	</item>
+	<item>
+		<!-- C-Grade Swords: Tsurugi - Haste -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4704" />
+	</item>
+</list>

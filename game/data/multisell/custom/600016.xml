@@ -1,0 +1,2501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- A-grade (Not In Use) Holy Spirit's Cloak -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="622" />
+	</item>
+	<item>
+		<!-- A-grade Apella Boots - Light Armor -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7866" />
+	</item>
+	<item>
+		<!-- A-grade Apella Brigandine -->
+		<ingredient count="5643300" id="57" />
+		<production count="1" id="7864" />
+	</item>
+	<item>
+		<!-- A-grade Apella Doublet -->
+		<ingredient count="5643300" id="57" />
+		<production count="1" id="7867" />
+	</item>
+	<item>
+		<!-- A-grade Apella Gauntlet - Heavy Armor -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7862" />
+	</item>
+	<item>
+		<!-- A-grade Apella Helm -->
+		<ingredient count="1736800" id="57" />
+		<production count="1" id="7860" />
+	</item>
+	<item>
+		<!-- A-grade Apella Leather Gloves - Light Armor -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7865" />
+	</item>
+	<item>
+		<!-- A-grade Apella Plate Armor -->
+		<ingredient count="7524400" id="57" />
+		<production count="1" id="7861" />
+	</item>
+	<item>
+		<!-- A-grade Apella Sandals - Robe -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7869" />
+	</item>
+	<item>
+		<!-- A-grade Apella Silk Gloves - Robe -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7868" />
+	</item>
+	<item>
+		<!-- A-grade Apella Solleret - Heavy Armor -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7863" />
+	</item>
+	<item>
+		<!-- A-grade Armor of Nightmare -->
+		<ingredient count="10300000" id="57" />
+		<production count="1" id="374" />
+	</item>
+	<item>
+		<!-- A-grade Blood Boots -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="598" />
+	</item>
+	<item>
+		<!-- A-grade Boots of Nightmare -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2440" />
+	</item>
+	<item>
+		<!-- A-grade Boots of Nightmare - Heavy Armor -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5783" />
+	</item>
+	<item>
+		<!-- A-grade Boots of Nightmare - Light Armor -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5784" />
+	</item>
+	<item>
+		<!-- A-grade Boots of Nightmare - Robe -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5785" />
+	</item>
+	<item>
+		<!-- A-grade Boots of Phantom -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="589" />
+	</item>
+	<item>
+		<!-- A-grade Boots of Underworld -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="575" />
+	</item>
+	<item>
+		<!-- A-grade Cerberus Boots -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="593" />
+	</item>
+	<item>
+		<!-- A-grade Cerberus Gloves -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2484" />
+	</item>
+	<item>
+		<!-- A-grade Cerberus Necklace -->
+		<ingredient count="2600000" id="57" />
+		<production count="1" id="934" />
+	</item>
+	<item>
+		<!-- A-grade Close Helmet -->
+		<ingredient count="1560000" id="57" />
+		<production count="1" id="502" />
+	</item>
+	<item>
+		<!-- A-grade Dark Crystal Boots -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="563" />
+	</item>
+	<item>
+		<!-- A-grade Dark Crystal Boots - Heavy Armor -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5777" />
+	</item>
+	<item>
+		<!-- A-grade Dark Crystal Boots - Light Armor -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5778" />
+	</item>
+	<item>
+		<!-- A-grade Dark Crystal Boots - Robe -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5779" />
+	</item>
+	<item>
+		<!-- A-grade Dark Crystal Breastplate -->
+		<ingredient count="4630000" id="57" />
+		<production count="1" id="365" />
+	</item>
+	<item>
+		<!-- A-grade Dark Crystal Gaiters -->
+		<ingredient count="2890000" id="57" />
+		<production count="1" id="388" />
+	</item>
+	<item>
+		<!-- A-grade Dark Crystal Gloves -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="2472" />
+	</item>
+	<item>
+		<!-- A-grade Dark Crystal Gloves - Heavy Armor -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5765" />
+	</item>
+	<item>
+		<!-- A-grade Dark Crystal Gloves - Light Armor -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5766" />
+	</item>
+	<item>
+		<!-- A-grade Dark Crystal Gloves - Robe -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5767" />
+	</item>
+	<item>
+		<!-- A-grade Dark Crystal Helmet -->
+		<ingredient count="1740000" id="57" />
+		<production count="1" id="512" />
+	</item>
+	<item>
+		<!-- A-grade Dark Crystal Leather Armor -->
+		<ingredient count="3470000" id="57" />
+		<production count="1" id="2385" />
+	</item>
+	<item>
+		<!-- A-grade Dark Crystal Leggings -->
+		<ingredient count="2170000" id="57" />
+		<production count="1" id="2389" />
+	</item>
+	<item>
+		<!-- A-grade Dark Crystal Robe -->
+		<ingredient count="5080000" id="57" />
+		<production count="1" id="2407" />
+	</item>
+	<item>
+		<!-- A-grade Dark Crystal Shield -->
+		<ingredient count="1220000" id="57" />
+		<production count="1" id="641" />
+	</item>
+	<item>
+		<!-- A-grade Dark Legion Boots -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2441" />
+	</item>
+	<item>
+		<!-- A-grade Dark Legion Gloves -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2471" />
+	</item>
+	<item>
+		<!-- A-grade Dark Vagian Helm -->
+		<ingredient count="2640000" id="57" />
+		<production count="1" id="516" />
+	</item>
+	<item>
+		<!-- A-grade Dasparion's Boots -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2442" />
+	</item>
+	<item>
+		<!-- A-grade Dasparion's Gloves -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2474" />
+	</item>
+	<item>
+		<!-- A-grade Dasparion's Robe -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="459" />
+	</item>
+	<item>
+		<!-- A-grade Divine Cloak -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="623" />
+	</item>
+	<item>
+		<!-- A-grade Dragon Boots -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="555" />
+	</item>
+	<item>
+		<!-- A-grade Dragon Scale Boots -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2445" />
+	</item>
+	<item>
+		<!-- A-grade Elven Vagian Helm -->
+		<ingredient count="2040000" id="57" />
+		<production count="1" id="515" />
+	</item>
+	<item>
+		<!-- A-grade Gauntlets of Nightmare -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2479" />
+	</item>
+	<item>
+		<!-- A-grade Gauntlets of Nightmare - Heavy Armor -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5771" />
+	</item>
+	<item>
+		<!-- A-grade Gauntlets of Nightmare - Light Armor -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5772" />
+	</item>
+	<item>
+		<!-- A-grade Gauntlets of Nightmare - Robe -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5773" />
+	</item>
+	<item>
+		<!-- A-grade Glorious Helmet -->
+		<ingredient count="2040000" id="57" />
+		<production count="1" id="509" />
+	</item>
+	<item>
+		<!-- A-grade Gloves of Black Ore -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="2489" />
+	</item>
+	<item>
+		<!-- A-grade Gloves of Phantom -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2470" />
+	</item>
+	<item>
+		<!-- A-grade Gloves of Underworld -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="2469" />
+	</item>
+	<item>
+		<!-- A-grade Gust Boots -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="573" />
+	</item>
+	<item>
+		<!-- A-grade Gust Bracer -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="2483" />
+	</item>
+	<item>
+		<!-- A-grade Hell Helm -->
+		<ingredient count="2640000" id="57" />
+		<production count="1" id="518" />
+	</item>
+	<item>
+		<!-- A-grade Helm of Nightmare -->
+		<ingredient count="2640000" id="57" />
+		<production count="1" id="2418" />
+	</item>
+	<item>
+		<!-- A-grade Leather Armor of Nightmare -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="2394" />
+	</item>
+	<item>
+		<!-- A-grade Majestic Boots -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="583" />
+	</item>
+	<item>
+		<!-- A-grade Majestic Boots - Heavy Armor -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5786" />
+	</item>
+	<item>
+		<!-- A-grade Majestic Boots - Light Armor -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5787" />
+	</item>
+	<item>
+		<!-- A-grade Majestic Boots - Robe -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5788" />
+	</item>
+	<item>
+		<!-- A-grade Majestic Circlet -->
+		<ingredient count="2640000" id="57" />
+		<production count="1" id="2419" />
+	</item>
+	<item>
+		<!-- A-grade Majestic Gauntlets -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2482" />
+	</item>
+	<item>
+		<!-- A-grade Majestic Gauntlets - Heavy Armor -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5774" />
+	</item>
+	<item>
+		<!-- A-grade Majestic Gauntlets - Light Armor -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5775" />
+	</item>
+	<item>
+		<!-- A-grade Majestic Gauntlets - Robe -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5776" />
+	</item>
+	<item>
+		<!-- A-grade Majestic Leather Armor -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="2395" />
+	</item>
+	<item>
+		<!-- A-grade Majestic Necklace -->
+		<ingredient count="3450000" id="57" />
+		<production count="1" id="924" />
+	</item>
+	<item>
+		<!-- A-grade Majestic Plate Armor -->
+		<ingredient count="10300000" id="57" />
+		<production count="1" id="2383" />
+	</item>
+	<item>
+		<!-- A-grade Majestic Robe -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="2409" />
+	</item>
+	<item>
+		<!-- A-grade Masterpiece Helm -->
+		<ingredient count="2640000" id="57" />
+		<production count="1" id="520" />
+	</item>
+	<item>
+		<!-- A-grade Necklace of Frintezza -->
+		<ingredient count="5000" id="57" />
+		<production count="1" id="8191" />
+	</item>
+	<item>
+		<!-- A-grade Necklace of Phantom -->
+		<ingredient count="2600000" id="57" />
+		<production count="1" id="930" />
+	</item>
+	<item>
+		<!-- A-grade Phoenix Boots -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="592" />
+	</item>
+	<item>
+		<!-- A-grade Phoenix Gloves -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="2488" />
+	</item>
+	<item>
+		<!-- A-grade Phoenix Necklace -->
+		<ingredient count="2600000" id="57" />
+		<production count="1" id="933" />
+	</item>
+	<item>
+		<!-- A-grade Red Flame Boots -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="561" />
+	</item>
+	<item>
+		<!-- A-grade Red Flame Helmet -->
+		<ingredient count="2640000" id="57" />
+		<production count="1" id="510" />
+	</item>
+	<item>
+		<!-- A-grade Robe of Nightmare -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="2408" />
+	</item>
+	<item>
+		<!-- A-grade Sand Dragon Gloves -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="613" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Apella Boots -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7876" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Apella Brigandine -->
+		<ingredient count="5643300" id="57" />
+		<production count="1" id="7874" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Apella Doublet -->
+		<ingredient count="5643300" id="57" />
+		<production count="1" id="7877" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Apella Gauntlet -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7872" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Apella Helm -->
+		<ingredient count="1736800" id="57" />
+		<production count="1" id="7870" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Apella Leather Gloves -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7875" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Apella Plate Armor -->
+		<ingredient count="7524400" id="57" />
+		<production count="1" id="7871" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Apella Sandals -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7879" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Apella Silk Gloves -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7878" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Apella Solleret -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7873" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Armor of Nightmare -->
+		<ingredient count="10300000" id="57" />
+		<production count="1" id="5311" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Boots of Nightmare -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5314" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Boots of Phantom -->
+		<ingredient count="1630000" id="57" />
+		<production count="1" id="5325" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Boots of Underworld -->
+		<ingredient count="1070000" id="57" />
+		<production count="1" id="5300" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Cerberus Boots -->
+		<ingredient count="1630000" id="57" />
+		<production count="1" id="5328" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Cerberus Gloves -->
+		<ingredient count="1630000" id="57" />
+		<production count="1" id="5327" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Dark Crystal Boots -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5291" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Dark Crystal breastplate -->
+		<ingredient count="4630000" id="57" />
+		<production count="1" id="5287" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Dark Crystal Gaiters -->
+		<ingredient count="2890000" id="57" />
+		<production count="1" id="5288" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Dark Crystal Gloves -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5290" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Dark Crystal Helmet -->
+		<ingredient count="1740000" id="57" />
+		<production count="1" id="5289" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Dark Crystal Leather Armor -->
+		<ingredient count="3470000" id="57" />
+		<production count="1" id="5297" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Dark Crystal Leggings -->
+		<ingredient count="2170000" id="57" />
+		<production count="1" id="5298" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Dark Crystal Robe -->
+		<ingredient count="5080000" id="57" />
+		<production count="1" id="5308" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Dark Crystal Shield -->
+		<ingredient count="1220000" id="57" />
+		<production count="1" id="5292" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Dark Legion Boots -->
+		<ingredient count="1630000" id="57" />
+		<production count="1" id="5322" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Dark Legion Gloves -->
+		<ingredient count="1630000" id="57" />
+		<production count="1" id="5321" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Dasparion's Boots -->
+		<ingredient count="23200" id="57" />
+		<production count="1" id="5331" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Dasparion's Gloves -->
+		<ingredient count="1630000" id="57" />
+		<production count="1" id="5330" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Gauntlets of Nightmare -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5313" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Gloves of Black Ore -->
+		<ingredient count="1070000" id="57" />
+		<production count="1" id="5306" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Gloves of Phantom -->
+		<ingredient count="1630000" id="57" />
+		<production count="1" id="5324" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Gloves of Underworld -->
+		<ingredient count="1070000" id="57" />
+		<production count="1" id="5299" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Gust Boots -->
+		<ingredient count="1070000" id="57" />
+		<production count="1" id="5303" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Gust Bracer -->
+		<ingredient count="1070000" id="57" />
+		<production count="1" id="5302" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Helm of Nightmare -->
+		<ingredient count="2640000" id="57" />
+		<production count="1" id="5312" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Leather Armor of Nightmare -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="5320" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Majestic Boots -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5319" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Majestic Circlet -->
+		<ingredient count="2640000" id="57" />
+		<production count="1" id="5317" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Majestic Gauntlets -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5318" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Majestic Leather Armor -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="5323" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Majestic Necklace -->
+		<ingredient count="2600000" id="57" />
+		<production count="1" id="6326" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Majestic Plate Armor -->
+		<ingredient count="10300000" id="57" />
+		<production count="1" id="5316" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Majestic Robe -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="5329" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Phoenix Boots -->
+		<ingredient count="1070000" id="57" />
+		<production count="1" id="5310" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Phoenix Gloves -->
+		<ingredient count="1070000" id="57" />
+		<production count="1" id="5309" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Phoenix Necklace -->
+		<ingredient count="1740000" id="57" />
+		<production count="1" id="6323" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Red Flame Boots -->
+		<ingredient count="1070000" id="57" />
+		<production count="1" id="5307" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Robe of Nightmare -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="5326" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Shield of Nightmare -->
+		<ingredient count="1850000" id="57" />
+		<production count="1" id="5315" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Tallum Boots -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5296" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Tallum Gloves -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5295" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Tallum Helmet -->
+		<ingredient count="1740000" id="57" />
+		<production count="1" id="5294" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Tallum Leather Armor -->
+		<ingredient count="5080000" id="57" />
+		<production count="1" id="5301" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Tallum Plate Armor -->
+		<ingredient count="6770000" id="57" />
+		<production count="1" id="5293" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Tallum Stockings -->
+		<ingredient count="2170000" id="57" />
+		<production count="1" id="5305" />
+	</item>
+	<item>
+		<!-- A-grade Sealed Tallum Tunic -->
+		<ingredient count="3470000" id="57" />
+		<production count="1" id="5304" />
+	</item>
+	<item>
+		<!-- A-grade Shield of Nightmare -->
+		<ingredient count="1850000" id="57" />
+		<production count="1" id="2498" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Boots - Heavy Armor -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5780" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Boots - Light Armor -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5781" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Boots - Robe -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5782" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Gloves -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="2478" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Gloves - Heavy Armor -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5768" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Gloves - Light Armor -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5769" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Gloves - Robe -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5770" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Helm -->
+		<ingredient count="1740000" id="57" />
+		<production count="1" id="547" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Leather Armor -->
+		<ingredient count="5080000" id="57" />
+		<production count="1" id="2393" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Plate Armor -->
+		<ingredient count="6770000" id="57" />
+		<production count="1" id="2382" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Stockings -->
+		<ingredient count="2170000" id="57" />
+		<production count="1" id="2405" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Tunic -->
+		<ingredient count="3470000" id="57" />
+		<production count="1" id="2400" />
+	</item>
+	<item>
+		<!-- A-grade Unicorn Leather Armor -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="410" />
+	</item>
+	<item>
+		<!-- B-grade _ -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="568" />
+	</item>
+	<item>
+		<!-- B-grade Absolute Boots -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="599" />
+	</item>
+	<item>
+		<!-- B-grade Absolute Helm -->
+		<ingredient count="778000" id="57" />
+		<production count="1" id="548" />
+	</item>
+	<item>
+		<!-- B-grade Absolute Shield -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="672" />
+	</item>
+	<item>
+		<!-- B-grade Ace's Boots -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="577" />
+	</item>
+	<item>
+		<!-- B-grade Ace's Helmet -->
+		<ingredient count="1740000" id="57" />
+		<production count="1" id="526" />
+	</item>
+	<item>
+		<!-- B-grade Ace's Leather Armor -->
+		<ingredient count="5080000" id="57" />
+		<production count="1" id="407" />
+	</item>
+	<item>
+		<!-- B-grade Ace's Shield -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="651" />
+	</item>
+	<item>
+		<!-- B-grade Adamantite Necklace -->
+		<ingredient count="808000" id="57" />
+		<production count="1" id="918" />
+	</item>
+	<item>
+		<!-- B-grade Armet -->
+		<ingredient count="1030000" id="57" />
+		<production count="1" id="501" />
+	</item>
+	<item>
+		<!-- B-grade Armor of Victory -->
+		<ingredient count="3220000" id="57" />
+		<production count="1" id="360" />
+	</item>
+	<item>
+		<!-- B-grade Art of Boots -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="570" />
+	</item>
+	<item>
+		<!-- B-grade Art of Helmet -->
+		<ingredient count="1210000" id="57" />
+		<production count="1" id="519" />
+	</item>
+	<item>
+		<!-- B-grade Art of Plate -->
+		<ingredient count="4710000" id="57" />
+		<production count="1" id="372" />
+	</item>
+	<item>
+		<!-- B-grade Art of Shield -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="645" />
+	</item>
+	<item>
+		<!-- B-grade Avadon Boots - Heavy Armor -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="5730" />
+	</item>
+	<item>
+		<!-- B-grade Avadon Boots - Light Armor -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="5731" />
+	</item>
+	<item>
+		<!-- B-grade Avadon Boots - Robe -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="5732" />
+	</item>
+	<item>
+		<!-- B-grade Avadon Breastplate -->
+		<ingredient count="2080000" id="57" />
+		<production count="1" id="2376" />
+	</item>
+	<item>
+		<!-- B-grade Avadon Circlet -->
+		<ingredient count="778000" id="57" />
+		<production count="1" id="2415" />
+	</item>
+	<item>
+		<!-- B-grade Avadon Gaiters -->
+		<ingredient count="1300000" id="57" />
+		<production count="1" id="2379" />
+	</item>
+	<item>
+		<!-- B-grade Avadon Gloves - Heavy Armor -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="5714" />
+	</item>
+	<item>
+		<!-- B-grade Avadon Gloves - Light Armor -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="5715" />
+	</item>
+	<item>
+		<!-- B-grade Avadon Gloves - Robe -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="5716" />
+	</item>
+	<item>
+		<!-- B-grade Avadon Leather Armor -->
+		<ingredient count="2280000" id="57" />
+		<production count="1" id="2390" />
+	</item>
+	<item>
+		<!-- B-grade Avadon Robe -->
+		<ingredient count="2280000" id="57" />
+		<production count="1" id="2406" />
+	</item>
+	<item>
+		<!-- B-grade Avadon Shield -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="673" />
+	</item>
+	<item>
+		<!-- B-grade Blood Shield -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="671" />
+	</item>
+	<item>
+		<!-- B-grade Blue Wolf Boots - Heavy Armor -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="5734" />
+	</item>
+	<item>
+		<!-- B-grade Blue Wolf Boots - Light Armor -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="5735" />
+	</item>
+	<item>
+		<!-- B-grade Blue Wolf Boots - Robe -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="5736" />
+	</item>
+	<item>
+		<!-- B-grade Blue Wolf Breastplate -->
+		<ingredient count="3220000" id="57" />
+		<production count="1" id="358" />
+	</item>
+	<item>
+		<!-- B-grade Blue Wolf Gaiters -->
+		<ingredient count="2010000" id="57" />
+		<production count="1" id="2380" />
+	</item>
+	<item>
+		<!-- B-grade Blue Wolf Gloves - Heavy Armor -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="5718" />
+	</item>
+	<item>
+		<!-- B-grade Blue Wolf Gloves - Light Armor -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="5719" />
+	</item>
+	<item>
+		<!-- B-grade Blue Wolf Gloves - Robe -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="5720" />
+	</item>
+	<item>
+		<!-- B-grade Blue Wolf Helmet -->
+		<ingredient count="1210000" id="57" />
+		<production count="1" id="2416" />
+	</item>
+	<item>
+		<!-- B-grade Blue Wolf Leather Armor -->
+		<ingredient count="3530000" id="57" />
+		<production count="1" id="2391" />
+	</item>
+	<item>
+		<!-- B-grade Blue Wolf Stockings -->
+		<ingredient count="1510000" id="57" />
+		<production count="1" id="2403" />
+	</item>
+	<item>
+		<!-- B-grade Blue Wolf Tunic -->
+		<ingredient count="2410000" id="57" />
+		<production count="1" id="2398" />
+	</item>
+	<item>
+		<!-- B-grade Boots of Aid -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="594" />
+	</item>
+	<item>
+		<!-- B-grade Boots of Black Ore -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="585" />
+	</item>
+	<item>
+		<!-- B-grade Boots of Blessing -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="595" />
+	</item>
+	<item>
+		<!-- B-grade Boots of Bravery -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="597" />
+	</item>
+	<item>
+		<!-- B-grade Boots of Concentration -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="576" />
+	</item>
+	<item>
+		<!-- B-grade Boots of Grace -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="590" />
+	</item>
+	<item>
+		<!-- B-grade Boots of Holy Spirit -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="591" />
+	</item>
+	<item>
+		<!-- B-grade Boots of Mana -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="580" />
+	</item>
+	<item>
+		<!-- B-grade Boots of Pledge -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="602" />
+	</item>
+	<item>
+		<!-- B-grade Boots of Silence -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="572" />
+	</item>
+	<item>
+		<!-- B-grade Boots of Solar Eclipse -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="584" />
+	</item>
+	<item>
+		<!-- B-grade Boots of Summoning -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="586" />
+	</item>
+	<item>
+		<!-- B-grade Boots of Valor -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="559" />
+	</item>
+	<item>
+		<!-- B-grade Boots of Victory -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="558" />
+	</item>
+	<item>
+		<!-- B-grade Breastplate of Valor -->
+		<ingredient count="4630000" id="57" />
+		<production count="1" id="361" />
+	</item>
+	<item>
+		<!-- B-grade Cerberus Hood -->
+		<ingredient count="778000" id="57" />
+		<production count="1" id="542" />
+	</item>
+	<item>
+		<!-- B-grade Cerberus Shield -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="666" />
+	</item>
+	<item>
+		<!-- B-grade Cerberus Stockings -->
+		<ingredient count="2170000" id="57" />
+		<production count="1" id="483" />
+	</item>
+	<item>
+		<!-- B-grade Cerberus Tunic -->
+		<ingredient count="3470000" id="57" />
+		<production count="1" id="456" />
+	</item>
+	<item>
+		<!-- B-grade Chain Gloves of Silence -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="2465" />
+	</item>
+	<item>
+		<!-- B-grade Chain Mail of Silence -->
+		<ingredient count="3530000" id="57" />
+		<production count="1" id="402" />
+	</item>
+	<item>
+		<!-- B-grade Cloak of Hell -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="621" />
+	</item>
+	<item>
+		<!-- B-grade Complete Set of Plate Armor -->
+		<ingredient count="4710000" id="57" />
+		<production count="1" id="370" />
+	</item>
+	<item>
+		<!-- B-grade Dark Dragon Armor -->
+		<ingredient count="6770000" id="57" />
+		<production count="1" id="367" />
+	</item>
+	<item>
+		<!-- B-grade Dark Dragon Boots -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="565" />
+	</item>
+	<item>
+		<!-- B-grade Dark Dragon Helmet -->
+		<ingredient count="1740000" id="57" />
+		<production count="1" id="514" />
+	</item>
+	<item>
+		<!-- B-grade Dark Dragon Shield -->
+		<ingredient count="649800" id="57" />
+		<production count="1" id="106" />
+	</item>
+	<item>
+		<!-- B-grade Dark Vagian Armor -->
+		<ingredient count="6770000" id="57" />
+		<production count="1" id="369" />
+	</item>
+	<item>
+		<!-- B-grade Dark Vagian Boots -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="567" />
+	</item>
+	<item>
+		<!-- B-grade Dark Vagian Shield -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="643" />
+	</item>
+	<item>
+		<!-- B-grade Divine Helm -->
+		<ingredient count="778000" id="57" />
+		<production count="1" id="552" />
+	</item>
+	<item>
+		<!-- B-grade Divine Shield -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="674" />
+	</item>
+	<item>
+		<!-- B-grade Doom Boots - Heavy Armor -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="5738" />
+	</item>
+	<item>
+		<!-- B-grade Doom Boots - Light Armor -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="5739" />
+	</item>
+	<item>
+		<!-- B-grade Doom Boots - Robe -->
+		<ingredient count="4455" id="57" />
+		<production count="1" id="5740" />
+	</item>
+	<item>
+		<!-- B-grade Doom Gloves - Heavy Armor -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="5722" />
+	</item>
+	<item>
+		<!-- B-grade Doom Gloves - Light Armor -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="5723" />
+	</item>
+	<item>
+		<!-- B-grade Doom Gloves - Robe -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="5724" />
+	</item>
+	<item>
+		<!-- B-grade Doom Helmet -->
+		<ingredient count="1210000" id="57" />
+		<production count="1" id="2417" />
+	</item>
+	<item>
+		<!-- B-grade Doom Plate Armor -->
+		<ingredient count="4710000" id="57" />
+		<production count="1" id="2381" />
+	</item>
+	<item>
+		<!-- B-grade Doom Shield -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="110" />
+	</item>
+	<item>
+		<!-- B-grade Elemental Boots -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="588" />
+	</item>
+	<item>
+		<!-- B-grade Elemental Gloves -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="2480" />
+	</item>
+	<item>
+		<!-- B-grade Elemental Necklace -->
+		<ingredient count="1230000" id="57" />
+		<production count="1" id="929" />
+	</item>
+	<item>
+		<!-- B-grade Elemental Shield -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="661" />
+	</item>
+	<item>
+		<!-- B-grade Elemental Stockings -->
+		<ingredient count="1510000" id="57" />
+		<production count="1" id="479" />
+	</item>
+	<item>
+		<!-- B-grade Elemental Tunic -->
+		<ingredient count="2410000" id="57" />
+		<production count="1" id="451" />
+	</item>
+	<item>
+		<!-- B-grade Elven Crystal Boots -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="562" />
+	</item>
+	<item>
+		<!-- B-grade Elven Crystal Breastplate -->
+		<ingredient count="3220000" id="57" />
+		<production count="1" id="364" />
+	</item>
+	<item>
+		<!-- B-grade Elven Crystal Gaiters -->
+		<ingredient count="2010000" id="57" />
+		<production count="1" id="387" />
+	</item>
+	<item>
+		<!-- B-grade Elven Crystal Helmet -->
+		<ingredient count="1210000" id="57" />
+		<production count="1" id="511" />
+	</item>
+	<item>
+		<!-- B-grade Elven Crystal Shield -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="640" />
+	</item>
+	<item>
+		<!-- B-grade Elven Vagian Armor -->
+		<ingredient count="4710000" id="57" />
+		<production count="1" id="368" />
+	</item>
+	<item>
+		<!-- B-grade Elven Vagian Boots -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="566" />
+	</item>
+	<item>
+		<!-- B-grade Elven Vagian Shield -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="642" />
+	</item>
+	<item>
+		<!-- B-grade Flame Boots -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="596" />
+	</item>
+	<item>
+		<!-- B-grade Flame Shield -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="669" />
+	</item>
+	<item>
+		<!-- B-grade Gaiters of Underworld -->
+		<ingredient count="2170000" id="57" />
+		<production count="1" id="422" />
+	</item>
+	<item>
+		<!-- B-grade Gaiters of Valor -->
+		<ingredient count="2890000" id="57" />
+		<production count="1" id="386" />
+	</item>
+	<item>
+		<!-- B-grade Gaiters of Victory -->
+		<ingredient count="2010000" id="57" />
+		<production count="1" id="385" />
+	</item>
+	<item>
+		<!-- B-grade Glorious Armor -->
+		<ingredient count="4710000" id="57" />
+		<production count="1" id="362" />
+	</item>
+	<item>
+		<!-- B-grade Glorious Boots -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="560" />
+	</item>
+	<item>
+		<!-- B-grade Glorious Shield -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="638" />
+	</item>
+	<item>
+		<!-- B-grade Gloves of Blessing -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="2467" />
+	</item>
+	<item>
+		<!-- B-grade Gloves of Grace -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="2481" />
+	</item>
+	<item>
+		<!-- B-grade Guardian's Boots -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="578" />
+	</item>
+	<item>
+		<!-- B-grade Guardian's Gloves -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="2466" />
+	</item>
+	<item>
+		<!-- B-grade Guardian's Helmet -->
+		<ingredient count="1210000" id="57" />
+		<production count="1" id="527" />
+	</item>
+	<item>
+		<!-- B-grade Guardian's Leather Armor -->
+		<ingredient count="2410000" id="57" />
+		<production count="1" id="408" />
+	</item>
+	<item>
+		<!-- B-grade Guardian's Leather Gaiters -->
+		<ingredient count="1510000" id="57" />
+		<production count="1" id="423" />
+	</item>
+	<item>
+		<!-- B-grade Guardian's Shield -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="652" />
+	</item>
+	<item>
+		<!-- B-grade Gust Chain Mail -->
+		<ingredient count="5080000" id="57" />
+		<production count="1" id="403" />
+	</item>
+	<item>
+		<!-- B-grade Gust Helmet -->
+		<ingredient count="1740000" id="57" />
+		<production count="1" id="522" />
+	</item>
+	<item>
+		<!-- B-grade Gust Shield -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="647" />
+	</item>
+	<item>
+		<!-- B-grade Hell Boots -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="569" />
+	</item>
+	<item>
+		<!-- B-grade Hell Plate -->
+		<ingredient count="6770000" id="57" />
+		<production count="1" id="371" />
+	</item>
+	<item>
+		<!-- B-grade Hell Shield -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="644" />
+	</item>
+	<item>
+		<!-- B-grade Helm of Bravery -->
+		<ingredient count="778000" id="57" />
+		<production count="1" id="546" />
+	</item>
+	<item>
+		<!-- B-grade Helm of Doom -->
+		<ingredient count="778000" id="57" />
+		<production count="1" id="550" />
+	</item>
+	<item>
+		<!-- B-grade Helm of Underworld -->
+		<ingredient count="1740000" id="57" />
+		<production count="1" id="524" />
+	</item>
+	<item>
+		<!-- B-grade Helmet of Concentration -->
+		<ingredient count="1210000" id="57" />
+		<production count="1" id="525" />
+	</item>
+	<item>
+		<!-- B-grade Helmet of Silence -->
+		<ingredient count="1210000" id="57" />
+		<production count="1" id="521" />
+	</item>
+	<item>
+		<!-- B-grade Helmet of Valor -->
+		<ingredient count="1740000" id="57" />
+		<production count="1" id="508" />
+	</item>
+	<item>
+		<!-- B-grade Helmet of Victory -->
+		<ingredient count="1210000" id="57" />
+		<production count="1" id="507" />
+	</item>
+	<item>
+		<!-- B-grade Hood of Black Ore -->
+		<ingredient count="778000" id="57" />
+		<production count="1" id="534" />
+	</item>
+	<item>
+		<!-- B-grade Hood of Blessing -->
+		<ingredient count="778000" id="57" />
+		<production count="1" id="544" />
+	</item>
+	<item>
+		<!-- B-grade Hood of Holy Spirit -->
+		<ingredient count="778000" id="57" />
+		<production count="1" id="540" />
+	</item>
+	<item>
+		<!-- B-grade Hood of Phantom -->
+		<ingredient count="778000" id="57" />
+		<production count="1" id="538" />
+	</item>
+	<item>
+		<!-- B-grade Implosion Armor -->
+		<ingredient count="4710000" id="57" />
+		<production count="1" id="366" />
+	</item>
+	<item>
+		<!-- B-grade Implosion Boots -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="564" />
+	</item>
+	<item>
+		<!-- B-grade Implosion Gauntlets -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="2485" />
+	</item>
+	<item>
+		<!-- B-grade Implosion Helmet -->
+		<ingredient count="1210000" id="57" />
+		<production count="1" id="513" />
+	</item>
+	<item>
+		<!-- B-grade Implosion Shield -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="105" />
+	</item>
+	<item>
+		<!-- B-grade Inferno Hood -->
+		<ingredient count="778000" id="57" />
+		<production count="1" id="532" />
+	</item>
+	<item>
+		<!-- B-grade Inferno Shield -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="657" />
+	</item>
+	<item>
+		<!-- B-grade Inferno Stockings -->
+		<ingredient count="2170000" id="57" />
+		<production count="1" id="476" />
+	</item>
+	<item>
+		<!-- B-grade Inferno Tunic -->
+		<ingredient count="3470000" id="57" />
+		<production count="1" id="446" />
+	</item>
+	<item>
+		<!-- B-grade Leather Armor of Concentration -->
+		<ingredient count="3530000" id="57" />
+		<production count="1" id="406" />
+	</item>
+	<item>
+		<!-- B-grade Leather Armor of Doom -->
+		<ingredient count="3530000" id="57" />
+		<production count="1" id="2392" />
+	</item>
+	<item>
+		<!-- B-grade Leather Armor of Underworld -->
+		<ingredient count="3470000" id="57" />
+		<production count="1" id="405" />
+	</item>
+	<item>
+		<!-- B-grade Marksman Boots -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="579" />
+	</item>
+	<item>
+		<!-- B-grade Marksman Helmet -->
+		<ingredient count="1740000" id="57" />
+		<production count="1" id="528" />
+	</item>
+	<item>
+		<!-- B-grade Marksman Shield -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="653" />
+	</item>
+	<item>
+		<!-- B-grade Marksman's Leather Armor -->
+		<ingredient count="3470000" id="57" />
+		<production count="1" id="409" />
+	</item>
+	<item>
+		<!-- B-grade Marksman's Leather Gaiters -->
+		<ingredient count="2170000" id="57" />
+		<production count="1" id="424" />
+	</item>
+	<item>
+		<!-- B-grade Masterpiece Armor -->
+		<ingredient count="6770000" id="57" />
+		<production count="1" id="373" />
+	</item>
+	<item>
+		<!-- B-grade Masterpiece Boots -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="571" />
+	</item>
+	<item>
+		<!-- B-grade Masterpiece Shield -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="108" />
+	</item>
+	<item>
+		<!-- B-grade Necklace of Aid -->
+		<ingredient count="808000" id="57" />
+		<production count="1" id="935" />
+	</item>
+	<item>
+		<!-- B-grade Necklace of Black Ore -->
+		<ingredient count="1230000" id="57" />
+		<production count="1" id="926" />
+	</item>
+	<item>
+		<!-- B-grade Necklace of Blessing -->
+		<ingredient count="808000" id="57" />
+		<production count="1" id="936" />
+	</item>
+	<item>
+		<!-- B-grade Necklace of Grace -->
+		<ingredient count="808000" id="57" />
+		<production count="1" id="931" />
+	</item>
+	<item>
+		<!-- B-grade Necklace of Holy Spirit -->
+		<ingredient count="1230000" id="57" />
+		<production count="1" id="932" />
+	</item>
+	<item>
+		<!-- B-grade Necklace of Mana -->
+		<ingredient count="808000" id="57" />
+		<production count="1" id="921" />
+	</item>
+	<item>
+		<!-- B-grade Necklace of Solar Eclipse -->
+		<ingredient count="808000" id="57" />
+		<production count="1" id="925" />
+	</item>
+	<item>
+		<!-- B-grade Necklace of Summoning -->
+		<ingredient count="808000" id="57" />
+		<production count="1" id="927" />
+	</item>
+	<item>
+		<!-- B-grade Otherworldly Boots -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="587" />
+	</item>
+	<item>
+		<!-- B-grade Otherworldly Hood -->
+		<ingredient count="778000" id="57" />
+		<production count="1" id="536" />
+	</item>
+	<item>
+		<!-- B-grade Otherworldly Necklace -->
+		<ingredient count="1230000" id="57" />
+		<production count="1" id="928" />
+	</item>
+	<item>
+		<!-- B-grade Otherworldly Robe -->
+		<ingredient count="5080000" id="57" />
+		<production count="1" id="450" />
+	</item>
+	<item>
+		<!-- B-grade Otherworldly Shield -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="660" />
+	</item>
+	<item>
+		<!-- B-grade Paradia Boots -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="582" />
+	</item>
+	<item>
+		<!-- B-grade Paradia Gloves -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="2486" />
+	</item>
+	<item>
+		<!-- B-grade Paradia Necklace -->
+		<ingredient count="1230000" id="57" />
+		<production count="1" id="923" />
+	</item>
+	<item>
+		<!-- B-grade Paradia Shield -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="656" />
+	</item>
+	<item>
+		<!-- B-grade Paradia Stockings -->
+		<ingredient count="1510000" id="57" />
+		<production count="1" id="475" />
+	</item>
+	<item>
+		<!-- B-grade Paradia Tunic -->
+		<ingredient count="2410000" id="57" />
+		<production count="1" id="445" />
+	</item>
+	<item>
+		<!-- B-grade Phoenix Shield -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="665" />
+	</item>
+	<item>
+		<!-- B-grade Phoenix Stockings -->
+		<ingredient count="1510000" id="57" />
+		<production count="1" id="482" />
+	</item>
+	<item>
+		<!-- B-grade Phoenix Tunic -->
+		<ingredient count="2410000" id="57" />
+		<production count="1" id="455" />
+	</item>
+	<item>
+		<!-- B-grade Prairie Boots -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="574" />
+	</item>
+	<item>
+		<!-- B-grade Prairie Helmet -->
+		<ingredient count="1210000" id="57" />
+		<production count="1" id="523" />
+	</item>
+	<item>
+		<!-- B-grade Prairie Leather Armor -->
+		<ingredient count="2410000" id="57" />
+		<production count="1" id="404" />
+	</item>
+	<item>
+		<!-- B-grade Prairie Leather Gaiters -->
+		<ingredient count="1510000" id="57" />
+		<production count="1" id="421" />
+	</item>
+	<item>
+		<!-- B-grade Prairie Shield -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="648" />
+	</item>
+	<item>
+		<!-- B-grade Red Flame Armor -->
+		<ingredient count="6770000" id="57" />
+		<production count="1" id="363" />
+	</item>
+	<item>
+		<!-- B-grade Red Flame Shield -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="639" />
+	</item>
+	<item>
+		<!-- B-grade Robe of Black Ore -->
+		<ingredient count="5080000" id="57" />
+		<production count="1" id="448" />
+	</item>
+	<item>
+		<!-- B-grade Robe of Blessing -->
+		<ingredient count="5080000" id="57" />
+		<production count="1" id="458" />
+	</item>
+	<item>
+		<!-- B-grade Robe of Holy Spirit -->
+		<ingredient count="5080000" id="57" />
+		<production count="1" id="454" />
+	</item>
+	<item>
+		<!-- B-grade Sage's Boots -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="581" />
+	</item>
+	<item>
+		<!-- B-grade Sage's Cap -->
+		<ingredient count="778000" id="57" />
+		<production count="1" id="530" />
+	</item>
+	<item>
+		<!-- B-grade Sage's Necklace -->
+		<ingredient count="1230000" id="57" />
+		<production count="1" id="922" />
+	</item>
+	<item>
+		<!-- B-grade Sage's Robe -->
+		<ingredient count="5080000" id="57" />
+		<production count="1" id="444" />
+	</item>
+	<item>
+		<!-- B-grade Sage's Shield -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="655" />
+	</item>
+	<item>
+		<!-- B-grade Saint Knight's Gauntlets -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="610" />
+	</item>
+	<item>
+		<!-- B-grade Sealed Avadon Boots -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="600" />
+	</item>
+	<item>
+		<!-- B-grade Sealed Avadon Boots -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="5729" />
+	</item>
+	<item>
+		<!-- B-grade Sealed Avadon Gloves -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="2464" />
+	</item>
+	<item>
+		<!-- B-grade Sealed Avadon Gloves -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="5713" />
+	</item>
+	<item>
+		<!-- B-grade Sealed Blue Wolf Boots -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="2439" />
+	</item>
+	<item>
+		<!-- B-grade Sealed Blue Wolf Boots -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="5733" />
+	</item>
+	<item>
+		<!-- B-grade Sealed Blue Wolf Gloves -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="2487" />
+	</item>
+	<item>
+		<!-- B-grade Sealed Blue Wolf Gloves -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="5717" />
+	</item>
+	<item>
+		<!-- B-grade Sealed Doom Boots -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="601" />
+	</item>
+	<item>
+		<!-- B-grade Sealed Doom Boots -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="5737" />
+	</item>
+	<item>
+		<!-- B-grade Sealed Doom Gloves -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="2475" />
+	</item>
+	<item>
+		<!-- B-grade Sealed Doom Gloves -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="5721" />
+	</item>
+	<item>
+		<!-- B-grade Sealed Zubei's Boots -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="554" />
+	</item>
+	<item>
+		<!-- B-grade Sealed Zubei's Boots -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="5725" />
+	</item>
+	<item>
+		<!-- B-grade Sealed Zubei's Gauntlets -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="612" />
+	</item>
+	<item>
+		<!-- B-grade Sealed Zubei's Gauntlets -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="5709" />
+	</item>
+	<item>
+		<!-- B-grade Shield of Aid -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="667" />
+	</item>
+	<item>
+		<!-- B-grade Shield of Black Ore -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="658" />
+	</item>
+	<item>
+		<!-- B-grade Shield of Blessing -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="668" />
+	</item>
+	<item>
+		<!-- B-grade Shield of Bravery -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="670" />
+	</item>
+	<item>
+		<!-- B-grade Shield of Concentration -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="650" />
+	</item>
+	<item>
+		<!-- B-grade Shield of Grace -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="663" />
+	</item>
+	<item>
+		<!-- B-grade Shield of Holy Spirit -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="664" />
+	</item>
+	<item>
+		<!-- B-grade Shield of Mana -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="654" />
+	</item>
+	<item>
+		<!-- B-grade Shield of Phantom -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="662" />
+	</item>
+	<item>
+		<!-- B-grade Shield of Pledge -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="111" />
+	</item>
+	<item>
+		<!-- B-grade Shield of Silence -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="646" />
+	</item>
+	<item>
+		<!-- B-grade Shield of Solar Eclipse -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="109" />
+	</item>
+	<item>
+		<!-- B-grade Shield of Summoning -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="659" />
+	</item>
+	<item>
+		<!-- B-grade Shield of Underworld -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="649" />
+	</item>
+	<item>
+		<!-- B-grade Shield of Valor -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="637" />
+	</item>
+	<item>
+		<!-- B-grade Shield of Victory -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="104" />
+	</item>
+	<item>
+		<!-- B-grade Shining Dragon Armor -->
+		<ingredient count="6770000" id="57" />
+		<production count="1" id="359" />
+	</item>
+	<item>
+		<!-- B-grade Shining Dragon Boots -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="557" />
+	</item>
+	<item>
+		<!-- B-grade Shining Dragon Helmet -->
+		<ingredient count="1740000" id="57" />
+		<production count="1" id="506" />
+	</item>
+	<item>
+		<!-- B-grade Shining Dragon Shield -->
+		<ingredient count="845000" id="57" />
+		<production count="1" id="636" />
+	</item>
+	<item>
+		<!-- B-grade Soul Leech Gauntlets -->
+		<ingredient count="804000" id="57" />
+		<production count="1" id="611" />
+	</item>
+	<item>
+		<!-- B-grade Stockings of Aid -->
+		<ingredient count="1510000" id="57" />
+		<production count="1" id="484" />
+	</item>
+	<item>
+		<!-- B-grade Stockings of Doom -->
+		<ingredient count="1510000" id="57" />
+		<production count="1" id="2404" />
+	</item>
+	<item>
+		<!-- B-grade Stockings of Grace -->
+		<ingredient count="1510000" id="57" />
+		<production count="1" id="481" />
+	</item>
+	<item>
+		<!-- B-grade Stockings of Mana -->
+		<ingredient count="1510000" id="57" />
+		<production count="1" id="474" />
+	</item>
+	<item>
+		<!-- B-grade Stockings of Phantom -->
+		<ingredient count="2170000" id="57" />
+		<production count="1" id="480" />
+	</item>
+	<item>
+		<!-- B-grade Stockings of Solar Eclipse -->
+		<ingredient count="1510000" id="57" />
+		<production count="1" id="477" />
+	</item>
+	<item>
+		<!-- B-grade Stockings of Summoning -->
+		<ingredient count="1510000" id="57" />
+		<production count="1" id="478" />
+	</item>
+	<item>
+		<!-- B-grade Stockings of Zubei -->
+		<ingredient count="973000" id="57" />
+		<production count="1" id="2402" />
+	</item>
+	<item>
+		<!-- B-grade Tunic of Aid -->
+		<ingredient count="2410000" id="57" />
+		<production count="1" id="457" />
+	</item>
+	<item>
+		<!-- B-grade Tunic of Doom -->
+		<ingredient count="2410000" id="57" />
+		<production count="1" id="2399" />
+	</item>
+	<item>
+		<!-- B-grade Tunic of Grace -->
+		<ingredient count="2410000" id="57" />
+		<production count="1" id="453" />
+	</item>
+	<item>
+		<!-- B-grade Tunic of Mana -->
+		<ingredient count="2410000" id="57" />
+		<production count="1" id="443" />
+	</item>
+	<item>
+		<!-- B-grade Tunic of Phantom -->
+		<ingredient count="3470000" id="57" />
+		<production count="1" id="452" />
+	</item>
+	<item>
+		<!-- B-grade Tunic of Solar Eclipse -->
+		<ingredient count="2410000" id="57" />
+		<production count="1" id="447" />
+	</item>
+	<item>
+		<!-- B-grade Tunic of Summoning -->
+		<ingredient count="2410000" id="57" />
+		<production count="1" id="449" />
+	</item>
+	<item>
+		<!-- B-grade Tunic of Zubei -->
+		<ingredient count="1560000" id="57" />
+		<production count="1" id="2397" />
+	</item>
+	<item>
+		<!-- B-grade Wolf Boots -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="556" />
+	</item>
+	<item>
+		<!-- B-grade Wolf Gaiters -->
+		<ingredient count="2010000" id="57" />
+		<production count="1" id="384" />
+	</item>
+	<item>
+		<!-- B-grade Wolf Helmet -->
+		<ingredient count="1210000" id="57" />
+		<production count="1" id="505" />
+	</item>
+	<item>
+		<!-- B-grade Wolf Shield -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="635" />
+	</item>
+	<item>
+		<!-- B-grade Zubei's Boots - Heavy Armor -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="5726" />
+	</item>
+	<item>
+		<!-- B-grade Zubei's Boots - Light Armor -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="5727" />
+	</item>
+	<item>
+		<!-- B-grade Zubei's Boots - Robe -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="5728" />
+	</item>
+	<item>
+		<!-- B-grade Zubei's Breastplate -->
+		<ingredient count="2080000" id="57" />
+		<production count="1" id="357" />
+	</item>
+	<item>
+		<!-- B-grade Zubei's Gaiters -->
+		<ingredient count="1300000" id="57" />
+		<production count="1" id="383" />
+	</item>
+	<item>
+		<!-- B-grade Zubei's Gauntlets - Heavy Armor -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="5710" />
+	</item>
+	<item>
+		<!-- B-grade Zubei's Gauntlets - Light Armor -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="5711" />
+	</item>
+	<item>
+		<!-- B-grade Zubei's Gauntlets - Robe -->
+		<ingredient count="519000" id="57" />
+		<production count="1" id="5712" />
+	</item>
+	<item>
+		<!-- B-grade Zubei's Helmet -->
+		<ingredient count="778000" id="57" />
+		<production count="1" id="503" />
+	</item>
+	<item>
+		<!-- B-grade Zubei's Leather Gaiters -->
+		<ingredient count="973000" id="57" />
+		<production count="1" id="2388" />
+	</item>
+	<item>
+		<!-- B-grade Zubei's Leather Shirt -->
+		<ingredient count="1560000" id="57" />
+		<production count="1" id="2384" />
+	</item>
+	<item>
+		<!-- B-grade Zubei's Shield -->
+		<ingredient count="545000" id="57" />
+		<production count="1" id="633" />
+	</item>
+	<item>
+		<!-- C-grade (Not In Use) Ancient Cloak -->
+		<ingredient count="245000" id="57" />
+		<production count="1" id="619" />
+	</item>
+	<item>
+		<!-- C-grade Adamantite Boots -->
+		<ingredient count="358000" id="57" />
+		<production count="1" id="1128" />
+	</item>
+	<item>
+		<!-- C-grade Aquastone Necklace -->
+		<ingredient count="207000" id="57" />
+		<production count="1" id="915" />
+	</item>
+	<item>
+		<!-- C-grade Blessed Gloves -->
+		<ingredient count="358000" id="57" />
+		<production count="1" id="2468" />
+	</item>
+	<item>
+		<!-- C-grade Blessed Necklace -->
+		<ingredient count="565000" id="57" />
+		<production count="1" id="919" />
+	</item>
+	<item>
+		<!-- C-grade Boots of Seal -->
+		<ingredient count="126000" id="57" />
+		<production count="1" id="2433" />
+	</item>
+	<item>
+		<!-- C-grade Cap of Mana -->
+		<ingredient count="536000" id="57" />
+		<production count="1" id="529" />
+	</item>
+	<item>
+		<!-- C-grade Chain Boots -->
+		<ingredient count="126000" id="57" />
+		<production count="1" id="2429" />
+	</item>
+	<item>
+		<!-- C-grade Chain Gaiters -->
+		<ingredient count="316000" id="57" />
+		<production count="1" id="381" />
+	</item>
+	<item>
+		<!-- C-grade Chain Gloves -->
+		<ingredient count="126000" id="57" />
+		<production count="1" id="2453" />
+	</item>
+	<item>
+		<!-- C-grade Chain Helmet -->
+		<ingredient count="147000" id="57" />
+		<production count="1" id="497" />
+	</item>
+	<item>
+		<!-- C-grade Chain Hood -->
+		<ingredient count="189000" id="57" />
+		<production count="1" id="2413" />
+	</item>
+	<item>
+		<!-- C-grade Chain Mail Shirt -->
+		<ingredient count="505000" id="57" />
+		<production count="1" id="354" />
+	</item>
+	<item>
+		<!-- C-grade Chain Shield -->
+		<ingredient count="133000" id="57" />
+		<production count="1" id="2495" />
+	</item>
+	<item>
+		<!-- C-grade Cloak of Protection -->
+		<ingredient count="358000" id="57" />
+		<production count="1" id="620" />
+	</item>
+	<item>
+		<!-- C-grade Cloak of Self Protection -->
+		<ingredient count="161000" id="57" />
+		<production count="1" id="618" />
+	</item>
+	<item>
+		<!-- C-grade Composite Armor -->
+		<ingredient count="1440000" id="57" />
+		<production count="1" id="60" />
+	</item>
+	<item>
+		<!-- C-grade Composite Boots -->
+		<ingredient count="40" id="57" />
+		<production count="1" id="64" />
+	</item>
+	<item>
+		<!-- C-grade Composite Helmet -->
+		<ingredient count="368000" id="57" />
+		<production count="1" id="517" />
+	</item>
+	<item>
+		<!-- C-grade Composite Shield -->
+		<ingredient count="258000" id="57" />
+		<production count="1" id="107" />
+	</item>
+	<item>
+		<!-- C-grade Crimson Boots -->
+		<ingredient count="161000" id="57" />
+		<production count="1" id="1126" />
+	</item>
+	<item>
+		<!-- C-grade Demon's Boots -->
+		<ingredient count="245000" id="57" />
+		<production count="1" id="2435" />
+	</item>
+	<item>
+		<!-- C-grade Demon's Gloves -->
+		<ingredient count="245000" id="57" />
+		<production count="1" id="2459" />
+	</item>
+	<item>
+		<!-- C-grade Demon's Stockings -->
+		<ingredient count="460000" id="57" />
+		<production count="1" id="472" />
+	</item>
+	<item>
+		<!-- C-grade Demon's Tunic -->
+		<ingredient count="736000" id="57" />
+		<production count="1" id="441" />
+	</item>
+	<item>
+		<!-- C-grade Divine Boots -->
+		<ingredient count="358000" id="57" />
+		<production count="1" id="603" />
+	</item>
+	<item>
+		<!-- C-grade Divine Gloves -->
+		<ingredient count="358000" id="57" />
+		<production count="1" id="2463" />
+	</item>
+	<item>
+		<!-- C-grade Divine Stockings -->
+		<ingredient count="671000" id="57" />
+		<production count="1" id="473" />
+	</item>
+	<item>
+		<!-- C-grade Divine Tunic -->
+		<ingredient count="1070000" id="57" />
+		<production count="1" id="442" />
+	</item>
+	<item>
+		<!-- C-grade Drake Leather Armor -->
+		<ingredient count="1570000" id="57" />
+		<production count="1" id="401" />
+	</item>
+	<item>
+		<!-- C-grade Drake Leather Boots -->
+		<ingredient count="358000" id="57" />
+		<production count="1" id="2437" />
+	</item>
+	<item>
+		<!-- C-grade Drake Leather Gloves -->
+		<ingredient count="358000" id="57" />
+		<production count="1" id="2461" />
+	</item>
+	<item>
+		<!-- C-grade Dwarven Chain Boots -->
+		<ingredient count="126000" id="57" />
+		<production count="1" id="2432" />
+	</item>
+	<item>
+		<!-- C-grade Dwarven Chain Gaiters -->
+		<ingredient count="403000" id="57" />
+		<production count="1" id="382" />
+	</item>
+	<item>
+		<!-- C-grade Dwarven Chain Gloves -->
+		<ingredient count="161000" id="57" />
+		<production count="1" id="2456" />
+	</item>
+	<item>
+		<!-- C-grade Dwarven Chain Mail Shirt -->
+		<ingredient count="644000" id="57" />
+		<production count="1" id="355" />
+	</item>
+	<item>
+		<!-- C-grade Dwarven Chain Shield -->
+		<ingredient count="156000" id="57" />
+		<production count="1" id="2496" />
+	</item>
+	<item>
+		<!-- C-grade Eldarake -->
+		<ingredient count="133000" id="57" />
+		<production count="1" id="631" />
+	</item>
+	<item>
+		<!-- C-grade Elemental Hood -->
+		<ingredient count="536000" id="57" />
+		<production count="1" id="537" />
+	</item>
+	<item>
+		<!-- C-grade Flame Helm -->
+		<ingredient count="536000" id="57" />
+		<production count="1" id="545" />
+	</item>
+	<item>
+		<!-- C-grade Forgotten Boots -->
+		<ingredient count="245000" id="57" />
+		<production count="1" id="1127" />
+	</item>
+	<item>
+		<!-- C-grade Full Plate Armor -->
+		<ingredient count="2090000" id="57" />
+		<production count="1" id="356" />
+	</item>
+	<item>
+		<!-- C-grade Full Plate Boots -->
+		<ingredient count="358000" id="57" />
+		<production count="1" id="2438" />
+	</item>
+	<item>
+		<!-- C-grade Full Plate Gauntlets -->
+		<ingredient count="358000" id="57" />
+		<production count="1" id="2462" />
+	</item>
+	<item>
+		<!-- C-grade Full Plate Helmet -->
+		<ingredient count="536000" id="57" />
+		<production count="1" id="2414" />
+	</item>
+	<item>
+		<!-- C-grade Full Plate Shield -->
+		<ingredient count="375000" id="57" />
+		<production count="1" id="2497" />
+	</item>
+	<item>
+		<!-- C-grade Gauntlets of Ghost -->
+		<ingredient count="358000" id="57" />
+		<production count="1" id="609" />
+	</item>
+	<item>
+		<!-- C-grade Gloves of Seal -->
+		<ingredient count="161000" id="57" />
+		<production count="1" id="2457" />
+	</item>
+	<item>
+		<!-- C-grade Great Helmet -->
+		<ingredient count="242000" id="57" />
+		<production count="1" id="500" />
+	</item>
+	<item>
+		<!-- C-grade Helm of Avadon -->
+		<ingredient count="536000" id="57" />
+		<production count="1" id="549" />
+	</item>
+	<item>
+		<!-- C-grade Helmet of Pledge -->
+		<ingredient count="536000" id="57" />
+		<production count="1" id="551" />
+	</item>
+	<item>
+		<!-- C-grade Hood of Aid -->
+		<ingredient count="536000" id="57" />
+		<production count="1" id="543" />
+	</item>
+	<item>
+		<!-- C-grade Hood of Grace -->
+		<ingredient count="536000" id="57" />
+		<production count="1" id="539" />
+	</item>
+	<item>
+		<!-- C-grade Hood of Solar Eclipse -->
+		<ingredient count="536000" id="57" />
+		<production count="1" id="533" />
+	</item>
+	<item>
+		<!-- C-grade Hood of Summoning -->
+		<ingredient count="536000" id="57" />
+		<production count="1" id="535" />
+	</item>
+	<item>
+		<!-- C-grade Karmian Boots -->
+		<ingredient count="126000" id="57" />
+		<production count="1" id="2430" />
+	</item>
+	<item>
+		<!-- C-grade Karmian Gloves -->
+		<ingredient count="126000" id="57" />
+		<production count="1" id="2454" />
+	</item>
+	<item>
+		<!-- C-grade Karmian Stockings -->
+		<ingredient count="237000" id="57" />
+		<production count="1" id="471" />
+	</item>
+	<item>
+		<!-- C-grade Karmian Tunic -->
+		<ingredient count="379000" id="57" />
+		<production count="1" id="439" />
+	</item>
+	<item>
+		<!-- C-grade Knight's Shield -->
+		<ingredient count="169000" id="57" />
+		<production count="1" id="632" />
+	</item>
+	<item>
+		<!-- C-grade Mithril Gauntlets -->
+		<ingredient count="245000" id="57" />
+		<production count="1" id="608" />
+	</item>
+	<item>
+		<!-- C-grade Mithril Helmet -->
+		<ingredient count="536000" id="57" />
+		<production count="1" id="499" />
+	</item>
+	<item>
+		<!-- C-grade Mithril Shirt -->
+		<ingredient count="379000" id="57" />
+		<production count="1" id="397" />
+	</item>
+	<item>
+		<!-- C-grade Necklace of Mermaid -->
+		<ingredient count="393000" id="57" />
+		<production count="1" id="917" />
+	</item>
+	<item>
+		<!-- C-grade Necklace of Protection -->
+		<ingredient count="261000" id="57" />
+		<production count="1" id="916" />
+	</item>
+	<item>
+		<!-- C-grade Necklace of Seal -->
+		<ingredient count="565000" id="57" />
+		<production count="1" id="119" />
+	</item>
+	<item>
+		<!-- C-grade Pa'agrian Hand -->
+		<ingredient count="161000" id="57" />
+		<production count="1" id="1120" />
+	</item>
+	<item>
+		<!-- C-grade Paradia Hood -->
+		<ingredient count="536000" id="57" />
+		<production count="1" id="531" />
+	</item>
+	<item>
+		<!-- C-grade Phoenix Hood -->
+		<ingredient count="536000" id="57" />
+		<production count="1" id="541" />
+	</item>
+	<item>
+		<!-- C-grade Plated Leather -->
+		<ingredient count="446000" id="57" />
+		<production count="1" id="398" />
+	</item>
+	<item>
+		<!-- C-grade Plated Leather Boots -->
+		<ingredient count="126000" id="57" />
+		<production count="1" id="2431" />
+	</item>
+	<item>
+		<!-- C-grade Plated Leather Gaiters -->
+		<ingredient count="279000" id="57" />
+		<production count="1" id="418" />
+	</item>
+	<item>
+		<!-- C-grade Plated Leather Gloves -->
+		<ingredient count="149000" id="57" />
+		<production count="1" id="2455" />
+	</item>
+	<item>
+		<!-- C-grade Reinforced Mithril Boots -->
+		<ingredient count="126000" id="57" />
+		<production count="1" id="62" />
+	</item>
+	<item>
+		<!-- C-grade Reinforced Mithril Gaiters -->
+		<ingredient count="237000" id="57" />
+		<production count="1" id="2387" />
+	</item>
+	<item>
+		<!-- C-grade Reinforced Mithril Gloves -->
+		<ingredient count="126000" id="57" />
+		<production count="1" id="2452" />
+	</item>
+	<item>
+		<!-- C-grade Rind Leather Armor -->
+		<ingredient count="483000" id="57" />
+		<production count="1" id="399" />
+	</item>
+	<item>
+		<!-- C-grade Rind Leather Boots -->
+		<ingredient count="161000" id="57" />
+		<production count="1" id="2434" />
+	</item>
+	<item>
+		<!-- C-grade Rind Leather Gaiters -->
+		<ingredient count="302000" id="57" />
+		<production count="1" id="419" />
+	</item>
+	<item>
+		<!-- C-grade Rind Leather Gloves -->
+		<ingredient count="161000" id="57" />
+		<production count="1" id="2458" />
+	</item>
+	<item>
+		<!-- C-grade Robe of Seal -->
+		<ingredient count="707000" id="57" />
+		<production count="1" id="440" />
+	</item>
+	<item>
+		<!-- C-grade Shadow Cloak -->
+		<ingredient count="126000" id="57" />
+		<production count="1" id="2492" />
+	</item>
+	<item>
+		<!-- C-grade Shining Circlet -->
+		<ingredient count="100" id="57" />
+		<production count="1" id="1149" />
+	</item>
+	<item>
+		<!-- C-grade Steel Plate Helmet -->
+		<ingredient count="206000" id="57" />
+		<production count="1" id="498" />
+	</item>
+	<item>
+		<!-- C-grade Theca Leather Armor -->
+		<ingredient count="825000" id="57" />
+		<production count="1" id="400" />
+	</item>
+	<item>
+		<!-- C-grade Theca Leather Boots -->
+		<ingredient count="275000" id="57" />
+		<production count="1" id="2436" />
+	</item>
+	<item>
+		<!-- C-grade Theca Leather Gaiters -->
+		<ingredient count="516000" id="57" />
+		<production count="1" id="420" />
+	</item>
+	<item>
+		<!-- C-grade Theca Leather Gloves -->
+		<ingredient count="275000" id="57" />
+		<production count="1" id="2460" />
+	</item>
+	<item>
+		<!-- C-grade Tower Shield -->
+		<ingredient count="258000" id="57" />
+		<production count="1" id="103" />
+	</item>
+</list>

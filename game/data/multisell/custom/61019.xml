@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- B-Grade Blunts: _ -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="163" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Art of Battle Axe -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="175" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Art of Battle Axe -->
+		<ingredient count="11600" id="57" />
+		<production count="1" id="7834" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Art of Battle Axe - Haste -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4755" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Art of Battle Axe - Health -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4753" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Art of Battle Axe - Rsk. Focus -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4754" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Deadman's Glory -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="171" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Deadman's Glory - Anger -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4750" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Deadman's Glory - Haste -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4752" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Deadman's Glory - Health -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4751" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Divine Staff -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="209" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Heavy War Axe -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="91" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Heavy War Axe - Anger -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4747" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Heavy War Axe - Health -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4748" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Heavy War Axe - Rsk. Focus -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4749" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Ice Storm Hammer -->
+		<ingredient count="8684650" id="57" />
+		<production count="1" id="7900" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Ice Storm Hammer - Anger -->
+		<ingredient count="8684650" id="57" />
+		<production count="1" id="8130" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Ice Storm Hammer - Critical Bleed -->
+		<ingredient count="8684650" id="57" />
+		<production count="1" id="8131" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Ice Storm Hammer - Focus -->
+		<ingredient count="8684650" id="57" />
+		<production count="1" id="8129" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Kaim Vanul's Bones -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="7893" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Kaim Vanul's Bones - Conversion -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8146" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Kaim Vanul's Bones - Magic Silence -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8145" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Kaim Vanul's Bones - Mana Up -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8144" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Spell Breaker -->
+		<ingredient count="8684650" id="57" />
+		<production count="1" id="7892" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Spell Breaker - Acumen -->
+		<ingredient count="8684650" id="57" />
+		<production count="1" id="8141" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Spell Breaker - Magic Hold -->
+		<ingredient count="8684650" id="57" />
+		<production count="1" id="8143" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Spell Breaker - Mental Shield -->
+		<ingredient count="8684650" id="57" />
+		<production count="1" id="8142" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Sprite's Staff -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="92" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Sprite's Staff - Magic Regeneration -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4897" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Sprite's Staff - Mental Shield -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4898" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Staff of Evil Spirits -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="210" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Staff of Evil Spirits - Blessed Body -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4901" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Staff of Evil Spirits - Magic Focus -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4900" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Staff of Evil Spirits - Magic Poison -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4902" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Staff of Nobility -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="211" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Staff of Phantom -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="207" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Staff of Seal -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="208" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Star Buster -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="7901" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Star Buster - Haste -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8133" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Star Buster - Health -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8132" />
+	</item>
+	<item>
+		<!-- B-Grade Blunts: Star Buster - Rsk. Focus -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8134" />
+	</item>
+</list>

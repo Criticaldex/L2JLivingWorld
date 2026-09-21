@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../data/xsd/classMaster.xsd">
+	<classMaster classChangeEnabled="true" spawnClassMasters="true" showPopupWindow="true">
+		<classChangeOption name="Free">
+			<appliesTo>
+				<category>FIRST_CLASS_GROUP</category>
+			</appliesTo>
+		</classChangeOption>
+		<classChangeOption name="Free Second Class">
+			<appliesTo>
+				<category>SECOND_CLASS_GROUP</category>
+			</appliesTo>
+		</classChangeOption>
+		<classChangeOption name="Free Third Class">
+			<appliesTo>
+				<category>THIRD_CLASS_GROUP</category>
+			</appliesTo>
+			<rewards>
+				<item id="6622" count="1" /> Book of Giants
+			</rewards>
+		</classChangeOption>
+	</classMaster>
+</list>

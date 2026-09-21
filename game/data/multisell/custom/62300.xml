@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- Scroll: Enchant Armor (Grade A) -->
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="730" />
+	</item>
+	<item>
+		<!-- Scroll: Enchant Armor (Grade B) -->
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="948" />
+	</item>
+	<item>
+		<!-- Scroll: Enchant Armor (Grade C) -->
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="952" />
+	</item>
+	<item>
+		<!-- Scroll: Enchant Armor (Grade D) -->
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="956" />
+	</item>
+	<item>
+		<!-- Scroll: Enchant Armor (Grade S) -->
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="960" />
+	</item>
+	<item>
+		<!-- Scroll: Enchant Weapon (Grade A) -->
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="729" />
+	</item>
+	<item>
+		<!-- Scroll: Enchant Weapon (Grade B) -->
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="947" />
+	</item>
+	<item>
+		<!-- Scroll: Enchant Weapon (Grade C) -->
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="951" />
+	</item>
+	<item>
+		<!-- Scroll: Enchant Weapon (Grade D) -->
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="955" />
+	</item>
+	<item>
+		<!-- Scroll: Enchant Weapon (Grade S) -->
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="959" />
+	</item>
+</list>

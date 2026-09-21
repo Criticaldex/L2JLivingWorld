@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- C-Grade Blunts: Battle Axe -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="160" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Battle Axe - Anger -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4729" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Battle Axe - Haste -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4731" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Battle Axe - Rsk. Focus -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4730" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Big Hammer -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="89" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Big Hammer - Haste -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4728" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Big Hammer - Health -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4726" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Big Hammer - Rsk. Focus -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4727" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Club of Nature -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="201" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Club of Nature - Acumen -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7710" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Club of Nature - Magic Hold -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7712" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Club of Nature - Mental Shield -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7711" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Crystal Staff -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="192" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Crystal Staff - Blessed Body -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4869" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Crystal Staff - Mana Up -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4868" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Crystal Staff - Rsk. Evasion -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4867" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Cursed Staff -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="195" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Cursed Staff - Magic Hold -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4873" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Cursed Staff - Magic Poison -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4874" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Cursed Staff - Magic Weakness -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4875" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Deadman's Staff -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="204" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Deadman's Staff - Magic Hold -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4890" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Deadman's Staff - Magic Regeneration -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4888" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Deadman's Staff - Mental Shield -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4889" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Demon's Staff -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="206" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Demon's Staff - Magic Chaos -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4896" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Demon's Staff - Magic Poison -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4894" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Demon's Staff - Magic Weakness -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4895" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Dwarven Hammer -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="7897" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Dwarven Hammer - Anger -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8121" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Dwarven Hammer - Critical Bleed -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8122" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Dwarven Hammer - Health -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8120" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Dwarven War Hammer -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="2502" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Dwarven War Hammer - Anger -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4738" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Dwarven War Hammer - Haste -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4740" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Dwarven War Hammer - Health -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4739" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Ecliptic Axe -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="7891" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Ecliptic Axe - Conversion -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8138" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Ecliptic Axe - M. Atk. -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8139" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Ecliptic Axe - Magic Hold -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8140" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Ghoul's Staff -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="205" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Ghoul's Staff - Blessed Body -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4893" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Ghoul's Staff - Mana Up -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4892" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Ghoul's Staff - Rsk. Evasion -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4891" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Heavy Doom Axe -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="194" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Heavy Doom Axe - Magic Chaos -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4872" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Heavy Doom Axe - Magic Poison -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4870" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Heavy Doom Axe - Magic Weakness -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4871" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Heavy Doom Hammer -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="191" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Heavy Doom Hammer - Magic Hold -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4866" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Heavy Doom Hammer - Magic Regeneration -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4864" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Heavy Doom Hammer - Mental Shield -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4865" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Inferno Staff -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="198" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Inferno Staff - Acumen -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7716" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Inferno Staff - Magic Paralyze -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7718" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Inferno Staff - Magic Silence -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7717" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Karik Horn -->
+		<ingredient count="4295590" id="57" />
+		<production count="1" id="7898" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Karik Horn - Critical Drain -->
+		<ingredient count="4295590" id="57" />
+		<production count="1" id="8125" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Karik Horn - Focus -->
+		<ingredient count="4295590" id="57" />
+		<production count="1" id="8123" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Karik Horn - Haste -->
+		<ingredient count="4295590" id="57" />
+		<production count="1" id="8124" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Mace of Underworld -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="202" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Mace of Underworld - Conversion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7715" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Mace of Underworld - Magic Silence -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7714" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Mace of Underworld - Mana Up -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7713" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Monster Only(Ketra Orc Chieftain) -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="6719" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Nirvana Axe -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="174" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Nirvana Axe - M. Atk. -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7707" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Nirvana Axe - Magic Poison -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7708" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Nirvana Axe - Magic Weakness -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7709" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Pa'agrian Axe -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="203" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Pa'agrian Axe - Magic Chaos -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4887" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Pa'agrian Axe - Magic Weakness -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4886" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Pa'agrian Axe - Mana Up -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4885" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Pa'agrian Hammer - Magic Poison -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4880" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Pa'agrian Hammer - Magic Weakness -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4881" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Pa'agrian Hammer - Rsk. Evasion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4879" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Paradia Staff -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="197" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Paradia Staff - Magic Hold -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4878" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Paradia Staff - Magic Regeneration -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4876" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Paradia Staff - Mental Shield -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4877" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Sage's Staff -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="200" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Sage's Staff - Magic Hold -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4882" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Sage's Staff - Magic Poison -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4883" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Sage's Staff - Magic Weakness -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4884" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Silver Axe -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="161" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Silver Axe - Anger -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4732" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Silver Axe - Haste -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4734" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Silver Axe - Rsk. Focus -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4733" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Skull Graver -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="173" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Skull Graver - Anger -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4735" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Skull Graver - Health -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4736" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Skull Graver - Rsk. Focus -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4737" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Stick of Eternity -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="196" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Stick of Eternity - Blessed Body -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7706" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Stick of Eternity - Empower -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7704" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Stick of Eternity - Rsk. Evasion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7705" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Stick of Faith -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="193" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Stick of Faith - Magic Hold -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="7702" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Stick of Faith - Magic Shield -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="7703" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Stick of Faith - Mana Up -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="7701" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: War Axe -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="162" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: War Axe - Anger -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4741" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: War Axe - Haste -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4743" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: War Axe - Health -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4742" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Yaksa Mace -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="2503" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Yaksa Mace - Anger -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4744" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Yaksa Mace - Health -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4745" />
+	</item>
+	<item>
+		<!-- C-Grade Blunts: Yaksa Mace - Rsk. Focus -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4746" />
+	</item>
+</list>

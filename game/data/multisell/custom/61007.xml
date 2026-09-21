@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- A-Grade Daggers: Bloody Orchid -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="235" />
+	</item>
+	<item>
+		<!-- A-Grade Daggers: Bloody Orchid - Back Blow -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4785" />
+	</item>
+	<item>
+		<!-- A-Grade Daggers: Bloody Orchid - Back Blow -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5615" />
+	</item>
+	<item>
+		<!-- A-Grade Daggers: Bloody Orchid - Critical Bleed -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5616" />
+	</item>
+	<item>
+		<!-- A-Grade Daggers: Bloody Orchid - Evasion -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4783" />
+	</item>
+	<item>
+		<!-- A-Grade Daggers: Bloody Orchid - Focus -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4784" />
+	</item>
+	<item>
+		<!-- A-Grade Daggers: Bloody Orchid - Focus -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5614" />
+	</item>
+	<item>
+		<!-- A-Grade Daggers: Naga Storm -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8682" />
+	</item>
+	<item>
+		<!-- A-Grade Daggers: Naga Storm - Back Blow -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8802" />
+	</item>
+	<item>
+		<!-- A-Grade Daggers: Naga Storm - Critical Damage -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8801" />
+	</item>
+	<item>
+		<!-- A-Grade Daggers: Naga Storm - Focus -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8800" />
+	</item>
+	<item>
+		<!-- A-Grade Daggers: Soul Separator -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="236" />
+	</item>
+	<item>
+		<!-- A-Grade Daggers: Soul Separator - Critical Damage -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5618" />
+	</item>
+	<item>
+		<!-- A-Grade Daggers: Soul Separator - Guidance -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5617" />
+	</item>
+	<item>
+		<!-- A-Grade Daggers: Soul Separator - Rsk. Haste -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5619" />
+	</item>
+</list>

@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "opacity": 70,
+  "images": [
+    {
+      "name": "world map.png",
+      "path": "world map.png",
+      "category": "world-map",
+      "visible": true,
+      "x1": -130844,
+      "y1": -257689,
+      "x2": 236582,
+      "y2": 265642,
+      "width": 1812,
+      "height": 2620
+    }
+  ]
+}

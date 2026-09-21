@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- Bone Arrow -->
+		<ingredient count="3000" id="57" />
+		<production count="1000" id="1341" />
+	</item>
+	<item>
+		<!-- Breaking Arrow -->
+		<ingredient count="1000" id="57" />
+		<production count="1000" id="8192" />
+	</item>
+	<item>
+		<!-- Fine Steel Arrow -->
+		<ingredient count="5000" id="57" />
+		<production count="1000" id="1342" />
+	</item>
+	<item>
+		<!-- Gastraphetes and Bone Arrow -->
+		<ingredient count="1000" id="57" />
+		<production count="1000" id="9105" />
+	</item>
+	<item>
+		<!-- Imperial Arrowhead -->
+		<ingredient count="1000" id="57" />
+		<production count="1000" id="3721" />
+	</item>
+	<item>
+		<!-- Mithril Arrow -->
+		<ingredient count="8000" id="57" />
+		<production count="1000" id="1344" />
+	</item>
+	<item>
+		<!-- Orcish Arrowhead -->
+		<ingredient count="1000" id="57" />
+		<production count="1000" id="963" />
+	</item>
+	<item>
+		<!-- Shining Arrow -->
+		<ingredient count="10000" id="57" />
+		<production count="1000" id="1345" />
+	</item>
+	<item>
+		<!-- Silver Arrow -->
+		<ingredient count="7000" id="57" />
+		<production count="1000" id="1343" />
+	</item>
+	<item>
+		<!-- Tamrin Orc's Arrow -->
+		<ingredient count="1000" id="57" />
+		<production count="1000" id="2777" />
+	</item>
+	<item>
+		<!-- Wooden Arrow -->
+		<ingredient count="304000" id="57" />
+		<production count="1000" id="17" />
+	</item>
+</list>

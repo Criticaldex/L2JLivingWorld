@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- C-Grade Heavy Armor: Chain Gaiters -->
+		<ingredient count="316000" id="57" />
+		<production count="1" id="381" />
+	</item>
+	<item>
+		<!-- C-Grade Heavy Armor: Chain Mail Shirt -->
+		<ingredient count="505000" id="57" />
+		<production count="1" id="354" />
+	</item>
+	<item>
+		<!-- C-Grade Heavy Armor: Composite Armor -->
+		<ingredient count="1440000" id="57" />
+		<production count="1" id="60" />
+	</item>
+	<item>
+		<!-- C-Grade Heavy Armor: Dwarven Chain Gaiters -->
+		<ingredient count="403000" id="57" />
+		<production count="1" id="382" />
+	</item>
+	<item>
+		<!-- C-Grade Heavy Armor: Dwarven Chain Mail Shirt -->
+		<ingredient count="644000" id="57" />
+		<production count="1" id="355" />
+	</item>
+	<item>
+		<!-- C-Grade Heavy Armor: Full Plate Armor -->
+		<ingredient count="2090000" id="57" />
+		<production count="1" id="356" />
+	</item>
+</list>

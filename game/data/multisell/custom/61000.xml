@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- A-Grade Heavy Armor: Apella Plate Armor -->
+		<ingredient count="7524400" id="57" />
+		<production count="1" id="7861" />
+	</item>
+	<item>
+		<!-- A-Grade Heavy Armor: Armor of Nightmare -->
+		<ingredient count="10300000" id="57" />
+		<production count="1" id="374" />
+	</item>
+	<item>
+		<!-- A-Grade Heavy Armor: Dark Crystal Breastplate -->
+		<ingredient count="4630000" id="57" />
+		<production count="1" id="365" />
+	</item>
+	<item>
+		<!-- A-Grade Heavy Armor: Dark Crystal Gaiters -->
+		<ingredient count="2890000" id="57" />
+		<production count="1" id="388" />
+	</item>
+	<item>
+		<!-- A-Grade Heavy Armor: Majestic Plate Armor -->
+		<ingredient count="10300000" id="57" />
+		<production count="1" id="2383" />
+	</item>
+	<item>
+		<!-- A-Grade Heavy Armor: Sealed Apella Plate Armor -->
+		<ingredient count="7524400" id="57" />
+		<production count="1" id="7871" />
+	</item>
+	<item>
+		<!-- A-Grade Heavy Armor: Sealed Armor of Nightmare -->
+		<ingredient count="10300000" id="57" />
+		<production count="1" id="5311" />
+	</item>
+	<item>
+		<!-- A-Grade Heavy Armor: Sealed Dark Crystal breastplate -->
+		<ingredient count="4630000" id="57" />
+		<production count="1" id="5287" />
+	</item>
+	<item>
+		<!-- A-Grade Heavy Armor: Sealed Dark Crystal Gaiters -->
+		<ingredient count="2890000" id="57" />
+		<production count="1" id="5288" />
+	</item>
+	<item>
+		<!-- A-Grade Heavy Armor: Sealed Majestic Plate Armor -->
+		<ingredient count="10300000" id="57" />
+		<production count="1" id="5316" />
+	</item>
+	<item>
+		<!-- A-Grade Heavy Armor: Sealed Tallum Plate Armor -->
+		<ingredient count="6770000" id="57" />
+		<production count="1" id="5293" />
+	</item>
+	<item>
+		<!-- A-Grade Heavy Armor: Tallum Plate Armor -->
+		<ingredient count="6770000" id="57" />
+		<production count="1" id="2382" />
+	</item>
+</list>

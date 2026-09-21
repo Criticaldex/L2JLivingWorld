@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- C-Grade Etc: Blessed Branch -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="329" />
+	</item>
+	<item>
+		<!-- C-Grade Etc: Candle of Wisdom -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="328" />
+	</item>
+	<item>
+		<!-- C-Grade Etc: Cerberus Eye -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="331" />
+	</item>
+	<item>
+		<!-- C-Grade Etc: Claws of Black Dragon -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="333" />
+	</item>
+	<item>
+		<!-- C-Grade Etc: Heathen's Book -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="326" />
+	</item>
+	<item>
+		<!-- C-Grade Etc: Hex Doll -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="327" />
+	</item>
+	<item>
+		<!-- C-Grade Etc: Horn of Glory -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="325" />
+	</item>
+	<item>
+		<!-- C-Grade Etc: Phoenix Feather -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="330" />
+	</item>
+	<item>
+		<!-- C-Grade Etc: Scroll of Destruction -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="332" />
+	</item>
+	<item>
+		<!-- C-Grade Etc: Tears of Fairy -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="324" />
+	</item>
+	<item>
+		<!-- C-Grade Etc: Three Eyed Crow's Feather -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="334" />
+	</item>
+</list>

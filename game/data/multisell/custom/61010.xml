@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- A-Grade Etc: Deathbringer Sword -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="345" />
+	</item>
+	<item>
+		<!-- A-Grade Etc: Enchanted Flute -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="342" />
+	</item>
+	<item>
+		<!-- A-Grade Etc: Forgotten Tome -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="341" />
+	</item>
+	<item>
+		<!-- A-Grade Etc: Headless Arrow -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="343" />
+	</item>
+	<item>
+		<!-- A-Grade Etc: Proof of Overlord -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="344" />
+	</item>
+</list>

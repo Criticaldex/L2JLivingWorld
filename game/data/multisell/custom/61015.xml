@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- B-Grade Light Armor: Ace's Leather Armor -->
+		<ingredient count="5080000" id="57" />
+		<production count="1" id="407" />
+	</item>
+	<item>
+		<!-- B-Grade Light Armor: Avadon Leather Armor -->
+		<ingredient count="2280000" id="57" />
+		<production count="1" id="2390" />
+	</item>
+	<item>
+		<!-- B-Grade Light Armor: Blue Wolf Leather Armor -->
+		<ingredient count="3530000" id="57" />
+		<production count="1" id="2391" />
+	</item>
+	<item>
+		<!-- B-Grade Light Armor: Chain Mail of Silence -->
+		<ingredient count="3530000" id="57" />
+		<production count="1" id="402" />
+	</item>
+	<item>
+		<!-- B-Grade Light Armor: Gaiters of Underworld -->
+		<ingredient count="2170000" id="57" />
+		<production count="1" id="422" />
+	</item>
+	<item>
+		<!-- B-Grade Light Armor: Guardian's Leather Armor -->
+		<ingredient count="2410000" id="57" />
+		<production count="1" id="408" />
+	</item>
+	<item>
+		<!-- B-Grade Light Armor: Guardian's Leather Gaiters -->
+		<ingredient count="1510000" id="57" />
+		<production count="1" id="423" />
+	</item>
+	<item>
+		<!-- B-Grade Light Armor: Gust Chain Mail -->
+		<ingredient count="5080000" id="57" />
+		<production count="1" id="403" />
+	</item>
+	<item>
+		<!-- B-Grade Light Armor: Leather Armor of Concentration -->
+		<ingredient count="3530000" id="57" />
+		<production count="1" id="406" />
+	</item>
+	<item>
+		<!-- B-Grade Light Armor: Leather Armor of Doom -->
+		<ingredient count="3530000" id="57" />
+		<production count="1" id="2392" />
+	</item>
+	<item>
+		<!-- B-Grade Light Armor: Leather Armor of Underworld -->
+		<ingredient count="3470000" id="57" />
+		<production count="1" id="405" />
+	</item>
+	<item>
+		<!-- B-Grade Light Armor: Marksman's Leather Armor -->
+		<ingredient count="3470000" id="57" />
+		<production count="1" id="409" />
+	</item>
+	<item>
+		<!-- B-Grade Light Armor: Marksman's Leather Gaiters -->
+		<ingredient count="2170000" id="57" />
+		<production count="1" id="424" />
+	</item>
+	<item>
+		<!-- B-Grade Light Armor: Prairie Leather Armor -->
+		<ingredient count="2410000" id="57" />
+		<production count="1" id="404" />
+	</item>
+	<item>
+		<!-- B-Grade Light Armor: Prairie Leather Gaiters -->
+		<ingredient count="1510000" id="57" />
+		<production count="1" id="421" />
+	</item>
+	<item>
+		<!-- B-Grade Light Armor: Zubei's Leather Gaiters -->
+		<ingredient count="973000" id="57" />
+		<production count="1" id="2388" />
+	</item>
+	<item>
+		<!-- B-Grade Light Armor: Zubei's Leather Shirt -->
+		<ingredient count="1560000" id="57" />
+		<production count="1" id="2384" />
+	</item>
+</list>

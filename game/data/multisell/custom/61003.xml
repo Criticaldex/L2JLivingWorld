@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- A-Grade Robe Armor: Apella Doublet -->
+		<ingredient count="5643300" id="57" />
+		<production count="1" id="7867" />
+	</item>
+	<item>
+		<!-- A-Grade Robe Armor: Dark Crystal Robe -->
+		<ingredient count="5080000" id="57" />
+		<production count="1" id="2407" />
+	</item>
+	<item>
+		<!-- A-Grade Robe Armor: Dasparion's Robe -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="459" />
+	</item>
+	<item>
+		<!-- A-Grade Robe Armor: Majestic Robe -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="2409" />
+	</item>
+	<item>
+		<!-- A-Grade Robe Armor: Robe of Nightmare -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="2408" />
+	</item>
+	<item>
+		<!-- A-Grade Robe Armor: Sealed Apella Doublet -->
+		<ingredient count="5643300" id="57" />
+		<production count="1" id="7877" />
+	</item>
+	<item>
+		<!-- A-Grade Robe Armor: Sealed Dark Crystal Robe -->
+		<ingredient count="5080000" id="57" />
+		<production count="1" id="5308" />
+	</item>
+	<item>
+		<!-- A-Grade Robe Armor: Sealed Majestic Robe -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="5329" />
+	</item>
+	<item>
+		<!-- A-Grade Robe Armor: Sealed Robe of Nightmare -->
+		<ingredient count="7730000" id="57" />
+		<production count="1" id="5326" />
+	</item>
+	<item>
+		<!-- A-Grade Robe Armor: Sealed Tallum Stockings -->
+		<ingredient count="2170000" id="57" />
+		<production count="1" id="5305" />
+	</item>
+	<item>
+		<!-- A-Grade Robe Armor: Sealed Tallum Tunic -->
+		<ingredient count="3470000" id="57" />
+		<production count="1" id="5304" />
+	</item>
+	<item>
+		<!-- A-Grade Robe Armor: Tallum Stockings -->
+		<ingredient count="2170000" id="57" />
+		<production count="1" id="2405" />
+	</item>
+	<item>
+		<!-- A-Grade Robe Armor: Tallum Tunic -->
+		<ingredient count="3470000" id="57" />
+		<production count="1" id="2400" />
+	</item>
+</list>

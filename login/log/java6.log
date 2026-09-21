@@ -1,0 +1,22 @@
+2026.09.19 18:04:40,821	INFO	3	org.l2jmobius.commons.database.DatabaseFactory	Database: HikariCP pool initialized successfully.
+2026.09.19 18:04:40,921	INFO	3	org.l2jmobius.commons.database.DatabaseFactory	Database: Initialized with a valid connection.
+2026.09.19 18:04:40,926	INFO	3	org.l2jmobius.commons.threads.ThreadPool	ThreadPool: Initializing.
+2026.09.19 18:04:40,927	INFO	3	org.l2jmobius.commons.threads.ThreadPool	...scheduled pool executor with 2 total threads.
+2026.09.19 18:04:40,927	INFO	3	org.l2jmobius.commons.threads.ThreadPool	...instant pool executor with 2 total threads.
+2026.09.19 18:04:40,928	INFO	3	org.l2jmobius.loginserver.LoginController	Loading LoginController...
+2026.09.19 18:04:41,054	INFO	3	org.l2jmobius.loginserver.LoginController	Cached 10 KeyPairs for RSA communication.
+2026.09.19 18:04:41,061	INFO	3	org.l2jmobius.loginserver.LoginController	Stored 20 keys for Blowfish communication.
+2026.09.19 18:04:41,099	INFO	3	org.l2jmobius.loginserver.GameServerTable	Loaded 127 server names.
+2026.09.19 18:04:41,106	INFO	3	org.l2jmobius.loginserver.GameServerTable	Loaded 1 registered Game Servers.
+2026.09.19 18:04:41,133	INFO	3	org.l2jmobius.loginserver.GameServerTable	Cached 10 RSA keys for Game Server communication.
+2026.09.19 18:04:41,133	INFO	3	org.l2jmobius.loginserver.LoginServer	Loaded 2 IP Bans.
+2026.09.19 18:04:41,134	INFO	3	org.l2jmobius.loginserver.LoginServer	Game server listener is listening on 127.0.0.1:9014.
+2026.09.19 18:04:41,138	INFO	3	org.l2jmobius.loginserver.LoginServer	LoginServer: Login client listener started on 0.0.0.0:2106.
+2026.09.19 18:04:50,354	INFO	74	org.l2jmobius.loginserver.GameServerThread	Updated Gameserver [2] Sieghardt IP's:
+2026.09.19 18:04:50,355	INFO	74	org.l2jmobius.loginserver.GameServerThread	127.0.0.1/127.0.0.0/8
+2026.09.19 18:04:50,355	INFO	74	org.l2jmobius.loginserver.GameServerThread	10.0.0.0/10.0.0.0/8
+2026.09.19 18:04:50,355	INFO	74	org.l2jmobius.loginserver.GameServerThread	172.16.0.0/172.16.0.0/19
+2026.09.19 18:04:50,355	INFO	74	org.l2jmobius.loginserver.GameServerThread	192.168.0.0/192.168.0.0/16
+2026.09.19 18:04:50,355	INFO	74	org.l2jmobius.loginserver.GameServerThread	192.168.0.0/192.168.0.0/24
+2026.09.19 18:04:50,355	INFO	74	org.l2jmobius.loginserver.GameServerThread	192.168.1.0/192.168.1.0/24
+2026.09.19 18:04:50,355	INFO	74	org.l2jmobius.loginserver.GameServerThread	100.117.161.64/0.0.0.0/0

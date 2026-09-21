@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- A-Grade Other Armor: (Not In Use) Holy Spirit's Cloak -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="622" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Apella Boots - Light Armor -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7866" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Apella Gauntlet - Heavy Armor -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7862" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Apella Helm -->
+		<ingredient count="1736800" id="57" />
+		<production count="1" id="7860" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Apella Leather Gloves - Light Armor -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7865" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Apella Sandals - Robe -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7869" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Apella Silk Gloves - Robe -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7868" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Apella Solleret - Heavy Armor -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7863" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Blood Boots -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="598" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Boots of Nightmare -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2440" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Boots of Nightmare - Heavy Armor -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5783" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Boots of Nightmare - Light Armor -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5784" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Boots of Nightmare - Robe -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5785" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Boots of Phantom -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="589" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Boots of Underworld -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="575" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Cerberus Boots -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="593" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Cerberus Gloves -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2484" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Cerberus Necklace -->
+		<ingredient count="2600000" id="57" />
+		<production count="1" id="934" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Close Helmet -->
+		<ingredient count="1560000" id="57" />
+		<production count="1" id="502" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Dark Crystal Boots -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="563" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Dark Crystal Boots - Heavy Armor -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5777" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Dark Crystal Boots - Light Armor -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5778" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Dark Crystal Boots - Robe -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5779" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Dark Crystal Gloves -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="2472" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Dark Crystal Gloves - Heavy Armor -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5765" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Dark Crystal Gloves - Light Armor -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5766" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Dark Crystal Gloves - Robe -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5767" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Dark Crystal Helmet -->
+		<ingredient count="1740000" id="57" />
+		<production count="1" id="512" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Dark Crystal Shield -->
+		<ingredient count="1220000" id="57" />
+		<production count="1" id="641" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Dark Legion Boots -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2441" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Dark Legion Gloves -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2471" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Dark Vagian Helm -->
+		<ingredient count="2640000" id="57" />
+		<production count="1" id="516" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Dasparion's Boots -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2442" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Dasparion's Gloves -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2474" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Divine Cloak -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="623" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Dragon Boots -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="555" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Dragon Scale Boots -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2445" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Elven Vagian Helm -->
+		<ingredient count="2040000" id="57" />
+		<production count="1" id="515" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Gauntlets of Nightmare -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2479" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Gauntlets of Nightmare - Heavy Armor -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5771" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Gauntlets of Nightmare - Light Armor -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5772" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Gauntlets of Nightmare - Robe -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5773" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Glorious Helmet -->
+		<ingredient count="2040000" id="57" />
+		<production count="1" id="509" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Gloves of Black Ore -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="2489" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Gloves of Phantom -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2470" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Gloves of Underworld -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="2469" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Gust Boots -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="573" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Gust Bracer -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="2483" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Hell Helm -->
+		<ingredient count="2640000" id="57" />
+		<production count="1" id="518" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Helm of Nightmare -->
+		<ingredient count="2640000" id="57" />
+		<production count="1" id="2418" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Majestic Boots -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="583" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Majestic Boots - Heavy Armor -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5786" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Majestic Boots - Light Armor -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5787" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Majestic Boots - Robe -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5788" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Majestic Circlet -->
+		<ingredient count="2640000" id="57" />
+		<production count="1" id="2419" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Majestic Gauntlets -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="2482" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Majestic Gauntlets - Heavy Armor -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5774" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Majestic Gauntlets - Light Armor -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5775" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Majestic Gauntlets - Robe -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5776" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Majestic Necklace -->
+		<ingredient count="3450000" id="57" />
+		<production count="1" id="924" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Masterpiece Helm -->
+		<ingredient count="2640000" id="57" />
+		<production count="1" id="520" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Necklace of Phantom -->
+		<ingredient count="2600000" id="57" />
+		<production count="1" id="930" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Phoenix Boots -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="592" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Phoenix Gloves -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="2488" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Phoenix Necklace -->
+		<ingredient count="2600000" id="57" />
+		<production count="1" id="933" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Red Flame Boots -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="561" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Red Flame Helmet -->
+		<ingredient count="2640000" id="57" />
+		<production count="1" id="510" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sand Dragon Gloves -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="613" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Apella Boots -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7876" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Apella Gauntlet -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7872" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Apella Helm -->
+		<ingredient count="1736800" id="57" />
+		<production count="1" id="7870" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Apella Leather Gloves -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7875" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Apella Sandals -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7879" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Apella Silk Gloves -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7878" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Apella Solleret -->
+		<ingredient count="1157000" id="57" />
+		<production count="1" id="7873" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Boots of Nightmare -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5314" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Boots of Phantom -->
+		<ingredient count="1630000" id="57" />
+		<production count="1" id="5325" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Boots of Underworld -->
+		<ingredient count="1070000" id="57" />
+		<production count="1" id="5300" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Cerberus Boots -->
+		<ingredient count="1630000" id="57" />
+		<production count="1" id="5328" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Cerberus Gloves -->
+		<ingredient count="1630000" id="57" />
+		<production count="1" id="5327" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Dark Crystal Boots -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5291" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Dark Crystal Gloves -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5290" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Dark Crystal Helmet -->
+		<ingredient count="1740000" id="57" />
+		<production count="1" id="5289" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Dark Crystal Shield -->
+		<ingredient count="1220000" id="57" />
+		<production count="1" id="5292" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Dark Legion Boots -->
+		<ingredient count="1630000" id="57" />
+		<production count="1" id="5322" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Dark Legion Gloves -->
+		<ingredient count="1630000" id="57" />
+		<production count="1" id="5321" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Dasparion's Gloves -->
+		<ingredient count="1630000" id="57" />
+		<production count="1" id="5330" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Gauntlets of Nightmare -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5313" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Gloves of Black Ore -->
+		<ingredient count="1070000" id="57" />
+		<production count="1" id="5306" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Gloves of Phantom -->
+		<ingredient count="1630000" id="57" />
+		<production count="1" id="5324" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Gust Boots -->
+		<ingredient count="1070000" id="57" />
+		<production count="1" id="5303" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Gust Bracer -->
+		<ingredient count="1070000" id="57" />
+		<production count="1" id="5302" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Helm of Nightmare -->
+		<ingredient count="2640000" id="57" />
+		<production count="1" id="5312" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Majestic Boots -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5319" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Majestic Circlet -->
+		<ingredient count="2640000" id="57" />
+		<production count="1" id="5317" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Majestic Gauntlets -->
+		<ingredient count="1760000" id="57" />
+		<production count="1" id="5318" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Majestic Necklace -->
+		<ingredient count="2600000" id="57" />
+		<production count="1" id="6326" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Phoenix Boots -->
+		<ingredient count="1070000" id="57" />
+		<production count="1" id="5310" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Phoenix Gloves -->
+		<ingredient count="1070000" id="57" />
+		<production count="1" id="5309" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Phoenix Necklace -->
+		<ingredient count="1740000" id="57" />
+		<production count="1" id="6323" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Red Flame Boots -->
+		<ingredient count="1070000" id="57" />
+		<production count="1" id="5307" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Shield of Nightmare -->
+		<ingredient count="1850000" id="57" />
+		<production count="1" id="5315" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Tallum Boots -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5296" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Tallum Gloves -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5295" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Sealed Tallum Helmet -->
+		<ingredient count="1740000" id="57" />
+		<production count="1" id="5294" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Shield of Nightmare -->
+		<ingredient count="1850000" id="57" />
+		<production count="1" id="2498" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Tallum Boots - Heavy Armor -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5780" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Tallum Boots - Light Armor -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5781" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Tallum Boots - Robe -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5782" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Tallum Gloves -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="2478" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Tallum Gloves - Heavy Armor -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5768" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Tallum Gloves - Light Armor -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5769" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Tallum Gloves - Robe -->
+		<ingredient count="1160000" id="57" />
+		<production count="1" id="5770" />
+	</item>
+	<item>
+		<!-- A-Grade Other Armor: Tallum Helm -->
+		<ingredient count="1740000" id="57" />
+		<production count="1" id="547" />
+	</item>
+</list>

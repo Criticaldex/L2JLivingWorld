@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- A-Grade Jewels: Cerberus Earring -->
+		<ingredient count="1950000" id="57" />
+		<production count="1" id="872" />
+	</item>
+	<item>
+		<!-- A-Grade Jewels: Cerberus Ring -->
+		<ingredient count="1300000" id="57" />
+		<production count="1" id="903" />
+	</item>
+	<item>
+		<!-- A-Grade Jewels: Earring of Orfen -->
+		<ingredient count="1300000" id="57" />
+		<production count="1" id="6661" />
+	</item>
+	<item>
+		<!-- A-Grade Jewels: Earring of Phantom -->
+		<ingredient count="1950000" id="57" />
+		<production count="1" id="868" />
+	</item>
+	<item>
+		<!-- A-Grade Jewels: Majestic Earring -->
+		<ingredient count="2590000" id="57" />
+		<production count="1" id="862" />
+	</item>
+	<item>
+		<!-- A-Grade Jewels: Majestic Ring -->
+		<ingredient count="1730000" id="57" />
+		<production count="1" id="893" />
+	</item>
+	<item>
+		<!-- A-Grade Jewels: Nightmarish Tattoo -->
+		<ingredient count="5280000" id="57" />
+		<production count="1" id="2410" />
+	</item>
+	<item>
+		<!-- A-Grade Jewels: Phoenix Earring -->
+		<ingredient count="1950000" id="57" />
+		<production count="1" id="871" />
+	</item>
+	<item>
+		<!-- A-Grade Jewels: Phoenix Ring -->
+		<ingredient count="1300000" id="57" />
+		<production count="1" id="902" />
+	</item>
+	<item>
+		<!-- A-Grade Jewels: Ring of Core -->
+		<ingredient count="2400" id="57" />
+		<production count="1" id="6662" />
+	</item>
+	<item>
+		<!-- A-Grade Jewels: Sealed Majestic Earring -->
+		<ingredient count="1950000" id="57" />
+		<production count="1" id="6327" />
+	</item>
+	<item>
+		<!-- A-Grade Jewels: Sealed Majestic Ring -->
+		<ingredient count="6143" id="57" />
+		<production count="1" id="6328" />
+	</item>
+	<item>
+		<!-- A-Grade Jewels: Sealed Phoenix Earring -->
+		<ingredient count="1310000" id="57" />
+		<production count="1" id="6324" />
+	</item>
+	<item>
+		<!-- A-Grade Jewels: Sealed Phoenix Ring -->
+		<ingredient count="871000" id="57" />
+		<production count="1" id="6325" />
+	</item>
+	<item>
+		<!-- A-Grade Jewels: Tattoo of Absolute -->
+		<ingredient count="5280000" id="57" />
+		<production count="1" id="491" />
+	</item>
+	<item>
+		<!-- A-Grade Jewels: Tattoo of Blood -->
+		<ingredient count="3470000" id="57" />
+		<production count="1" id="490" />
+	</item>
+	<item>
+		<!-- A-Grade Jewels: Underwear of Rule -->
+		<ingredient count="880000" id="57" />
+		<production count="1" id="684" />
+	</item>
+</list>

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- A-Grade Blunts: _ -->
+		<ingredient count="16600000" id="57" />
+		<production count="1" id="170" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Barakiel's Axe -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8680" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Barakiel's Axe - Focus -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8796" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Barakiel's Axe - Haste -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8795" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Barakiel's Axe - Health -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8794" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Behemoth's Tuning Fork -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8681" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Behemoth's Tuning Fork - Focus -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8797" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Behemoth's Tuning Fork - Health -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8798" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Branch of the Mother Tree -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="213" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Branch of the Mother Tree - Acumen -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5607" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Branch of the Mother Tree - Conversion -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5605" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Branch of the Mother Tree - Magic Damage -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5606" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Cabrio's Hand -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8687" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Cabrio's Hand - Conversion -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8815" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Cabrio's Hand - Magic Silence -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8817" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Cabrio's Hand - Mana Up -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8816" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Daimon Crystal -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8688" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Daimon Crystal - Acumen -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8819" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Daimon Crystal - Mana Up -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8818" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Daimon Crystal - Mental Shield -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8820" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Dasparion's Staff -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="212" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Dasparion's Staff -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4903" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Dasparion's Staff -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4904" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Dasparion's Staff - Acumen -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5598" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Dasparion's Staff - Conversion -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5597" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Dasparion's Staff - Mana Up -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5596" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Destroyer Hammer - Critical Drain -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8128" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Destroyer Hammer - Haste -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8127" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Destroyer Hammer - Health -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8126" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Doom Crusher -->
+		<ingredient count="26963300" id="57" />
+		<production count="1" id="7902" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Doom Crusher - Anger -->
+		<ingredient count="26963300" id="57" />
+		<production count="1" id="8136" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Doom Crusher - Health -->
+		<ingredient count="26963300" id="57" />
+		<production count="1" id="8135" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Doom Crusher - Rsk. Haste -->
+		<ingredient count="26963300" id="57" />
+		<production count="1" id="8137" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Elrokian Trap -->
+		<ingredient count="5000" id="57" />
+		<production count="1" id="8763" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Elysian -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="164" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Elysian - Anger -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5603" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Elysian - Critical Drain -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5604" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Elysian - Health -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5602" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Flaming Dragon Skull -->
+		<ingredient count="26963300" id="57" />
+		<production count="1" id="7895" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Flaming Dragon Skull - Acumen -->
+		<ingredient count="26963300" id="57" />
+		<production count="1" id="8150" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Flaming Dragon Skull - M. Atk. -->
+		<ingredient count="26963300" id="57" />
+		<production count="1" id="8151" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Flaming Dragon Skull - Magic Silence -->
+		<ingredient count="10000" id="57" />
+		<production count="1" id="8152" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Meteor Shower -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="2504" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Meteor Shower - Critical Bleed -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5600" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Meteor Shower - Focus -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4757" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Meteor Shower - Health -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4756" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Meteor Shower - P.Focus -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4758" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Meteor Shower - Rsk. Haste -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5601" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Spiritual Eye -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="7894" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Spiritual Eye - Acumen -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8149" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Spiritual Eye - Magic Poison -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8148" />
+	</item>
+	<item>
+		<!-- A-Grade Blunts: Spiritual Eye - Mana Up -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8147" />
+	</item>
+</list>

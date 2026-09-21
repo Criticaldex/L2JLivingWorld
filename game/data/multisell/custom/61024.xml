@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- B-Grade Etc: Blood Crystal -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="339" />
+	</item>
+	<item>
+		<!-- B-Grade Etc: Scroll of Mana -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="336" />
+	</item>
+	<item>
+		<!-- B-Grade Etc: Scroll of Massacre -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="337" />
+	</item>
+	<item>
+		<!-- B-Grade Etc: Soul Crystal -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="335" />
+	</item>
+	<item>
+		<!-- B-Grade Etc: Unicorn's Horn -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="340" />
+	</item>
+	<item>
+		<!-- B-Grade Etc: Wyvern's Skull -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="338" />
+	</item>
+</list>

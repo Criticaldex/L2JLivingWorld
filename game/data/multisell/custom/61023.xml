@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- B-Grade Dualfist: Arthro Nail -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="267" />
+	</item>
+	<item>
+		<!-- B-Grade Dualfist: Arthro Nail - Critical Poison -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4801" />
+	</item>
+	<item>
+		<!-- B-Grade Dualfist: Arthro Nail - Rsk. Evasion -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4802" />
+	</item>
+	<item>
+		<!-- B-Grade Dualfist: Arthro Nail - Rsk. Haste -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4803" />
+	</item>
+	<item>
+		<!-- B-Grade Dualfist: Bellion Cestus -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="268" />
+	</item>
+	<item>
+		<!-- B-Grade Dualfist: Bellion Cestus - Critical Drain -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4804" />
+	</item>
+	<item>
+		<!-- B-Grade Dualfist: Bellion Cestus - Critical Poison -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4805" />
+	</item>
+	<item>
+		<!-- B-Grade Dualfist: Bellion Cestus - Rsk. Haste -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4806" />
+	</item>
+	<item>
+		<!-- B-Grade Dualfist: Pata -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="264" />
+	</item>
+</list>

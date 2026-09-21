@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- A-Grade Polearms: Halberd -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="98" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Halberd - Critical Stun -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4861" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Halberd - Critical Stun -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5627" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Halberd - Haste -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5626" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Halberd - Towering Blow -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4862" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Halberd - Wide Blow -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4863" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Halberd - Wide Blow -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5628" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Orcish Halberd -->
+		<ingredient count="21300000" id="57" />
+		<production count="1" id="304" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Orcish Halberd -->
+		<ingredient count="21300000" id="57" />
+		<production count="1" id="5629" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Orcish Halberd -->
+		<ingredient count="21300000" id="57" />
+		<production count="1" id="5630" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Orcish Halberd -->
+		<ingredient count="21300000" id="57" />
+		<production count="1" id="5631" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Tallum Glaive -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="305" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Tallum Glaive - Guidance -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5632" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Tallum Glaive - Health -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5633" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Tallum Glaive - Wide Blow -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5634" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Tiphon's Spear -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8683" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Tiphon's Spear - Critical Stun -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8803" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Tiphon's Spear - Towering Blow -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8804" />
+	</item>
+	<item>
+		<!-- A-Grade Polearms: Tiphon's Spear - Wild Blow -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8805" />
+	</item>
+</list>

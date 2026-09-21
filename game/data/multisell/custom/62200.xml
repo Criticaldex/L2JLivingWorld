@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- Blessed Spiritshot: A-Grade -->
+		<ingredient count="290000" id="57" />
+		<production count="1000" id="3951" />
+	</item>
+	<item>
+		<!-- Compressed Package of Blessed Spiritshots: A-grade -->
+		<ingredient count="95700000" id="57" />
+		<production count="1000" id="5150" />
+	</item>
+	<item>
+		<!-- Compressed Package of Soulshots: A-grade -->
+		<ingredient count="26400000" id="57" />
+		<production count="1000" id="5138" />
+	</item>
+	<item>
+		<!-- Compressed Package of Spiritshots: A-grade -->
+		<ingredient count="39600000" id="57" />
+		<production count="1000" id="5144" />
+	</item>
+	<item>
+		<!-- Greater Compressed Package of Blessed Spiritshots: A-grade -->
+		<ingredient count="319000000" id="57" />
+		<production count="1000" id="5266" />
+	</item>
+	<item>
+		<!-- Greater Compressed Package of Soulshots: A-grade -->
+		<ingredient count="88000000" id="57" />
+		<production count="1000" id="5254" />
+	</item>
+	<item>
+		<!-- Greater Compressed Package of Spiritshots: A-grade -->
+		<ingredient count="132000000" id="57" />
+		<production count="1000" id="5260" />
+	</item>
+	<item>
+		<!-- Soulshot: A-grade -->
+		<ingredient count="80000" id="57" />
+		<production count="1000" id="1466" />
+	</item>
+	<item>
+		<!-- Spiritshot: A-grade -->
+		<ingredient count="120000" id="57" />
+		<production count="1000" id="2513" />
+	</item>
+</list>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- B-Grade Heavy Armor: Armor of Victory -->
+		<ingredient count="3220000" id="57" />
+		<production count="1" id="360" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Art of Plate -->
+		<ingredient count="4710000" id="57" />
+		<production count="1" id="372" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Avadon Breastplate -->
+		<ingredient count="2080000" id="57" />
+		<production count="1" id="2376" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Avadon Gaiters -->
+		<ingredient count="1300000" id="57" />
+		<production count="1" id="2379" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Blue Wolf Breastplate -->
+		<ingredient count="3220000" id="57" />
+		<production count="1" id="358" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Blue Wolf Gaiters -->
+		<ingredient count="2010000" id="57" />
+		<production count="1" id="2380" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Breastplate of Valor -->
+		<ingredient count="4630000" id="57" />
+		<production count="1" id="361" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Complete Set of Plate Armor -->
+		<ingredient count="4710000" id="57" />
+		<production count="1" id="370" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Dark Dragon Armor -->
+		<ingredient count="6770000" id="57" />
+		<production count="1" id="367" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Dark Vagian Armor -->
+		<ingredient count="6770000" id="57" />
+		<production count="1" id="369" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Doom Plate Armor -->
+		<ingredient count="4710000" id="57" />
+		<production count="1" id="2381" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Elven Crystal Breastplate -->
+		<ingredient count="3220000" id="57" />
+		<production count="1" id="364" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Elven Crystal Gaiters -->
+		<ingredient count="2010000" id="57" />
+		<production count="1" id="387" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Elven Vagian Armor -->
+		<ingredient count="4710000" id="57" />
+		<production count="1" id="368" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Gaiters of Valor -->
+		<ingredient count="2890000" id="57" />
+		<production count="1" id="386" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Gaiters of Victory -->
+		<ingredient count="2010000" id="57" />
+		<production count="1" id="385" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Glorious Armor -->
+		<ingredient count="4710000" id="57" />
+		<production count="1" id="362" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Hell Plate -->
+		<ingredient count="6770000" id="57" />
+		<production count="1" id="371" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Implosion Armor -->
+		<ingredient count="4710000" id="57" />
+		<production count="1" id="366" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Masterpiece Armor -->
+		<ingredient count="6770000" id="57" />
+		<production count="1" id="373" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Red Flame Armor -->
+		<ingredient count="6770000" id="57" />
+		<production count="1" id="363" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Shining Dragon Armor -->
+		<ingredient count="6770000" id="57" />
+		<production count="1" id="359" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Wolf Gaiters -->
+		<ingredient count="2010000" id="57" />
+		<production count="1" id="384" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Zubei's Breastplate -->
+		<ingredient count="2080000" id="57" />
+		<production count="1" id="357" />
+	</item>
+	<item>
+		<!-- B-Grade Heavy Armor: Zubei's Gaiters -->
+		<ingredient count="1300000" id="57" />
+		<production count="1" id="383" />
+	</item>
+</list>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- C-Grade Light Armor: Drake Leather Armor -->
+		<ingredient count="1570000" id="57" />
+		<production count="1" id="401" />
+	</item>
+	<item>
+		<!-- C-Grade Light Armor: Mithril Shirt -->
+		<ingredient count="379000" id="57" />
+		<production count="1" id="397" />
+	</item>
+	<item>
+		<!-- C-Grade Light Armor: Plated Leather -->
+		<ingredient count="446000" id="57" />
+		<production count="1" id="398" />
+	</item>
+	<item>
+		<!-- C-Grade Light Armor: Plated Leather Gaiters -->
+		<ingredient count="279000" id="57" />
+		<production count="1" id="418" />
+	</item>
+	<item>
+		<!-- C-Grade Light Armor: Reinforced Mithril Gaiters -->
+		<ingredient count="237000" id="57" />
+		<production count="1" id="2387" />
+	</item>
+	<item>
+		<!-- C-Grade Light Armor: Rind Leather Gaiters -->
+		<ingredient count="302000" id="57" />
+		<production count="1" id="419" />
+	</item>
+	<item>
+		<!-- C-Grade Light Armor: Theca Leather Armor -->
+		<ingredient count="825000" id="57" />
+		<production count="1" id="400" />
+	</item>
+	<item>
+		<!-- C-Grade Light Armor: Theca Leather Gaiters -->
+		<ingredient count="516000" id="57" />
+		<production count="1" id="420" />
+	</item>
+</list>

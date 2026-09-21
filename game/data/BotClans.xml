@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Bot clans (read by BotClanManager on boot).
+
+	Each <clan> becomes a real, in-memory Clan that phantoms can belong to, so their crest and clan name show
+	over their heads and in the clan window like any player clan. Bot clans are NOT written to clan_data - they
+	are rebuilt every boot from this file. Only their crests persist (in the crests table), and those are reused
+	across reboots by matching bytes, so nothing accumulates.
+
+	A phantom joins a bot clan in one of two ways:
+	  1. Per population: set botClan / botClanChance on a <population> in PhantomPopulations.xml.
+	  2. Recruited parties: each recruited phantom rolls settings.recruitClanChance to wear a random bot clan.
+
+	<settings> attributes (all optional):
+	  recruitClanChance    - % chance a recruited (LFM) phantom wears a random bot clan (0..100, default 0 = never).
+	  fakePlayerClanChance - % chance a generated town fake player wears a random bot clan (0..100, default 0 = never).
+	  pledgeCrestFile      - clan crest file name loaded from data/crests/<crestSet>/ (default "pledge_16x12.dds").
+	  allyCrestFile        - ally crest file name loaded from data/crests/<crestSet>/ (default "ally_8x12.dds").
+
+	<clan> attributes:
+	  key      - unique internal key referenced by botClan="..." in PhantomPopulations.xml (required).
+	  name     - the in-game clan name shown to players (required, keep <= 16 characters, no spaces).
+	  level    - clan level (default 5). Purely cosmetic for bot clans.
+	  crestSet - folder under data/crests/ holding this clan's crest files (default = key).
+
+	<alliance> groups bot clans into an alliance so their ally name and ally crest show like a real one. Like the
+	clans, alliances are in-memory only (never written to clan_data). A clan belongs to at most one alliance.
+	  name     - the in-game alliance name (required, alphanumeric, 2..16 characters, no spaces).
+	  leader   - key of the leader clan (required); its clan id becomes the alliance id (retail convention).
+	  crestSet - folder under data/crests/ holding the shared ally crest (default = the leader's key).
+	  <member clan="KEY" /> - each additional clan in the alliance (the leader is a member implicitly).
+
+	NOTE ON CRESTS: the Interlude client decodes a clan crest as a DDS (DXT1) texture, not a PNG, and rejects any
+	crest whose dimensions are not powers of two. The .png files under data/crests/<crestSet>/ are the editable
+	design source; the .dds files next to them (padded to the next power of two: 16x16 pledge, 8x16 ally, 32x16
+	large) are what the client renders and what pledgeCrestFile points at. The client shows only the original crest
+	region, so the padding is never seen. Regenerate the .dds files after editing a .png with
+	tools/crest_png_to_dds.py. The clan name, membership and clan window do not depend on the crest rendering.
+-->
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./xsd/BotClans.xsd">
+	<settings recruitClanChance="60" fakePlayerClanChance="47" pledgeCrestFile="pledge_16x12.dds" allyCrestFile="ally_8x12.dds" />
+
+	<clan key="Azure_Dragon" name="AzureDragon" level="5" crestSet="Azure_Dragon" />
+	<clan key="Blood_Raven" name="BloodRaven" level="5" crestSet="Blood_Raven" />
+	<clan key="Crimson_Phoenix" name="CrimsonPhoenix" level="5" crestSet="Crimson_Phoenix" />
+	<clan key="Emerald_Serpent" name="EmeraldSerpent" level="5" crestSet="Emerald_Serpent" />
+	<clan key="Frost_Moon" name="FrostMoon" level="5" crestSet="Frost_Moon" />
+	<clan key="Golden_Lion" name="GoldenLion" level="5" crestSet="Golden_Lion" />
+	<clan key="Iron_Hammer" name="IronHammer" level="5" crestSet="Iron_Hammer" />
+	<clan key="Ivory_Crown" name="IvoryCrown" level="5" crestSet="Ivory_Crown" />
+	<clan key="Obsidian_Eye" name="ObsidianEye" level="5" crestSet="Obsidian_Eye" />
+	<clan key="Silver_Wolf" name="SilverWolf" level="5" crestSet="Silver_Wolf" />
+	<clan key="Sun_Spear" name="SunSpear" level="5" crestSet="Sun_Spear" />
+	<clan key="Violet_Spider" name="VioletSpider" level="5" crestSet="Violet_Spider" />
+
+	<!-- Three alliances of four clans each. The leader's ally crest (data/crests/<leader>/ally_8x12.dds) is shared. -->
+	<alliance name="DragonPact" leader="Azure_Dragon" crestSet="Azure_Dragon">
+		<member clan="Emerald_Serpent" />
+		<member clan="Frost_Moon" />
+		<member clan="Silver_Wolf" />
+	</alliance>
+	<alliance name="PhoenixOrder" leader="Crimson_Phoenix" crestSet="Crimson_Phoenix">
+		<member clan="Golden_Lion" />
+		<member clan="Sun_Spear" />
+		<member clan="Ivory_Crown" />
+	</alliance>
+	<alliance name="RavenCovenant" leader="Blood_Raven" crestSet="Blood_Raven">
+		<member clan="Obsidian_Eye" />
+		<member clan="Iron_Hammer" />
+		<member clan="Violet_Spider" />
+	</alliance>
+</list>

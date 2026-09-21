@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="playstyle" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="skill" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="id" type="xs:positiveInteger" use="required" />
+									<xs:attribute name="name" type="xs:string" />
+									<xs:attribute name="use" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:token">
+												<xs:enumeration value="OPENER" />
+												<xs:enumeration value="ROTATION" />
+												<xs:enumeration value="AOE" />
+												<xs:enumeration value="DEBUFF" />
+												<xs:enumeration value="CONTROL" />
+												<xs:enumeration value="PANIC" />
+												<xs:enumeration value="LIMIT" />
+												<xs:enumeration value="PULL" />
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="when" type="xs:string" />
+									<xs:attribute name="hpBelow" type="xs:positiveInteger" />
+									<xs:attribute name="hpAbove" type="xs:nonNegativeInteger" />
+									<xs:attribute name="selfHpBelow" type="xs:positiveInteger" />
+									<xs:attribute name="mpAbove" type="xs:nonNegativeInteger" />
+									<xs:attribute name="mobsAtLeast" type="xs:positiveInteger" />
+									<xs:attribute name="chargesAtLeast" type="xs:positiveInteger" />
+									<xs:attribute name="chargesBelow" type="xs:positiveInteger" />
+									<xs:attribute name="paceMs" type="xs:positiveInteger" />
+									<xs:attribute name="minLevel" type="xs:positiveInteger" />
+									<xs:attribute name="maxLevel" type="xs:positiveInteger" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="name" type="xs:string" use="required" />
+						<xs:attribute name="classIds" type="xs:string" use="required" />
+						<xs:attribute name="role">
+							<xs:simpleType>
+								<xs:restriction base="xs:token">
+									<xs:enumeration value="TANK" />
+									<xs:enumeration value="WARRIOR" />
+									<xs:enumeration value="ARCHER" />
+									<xs:enumeration value="DAGGER" />
+									<xs:enumeration value="MONK" />
+									<xs:enumeration value="SINGER" />
+									<xs:enumeration value="DANCER" />
+									<xs:enumeration value="NUKER" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

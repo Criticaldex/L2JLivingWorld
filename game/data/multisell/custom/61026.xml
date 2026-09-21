@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- B-Grade Polearms: Great Axe -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="300" />
+	</item>
+	<item>
+		<!-- B-Grade Polearms: Great Axe - Anger -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4855" />
+	</item>
+	<item>
+		<!-- B-Grade Polearms: Great Axe - Critical Stun -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4856" />
+	</item>
+	<item>
+		<!-- B-Grade Polearms: Great Axe - Light -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4857" />
+	</item>
+	<item>
+		<!-- B-Grade Polearms: Lance -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="97" />
+	</item>
+	<item>
+		<!-- B-Grade Polearms: Lance - Anger -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4858" />
+	</item>
+	<item>
+		<!-- B-Grade Polearms: Lance - Critical Stun -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4859" />
+	</item>
+	<item>
+		<!-- B-Grade Polearms: Lance - Towering Blow -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4860" />
+	</item>
+</list>

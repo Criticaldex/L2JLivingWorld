@@ -1,0 +1,9 @@
+runtime-linux/
+mariadb/
+jre/
+*.exe
+*.pdb
+*.so
+ib_logfile*
+src.zip
+modules

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- C-Grade Dualfist: Chakram -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="263" />
+	</item>
+	<item>
+		<!-- C-Grade Dualfist: Chakram - Critical Drain -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4789" />
+	</item>
+	<item>
+		<!-- C-Grade Dualfist: Chakram - Critical Poison -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4790" />
+	</item>
+	<item>
+		<!-- C-Grade Dualfist: Chakram - Rsk. Haste -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4791" />
+	</item>
+	<item>
+		<!-- C-Grade Dualfist: Fisted Blade -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="265" />
+	</item>
+	<item>
+		<!-- C-Grade Dualfist: Fisted Blade - Haste -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4794" />
+	</item>
+	<item>
+		<!-- C-Grade Dualfist: Fisted Blade - Rsk. Evasion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4792" />
+	</item>
+	<item>
+		<!-- C-Grade Dualfist: Fisted Blade - Rsk. Haste -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4793" />
+	</item>
+	<item>
+		<!-- C-Grade Dualfist: Great Pata -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="266" />
+	</item>
+	<item>
+		<!-- C-Grade Dualfist: Great Pata - Critical Drain -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4795" />
+	</item>
+	<item>
+		<!-- C-Grade Dualfist: Great Pata - Critical Poison -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4796" />
+	</item>
+	<item>
+		<!-- C-Grade Dualfist: Great Pata - Rsk. Haste -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4797" />
+	</item>
+	<item>
+		<!-- C-Grade Dualfist: Knuckle Duster -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4233" />
+	</item>
+	<item>
+		<!-- C-Grade Dualfist: Knuckle Duster - Haste -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4800" />
+	</item>
+	<item>
+		<!-- C-Grade Dualfist: Knuckle Duster - Rsk. Evasion -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4798" />
+	</item>
+</list>

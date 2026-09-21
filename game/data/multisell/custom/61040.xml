@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- C-Grade Polearms: Bec de Corbin -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="94" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Bec de Corbin - Critical Stun -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4843" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Bec de Corbin - Light -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4845" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Bec de Corbin - Towering Blow -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4844" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Body Slasher -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="302" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Body Slasher - Critical Stun -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4840" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Body Slasher - Towering Blow -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4841" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Body Slasher - Wide Blow -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4842" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Orcish Glaive -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="298" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Orcish Glaive - Anger -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4837" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Orcish Glaive - Critical Stun -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4838" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Orcish Glaive - Towering Blow -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4839" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Orcish Poleaxe - Critical Stun -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4852" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Orcish Poleaxe - Towering Blow -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4853" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Orcish Poleaxe - Wide Blow -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4854" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Poleaxe -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="95" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Poleaxe - Critical Stun -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7719" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Poleaxe - Towering Blow -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7720" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Poleaxe - Wide Blow -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7721" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Scorpion -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="301" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Scorpion - Anger -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4846" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Scorpion - Critical Stun -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4847" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Scorpion - Towering Blow -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4848" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Scythe -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="96" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Scythe - Anger -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4834" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Scythe - Critical Stun -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4835" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Scythe - Light -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4836" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Widow Maker -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="303" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Widow Maker - Critical Stun -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4849" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Widow Maker - Towering Blow -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4850" />
+	</item>
+	<item>
+		<!-- C-Grade Polearms: Widow Maker - Wide Blow -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4851" />
+	</item>
+</list>

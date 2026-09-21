@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- Shots: Beast Soulshot -->
+		<ingredient count="20000" id="57" />
+		<production count="1000" id="6645" />
+	</item>
+	<item>
+		<!-- Shots: Beast Spiritshot -->
+		<ingredient count="40000" id="57" />
+		<production count="1000" id="6646" />
+	</item>
+	<item>
+		<!-- Shots: Blessed Beast Spiritshot -->
+		<ingredient count="100000" id="57" />
+		<production count="1000" id="6647" />
+	</item>
+	<item>
+		<!-- Shots: Blessed Spiritshot: A-Grade -->
+		<ingredient count="290000" id="57" />
+		<production count="1000" id="3951" />
+	</item>
+	<item>
+		<!-- Shots: Blessed Spiritshot: B-Grade -->
+		<ingredient count="245000" id="57" />
+		<production count="1000" id="3950" />
+	</item>
+	<item>
+		<!-- Shots: Blessed Spiritshot: C-Grade -->
+		<ingredient count="90000" id="57" />
+		<production count="1000" id="3949" />
+	</item>
+	<item>
+		<!-- Shots: Blessed Spiritshot: D-Grade -->
+		<ingredient count="45000" id="57" />
+		<production count="1000" id="3948" />
+	</item>
+	<item>
+		<!-- Shots: Blessed Spiritshot: No Grade -->
+		<ingredient count="35000" id="57" />
+		<production count="1000" id="3947" />
+	</item>
+	<item>
+		<!-- Shots: Blessed Spiritshot: S Grade -->
+		<ingredient count="350000" id="57" />
+		<production count="1000" id="3952" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Blessed Spiritshots: A-grade -->
+		<ingredient count="95700000" id="57" />
+		<production count="1000" id="5150" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Blessed Spiritshots: B-grade -->
+		<ingredient count="80850000" id="57" />
+		<production count="1000" id="5149" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Blessed Spiritshots: C-grade -->
+		<ingredient count="29700000" id="57" />
+		<production count="1000" id="5148" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Blessed Spiritshots: D-grade -->
+		<ingredient count="14850000" id="57" />
+		<production count="1000" id="5147" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Blessed Spiritshots: No Grade -->
+		<ingredient count="11550000" id="57" />
+		<production count="1000" id="5146" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Blessed Spiritshots: S-grade -->
+		<ingredient count="115500000" id="57" />
+		<production count="1000" id="5151" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Soulshots: A-grade -->
+		<ingredient count="26400000" id="57" />
+		<production count="1000" id="5138" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Soulshots: B-grade -->
+		<ingredient count="16500000" id="57" />
+		<production count="1000" id="5137" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Soulshots: C-grade -->
+		<ingredient count="4950000" id="57" />
+		<production count="1000" id="5136" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Soulshots: D-grade -->
+		<ingredient count="3300000" id="57" />
+		<production count="1000" id="5135" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Soulshots: No Grade -->
+		<ingredient count="2300000" id="57" />
+		<production count="1000" id="5134" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Soulshots: S-grade -->
+		<ingredient count="33000000" id="57" />
+		<production count="1000" id="5139" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Spiritshots: A-grade -->
+		<ingredient count="39600000" id="57" />
+		<production count="1000" id="5144" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Spiritshots: B-grade -->
+		<ingredient count="33000000" id="57" />
+		<production count="1000" id="5143" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Spiritshots: C-grade -->
+		<ingredient count="11550000" id="57" />
+		<production count="1000" id="5142" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Spiritshots: D-grade -->
+		<ingredient count="5940000" id="57" />
+		<production count="1000" id="5141" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Spiritshots: No Grade -->
+		<ingredient count="4950000" id="57" />
+		<production count="1000" id="5140" />
+	</item>
+	<item>
+		<!-- Shots: Compressed Package of Spiritshots: S-grade -->
+		<ingredient count="49500000" id="57" />
+		<production count="1000" id="5145" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Blessed Spiritshots: A-grade -->
+		<ingredient count="319000000" id="57" />
+		<production count="1000" id="5266" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Blessed Spiritshots: B-grade -->
+		<ingredient count="269500000" id="57" />
+		<production count="1000" id="5265" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Blessed Spiritshots: C-grade -->
+		<ingredient count="99000000" id="57" />
+		<production count="1000" id="5264" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Blessed Spiritshots: D-grade -->
+		<ingredient count="49500000" id="57" />
+		<production count="1000" id="5263" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Blessed Spiritshots: No-grade -->
+		<ingredient count="38500000" id="57" />
+		<production count="1000" id="5262" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Blessed Spiritshots: S-grade -->
+		<ingredient count="419000000" id="57" />
+		<production count="1000" id="5267" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Soulshots: A-grade -->
+		<ingredient count="88000000" id="57" />
+		<production count="1000" id="5254" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Soulshots: B-grade -->
+		<ingredient count="55000000" id="57" />
+		<production count="1000" id="5253" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Soulshots: C-grade -->
+		<ingredient count="16500000" id="57" />
+		<production count="1000" id="5252" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Soulshots: D-grade -->
+		<ingredient count="11000000" id="57" />
+		<production count="1000" id="5251" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Soulshots: No-grade -->
+		<ingredient count="7700000" id="57" />
+		<production count="1000" id="5250" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Soulshots: S-grade -->
+		<ingredient count="120000000" id="57" />
+		<production count="1000" id="5255" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Spiritshots: A-grade -->
+		<ingredient count="132000000" id="57" />
+		<production count="1000" id="5260" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Spiritshots: B-grade -->
+		<ingredient count="110000000" id="57" />
+		<production count="1000" id="5259" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Spiritshots: C-grade -->
+		<ingredient count="38500000" id="57" />
+		<production count="1000" id="5258" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Spiritshots: D-grade -->
+		<ingredient count="19800000" id="57" />
+		<production count="1000" id="5257" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Spiritshots: No-grade -->
+		<ingredient count="16500000" id="57" />
+		<production count="1000" id="5256" />
+	</item>
+	<item>
+		<!-- Shots: Greater Compressed Package of Spiritshots: S-grade -->
+		<ingredient count="180000000" id="57" />
+		<production count="1000" id="5261" />
+	</item>
+	<item>
+		<!-- Shots: Soulshot: A-grade -->
+		<ingredient count="80000" id="57" />
+		<production count="1000" id="1466" />
+	</item>
+	<item>
+		<!-- Shots: Soulshot: B-grade -->
+		<ingredient count="50000" id="57" />
+		<production count="1000" id="1465" />
+	</item>
+	<item>
+		<!-- Shots: Soulshot: C-grade -->
+		<ingredient count="15000" id="57" />
+		<production count="1000" id="1464" />
+	</item>
+	<item>
+		<!-- Shots: Soulshot: D-grade -->
+		<ingredient count="10000" id="57" />
+		<production count="1000" id="1463" />
+	</item>
+	<item>
+		<!-- Shots: Soulshot: No Grade -->
+		<ingredient count="7000" id="57" />
+		<production count="1000" id="1835" />
+	</item>
+	<item>
+		<!-- Shots: Soulshot: S-grade -->
+		<ingredient count="100000" id="57" />
+		<production count="1000" id="1467" />
+	</item>
+	<item>
+		<!-- Shots: Spiritshot: A-grade -->
+		<ingredient count="120000" id="57" />
+		<production count="1000" id="2513" />
+	</item>
+	<item>
+		<!-- Shots: Spiritshot: B-grade -->
+		<ingredient count="100000" id="57" />
+		<production count="1000" id="2512" />
+	</item>
+	<item>
+		<!-- Shots: Spiritshot: C-grade -->
+		<ingredient count="35000" id="57" />
+		<production count="1000" id="2511" />
+	</item>
+	<item>
+		<!-- Shots: Spiritshot: D-grade -->
+		<ingredient count="18000" id="57" />
+		<production count="1000" id="2510" />
+	</item>
+	<item>
+		<!-- Shots: Spiritshot: No Grade -->
+		<ingredient count="15000" id="57" />
+		<production count="1000" id="2509" />
+	</item>
+	<item>
+		<!-- Shots: Spiritshot: S-grade -->
+		<ingredient count="150000" id="57" />
+		<production count="1000" id="2514" />
+	</item>
+</list>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- C-Grade Daggers: Crystal Dagger -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="228" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Crystal Dagger - Critical Bleed -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4774" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Crystal Dagger - Critical Damage -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="6358" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Crystal Dagger - Critical Poison -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4775" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Crystal Dagger - Mortal Strike -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4776" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Cursed Dagger -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="226" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Cursed Dagger - Critical Bleed -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4759" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Cursed Dagger - Critical Poison -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4760" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Cursed Dagger - Rsk. Haste -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4761" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Dark Elven Dagger -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="232" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Dark Elven Dagger - Back Blow -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4763" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Dark Elven Dagger - Focus -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4762" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Dark Elven Dagger - Mortal Strike -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4764" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Dark Elven Dagger - Rsk. Haste -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="6356" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Dark Screamer -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="233" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Dark Screamer - Critical Bleed -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4773" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Dark Screamer - Evasion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4771" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Dark Screamer - Focus -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4772" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Grace Dagger -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="231" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Grace Dagger - Back Blow -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4770" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Grace Dagger - Evasion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4768" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Grace Dagger - Focus -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4769" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Soulfire Dirk -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="242" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Soulfire Dirk - Magic Hold -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="7811" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Soulfire Dirk - Magic Silence -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="7812" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Soulfire Dirk - Mana Up -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="7810" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Stiletto -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="227" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Stiletto - Critical Bleed -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4765" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Stiletto - Critical Poison -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4766" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Stiletto - Mortal Strike -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4767" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Stiletto - Rsk. Haste -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="6357" />
+	</item>
+	<item>
+		<!-- C-Grade Daggers: Wolverine Needle -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="230" />
+	</item>
+</list>

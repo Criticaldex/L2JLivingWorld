@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- B-Grade Jewels: Adamantite Earring -->
+		<ingredient count="606000" id="57" />
+		<production count="1" id="856" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Adamantite Ring -->
+		<ingredient count="404000" id="57" />
+		<production count="1" id="887" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Earring of Aid -->
+		<ingredient count="606000" id="57" />
+		<production count="1" id="873" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Earring of Black Ore -->
+		<ingredient count="924000" id="57" />
+		<production count="1" id="864" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Earring of Blessing -->
+		<ingredient count="606000" id="57" />
+		<production count="1" id="874" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Earring of Grace -->
+		<ingredient count="606000" id="57" />
+		<production count="1" id="869" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Earring of Holy Spirit -->
+		<ingredient count="924000" id="57" />
+		<production count="1" id="870" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Earring of Mana -->
+		<ingredient count="606000" id="57" />
+		<production count="1" id="859" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Earring of Solar Eclipse -->
+		<ingredient count="606000" id="57" />
+		<production count="1" id="863" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Earring of Summoning -->
+		<ingredient count="606000" id="57" />
+		<production count="1" id="865" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Elemental Earring -->
+		<ingredient count="924000" id="57" />
+		<production count="1" id="867" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Elemental Ring -->
+		<ingredient count="616000" id="57" />
+		<production count="1" id="898" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Holy Undergarment Set -->
+		<ingredient count="402000" id="57" />
+		<production count="1" id="683" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Otherworldly Earring -->
+		<ingredient count="924000" id="57" />
+		<production count="1" id="866" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Otherworldly Ring -->
+		<ingredient count="616000" id="57" />
+		<production count="1" id="897" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Paradia Earring -->
+		<ingredient count="924000" id="57" />
+		<production count="1" id="861" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Paradia Ring -->
+		<ingredient count="616000" id="57" />
+		<production count="1" id="892" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Ring of Aid -->
+		<ingredient count="404000" id="57" />
+		<production count="1" id="904" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Ring of Black Ore -->
+		<ingredient count="616000" id="57" />
+		<production count="1" id="895" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Ring of Blessing -->
+		<ingredient count="404000" id="57" />
+		<production count="1" id="905" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Ring of Grace -->
+		<ingredient count="404000" id="57" />
+		<production count="1" id="900" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Ring of Holy Spirit -->
+		<ingredient count="616000" id="57" />
+		<production count="1" id="901" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Ring of Mana -->
+		<ingredient count="404000" id="57" />
+		<production count="1" id="117" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Ring of Queen Ant -->
+		<ingredient count="616000" id="57" />
+		<production count="1" id="6660" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Ring of Solar Eclipse -->
+		<ingredient count="404000" id="57" />
+		<production count="1" id="894" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Ring of Summoning -->
+		<ingredient count="404000" id="57" />
+		<production count="1" id="896" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Sage's Earring -->
+		<ingredient count="924000" id="57" />
+		<production count="1" id="860" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Sage's Ring -->
+		<ingredient count="616000" id="57" />
+		<production count="1" id="891" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Tattoo of Avadon -->
+		<ingredient count="1560000" id="57" />
+		<production count="1" id="493" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Tattoo of Divine -->
+		<ingredient count="2410000" id="57" />
+		<production count="1" id="496" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Tattoo of Doom -->
+		<ingredient count="2410000" id="57" />
+		<production count="1" id="494" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Tattoo of Flame -->
+		<ingredient count="3470000" id="57" />
+		<production count="1" id="488" />
+	</item>
+	<item>
+		<!-- B-Grade Jewels: Tattoo of Pledge -->
+		<ingredient count="1560000" id="57" />
+		<production count="1" id="495" />
+	</item>
+</list>

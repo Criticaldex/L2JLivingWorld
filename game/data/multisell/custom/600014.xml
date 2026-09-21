@@ -1,0 +1,3336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- A-grade _ -->
+		<ingredient count="16600000" id="57" />
+		<production count="1" id="170" />
+	</item>
+	<item>
+		<!-- A-grade Barakiel's Axe -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8680" />
+	</item>
+	<item>
+		<!-- A-grade Barakiel's Axe - Focus -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8796" />
+	</item>
+	<item>
+		<!-- A-grade Barakiel's Axe - Haste -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8795" />
+	</item>
+	<item>
+		<!-- A-grade Barakiel's Axe - Health -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8794" />
+	</item>
+	<item>
+		<!-- A-grade Behemoth's Tuning Fork -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8681" />
+	</item>
+	<item>
+		<!-- A-grade Behemoth's Tuning Fork - Anger -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8799" />
+	</item>
+	<item>
+		<!-- A-grade Behemoth's Tuning Fork - Focus -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8797" />
+	</item>
+	<item>
+		<!-- A-grade Behemoth's Tuning Fork - Health -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8798" />
+	</item>
+	<item>
+		<!-- A-grade Blood Tornado -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="269" />
+	</item>
+	<item>
+		<!-- A-grade Blood Tornado - Anger -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5622" />
+	</item>
+	<item>
+		<!-- A-grade Blood Tornado - Critical Drain -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4807" />
+	</item>
+	<item>
+		<!-- A-grade Blood Tornado - Focus -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5621" />
+	</item>
+	<item>
+		<!-- A-grade Blood Tornado - Haste -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4809" />
+	</item>
+	<item>
+		<!-- A-grade Blood Tornado - Haste -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5620" />
+	</item>
+	<item>
+		<!-- A-grade Blood Tornado - Rsk. Evasion -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4808" />
+	</item>
+	<item>
+		<!-- A-grade Bloody Orchid -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="235" />
+	</item>
+	<item>
+		<!-- A-grade Bloody Orchid - Back Blow -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4785" />
+	</item>
+	<item>
+		<!-- A-grade Bloody Orchid - Back Blow -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5615" />
+	</item>
+	<item>
+		<!-- A-grade Bloody Orchid - Critical Bleed -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5616" />
+	</item>
+	<item>
+		<!-- A-grade Bloody Orchid - Evasion -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4783" />
+	</item>
+	<item>
+		<!-- A-grade Bloody Orchid - Focus -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4784" />
+	</item>
+	<item>
+		<!-- A-grade Bloody Orchid - Focus -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5614" />
+	</item>
+	<item>
+		<!-- A-grade Branch of the Mother Tree -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="213" />
+	</item>
+	<item>
+		<!-- A-grade Branch of the Mother Tree - Acumen -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5607" />
+	</item>
+	<item>
+		<!-- A-grade Branch of the Mother Tree - Conversion -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5605" />
+	</item>
+	<item>
+		<!-- A-grade Branch of the Mother Tree - Magic Damage -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5606" />
+	</item>
+	<item>
+		<!-- A-grade Cabrio's Hand -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8687" />
+	</item>
+	<item>
+		<!-- A-grade Cabrio's Hand - Conversion -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8815" />
+	</item>
+	<item>
+		<!-- A-grade Cabrio's Hand - Magic Silence -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8817" />
+	</item>
+	<item>
+		<!-- A-grade Cabrio's Hand - Mana Up -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8816" />
+	</item>
+	<item>
+		<!-- A-grade Carnage Bow -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="288" />
+	</item>
+	<item>
+		<!-- A-grade Carnage Bow - Critical Bleed -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4831" />
+	</item>
+	<item>
+		<!-- A-grade Carnage Bow - Critical Bleed -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5609" />
+	</item>
+	<item>
+		<!-- A-grade Carnage Bow - Light -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5608" />
+	</item>
+	<item>
+		<!-- A-grade Carnage Bow - Mana Up -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4832" />
+	</item>
+	<item>
+		<!-- A-grade Carnage Bow - Mana Up -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5610" />
+	</item>
+	<item>
+		<!-- A-grade Carnage Bow - Quick Recovery -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4833" />
+	</item>
+	<item>
+		<!-- A-grade Cygnus Pole -->
+		<ingredient count="4000000" id="57" />
+		<production count="1" id="6533" />
+	</item>
+	<item>
+		<!-- A-grade Daimon Crystal -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8688" />
+	</item>
+	<item>
+		<!-- A-grade Daimon Crystal - Acumen -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8819" />
+	</item>
+	<item>
+		<!-- A-grade Daimon Crystal - Mana Up -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8818" />
+	</item>
+	<item>
+		<!-- A-grade Daimon Crystal - Mental Shield -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8820" />
+	</item>
+	<item>
+		<!-- A-grade Damascus * Tallum Blade -->
+		<ingredient count="6250" id="57" />
+		<production count="1" id="8938" />
+	</item>
+	<item>
+		<!-- A-grade Damascus*Damascus -->
+		<ingredient count="500" id="57" />
+		<production count="1" id="5706" />
+	</item>
+	<item>
+		<!-- A-grade Dark Legion's Edge -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="2500" />
+	</item>
+	<item>
+		<!-- A-grade Dark Legion's Edge - Critical Damage -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5647" />
+	</item>
+	<item>
+		<!-- A-grade Dark Legion's Edge - Health -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5648" />
+	</item>
+	<item>
+		<!-- A-grade Dark Legion's Edge - Rsk. Focus -->
+		<ingredient count="50" id="57" />
+		<production count="1" id="5649" />
+	</item>
+	<item>
+		<!-- A-grade Dasparion's Staff -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="212" />
+	</item>
+	<item>
+		<!-- A-grade Dasparion's Staff -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4903" />
+	</item>
+	<item>
+		<!-- A-grade Dasparion's Staff -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4904" />
+	</item>
+	<item>
+		<!-- A-grade Dasparion's Staff -->
+		<ingredient count="16080" id="57" />
+		<production count="1" id="4905" />
+	</item>
+	<item>
+		<!-- A-grade Dasparion's Staff - Acumen -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5598" />
+	</item>
+	<item>
+		<!-- A-grade Dasparion's Staff - Conversion -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5597" />
+	</item>
+	<item>
+		<!-- A-grade Dasparion's Staff - Mana Up -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5596" />
+	</item>
+	<item>
+		<!-- A-grade Deathbringer Sword -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="345" />
+	</item>
+	<item>
+		<!-- A-grade Destroyer Hammer -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="7899" />
+	</item>
+	<item>
+		<!-- A-grade Destroyer Hammer - Critical Drain -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8128" />
+	</item>
+	<item>
+		<!-- A-grade Destroyer Hammer - Haste -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8127" />
+	</item>
+	<item>
+		<!-- A-grade Destroyer Hammer - Health -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8126" />
+	</item>
+	<item>
+		<!-- A-grade Doom Crusher -->
+		<ingredient count="26963300" id="57" />
+		<production count="1" id="7902" />
+	</item>
+	<item>
+		<!-- A-grade Doom Crusher - Anger -->
+		<ingredient count="26963300" id="57" />
+		<production count="1" id="8136" />
+	</item>
+	<item>
+		<!-- A-grade Doom Crusher - Health -->
+		<ingredient count="26963300" id="57" />
+		<production count="1" id="8135" />
+	</item>
+	<item>
+		<!-- A-grade Doom Crusher - Rsk. Haste -->
+		<ingredient count="26963300" id="57" />
+		<production count="1" id="8137" />
+	</item>
+	<item>
+		<!-- A-grade Dragon Grinder -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="270" />
+	</item>
+	<item>
+		<!-- A-grade Dragon Grinder - Guidance -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5624" />
+	</item>
+	<item>
+		<!-- A-grade Dragon Grinder - Health -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5625" />
+	</item>
+	<item>
+		<!-- A-grade Dragon Grinder - Rsk. Evasion -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5623" />
+	</item>
+	<item>
+		<!-- A-grade Dragon Slayer -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="81" />
+	</item>
+	<item>
+		<!-- A-grade Dragon Slayer - Critical Bleed -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5645" />
+	</item>
+	<item>
+		<!-- A-grade Dragon Slayer - Critical Drain -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5646" />
+	</item>
+	<item>
+		<!-- A-grade Dragon Slayer - Health -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5644" />
+	</item>
+	<item>
+		<!-- A-grade Elemental Sword -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="150" />
+	</item>
+	<item>
+		<!-- A-grade Elemental Sword - Empower -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5640" />
+	</item>
+	<item>
+		<!-- A-grade Elemental Sword - M. Atk. -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5638" />
+	</item>
+	<item>
+		<!-- A-grade Elemental Sword - Magic Paralyze -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5639" />
+	</item>
+	<item>
+		<!-- A-grade Elrokian Trap -->
+		<ingredient count="5000" id="57" />
+		<production count="1" id="8763" />
+	</item>
+	<item>
+		<!-- A-grade Elysian -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="164" />
+	</item>
+	<item>
+		<!-- A-grade Elysian - Anger -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5603" />
+	</item>
+	<item>
+		<!-- A-grade Elysian - Critical Drain -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5604" />
+	</item>
+	<item>
+		<!-- A-grade Elysian - Health -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5602" />
+	</item>
+	<item>
+		<!-- A-grade Enchanted Flute -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="342" />
+	</item>
+	<item>
+		<!-- A-grade Flaming Dragon Skull -->
+		<ingredient count="26963300" id="57" />
+		<production count="1" id="7895" />
+	</item>
+	<item>
+		<!-- A-grade Flaming Dragon Skull - Acumen -->
+		<ingredient count="26963300" id="57" />
+		<production count="1" id="8150" />
+	</item>
+	<item>
+		<!-- A-grade Flaming Dragon Skull - M. Atk. -->
+		<ingredient count="26963300" id="57" />
+		<production count="1" id="8151" />
+	</item>
+	<item>
+		<!-- A-grade Flaming Dragon Skull - Magic Silence -->
+		<ingredient count="10000" id="57" />
+		<production count="1" id="8152" />
+	</item>
+	<item>
+		<!-- A-grade Forgotten Tome -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="341" />
+	</item>
+	<item>
+		<!-- A-grade Halberd -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="98" />
+	</item>
+	<item>
+		<!-- A-grade Halberd - Critical Stun -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4861" />
+	</item>
+	<item>
+		<!-- A-grade Halberd - Critical Stun -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5627" />
+	</item>
+	<item>
+		<!-- A-grade Halberd - Haste -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5626" />
+	</item>
+	<item>
+		<!-- A-grade Halberd - Towering Blow -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4862" />
+	</item>
+	<item>
+		<!-- A-grade Halberd - Wide Blow -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4863" />
+	</item>
+	<item>
+		<!-- A-grade Halberd - Wide Blow -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5628" />
+	</item>
+	<item>
+		<!-- A-grade Headless Arrow -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="343" />
+	</item>
+	<item>
+		<!-- A-grade Infernal Master -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="7884" />
+	</item>
+	<item>
+		<!-- A-grade Infernal Master - Critical Damage -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8109" />
+	</item>
+	<item>
+		<!-- A-grade Infernal Master - Focus -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8110" />
+	</item>
+	<item>
+		<!-- A-grade Infernal Master - Haste -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8108" />
+	</item>
+	<item>
+		<!-- A-grade Keshanberk*Damascus -->
+		<ingredient count="24100000" id="57" />
+		<production count="1" id="5705" />
+	</item>
+	<item>
+		<!-- A-grade Keshanberk*Keshanberk -->
+		<ingredient count="450000" id="57" />
+		<production count="1" id="5233" />
+	</item>
+	<item>
+		<!-- A-grade Keshanberk*Keshanberk -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5704" />
+	</item>
+	<item>
+		<!-- A-grade Meteor Shower -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="2504" />
+	</item>
+	<item>
+		<!-- A-grade Meteor Shower - Critical Bleed -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5600" />
+	</item>
+	<item>
+		<!-- A-grade Meteor Shower - Focus -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4757" />
+	</item>
+	<item>
+		<!-- A-grade Meteor Shower - Focus -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5599" />
+	</item>
+	<item>
+		<!-- A-grade Meteor Shower - Health -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4756" />
+	</item>
+	<item>
+		<!-- A-grade Meteor Shower - P.Focus -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4758" />
+	</item>
+	<item>
+		<!-- A-grade Meteor Shower - Rsk. Haste -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5601" />
+	</item>
+	<item>
+		<!-- A-grade Naga Storm -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8682" />
+	</item>
+	<item>
+		<!-- A-grade Naga Storm - Back Blow -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8802" />
+	</item>
+	<item>
+		<!-- A-grade Naga Storm - Critical Damage -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8801" />
+	</item>
+	<item>
+		<!-- A-grade Naga Storm - Focus -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8800" />
+	</item>
+	<item>
+		<!-- A-grade Orcish Halberd -->
+		<ingredient count="21300000" id="57" />
+		<production count="1" id="304" />
+	</item>
+	<item>
+		<!-- A-grade Orcish Halberd -->
+		<ingredient count="21300000" id="57" />
+		<production count="1" id="5629" />
+	</item>
+	<item>
+		<!-- A-grade Orcish Halberd -->
+		<ingredient count="21300000" id="57" />
+		<production count="1" id="5630" />
+	</item>
+	<item>
+		<!-- A-grade Orcish Halberd -->
+		<ingredient count="21300000" id="57" />
+		<production count="1" id="5631" />
+	</item>
+	<item>
+		<!-- A-grade Phantom Sword -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="85" />
+	</item>
+	<item>
+		<!-- A-grade Proof of Overlord -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="344" />
+	</item>
+	<item>
+		<!-- A-grade Shyeed's Bow -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8684" />
+	</item>
+	<item>
+		<!-- A-grade Shyeed's Bow - Cheap Shot -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8806" />
+	</item>
+	<item>
+		<!-- A-grade Shyeed's Bow - Focus -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8807" />
+	</item>
+	<item>
+		<!-- A-grade Shyeed's Bow - Quick Recovery -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8808" />
+	</item>
+	<item>
+		<!-- A-grade Sirra's Blade -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8678" />
+	</item>
+	<item>
+		<!-- A-grade Sirra's Blade - Critical Poison -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8790" />
+	</item>
+	<item>
+		<!-- A-grade Sirra's Blade - Haste -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8788" />
+	</item>
+	<item>
+		<!-- A-grade Sirra's Blade - Health -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8789" />
+	</item>
+	<item>
+		<!-- A-grade Sobekk's Hurricane -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8685" />
+	</item>
+	<item>
+		<!-- A-grade Sobekk's Hurricane - Critical Drain -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8811" />
+	</item>
+	<item>
+		<!-- A-grade Sobekk's Hurricane - Haste -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8810" />
+	</item>
+	<item>
+		<!-- A-grade Sobekk's Hurricane - Rsk. Haste -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8809" />
+	</item>
+	<item>
+		<!-- A-grade Soul Bow -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="289" />
+	</item>
+	<item>
+		<!-- A-grade Soul Bow - Cheap Shot -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5611" />
+	</item>
+	<item>
+		<!-- A-grade Soul Bow - Critical Poison -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5613" />
+	</item>
+	<item>
+		<!-- A-grade Soul Bow - Quick Recovery -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5612" />
+	</item>
+	<item>
+		<!-- A-grade Soul Separator -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="236" />
+	</item>
+	<item>
+		<!-- A-grade Soul Separator - Critical Damage -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5618" />
+	</item>
+	<item>
+		<!-- A-grade Soul Separator - Guidance -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5617" />
+	</item>
+	<item>
+		<!-- A-grade Soul Separator - Rsk. Haste -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5619" />
+	</item>
+	<item>
+		<!-- A-grade Spiritual Eye -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="7894" />
+	</item>
+	<item>
+		<!-- A-grade Spiritual Eye - Acumen -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8149" />
+	</item>
+	<item>
+		<!-- A-grade Spiritual Eye - Magic Poison -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8148" />
+	</item>
+	<item>
+		<!-- A-grade Spiritual Eye - Mana Up -->
+		<ingredient count="18327400" id="57" />
+		<production count="1" id="8147" />
+	</item>
+	<item>
+		<!-- A-grade Sword of Ipos -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8679" />
+	</item>
+	<item>
+		<!-- A-grade Sword of Ipos - Focus -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8791" />
+	</item>
+	<item>
+		<!-- A-grade Sword of Ipos - Haste -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8792" />
+	</item>
+	<item>
+		<!-- A-grade Sword of Ipos - Health -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8793" />
+	</item>
+	<item>
+		<!-- A-grade Sword of Life -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="149" />
+	</item>
+	<item>
+		<!-- A-grade Sword of Miracles -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="151" />
+	</item>
+	<item>
+		<!-- A-grade Sword of Miracles - Acumen -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5643" />
+	</item>
+	<item>
+		<!-- A-grade Sword of Miracles - M. Atk. -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5641" />
+	</item>
+	<item>
+		<!-- A-grade Sword of Miracles - Magic Silence -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5642" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Blade -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="80" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Blade - Anger -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5637" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Blade - Critical Poison -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5635" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Blade - Haste -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5636" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Blade - Health -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4720" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Blade - Rsk. Evasion -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4721" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Blade - Rsk. Haste -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="4722" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Glaive -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="305" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Glaive - Guidance -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5632" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Glaive - Health -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5633" />
+	</item>
+	<item>
+		<!-- A-grade Tallum Glaive - Wide Blow -->
+		<ingredient count="27000000" id="57" />
+		<production count="1" id="5634" />
+	</item>
+	<item>
+		<!-- A-grade Tear of Darkness -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="147" />
+	</item>
+	<item>
+		<!-- A-grade Themis' Tongue -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8686" />
+	</item>
+	<item>
+		<!-- A-grade Themis' Tongue - Magic Focus -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8814" />
+	</item>
+	<item>
+		<!-- A-grade Themis' Tongue - Mana Up -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8812" />
+	</item>
+	<item>
+		<!-- A-grade Themis' Tongue - Mental Shield -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8813" />
+	</item>
+	<item>
+		<!-- A-grade Tiphon's Spear -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8683" />
+	</item>
+	<item>
+		<!-- A-grade Tiphon's Spear - Critical Stun -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8803" />
+	</item>
+	<item>
+		<!-- A-grade Tiphon's Spear - Towering Blow -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8804" />
+	</item>
+	<item>
+		<!-- A-grade Tiphon's Spear - Wild Blow -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="8805" />
+	</item>
+	<item>
+		<!-- B-grade _ -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="163" />
+	</item>
+	<item>
+		<!-- B-grade Art of Battle Axe -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="175" />
+	</item>
+	<item>
+		<!-- B-grade Art of Battle Axe -->
+		<ingredient count="11600" id="57" />
+		<production count="1" id="7834" />
+	</item>
+	<item>
+		<!-- B-grade Art of Battle Axe - Haste -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4755" />
+	</item>
+	<item>
+		<!-- B-grade Art of Battle Axe - Health -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4753" />
+	</item>
+	<item>
+		<!-- B-grade Art of Battle Axe - Rsk. Focus -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4754" />
+	</item>
+	<item>
+		<!-- B-grade Arthro Nail -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="267" />
+	</item>
+	<item>
+		<!-- B-grade Arthro Nail - Critical Poison -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4801" />
+	</item>
+	<item>
+		<!-- B-grade Arthro Nail - Rsk. Evasion -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4802" />
+	</item>
+	<item>
+		<!-- B-grade Arthro Nail - Rsk. Haste -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4803" />
+	</item>
+	<item>
+		<!-- B-grade Bellion Cestus -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="268" />
+	</item>
+	<item>
+		<!-- B-grade Bellion Cestus - Critical Drain -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4804" />
+	</item>
+	<item>
+		<!-- B-grade Bellion Cestus - Critical Poison -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4805" />
+	</item>
+	<item>
+		<!-- B-grade Bellion Cestus - Rsk. Haste -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4806" />
+	</item>
+	<item>
+		<!-- B-grade Blade of Serenity -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="136" />
+	</item>
+	<item>
+		<!-- B-grade Blood Crystal -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="339" />
+	</item>
+	<item>
+		<!-- B-grade Bow of Peril -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="287" />
+	</item>
+	<item>
+		<!-- B-grade Bow of Peril - Cheap Shot -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4830" />
+	</item>
+	<item>
+		<!-- B-grade Bow of Peril - Guidance -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4828" />
+	</item>
+	<item>
+		<!-- B-grade Bow of Peril - Quick Recovery -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4829" />
+	</item>
+	<item>
+		<!-- B-grade Caliburs*Caliburs -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2606" />
+	</item>
+	<item>
+		<!-- B-grade Caliburs*Samurai Long Sword -->
+		<ingredient count="11300000" id="57" />
+		<production count="1" id="2611" />
+	</item>
+	<item>
+		<!-- B-grade Caliburs*Sword of Delusion -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2608" />
+	</item>
+	<item>
+		<!-- B-grade Caliburs*Sword of Limit -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2607" />
+	</item>
+	<item>
+		<!-- B-grade Caliburs*Sword of Nightmare -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2609" />
+	</item>
+	<item>
+		<!-- B-grade Caliburs*Tsurugi -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2610" />
+	</item>
+	<item>
+		<!-- B-grade Dark Elven Long Bow -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="284" />
+	</item>
+	<item>
+		<!-- B-grade Dark Elven Long Bow - Critical Bleed -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4826" />
+	</item>
+	<item>
+		<!-- B-grade Dark Elven Long Bow - Evasion -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4825" />
+	</item>
+	<item>
+		<!-- B-grade Dark Elven Long Bow - Miser -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4827" />
+	</item>
+	<item>
+		<!-- B-grade Deadman's Glory -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="171" />
+	</item>
+	<item>
+		<!-- B-grade Deadman's Glory - Anger -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4750" />
+	</item>
+	<item>
+		<!-- B-grade Deadman's Glory - Haste -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4752" />
+	</item>
+	<item>
+		<!-- B-grade Deadman's Glory - Health -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4751" />
+	</item>
+	<item>
+		<!-- B-grade Demon's Dagger -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="234" />
+	</item>
+	<item>
+		<!-- B-grade Demon's Dagger - Critical Bleed -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4780" />
+	</item>
+	<item>
+		<!-- B-grade Demon's Dagger - Critical Damage -->
+		<ingredient count="200" id="57" />
+		<production count="1" id="6359" />
+	</item>
+	<item>
+		<!-- B-grade Demon's Dagger - Critical Poison -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4781" />
+	</item>
+	<item>
+		<!-- B-grade Demon's Dagger - Mortal Strike -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4782" />
+	</item>
+	<item>
+		<!-- B-grade Divine Staff -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="209" />
+	</item>
+	<item>
+		<!-- B-grade Dusk Sword -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="139" />
+	</item>
+	<item>
+		<!-- B-grade Eminence Sword -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="140" />
+	</item>
+	<item>
+		<!-- B-grade Ghoulbane -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="146" />
+	</item>
+	<item>
+		<!-- B-grade Great Axe -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="300" />
+	</item>
+	<item>
+		<!-- B-grade Great Axe - Anger -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4855" />
+	</item>
+	<item>
+		<!-- B-grade Great Axe - Critical Stun -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4856" />
+	</item>
+	<item>
+		<!-- B-grade Great Axe - Light -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4857" />
+	</item>
+	<item>
+		<!-- B-grade Great Sword -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="78" />
+	</item>
+	<item>
+		<!-- B-grade Great Sword - Critical Damage -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4724" />
+	</item>
+	<item>
+		<!-- B-grade Great Sword - Focus -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4725" />
+	</item>
+	<item>
+		<!-- B-grade Great Sword - Health -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4723" />
+	</item>
+	<item>
+		<!-- B-grade Guardian Sword -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="7883" />
+	</item>
+	<item>
+		<!-- B-grade Guardian Sword - Critical Bleed -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8107" />
+	</item>
+	<item>
+		<!-- B-grade Guardian Sword - Critical Drain -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8105" />
+	</item>
+	<item>
+		<!-- B-grade Guardian Sword - Health -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8106" />
+	</item>
+	<item>
+		<!-- B-grade Hazard Sword -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="141" />
+	</item>
+	<item>
+		<!-- B-grade Heavy War Axe -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="91" />
+	</item>
+	<item>
+		<!-- B-grade Heavy War Axe - Anger -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4747" />
+	</item>
+	<item>
+		<!-- B-grade Heavy War Axe - Health -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4748" />
+	</item>
+	<item>
+		<!-- B-grade Heavy War Axe - Rsk. Focus -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4749" />
+	</item>
+	<item>
+		<!-- B-grade Hell Knife -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="243" />
+	</item>
+	<item>
+		<!-- B-grade Hell Knife - Back Blow -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4787" />
+	</item>
+	<item>
+		<!-- B-grade Hell Knife - Focus -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4786" />
+	</item>
+	<item>
+		<!-- B-grade Hell Knife - Magic Regeneration -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="7813" />
+	</item>
+	<item>
+		<!-- B-grade Hell Knife - Magic Weakness -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="7815" />
+	</item>
+	<item>
+		<!-- B-grade Hell Knife - Mental Shield -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="7814" />
+	</item>
+	<item>
+		<!-- B-grade Hell Knife - Mortal Strike -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4788" />
+	</item>
+	<item>
+		<!-- B-grade Ice Storm Hammer -->
+		<ingredient count="8684650" id="57" />
+		<production count="1" id="7900" />
+	</item>
+	<item>
+		<!-- B-grade Ice Storm Hammer - Anger -->
+		<ingredient count="8684650" id="57" />
+		<production count="1" id="8130" />
+	</item>
+	<item>
+		<!-- B-grade Ice Storm Hammer - Critical Bleed -->
+		<ingredient count="8684650" id="57" />
+		<production count="1" id="8131" />
+	</item>
+	<item>
+		<!-- B-grade Ice Storm Hammer - Focus -->
+		<ingredient count="8684650" id="57" />
+		<production count="1" id="8129" />
+	</item>
+	<item>
+		<!-- B-grade Kaim Vanul's Bones -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="7893" />
+	</item>
+	<item>
+		<!-- B-grade Kaim Vanul's Bones - Conversion -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8146" />
+	</item>
+	<item>
+		<!-- B-grade Kaim Vanul's Bones - Magic Silence -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8145" />
+	</item>
+	<item>
+		<!-- B-grade Kaim Vanul's Bones - Mana Up -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8144" />
+	</item>
+	<item>
+		<!-- B-grade Katana*Caliburs -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2585" />
+	</item>
+	<item>
+		<!-- B-grade Katana*Samurai Long Sword -->
+		<ingredient count="9550000" id="57" />
+		<production count="1" id="2590" />
+	</item>
+	<item>
+		<!-- B-grade Katana*Sword of Delusion -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2587" />
+	</item>
+	<item>
+		<!-- B-grade Katana*Sword of Limit -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2586" />
+	</item>
+	<item>
+		<!-- B-grade Katana*Sword of Nightmare -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2588" />
+	</item>
+	<item>
+		<!-- B-grade Katana*Tsurugi -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2589" />
+	</item>
+	<item>
+		<!-- B-grade Keshanberk -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="142" />
+	</item>
+	<item>
+		<!-- B-grade Keshanberk - Back Blow -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4716" />
+	</item>
+	<item>
+		<!-- B-grade Keshanberk - Focus -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4715" />
+	</item>
+	<item>
+		<!-- B-grade Keshanberk - Guidance -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4714" />
+	</item>
+	<item>
+		<!-- B-grade KingFisher Rod -->
+		<ingredient count="1200000" id="57" />
+		<production count="1" id="6532" />
+	</item>
+	<item>
+		<!-- B-grade Kris -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="229" />
+	</item>
+	<item>
+		<!-- B-grade Kris - Back Blow -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4779" />
+	</item>
+	<item>
+		<!-- B-grade Kris - Evasion -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4777" />
+	</item>
+	<item>
+		<!-- B-grade Kris - Focus -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4778" />
+	</item>
+	<item>
+		<!-- B-grade Lance -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="97" />
+	</item>
+	<item>
+		<!-- B-grade Lance - Anger -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4858" />
+	</item>
+	<item>
+		<!-- B-grade Lance - Critical Stun -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4859" />
+	</item>
+	<item>
+		<!-- B-grade Lance - Towering Blow -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4860" />
+	</item>
+	<item>
+		<!-- B-grade Mist Sword -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="137" />
+	</item>
+	<item>
+		<!-- B-grade Monster Only(Ahrimanes) -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="6722" />
+	</item>
+	<item>
+		<!-- B-grade Pata -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="264" />
+	</item>
+	<item>
+		<!-- B-grade Samurai Long Sword*Samurai Long Sword -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="2626" />
+	</item>
+	<item>
+		<!-- B-grade Scroll of Mana -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="336" />
+	</item>
+	<item>
+		<!-- B-grade Scroll of Massacre -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="337" />
+	</item>
+	<item>
+		<!-- B-grade Shamshir*Caliburs -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2576" />
+	</item>
+	<item>
+		<!-- B-grade Shamshir*Samurai Long Sword -->
+		<ingredient count="9550000" id="57" />
+		<production count="1" id="2581" />
+	</item>
+	<item>
+		<!-- B-grade Shamshir*Sword of Delusion -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2578" />
+	</item>
+	<item>
+		<!-- B-grade Shamshir*Sword of Limit -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2577" />
+	</item>
+	<item>
+		<!-- B-grade Shamshir*Sword of Nightmare -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2579" />
+	</item>
+	<item>
+		<!-- B-grade Shamshir*Tsurugi -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2580" />
+	</item>
+	<item>
+		<!-- B-grade Soul Crystal -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="335" />
+	</item>
+	<item>
+		<!-- B-grade Spell Breaker -->
+		<ingredient count="8684650" id="57" />
+		<production count="1" id="7892" />
+	</item>
+	<item>
+		<!-- B-grade Spell Breaker - Acumen -->
+		<ingredient count="8684650" id="57" />
+		<production count="1" id="8141" />
+	</item>
+	<item>
+		<!-- B-grade Spell Breaker - Magic Hold -->
+		<ingredient count="8684650" id="57" />
+		<production count="1" id="8143" />
+	</item>
+	<item>
+		<!-- B-grade Spell Breaker - Mental Shield -->
+		<ingredient count="8684650" id="57" />
+		<production count="1" id="8142" />
+	</item>
+	<item>
+		<!-- B-grade Spirit Sword*Caliburs -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2593" />
+	</item>
+	<item>
+		<!-- B-grade Spirit Sword*Samurai Long Sword -->
+		<ingredient count="9550000" id="57" />
+		<production count="1" id="2598" />
+	</item>
+	<item>
+		<!-- B-grade Spirit Sword*Sword of Delusion -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2595" />
+	</item>
+	<item>
+		<!-- B-grade Spirit Sword*Sword of Limit -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2594" />
+	</item>
+	<item>
+		<!-- B-grade Spirit Sword*Sword of Nightmare -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2596" />
+	</item>
+	<item>
+		<!-- B-grade Spirit Sword*Tsurugi -->
+		<ingredient count="7830000" id="57" />
+		<production count="1" id="2597" />
+	</item>
+	<item>
+		<!-- B-grade Sprite's Staff -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="92" />
+	</item>
+	<item>
+		<!-- B-grade Sprite's Staff - Magic Hold -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4899" />
+	</item>
+	<item>
+		<!-- B-grade Sprite's Staff - Magic Regeneration -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4897" />
+	</item>
+	<item>
+		<!-- B-grade Sprite's Staff - Mental Shield -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4898" />
+	</item>
+	<item>
+		<!-- B-grade Staff of Evil Spirits -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="210" />
+	</item>
+	<item>
+		<!-- B-grade Staff of Evil Spirits - Blessed Body -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4901" />
+	</item>
+	<item>
+		<!-- B-grade Staff of Evil Spirits - Magic Focus -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4900" />
+	</item>
+	<item>
+		<!-- B-grade Staff of Evil Spirits - Magic Poison -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4902" />
+	</item>
+	<item>
+		<!-- B-grade Staff of Nobility -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="211" />
+	</item>
+	<item>
+		<!-- B-grade Staff of Phantom -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="207" />
+	</item>
+	<item>
+		<!-- B-grade Staff of Seal -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="208" />
+	</item>
+	<item>
+		<!-- B-grade Star Buster -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="7901" />
+	</item>
+	<item>
+		<!-- B-grade Star Buster - Haste -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8133" />
+	</item>
+	<item>
+		<!-- B-grade Star Buster - Health -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8132" />
+	</item>
+	<item>
+		<!-- B-grade Star Buster - Rsk. Focus -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8134" />
+	</item>
+	<item>
+		<!-- B-grade Stormbringer*Caliburs -->
+		<ingredient count="6980000" id="57" />
+		<production count="1" id="2566" />
+	</item>
+	<item>
+		<!-- B-grade Stormbringer*Samurai Long sword -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2571" />
+	</item>
+	<item>
+		<!-- B-grade Stormbringer*Sword of Delusion -->
+		<ingredient count="6980000" id="57" />
+		<production count="1" id="2568" />
+	</item>
+	<item>
+		<!-- B-grade Stormbringer*Sword of Limit -->
+		<ingredient count="6980000" id="57" />
+		<production count="1" id="2567" />
+	</item>
+	<item>
+		<!-- B-grade Stormbringer*Sword of Nightmare -->
+		<ingredient count="6980000" id="57" />
+		<production count="1" id="2569" />
+	</item>
+	<item>
+		<!-- B-grade Stormbringer*Tsurugi -->
+		<ingredient count="6980000" id="57" />
+		<production count="1" id="2570" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Damascus -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="79" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Damascus - Critical Damage -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4718" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Damascus - Focus -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4717" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Damascus - Haste -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4719" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Delusion*Samurai Long Sword -->
+		<ingredient count="11300000" id="57" />
+		<production count="1" id="2620" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Delusion*Sword of Delusion -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2617" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Delusion*Sword of Nightmare -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2618" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Delusion*Tsurugi -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2619" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Desert -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="138" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Limit*Samurai Long Sword -->
+		<ingredient count="11300000" id="57" />
+		<production count="1" id="2616" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Limit*Sword of Delusion -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2613" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Limit*Sword of Limit -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2612" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Limit*Sword of Nightmare -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2614" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Limit*Tsurugi -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2615" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Nightmare*Samurai Long Sword -->
+		<ingredient count="11300000" id="57" />
+		<production count="1" id="2623" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Nightmare*Sword of Nightmare -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2621" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Nightmare*Tsurugi -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2622" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Valhalla -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="148" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Valhalla - Acumen -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="7722" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Valhalla - Magic Regeneration -->
+		<ingredient count="1062" id="57" />
+		<production count="1" id="7724" />
+	</item>
+	<item>
+		<!-- B-grade Sword of Valhalla - Magic Weakness -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="7723" />
+	</item>
+	<item>
+		<!-- B-grade Tsurugi*Samurai Long Sword -->
+		<ingredient count="11300000" id="57" />
+		<production count="1" id="2625" />
+	</item>
+	<item>
+		<!-- B-grade Tsurugi*Tsurugi -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="2624" />
+	</item>
+	<item>
+		<!-- B-grade Unicorn's Horn -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="340" />
+	</item>
+	<item>
+		<!-- B-grade Wizard's Tear -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="7889" />
+	</item>
+	<item>
+		<!-- B-grade Wizard's Tear - Acumen -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8117" />
+	</item>
+	<item>
+		<!-- B-grade Wizard's Tear - Conversion -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8119" />
+	</item>
+	<item>
+		<!-- B-grade Wizard's Tear - M. Atk. -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8118" />
+	</item>
+	<item>
+		<!-- B-grade Wyvern's Skull -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="338" />
+	</item>
+	<item>
+		<!-- C-grade Akat Long Bow -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="283" />
+	</item>
+	<item>
+		<!-- C-grade Akat Long Bow - Evasion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4820" />
+	</item>
+	<item>
+		<!-- C-grade Akat Long Bow - Guidance -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4819" />
+	</item>
+	<item>
+		<!-- C-grade Akat Long Bow - Miser -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4821" />
+	</item>
+	<item>
+		<!-- C-grade Artisan's Sword*Elven Long Sword -->
+		<ingredient count="2470000" id="57" />
+		<production count="1" id="2545" />
+	</item>
+	<item>
+		<!-- C-grade Artisan's Sword*Sword of Revolution -->
+		<ingredient count="2120000" id="57" />
+		<production count="1" id="2544" />
+	</item>
+	<item>
+		<!-- C-grade Bastard Sword*Elven Long Sword -->
+		<ingredient count="2470000" id="57" />
+		<production count="1" id="2532" />
+	</item>
+	<item>
+		<!-- C-grade Bastard Sword*Sword of Revolution -->
+		<ingredient count="2120000" id="57" />
+		<production count="1" id="2531" />
+	</item>
+	<item>
+		<!-- C-grade Battle Axe -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="160" />
+	</item>
+	<item>
+		<!-- C-grade Battle Axe - Anger -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4729" />
+	</item>
+	<item>
+		<!-- C-grade Battle Axe - Haste -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4731" />
+	</item>
+	<item>
+		<!-- C-grade Battle Axe - Rsk. Focus -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4730" />
+	</item>
+	<item>
+		<!-- C-grade Bec de Corbin -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="94" />
+	</item>
+	<item>
+		<!-- C-grade Bec de Corbin - Critical Stun -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4843" />
+	</item>
+	<item>
+		<!-- C-grade Bec de Corbin - Light -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4845" />
+	</item>
+	<item>
+		<!-- C-grade Bec de Corbin - Towering Blow -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4844" />
+	</item>
+	<item>
+		<!-- C-grade Berserker Blade -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="5286" />
+	</item>
+	<item>
+		<!-- C-grade Berserker Blade - Critical Damage -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="6348" />
+	</item>
+	<item>
+		<!-- C-grade Berserker Blade - Focus -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="6347" />
+	</item>
+	<item>
+		<!-- C-grade Berserker Blade - Haste -->
+		<ingredient count="8700" id="57" />
+		<production count="1" id="6349" />
+	</item>
+	<item>
+		<!-- C-grade Big Hammer -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="89" />
+	</item>
+	<item>
+		<!-- C-grade Big Hammer - Haste -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4728" />
+	</item>
+	<item>
+		<!-- C-grade Big Hammer - Health -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4726" />
+	</item>
+	<item>
+		<!-- C-grade Big Hammer - Rsk. Focus -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4727" />
+	</item>
+	<item>
+		<!-- C-grade Blessed Branch -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="329" />
+	</item>
+	<item>
+		<!-- C-grade Body Slasher -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="302" />
+	</item>
+	<item>
+		<!-- C-grade Body Slasher - Critical Stun -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4840" />
+	</item>
+	<item>
+		<!-- C-grade Body Slasher - Towering Blow -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4841" />
+	</item>
+	<item>
+		<!-- C-grade Body Slasher - Wide Blow -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4842" />
+	</item>
+	<item>
+		<!-- C-grade Caliburs -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="75" />
+	</item>
+	<item>
+		<!-- C-grade Caliburs - Critical Damage -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4698" />
+	</item>
+	<item>
+		<!-- C-grade Caliburs - Focus -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4697" />
+	</item>
+	<item>
+		<!-- C-grade Caliburs - Guidance -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4696" />
+	</item>
+	<item>
+		<!-- C-grade Candle of Wisdom -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="328" />
+	</item>
+	<item>
+		<!-- C-grade Cerberus Eye -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="331" />
+	</item>
+	<item>
+		<!-- C-grade Chakram -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="263" />
+	</item>
+	<item>
+		<!-- C-grade Chakram - Critical Drain -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4789" />
+	</item>
+	<item>
+		<!-- C-grade Chakram - Critical Poison -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4790" />
+	</item>
+	<item>
+		<!-- C-grade Chakram - Rsk. Haste -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4791" />
+	</item>
+	<item>
+		<!-- C-grade Claws of Black Dragon -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="333" />
+	</item>
+	<item>
+		<!-- C-grade Club of Nature -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="201" />
+	</item>
+	<item>
+		<!-- C-grade Club of Nature - Acumen -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7710" />
+	</item>
+	<item>
+		<!-- C-grade Club of Nature - Magic Hold -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7712" />
+	</item>
+	<item>
+		<!-- C-grade Club of Nature - Mental Shield -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7711" />
+	</item>
+	<item>
+		<!-- C-grade Crimson Sword*Crimson Sword -->
+		<ingredient count="1960000" id="57" />
+		<production count="1" id="2551" />
+	</item>
+	<item>
+		<!-- C-grade Crimson Sword*Elven Long Sword -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="2554" />
+	</item>
+	<item>
+		<!-- C-grade Crimson Sword*Elven Sword -->
+		<ingredient count="1960000" id="57" />
+		<production count="1" id="2552" />
+	</item>
+	<item>
+		<!-- C-grade Crimson Sword*Sword of Revolution -->
+		<ingredient count="2470000" id="57" />
+		<production count="1" id="2553" />
+	</item>
+	<item>
+		<!-- C-grade Crystal Dagger -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="228" />
+	</item>
+	<item>
+		<!-- C-grade Crystal Dagger - Critical Bleed -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4774" />
+	</item>
+	<item>
+		<!-- C-grade Crystal Dagger - Critical Damage -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="6358" />
+	</item>
+	<item>
+		<!-- C-grade Crystal Dagger - Critical Poison -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4775" />
+	</item>
+	<item>
+		<!-- C-grade Crystal Dagger - Mortal Strike -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4776" />
+	</item>
+	<item>
+		<!-- C-grade Crystal Staff -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="192" />
+	</item>
+	<item>
+		<!-- C-grade Crystal Staff - Blessed Body -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4869" />
+	</item>
+	<item>
+		<!-- C-grade Crystal Staff - Mana Up -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4868" />
+	</item>
+	<item>
+		<!-- C-grade Crystal Staff - Rsk. Evasion -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4867" />
+	</item>
+	<item>
+		<!-- C-grade Crystallized Ice Bow -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="281" />
+	</item>
+	<item>
+		<!-- C-grade Crystallized Ice Bow - Evasion -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4811" />
+	</item>
+	<item>
+		<!-- C-grade Crystallized Ice Bow - Guidance -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4810" />
+	</item>
+	<item>
+		<!-- C-grade Crystallized Ice Bow - Quick Recovery -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4812" />
+	</item>
+	<item>
+		<!-- C-grade Cursed Dagger -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="226" />
+	</item>
+	<item>
+		<!-- C-grade Cursed Dagger - Critical Bleed -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4759" />
+	</item>
+	<item>
+		<!-- C-grade Cursed Dagger - Critical Poison -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4760" />
+	</item>
+	<item>
+		<!-- C-grade Cursed Dagger - Rsk. Haste -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4761" />
+	</item>
+	<item>
+		<!-- C-grade Cursed Staff -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="195" />
+	</item>
+	<item>
+		<!-- C-grade Cursed Staff - Magic Hold -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4873" />
+	</item>
+	<item>
+		<!-- C-grade Cursed Staff - Magic Poison -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4874" />
+	</item>
+	<item>
+		<!-- C-grade Cursed Staff - Magic Weakness -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4875" />
+	</item>
+	<item>
+		<!-- C-grade Dark Elven Dagger -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="232" />
+	</item>
+	<item>
+		<!-- C-grade Dark Elven Dagger - Back Blow -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4763" />
+	</item>
+	<item>
+		<!-- C-grade Dark Elven Dagger - Focus -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4762" />
+	</item>
+	<item>
+		<!-- C-grade Dark Elven Dagger - Mortal Strike -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4764" />
+	</item>
+	<item>
+		<!-- C-grade Dark Elven Dagger - Rsk. Haste -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="6356" />
+	</item>
+	<item>
+		<!-- C-grade Dark Screamer -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="233" />
+	</item>
+	<item>
+		<!-- C-grade Dark Screamer - Critical Bleed -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4773" />
+	</item>
+	<item>
+		<!-- C-grade Dark Screamer - Evasion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4771" />
+	</item>
+	<item>
+		<!-- C-grade Dark Screamer - Focus -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4772" />
+	</item>
+	<item>
+		<!-- C-grade Deadman's Staff -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="204" />
+	</item>
+	<item>
+		<!-- C-grade Deadman's Staff - Magic Hold -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4890" />
+	</item>
+	<item>
+		<!-- C-grade Deadman's Staff - Magic Regeneration -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4888" />
+	</item>
+	<item>
+		<!-- C-grade Deadman's Staff - Mental Shield -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4889" />
+	</item>
+	<item>
+		<!-- C-grade Demon's Staff -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="206" />
+	</item>
+	<item>
+		<!-- C-grade Demon's Staff - Magic Chaos -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4896" />
+	</item>
+	<item>
+		<!-- C-grade Demon's Staff - Magic Poison -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4894" />
+	</item>
+	<item>
+		<!-- C-grade Demon's Staff - Magic Weakness -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4895" />
+	</item>
+	<item>
+		<!-- C-grade Dwarven Hammer -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="7897" />
+	</item>
+	<item>
+		<!-- C-grade Dwarven Hammer - Anger -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8121" />
+	</item>
+	<item>
+		<!-- C-grade Dwarven Hammer - Critical Bleed -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8122" />
+	</item>
+	<item>
+		<!-- C-grade Dwarven Hammer - Health -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8120" />
+	</item>
+	<item>
+		<!-- C-grade Dwarven War Hammer -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="2502" />
+	</item>
+	<item>
+		<!-- C-grade Dwarven War Hammer - Anger -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4738" />
+	</item>
+	<item>
+		<!-- C-grade Dwarven War Hammer - Haste -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4740" />
+	</item>
+	<item>
+		<!-- C-grade Dwarven War Hammer - Health -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4739" />
+	</item>
+	<item>
+		<!-- C-grade Ecliptic Axe -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="7891" />
+	</item>
+	<item>
+		<!-- C-grade Ecliptic Axe - Conversion -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8138" />
+	</item>
+	<item>
+		<!-- C-grade Ecliptic Axe - M. Atk. -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8139" />
+	</item>
+	<item>
+		<!-- C-grade Ecliptic Axe - Magic Hold -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8140" />
+	</item>
+	<item>
+		<!-- C-grade Ecliptic Sword -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="7888" />
+	</item>
+	<item>
+		<!-- C-grade Ecliptic Sword - Empower -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8114" />
+	</item>
+	<item>
+		<!-- C-grade Ecliptic Sword - M. Atk. -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8115" />
+	</item>
+	<item>
+		<!-- C-grade Ecliptic Sword - Magic Silence -->
+		<ingredient count="6127550" id="57" />
+		<production count="1" id="8116" />
+	</item>
+	<item>
+		<!-- C-grade Elemental Bow -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="282" />
+	</item>
+	<item>
+		<!-- C-grade Elemental Bow - Guidance -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4813" />
+	</item>
+	<item>
+		<!-- C-grade Elemental Bow - Miser -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4814" />
+	</item>
+	<item>
+		<!-- C-grade Elemental Bow - Quick Recovery -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4815" />
+	</item>
+	<item>
+		<!-- C-grade Elven Long Sword*Elven Long Sword -->
+		<ingredient count="3820000" id="57" />
+		<production count="1" id="2560" />
+	</item>
+	<item>
+		<!-- C-grade Elven Sword*Elven Long Sword -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="2557" />
+	</item>
+	<item>
+		<!-- C-grade Elven Sword*Elven Sword -->
+		<ingredient count="1960000" id="57" />
+		<production count="1" id="2555" />
+	</item>
+	<item>
+		<!-- C-grade Elven Sword*Sword of Revolution -->
+		<ingredient count="2470000" id="57" />
+		<production count="1" id="2556" />
+	</item>
+	<item>
+		<!-- C-grade Eminence Bow -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="286" />
+	</item>
+	<item>
+		<!-- C-grade Eminence Bow - Cheap Shot -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4824" />
+	</item>
+	<item>
+		<!-- C-grade Eminence Bow - Guidance -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4822" />
+	</item>
+	<item>
+		<!-- C-grade Eminence Bow - Miser -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4823" />
+	</item>
+	<item>
+		<!-- C-grade Fisted Blade -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="265" />
+	</item>
+	<item>
+		<!-- C-grade Fisted Blade - Haste -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4794" />
+	</item>
+	<item>
+		<!-- C-grade Fisted Blade - Rsk. Evasion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4792" />
+	</item>
+	<item>
+		<!-- C-grade Fisted Blade - Rsk. Haste -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4793" />
+	</item>
+	<item>
+		<!-- C-grade Flamberge -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="71" />
+	</item>
+	<item>
+		<!-- C-grade Flamberge - Critical Damage -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4711" />
+	</item>
+	<item>
+		<!-- C-grade Flamberge - Focus -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4712" />
+	</item>
+	<item>
+		<!-- C-grade Flamberge - Light -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4713" />
+	</item>
+	<item>
+		<!-- C-grade Ghoul's Staff -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="205" />
+	</item>
+	<item>
+		<!-- C-grade Ghoul's Staff - Blessed Body -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4893" />
+	</item>
+	<item>
+		<!-- C-grade Ghoul's Staff - Mana Up -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4892" />
+	</item>
+	<item>
+		<!-- C-grade Ghoul's Staff - Rsk. Evasion -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4891" />
+	</item>
+	<item>
+		<!-- C-grade Grace Dagger -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="231" />
+	</item>
+	<item>
+		<!-- C-grade Grace Dagger - Back Blow -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4770" />
+	</item>
+	<item>
+		<!-- C-grade Grace Dagger - Evasion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4768" />
+	</item>
+	<item>
+		<!-- C-grade Grace Dagger - Focus -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4769" />
+	</item>
+	<item>
+		<!-- C-grade Great Pata -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="266" />
+	</item>
+	<item>
+		<!-- C-grade Great Pata - Critical Drain -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4795" />
+	</item>
+	<item>
+		<!-- C-grade Great Pata - Critical Poison -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4796" />
+	</item>
+	<item>
+		<!-- C-grade Great Pata - Rsk. Haste -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4797" />
+	</item>
+	<item>
+		<!-- C-grade Heathen's Book -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="326" />
+	</item>
+	<item>
+		<!-- C-grade Heavy Doom Axe -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="194" />
+	</item>
+	<item>
+		<!-- C-grade Heavy Doom Axe - Magic Chaos -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4872" />
+	</item>
+	<item>
+		<!-- C-grade Heavy Doom Axe - Magic Poison -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4870" />
+	</item>
+	<item>
+		<!-- C-grade Heavy Doom Axe - Magic Weakness -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4871" />
+	</item>
+	<item>
+		<!-- C-grade Heavy Doom Hammer -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="191" />
+	</item>
+	<item>
+		<!-- C-grade Heavy Doom Hammer - Magic Hold -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4866" />
+	</item>
+	<item>
+		<!-- C-grade Heavy Doom Hammer - Magic Regeneration -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4864" />
+	</item>
+	<item>
+		<!-- C-grade Heavy Doom Hammer - Mental Shield -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4865" />
+	</item>
+	<item>
+		<!-- C-grade Hex Doll -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="327" />
+	</item>
+	<item>
+		<!-- C-grade Homunkulus's Sword -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="84" />
+	</item>
+	<item>
+		<!-- C-grade Homunkulus's Sword - Acumen -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="6313" />
+	</item>
+	<item>
+		<!-- C-grade Homunkulus's Sword - Conversion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="6314" />
+	</item>
+	<item>
+		<!-- C-grade Homunkulus's Sword - Magic Paralyze -->
+		<ingredient count="500" id="57" />
+		<production count="1" id="6315" />
+	</item>
+	<item>
+		<!-- C-grade Horn of Glory -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="325" />
+	</item>
+	<item>
+		<!-- C-grade Inferno Staff -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="198" />
+	</item>
+	<item>
+		<!-- C-grade Inferno Staff - Acumen -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7716" />
+	</item>
+	<item>
+		<!-- C-grade Inferno Staff - Magic Paralyze -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7718" />
+	</item>
+	<item>
+		<!-- C-grade Inferno Staff - Magic Silence -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7717" />
+	</item>
+	<item>
+		<!-- C-grade Karik Horn -->
+		<ingredient count="4295590" id="57" />
+		<production count="1" id="7898" />
+	</item>
+	<item>
+		<!-- C-grade Karik Horn - Critical Drain -->
+		<ingredient count="4295590" id="57" />
+		<production count="1" id="8125" />
+	</item>
+	<item>
+		<!-- C-grade Karik Horn - Focus -->
+		<ingredient count="4295590" id="57" />
+		<production count="1" id="8123" />
+	</item>
+	<item>
+		<!-- C-grade Karik Horn - Haste -->
+		<ingredient count="4295590" id="57" />
+		<production count="1" id="8124" />
+	</item>
+	<item>
+		<!-- C-grade Katana -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="74" />
+	</item>
+	<item>
+		<!-- C-grade Katana - Critical Damage -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4688" />
+	</item>
+	<item>
+		<!-- C-grade Katana - Focus -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4687" />
+	</item>
+	<item>
+		<!-- C-grade Katana - Haste -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4689" />
+	</item>
+	<item>
+		<!-- C-grade Katana*Katana -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="2582" />
+	</item>
+	<item>
+		<!-- C-grade Katana*Spirit Sword -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="2583" />
+	</item>
+	<item>
+		<!-- C-grade Knight's Sword*Elven Long Sword -->
+		<ingredient count="2470000" id="57" />
+		<production count="1" id="2550" />
+	</item>
+	<item>
+		<!-- C-grade Knight's Sword*Sword of Revolution -->
+		<ingredient count="2120000" id="57" />
+		<production count="1" id="2549" />
+	</item>
+	<item>
+		<!-- C-grade Knuckle Duster -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4233" />
+	</item>
+	<item>
+		<!-- C-grade Knuckle Duster - Haste -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4800" />
+	</item>
+	<item>
+		<!-- C-grade Knuckle Duster - Rsk. Evasion -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4798" />
+	</item>
+	<item>
+		<!-- C-grade Knuckle Duster - Rsk. Haste -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4799" />
+	</item>
+	<item>
+		<!-- C-grade Mace of Underworld -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="202" />
+	</item>
+	<item>
+		<!-- C-grade Mace of Underworld - Conversion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7715" />
+	</item>
+	<item>
+		<!-- C-grade Mace of Underworld - Magic Silence -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7714" />
+	</item>
+	<item>
+		<!-- C-grade Mace of Underworld - Mana Up -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7713" />
+	</item>
+	<item>
+		<!-- C-grade Monster Only(Ketra Orc Chieftain) -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="6719" />
+	</item>
+	<item>
+		<!-- C-grade Mysterious Sword -->
+		<ingredient count="2291770" id="57" />
+		<production count="1" id="7887" />
+	</item>
+	<item>
+		<!-- C-grade Mysterious Sword - Acumen -->
+		<ingredient count="2291770" id="57" />
+		<production count="1" id="8111" />
+	</item>
+	<item>
+		<!-- C-grade Mysterious Sword - M. Atk. -->
+		<ingredient count="2291770" id="57" />
+		<production count="1" id="8112" />
+	</item>
+	<item>
+		<!-- C-grade Mysterious Sword - Magic Weakness -->
+		<ingredient count="2291770" id="57" />
+		<production count="1" id="8113" />
+	</item>
+	<item>
+		<!-- C-grade Nephilim Lord -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="5800" />
+	</item>
+	<item>
+		<!-- C-grade Nirvana Axe -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="174" />
+	</item>
+	<item>
+		<!-- C-grade Nirvana Axe - M. Atk. -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7707" />
+	</item>
+	<item>
+		<!-- C-grade Nirvana Axe - Magic Poison -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7708" />
+	</item>
+	<item>
+		<!-- C-grade Nirvana Axe - Magic Weakness -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7709" />
+	</item>
+	<item>
+		<!-- C-grade Noble Elven Bow -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="285" />
+	</item>
+	<item>
+		<!-- C-grade Noble Elven Bow - Cheap Shot -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4818" />
+	</item>
+	<item>
+		<!-- C-grade Noble Elven Bow - Evasion -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4816" />
+	</item>
+	<item>
+		<!-- C-grade Noble Elven Bow - Miser -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4817" />
+	</item>
+	<item>
+		<!-- C-grade Orcish Glaive -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="298" />
+	</item>
+	<item>
+		<!-- C-grade Orcish Glaive - Anger -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4837" />
+	</item>
+	<item>
+		<!-- C-grade Orcish Glaive - Critical Stun -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4838" />
+	</item>
+	<item>
+		<!-- C-grade Orcish Glaive - Towering Blow -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4839" />
+	</item>
+	<item>
+		<!-- C-grade Orcish Poleaxe -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="299" />
+	</item>
+	<item>
+		<!-- C-grade Orcish Poleaxe - Critical Stun -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4852" />
+	</item>
+	<item>
+		<!-- C-grade Orcish Poleaxe - Towering Blow -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4853" />
+	</item>
+	<item>
+		<!-- C-grade Orcish Poleaxe - Wide Blow -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4854" />
+	</item>
+	<item>
+		<!-- C-grade Pa'agrian Axe -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="203" />
+	</item>
+	<item>
+		<!-- C-grade Pa'agrian Axe - Magic Chaos -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4887" />
+	</item>
+	<item>
+		<!-- C-grade Pa'agrian Axe - Magic Weakness -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4886" />
+	</item>
+	<item>
+		<!-- C-grade Pa'agrian Axe - Mana Up -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4885" />
+	</item>
+	<item>
+		<!-- C-grade Pa'agrian Hammer -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="199" />
+	</item>
+	<item>
+		<!-- C-grade Pa'agrian Hammer - Magic Poison -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4880" />
+	</item>
+	<item>
+		<!-- C-grade Pa'agrian Hammer - Magic Weakness -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4881" />
+	</item>
+	<item>
+		<!-- C-grade Pa'agrian Hammer - Rsk. Evasion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4879" />
+	</item>
+	<item>
+		<!-- C-grade Pa'agrian Sword -->
+		<ingredient count="4295590" id="57" />
+		<production count="1" id="7882" />
+	</item>
+	<item>
+		<!-- C-grade Pa'agrian Sword - Critical Drain -->
+		<ingredient count="4295590" id="57" />
+		<production count="1" id="8104" />
+	</item>
+	<item>
+		<!-- C-grade Pa'agrian Sword - Focus -->
+		<ingredient count="4295590" id="57" />
+		<production count="1" id="8102" />
+	</item>
+	<item>
+		<!-- C-grade Pa'agrian Sword - Health -->
+		<ingredient count="4295590" id="57" />
+		<production count="1" id="8103" />
+	</item>
+	<item>
+		<!-- C-grade Paradia Staff -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="197" />
+	</item>
+	<item>
+		<!-- C-grade Paradia Staff - Magic Hold -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4878" />
+	</item>
+	<item>
+		<!-- C-grade Paradia Staff - Magic Regeneration -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4876" />
+	</item>
+	<item>
+		<!-- C-grade Paradia Staff - Mental Shield -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4877" />
+	</item>
+	<item>
+		<!-- C-grade Pelican Rod -->
+		<ingredient count="400000" id="57" />
+		<production count="1" id="6531" />
+	</item>
+	<item>
+		<!-- C-grade Phoenix Feather -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="330" />
+	</item>
+	<item>
+		<!-- C-grade Poleaxe -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="95" />
+	</item>
+	<item>
+		<!-- C-grade Poleaxe - Critical Stun -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7719" />
+	</item>
+	<item>
+		<!-- C-grade Poleaxe - Towering Blow -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7720" />
+	</item>
+	<item>
+		<!-- C-grade Poleaxe - Wide Blow -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7721" />
+	</item>
+	<item>
+		<!-- C-grade Saber*Elven Long Sword -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="2524" />
+	</item>
+	<item>
+		<!-- C-grade Saber*Sword of Revolution -->
+		<ingredient count="1960000" id="57" />
+		<production count="1" id="2523" />
+	</item>
+	<item>
+		<!-- C-grade Sage's Staff -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="200" />
+	</item>
+	<item>
+		<!-- C-grade Sage's Staff - Magic Hold -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4882" />
+	</item>
+	<item>
+		<!-- C-grade Sage's Staff - Magic Poison -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4883" />
+	</item>
+	<item>
+		<!-- C-grade Sage's Staff - Magic Weakness -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4884" />
+	</item>
+	<item>
+		<!-- C-grade Samurai Longsword -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="135" />
+	</item>
+	<item>
+		<!-- C-grade Samurai Longsword - Critical Damage -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4709" />
+	</item>
+	<item>
+		<!-- C-grade Samurai Longsword - Focus -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4708" />
+	</item>
+	<item>
+		<!-- C-grade Samurai Longsword - Haste -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4710" />
+	</item>
+	<item>
+		<!-- C-grade Scorpion -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="301" />
+	</item>
+	<item>
+		<!-- C-grade Scorpion - Anger -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4846" />
+	</item>
+	<item>
+		<!-- C-grade Scorpion - Critical Stun -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4847" />
+	</item>
+	<item>
+		<!-- C-grade Scorpion - Towering Blow -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4848" />
+	</item>
+	<item>
+		<!-- C-grade Scroll of Destruction -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="332" />
+	</item>
+	<item>
+		<!-- C-grade Scythe -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="96" />
+	</item>
+	<item>
+		<!-- C-grade Scythe - Anger -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4834" />
+	</item>
+	<item>
+		<!-- C-grade Scythe - Critical Stun -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4835" />
+	</item>
+	<item>
+		<!-- C-grade Scythe - Light -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4836" />
+	</item>
+	<item>
+		<!-- C-grade Shamshir -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="73" />
+	</item>
+	<item>
+		<!-- C-grade Shamshir - Back Blow -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4685" />
+	</item>
+	<item>
+		<!-- C-grade Shamshir - Guidance -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4684" />
+	</item>
+	<item>
+		<!-- C-grade Shamshir - Rsk. Evasion -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4686" />
+	</item>
+	<item>
+		<!-- C-grade Shamshir*Katana -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="2573" />
+	</item>
+	<item>
+		<!-- C-grade Shamshir*Shamshir -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="2572" />
+	</item>
+	<item>
+		<!-- C-grade Shamshir*Spirit Sword -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="2574" />
+	</item>
+	<item>
+		<!-- C-grade Silver Axe -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="161" />
+	</item>
+	<item>
+		<!-- C-grade Silver Axe - Anger -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4732" />
+	</item>
+	<item>
+		<!-- C-grade Silver Axe - Haste -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4734" />
+	</item>
+	<item>
+		<!-- C-grade Silver Axe - Rsk. Focus -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4733" />
+	</item>
+	<item>
+		<!-- C-grade Skull Graver -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="173" />
+	</item>
+	<item>
+		<!-- C-grade Skull Graver - Anger -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4735" />
+	</item>
+	<item>
+		<!-- C-grade Skull Graver - Health -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4736" />
+	</item>
+	<item>
+		<!-- C-grade Skull Graver - Rsk. Focus -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4737" />
+	</item>
+	<item>
+		<!-- C-grade Soulfire Dirk -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="242" />
+	</item>
+	<item>
+		<!-- C-grade Soulfire Dirk - Magic Hold -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="7811" />
+	</item>
+	<item>
+		<!-- C-grade Soulfire Dirk - Magic Silence -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="7812" />
+	</item>
+	<item>
+		<!-- C-grade Soulfire Dirk - Mana Up -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="7810" />
+	</item>
+	<item>
+		<!-- C-grade Spinebone Sword*Elven Long Sword -->
+		<ingredient count="2470000" id="57" />
+		<production count="1" id="2539" />
+	</item>
+	<item>
+		<!-- C-grade Spinebone Sword*Sword of Revolution -->
+		<ingredient count="2120000" id="57" />
+		<production count="1" id="2538" />
+	</item>
+	<item>
+		<!-- C-grade Spirit Sword -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="131" />
+	</item>
+	<item>
+		<!-- C-grade Spirit Sword - Critical Damage -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4690" />
+	</item>
+	<item>
+		<!-- C-grade Spirit Sword - Critical Poison -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4691" />
+	</item>
+	<item>
+		<!-- C-grade Spirit Sword - Haste -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4692" />
+	</item>
+	<item>
+		<!-- C-grade Spirit Sword*Spirit Sword -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="2591" />
+	</item>
+	<item>
+		<!-- C-grade Stick of Eternity -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="196" />
+	</item>
+	<item>
+		<!-- C-grade Stick of Eternity - Blessed Body -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7706" />
+	</item>
+	<item>
+		<!-- C-grade Stick of Eternity - Empower -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7704" />
+	</item>
+	<item>
+		<!-- C-grade Stick of Eternity - Rsk. Evasion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="7705" />
+	</item>
+	<item>
+		<!-- C-grade Stick of Faith -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="193" />
+	</item>
+	<item>
+		<!-- C-grade Stick of Faith - Magic Hold -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="7702" />
+	</item>
+	<item>
+		<!-- C-grade Stick of Faith - Magic Shield -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="7703" />
+	</item>
+	<item>
+		<!-- C-grade Stick of Faith - Mana Up -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="7701" />
+	</item>
+	<item>
+		<!-- C-grade Stiletto -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="227" />
+	</item>
+	<item>
+		<!-- C-grade Stiletto - Critical Bleed -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4765" />
+	</item>
+	<item>
+		<!-- C-grade Stiletto - Critical Poison -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4766" />
+	</item>
+	<item>
+		<!-- C-grade Stiletto - Mortal Strike -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="4767" />
+	</item>
+	<item>
+		<!-- C-grade Stiletto - Rsk. Haste -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="6357" />
+	</item>
+	<item>
+		<!-- C-grade Stormbringer -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="72" />
+	</item>
+	<item>
+		<!-- C-grade Stormbringer - Critical Anger -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4681" />
+	</item>
+	<item>
+		<!-- C-grade Stormbringer - Focus -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4682" />
+	</item>
+	<item>
+		<!-- C-grade Stormbringer - Light -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="4683" />
+	</item>
+	<item>
+		<!-- C-grade Stormbringer*Katana -->
+		<ingredient count="5280000" id="57" />
+		<production count="1" id="2563" />
+	</item>
+	<item>
+		<!-- C-grade Stormbringer*Shamshir -->
+		<ingredient count="5280000" id="57" />
+		<production count="1" id="2562" />
+	</item>
+	<item>
+		<!-- C-grade Stormbringer*Spirit Sword -->
+		<ingredient count="5280000" id="57" />
+		<production count="1" id="2564" />
+	</item>
+	<item>
+		<!-- C-grade Stormbringer*Stormbringer -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="2561" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Delusion -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="76" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Delusion - Focus -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4699" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Delusion - Health -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4700" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Delusion - Rsk. Haste -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4701" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Limit -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="132" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Limit - Critical Drain -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="6308" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Limit - Guidance -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="6307" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Limit - Health -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="6309" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Nightmare -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="134" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Nightmare - Focus -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4706" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Nightmare - Health -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4705" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Nightmare - Light -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4707" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Revolution*Elven Long Sword -->
+		<ingredient count="3340000" id="57" />
+		<production count="1" id="2559" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Revolution*Sword of Revolution -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="2558" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Valakas (1-Handed) -->
+		<ingredient count="1" id="57" />
+		<production count="1" id="9136" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Whispering Death -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="145" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Whispering Death - Empower -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="6310" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Whispering Death - M. Atk. -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="6311" />
+	</item>
+	<item>
+		<!-- C-grade Sword of Whispering Death - Magic Silence -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="6312" />
+	</item>
+	<item>
+		<!-- C-grade Tears of Fairy -->
+		<ingredient count="2870000" id="57" />
+		<production count="1" id="324" />
+	</item>
+	<item>
+		<!-- C-grade Test Rapier -->
+		<ingredient count="7969000" id="57" />
+		<production count="1" id="8935" />
+	</item>
+	<item>
+		<!-- C-grade Three Eyed Crow's Feather -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="334" />
+	</item>
+	<item>
+		<!-- C-grade Tomb Savant A -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="5793" />
+	</item>
+	<item>
+		<!-- C-grade Tomb Savant A -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="5797" />
+	</item>
+	<item>
+		<!-- C-grade Tomb Savant B -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="5794" />
+	</item>
+	<item>
+		<!-- C-grade Tomb Savant B -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="5798" />
+	</item>
+	<item>
+		<!-- C-grade Tsurugi -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="77" />
+	</item>
+	<item>
+		<!-- C-grade Tsurugi - Critical Damage -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4703" />
+	</item>
+	<item>
+		<!-- C-grade Tsurugi - Focus -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4702" />
+	</item>
+	<item>
+		<!-- C-grade Tsurugi - Haste -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4704" />
+	</item>
+	<item>
+		<!-- C-grade War Axe -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="162" />
+	</item>
+	<item>
+		<!-- C-grade War Axe - Anger -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4741" />
+	</item>
+	<item>
+		<!-- C-grade War Axe - Haste -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4743" />
+	</item>
+	<item>
+		<!-- C-grade War Axe - Health -->
+		<ingredient count="4300000" id="57" />
+		<production count="1" id="4742" />
+	</item>
+	<item>
+		<!-- C-grade Widow Maker -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="303" />
+	</item>
+	<item>
+		<!-- C-grade Widow Maker - Critical Stun -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4849" />
+	</item>
+	<item>
+		<!-- C-grade Widow Maker - Towering Blow -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4850" />
+	</item>
+	<item>
+		<!-- C-grade Widow Maker - Wide Blow -->
+		<ingredient count="4780000" id="57" />
+		<production count="1" id="4851" />
+	</item>
+	<item>
+		<!-- C-grade Wolverine Needle -->
+		<ingredient count="2290000" id="57" />
+		<production count="1" id="230" />
+	</item>
+	<item>
+		<!-- C-grade Yaksa Mace -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="2503" />
+	</item>
+	<item>
+		<!-- C-grade Yaksa Mace - Anger -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4744" />
+	</item>
+	<item>
+		<!-- C-grade Yaksa Mace - Health -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4745" />
+	</item>
+	<item>
+		<!-- C-grade Yaksa Mace - Rsk. Focus -->
+		<ingredient count="6130000" id="57" />
+		<production count="1" id="4746" />
+	</item>
+</list>

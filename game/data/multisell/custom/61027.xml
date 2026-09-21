@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- B-Grade Swords: Blade of Serenity -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="136" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Dusk Sword -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="139" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Eminence Sword -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="140" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Ghoulbane -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="146" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Great Sword -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="78" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Great Sword - Critical Damage -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4724" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Great Sword - Focus -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4725" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Great Sword - Health -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4723" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Guardian Sword -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="7883" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Guardian Sword - Critical Bleed -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8107" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Guardian Sword - Critical Drain -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8105" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Guardian Sword - Health -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8106" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Hazard Sword -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="141" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Keshanberk -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="142" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Keshanberk - Back Blow -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4716" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Keshanberk - Focus -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4715" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Keshanberk - Guidance -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="4714" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Mist Sword -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="137" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Sword of Damascus -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="79" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Sword of Damascus - Critical Damage -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4718" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Sword of Damascus - Focus -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4717" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Sword of Damascus - Haste -->
+		<ingredient count="13100000" id="57" />
+		<production count="1" id="4719" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Sword of Desert -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="138" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Sword of Valhalla -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="148" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Sword of Valhalla - Acumen -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="7722" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Sword of Valhalla - Magic Weakness -->
+		<ingredient count="8680000" id="57" />
+		<production count="1" id="7723" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Wizard's Tear -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="7889" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Wizard's Tear - Acumen -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8117" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Wizard's Tear - Conversion -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8119" />
+	</item>
+	<item>
+		<!-- B-Grade Swords: Wizard's Tear - M. Atk. -->
+		<ingredient count="13118820" id="57" />
+		<production count="1" id="8118" />
+	</item>
+</list>

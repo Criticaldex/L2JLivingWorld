@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- A-Grade Dual: Damascus * Tallum Blade -->
+		<ingredient count="6250" id="57" />
+		<production count="1" id="8938" />
+	</item>
+	<item>
+		<!-- A-Grade Dual: Damascus*Damascus -->
+		<ingredient count="500" id="57" />
+		<production count="1" id="5706" />
+	</item>
+	<item>
+		<!-- A-Grade Dual: Keshanberk*Damascus -->
+		<ingredient count="24100000" id="57" />
+		<production count="1" id="5705" />
+	</item>
+	<item>
+		<!-- A-Grade Dual: Keshanberk*Keshanberk -->
+		<ingredient count="450000" id="57" />
+		<production count="1" id="5233" />
+	</item>
+	<item>
+		<!-- A-Grade Dual: Keshanberk*Keshanberk -->
+		<ingredient count="18300000" id="57" />
+		<production count="1" id="5704" />
+	</item>
+</list>
