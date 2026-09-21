@@ -161,9 +161,18 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   so the merchant's catalog item ids are read via reflection into its private `_entries` map, the same
   pattern `custom/SubclassUnlock/SubclassUnlock.java` uses for `VillageMaster`'s private fields. Named
   `_bbscraftsell*` rather than `_bbssell*` specifically so it doesn't collide with the existing
-  `command.startsWith("_bbssell")` branch in `HomeBoard.onCommand`. Since this no longer filters by item
-  type, the confirmation list can get long (every non-catalog drop/junk item at once) — the CB page table
-  has no scroll/pagination, so a very full inventory may visually overflow the fixed-height confirm page.
+  `command.startsWith("_bbssell")` branch in `HomeBoard.onCommand`.
+- Community Board HTML has a **hard 12270-character cap**, enforced client-side in the closed
+  `HtmlUtil.sendCBHtml` (decompiled via `javap -p -c`): it splits the page across up to three `ShowBoard`
+  packets of ≤4090 chars each, and if the full HTML is ≥12270 chars it discards it entirely and shows
+  `Error: HTML was too long!` instead — there's no partial rendering or truncation, the whole page just
+  fails. The "Sell Junk" confirmation list hit this once real (cluttered) inventories were used, since it no
+  longer filters by item type. Fixed by grouping rows by item id (`HomeBoard.SellSummary`, merging duplicate
+  stacks into one row with summed qty/adena) and hard-capping the rendered list to
+  `MAX_SELLCRAFT_LIST_ROWS` (40) with a "+N more item types" summary row for the rest — the adena total
+  shown/paid is always computed from the full unfiltered list, only the *display* is capped. Any other
+  dynamically-built CB page that lists per-inventory-item or per-row data (not just this one) needs the same
+  cap-and-summarize treatment if the row count isn't bounded by design.
 
 ## Subclass eligibility restrictions (hardcoded in the closed engine)
 

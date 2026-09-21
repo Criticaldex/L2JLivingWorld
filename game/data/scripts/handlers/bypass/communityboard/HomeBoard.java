@@ -27,6 +27,7 @@ import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -72,6 +73,10 @@ public class HomeBoard implements IParseBoardHandler
 	// SQL Queries
 	private static final String COUNT_FAVORITES = "SELECT COUNT(*) AS favorites FROM `bbs_favorites` WHERE `playerId`=?";
 	private static final String NAVIGATION_PATH = "data/html/CommunityBoard/Custom/navigation.html";
+
+	// The CB page HTML is capped by the client at ~12270 characters (HtmlUtil.sendCBHtml); this keeps the
+	// sell-junk confirmation list well under that regardless of how cluttered the player's inventory is.
+	private static final int MAX_SELLCRAFT_LIST_ROWS = 40;
 	
 	private static final String[] COMMANDS =
 	{
@@ -197,13 +202,29 @@ public class HomeBoard implements IParseBoardHandler
 		else if (command.equals("_bbscraftsellask"))
 		{
 			final List<Item> items = getSellableJunkItems(player);
-			final StringBuilder list = new StringBuilder();
+			final Map<Integer, SellSummary> grouped = new HashMap<>();
 			int total = 0;
 			for (Item item : items)
 			{
 				final int price = (item.getReferencePrice() / 2) * item.getCount();
 				total += price;
-				list.append("<tr><td width=350 align=left>").append(item.getName()).append(" x").append(item.getCount()).append("</td><td width=100 align=right>").append(price).append("</td></tr>");
+				grouped.computeIfAbsent(item.getId(), id -> new SellSummary(item.getName())).add(item.getCount(), price);
+			}
+
+			final List<SellSummary> summaries = new ArrayList<>(grouped.values());
+			summaries.sort((a, b) -> Integer.compare(b.adena, a.adena));
+
+			final StringBuilder list = new StringBuilder();
+			final int shown = Math.min(summaries.size(), MAX_SELLCRAFT_LIST_ROWS);
+			for (int i = 0; i < shown; i++)
+			{
+				final SellSummary summary = summaries.get(i);
+				list.append("<tr><td width=350 align=left>").append(summary.name).append(" x").append(summary.count).append("</td><td width=100 align=right>").append(summary.adena).append("</td></tr>");
+			}
+
+			if (summaries.size() > shown)
+			{
+				list.append("<tr><td width=350 align=left>+").append(summaries.size() - shown).append(" more item types</td><td width=100 align=right></td></tr>");
 			}
 
 			returnHtml = HtmCache.getInstance().getHtm(player, "data/html/CommunityBoard/Custom/merchant/sellcraft_ask.html");
@@ -482,5 +503,26 @@ public class HomeBoard implements IParseBoardHandler
 	private static int getRegionCount(Player player)
 	{
 		return 0; // TODO: Implement.
+	}
+
+	/**
+	 * A single grouped row (by item id) in the sell-junk confirmation list.
+	 */
+	private static final class SellSummary
+	{
+		private final String name;
+		private int count;
+		private int adena;
+
+		private SellSummary(String name)
+		{
+			this.name = name;
+		}
+
+		private void add(int itemCount, int itemAdena)
+		{
+			count += itemCount;
+			adena += itemAdena;
+		}
 	}
 }
