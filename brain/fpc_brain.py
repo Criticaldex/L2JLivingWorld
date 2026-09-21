@@ -21,7 +21,7 @@ PROVIDERS = {
     "ollama":     {"base_url": "http://localhost:11434/v1",     "default_model": "gemma3:12b",     "key_env": None},
     "deepseek":   {"base_url": "https://api.deepseek.com",      "default_model": "deepseek-chat",  "key_env": "DEEPSEEK_API_KEY"},
     "openai":     {"base_url": "https://api.openai.com/v1",     "default_model": "gpt-4o-mini",    "key_env": "OPENAI_API_KEY"},
-    "groq":       {"base_url": "https://api.groq.com/openai/v1", "default_model": "llama-3.3-70b-versatile", "key_env": "GROQ_API_KEY"},
+    "groq":       {"base_url": "https://api.groq.com/openai/v1", "default_model": "openai/gpt-oss-120b", "key_env": "GROQ_API_KEY"},
     "openrouter": {"base_url": "https://openrouter.ai/api/v1",  "default_model": "deepseek/deepseek-chat", "key_env": "OPENROUTER_API_KEY"},
     "mistral":    {"base_url": "https://api.mistral.ai/v1",     "default_model": "mistral-small-latest", "key_env": "MISTRAL_API_KEY"},
 }
