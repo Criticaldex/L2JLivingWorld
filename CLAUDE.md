@@ -114,6 +114,22 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   `game/config/Custom/CommunityBoard.ini` (`Name,X,Y,Z` entries), looked up by
   `HomeBoard.java`'s `_bbsteleport` handler. Adding a CB gatekeeper destination means editing *both* that
   ini list and the button in `main.html` — editing the teleporter XML does nothing for this button.
+- When adding a high-level farming destination to the gatekeeper, don't invent coordinates: this repo's
+  `game/data/teleporters/town/*.xml` and `chamberlain/*.xml` files already contain the game's own
+  canonical "teleport crystal" landing points for every dungeon (including sub-sections like
+  "1st/2nd Level", "Top/Lower Level", "The Heart of ..."), which are guaranteed to be clear of aggro range
+  by design — reuse those `x,y,z` values instead of picking a spot near a spawn cluster. Cross-check which
+  sub-section actually holds the highest-level mobs via `game/data/spawns/**/*.xml` (mob `id` → level via
+  `game/data/stats/npcs/*.xml`) before picking one, since "deepest teleport option" and "highest-level mob
+  cluster" aren't always the same coordinate. Current farming buttons and their source: Monastery of
+  Silence `106414,-87799,-2920` (`teleporters/town/31320.xml`); Imperial Tomb `186699,-75915,-2826`
+  (`teleporters/town/31275.xml`); Antharas' Lair "Heart of Antharas' Lair" `154396,121235,-3808`
+  (`teleporters/town/30080.xml`, verified adjacent to the lvl 75 Bloody Lord/Bloody Guardian cluster in
+  `spawns/Giran/AntharasLair.xml`, not the lvl 60-65 mobs near the entrance); "Flame Core" (player-facing
+  name for the Lavasaurus/Elder Lavasaurus zone) is Forge of the Gods' "Lower Level" `180260,-111913,-5851`
+  (`teleporters/town/31275.xml`), not its "Top Level" — Lavasaurus (`id 21394`, lvl 79) and Elder Lavasaurus
+  (`id 21395`, lvl 80) spawn in `spawns/Goddard/ForgeOfGods.xml` territories matching the Lower Level's
+  z-range (~-5565 to -6244), while Top Level is a separate, lower-level section of the same dungeon.
 - The `merchant/*.html` grade shops (A/B/C/S) price each multisell entry at exactly the item's own
   `price` attribute in `game/data/stats/items/*.xml` (1:1, no markup) — e.g. Apella Plate Armor's
   `price="7524400"` is the same `7524400` used as the adena ingredient count in `61000.xml`. When adding
