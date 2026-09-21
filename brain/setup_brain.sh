@@ -182,8 +182,8 @@ set_model_suggestions() {
             SUGG1="gpt-4o-mini"; SUGG2="gpt-4o"; SUGG3="gpt-4.1-mini"
             ;;
         groq)
-            MODREC="llama-3.3-70b-versatile"
-            SUGG1="llama-3.3-70b-versatile"; SUGG2="llama-3.1-8b-instant"
+            MODREC="openai/gpt-oss-120b"
+            SUGG1="openai/gpt-oss-120b"; SUGG2="openai/gpt-oss-20b"
             ;;
         openrouter)
             MODREC="deepseek/deepseek-chat"
