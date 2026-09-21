@@ -103,3 +103,26 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   `game/config/Custom/CommunityBoard.ini` (`Name,X,Y,Z` entries), looked up by
   `HomeBoard.java`'s `_bbsteleport` handler. Adding a CB gatekeeper destination means editing *both* that
   ini list and the button in `main.html` — editing the teleporter XML does nothing for this button.
+- The `merchant/*.html` grade shops (A/B/C/S) price each multisell entry at exactly the item's own
+  `price` attribute in `game/data/stats/items/*.xml` (1:1, no markup) — e.g. Apella Plate Armor's
+  `price="7524400"` is the same `7524400` used as the adena ingredient count in `61000.xml`. When adding
+  new items to these shops, pull the price from the item's own stat block rather than inventing one.
+- Not every item with `crystal_type="S"` (or any grade) belongs in these shops: many are "unidentified"
+  drop-form placeholders — generically named ("Dragon Scale Mail", "The Robe", "Gaz Blade") and flagged
+  `is_tradable="false"` + `is_sellable="false"` in their item stats — that exist only as the raw drop
+  before an in-game identify step; the real sellable item is a separate id with the set's real name
+  (e.g. "Imperial Crusader Breastplate", not "Dragon Scale Mail"). Check both the name pattern and those
+  two flags before adding an item id to a shop list.
+
+## Death handling and custom skill effects
+
+- Datapack effect classes under `game/data/scripts/handlers/skill/effects/*.java` get their `onExit()`
+  called from inside the *engine's* `Player.doDie()` (via `stopEffects()`/`finishEffects()`) whenever a
+  dying player has that effect active — not just on natural buff expiry. If `onExit()` throws, it aborts
+  whatever `doDie()` still had left to do (broadcasting the death animation, sending the "return to
+  village" popup), even though the player's dead-flag/HP were already committed a few lines earlier. The
+  visible symptom is exactly that split: the player is dead server-side but the client shows nothing until
+  a relog resyncs it. `ResurrectionSpecial.java` hit this because `effector.asPlayer()` can legitimately
+  return `null` (original caster not resolvable as a Player anymore), which then NPEs deep inside the
+  engine's `reviveRequest()`. Any effect's `onExit()`/`onStart()` must treat `effector` as possibly null
+  or non-Player — a crash there is a death-sequence bug, not just a lost buff.
