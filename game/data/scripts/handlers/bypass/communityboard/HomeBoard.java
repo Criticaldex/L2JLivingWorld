@@ -48,7 +48,10 @@ import org.l2jmobius.gameserver.managers.PremiumManager;
 import org.l2jmobius.gameserver.model.actor.Creature;
 import org.l2jmobius.gameserver.model.actor.Player;
 import org.l2jmobius.gameserver.model.actor.Summon;
+import org.l2jmobius.gameserver.model.item.EtcItem;
 import org.l2jmobius.gameserver.model.item.enums.ItemProcessType;
+import org.l2jmobius.gameserver.model.item.instance.Item;
+import org.l2jmobius.gameserver.model.item.type.EtcItemType;
 import org.l2jmobius.gameserver.model.skill.Skill;
 import org.l2jmobius.gameserver.model.zone.ZoneId;
 import org.l2jmobius.gameserver.network.serverpackets.MagicSkillUse;
@@ -77,6 +80,8 @@ public class HomeBoard implements IParseBoardHandler
 		CommunityBoardConfig.COMMUNITYBOARD_ENABLE_MULTISELLS ? "_bbsexcmultisell" : null,
 		CommunityBoardConfig.COMMUNITYBOARD_ENABLE_MULTISELLS ? "_bbsmultisell" : null,
 		CommunityBoardConfig.COMMUNITYBOARD_ENABLE_MULTISELLS ? "_bbssell" : null,
+		CommunityBoardConfig.COMMUNITYBOARD_ENABLE_MULTISELLS ? "_bbscraftsellask" : null,
+		CommunityBoardConfig.COMMUNITYBOARD_ENABLE_MULTISELLS ? "_bbscraftsell" : null,
 		CommunityBoardConfig.COMMUNITYBOARD_ENABLE_TELEPORTS ? "_bbsteleport" : null,
 		CommunityBoardConfig.COMMUNITYBOARD_ENABLE_BUFFS ? "_bbsbuff" : null,
 		CommunityBoardConfig.COMMUNITYBOARD_ENABLE_HEAL ? "_bbsheal" : null,
@@ -183,6 +188,43 @@ public class HomeBoard implements IParseBoardHandler
 			final String page = command.replace("_bbssell;", "");
 			returnHtml = HtmCache.getInstance().getHtm(player, "data/html/CommunityBoard/Custom/" + page + ".html");
 			ThreadPool.schedule(() -> player.sendPacket(new SellList(player)), 100);
+		}
+		else if (command.equals("_bbscraftsellask"))
+		{
+			final List<Item> items = getSellableCraftItems(player);
+			final StringBuilder list = new StringBuilder();
+			int total = 0;
+			for (Item item : items)
+			{
+				final int price = (item.getReferencePrice() / 2) * item.getCount();
+				total += price;
+				list.append("<tr><td width=350 align=left>").append(item.getName()).append(" x").append(item.getCount()).append("</td><td width=100 align=right>").append(price).append("</td></tr>");
+			}
+
+			returnHtml = HtmCache.getInstance().getHtm(player, "data/html/CommunityBoard/Custom/merchant/sellcraft_ask.html");
+			returnHtml = returnHtml.replace("%sellcraft_list%", items.isEmpty() ? "<tr><td colspan=2 align=center>You have no crafting materials or recipes to sell.</td></tr>" : list.toString());
+			returnHtml = returnHtml.replace("%sellcraft_total%", Integer.toString(total));
+		}
+		else if (command.equals("_bbscraftsell"))
+		{
+			returnHtml = HtmCache.getInstance().getHtm(player, "data/html/CommunityBoard/Custom/merchant/main.html");
+			final List<Item> items = getSellableCraftItems(player);
+			if (items.isEmpty())
+			{
+				player.sendMessage("You have no crafting materials or recipes to sell.");
+			}
+			else
+			{
+				int total = 0;
+				for (Item item : items)
+				{
+					total += (item.getReferencePrice() / 2) * item.getCount();
+					player.destroyItem(ItemProcessType.SELL, item.getObjectId(), item.getCount(), null, false);
+				}
+
+				player.addAdena(ItemProcessType.SELL, total, null, true);
+				player.sendItemList(false);
+			}
 		}
 		else if (command.startsWith("_bbsteleport"))
 		{
@@ -332,6 +374,31 @@ public class HomeBoard implements IParseBoardHandler
 		return false;
 	}
 	
+	/**
+	 * Gets the sellable crafting materials and recipes in the given player's inventory.
+	 * @param player the player
+	 * @return the list of sellable material/recipe items
+	 */
+	private static List<Item> getSellableCraftItems(Player player)
+	{
+		final List<Item> items = new ArrayList<>();
+		for (Item item : player.getInventory().getItems())
+		{
+			if (!item.isSellable() || !(item.getTemplate() instanceof EtcItem))
+			{
+				continue;
+			}
+
+			final EtcItem etcItem = (EtcItem) item.getTemplate();
+			if ((etcItem.getItemType() == EtcItemType.MATERIAL) || (etcItem.getItemType() == EtcItemType.RECIPE))
+			{
+				items.add(item);
+			}
+		}
+
+		return items;
+	}
+
 	/**
 	 * Gets the Favorite links for the given player.
 	 * @param player the player

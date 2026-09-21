@@ -140,6 +140,25 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   before an in-game identify step; the real sellable item is a separate id with the set's real name
   (e.g. "Imperial Crusader Breastplate", not "Dragon Scale Mail"). Check both the name pattern and those
   two flags before adding an item id to a shop list.
+- The `merchant/main.html` "Sell" button (`_bbssell;<page>`, handled in `HomeBoard.java`) doesn't do any
+  selling itself — it just sends the client's generic `SellList` packet, which opens the native client sell
+  dialog over whatever inventory the player has. There's no server-side concept of "what this shop buys
+  back" for it; the client's `RequestSellItem` (closed, in `GameServer.jar`) accepts anything with
+  `Item.isSellable() == true` at `getReferencePrice() / 2` per unit (verified by decompiling
+  `RequestSellItem`/`Player` with `javap -p -c` — this repo has no JDK 25, only JDK 17, so reading these
+  jars' class files (major version 69) requires either a JDK 25 `javac`/`javap`, or just trust the same
+  price formula documented here). Any custom "sell all X" feature has to replicate that formula itself
+  (`Player.destroyItem(ItemProcessType, objectId, count, WorldObject, boolean)` +
+  `Player.addAdena(ItemProcessType, count, WorldObject, boolean)`) rather than reuse anything from the
+  generic Sell flow.
+- Crafting materials and recipes are identifiable purely from item stats: `etcitem_type="MATERIAL"` /
+  `etcitem_type="RECIPE"` in `game/data/stats/items/*.xml`, exposed at runtime as
+  `((EtcItem) item.getTemplate()).getItemType() == EtcItemType.MATERIAL` (or `.RECIPE`). This is what backs
+  the CB merchant's "Sell Materials/Recipes" button: `_bbscraftsellask` (dynamic confirmation page, built by
+  `HomeBoard.getSellableCraftItems()`, listing each matching item/qty/adena value + a total, via
+  `merchant/sellcraft_ask.html`) and `_bbscraftsell` (the actual destroy + `addAdena`, gated behind the same
+  confirmation step — no undo). Named `_bbscraftsell*` rather than `_bbssell*` specifically so it doesn't
+  collide with the existing `command.startsWith("_bbssell")` branch in `HomeBoard.onCommand`.
 
 ## Subclass eligibility restrictions (hardcoded in the closed engine)
 
