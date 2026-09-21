@@ -268,6 +268,35 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   so this reflection approach can't remove it — that would require actually binary-patching the compiled
   method in `GameServer.jar`.
 
+## Fake player combat AI gaps (closed engine)
+
+- Peace-zone (`ZoneId.PEACE`/`NO_PVP`) protection in the closed `AttackableAI` is only checked at the
+  moment a fight *starts* — `isAggressiveTowards()` (generic proactive-aggro decision) and
+  `lambda$thinkActive$0` (the fake-player-specific target-pick, the **only** place
+  `FakePlayersConfig.FAKE_PLAYER_AGGRO_PLAYERS` is read anywhere in the engine — confirmed via
+  `grep -rla FAKE_PLAYER_AGGRO_PLAYERS` across every decompiled class) both check it. `thinkAttack()` — the
+  ~1200-line method that drives every attack tick once hate already exists — has **zero** zone checks
+  anywhere in it. So once a fake player starts hating a player (e.g. with `FakePlayerAggroPlayers = True`,
+  or simply because the fight started outside town and either side then walked into a peace zone), nothing
+  in the AI stops it from continuing to fight there. `game/data/scripts/custom/FakePlayers/
+  PeaceZoneCombatStopTask.java` is a datapack-side workaround for this: a 3-second sweep
+  (`ThreadPool.scheduleAtFixedRate`) over every fake player currently `isInCombat()`, force-disengaging
+  (`abortAttack`/`abortCast`/`clearAggroList`/`setIntention(ACTIVE)`) any whose own zone or current
+  target's zone is `PEACE`. It's a mitigation, not a real fix — the actual bug is in the closed
+  `AttackableAI.class` and would need either an upstream engine patch or binary-patching the compiled
+  method (same class of problem as the subclass restrictions above, but a method body edit rather than a
+  static field, so not something to attempt via reflection).
+- "Fake players don't retaliate when attacked outside a peace zone" was investigated the same way and
+  **not** resolved — `Attackable.addDamageHate()` (the hook that fires when anything takes damage) looks
+  structurally correct for a player hitting a fake player (it only skips adding hate when both sides are
+  fake players and `FakePlayerAggroFPC = False`), and `FakePlayerBehaviorManager`'s wander state machine
+  explicitly backs off (`isInCombat()`/`isAttackingNow()` guards) whenever the core AI already has the bot
+  fighting, so it isn't fighting the AI for control either. If this comes up again, don't re-derive the
+  above from scratch — instead get a live reproduction and check `game/log/` for exceptions at that
+  timestamp (a silently-swallowed exception mid-hate-processing, the same class of bug documented under
+  "Death handling" below, is the next most likely explanation) or inspect the specific NPC template
+  `FakePlayerBaseNpcId` points to for missing attack/weapon data.
+
 ## Death handling and custom skill effects
 
 - Datapack effect classes under `game/data/scripts/handlers/skill/effects/*.java` get their `onExit()`
