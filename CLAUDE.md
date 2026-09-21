@@ -82,3 +82,24 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
 - New Java functionality for the population/phantom system (e.g. new fields the l2admin panel exposes) has
   to be compiled into `GameServer.jar` upstream (outside this repo) before the corresponding config value
   does anything — that jar is prebuilt here, not compiled from this repo's sources.
+
+## Community Board custom pages — gotchas
+
+- `game/data/html/CommunityBoard/Custom/` pages are plain files read on demand; there's no manifest of
+  "which pages are reachable." A page only shows up in-game if some other reachable page has a `bypass`
+  button pointing at it — nothing enforces that the graph stays connected. This repo had a whole cluster
+  of pages (`merchant/misc.html` + its `misc_*.html` category children, and their backing
+  `multisell/custom/*.xml` files) that were fully built but never wired up from `main.html`, sitting
+  as dead weight. When adding or changing a CB page, trace the actual bypass chain from `main.html`
+  rather than assuming a page you can see on disk is actually reachable.
+- Multi-column button grids (`<table><tr><td>...<button width=114>...</td>...</tr></table>`) size each
+  column to the widest button placed in it across *all* rows. A later row with a single, wider button in
+  one `<td>` (e.g. a 145px "Back" button under a grid of 114px buttons) gets visually clipped to the
+  narrower column instead of erroring — the bypass still works, only the rendering is broken. Fix by
+  either matching the button width to the grid, or giving that `<td>` a `colspan` spanning the full grid.
+- The Community Board gatekeeper (`CommunityBoard/Custom/gatekeeper/main.html`, `_bbsteleport;<name>`) does
+  **not** read `game/data/teleporters/others/50009.xml` — that file backs the separate NPC-dialog teleporter
+  ("Fiorella"). The CB gatekeeper's actual destinations are the flat `CommunityTeleportList` in
+  `game/config/Custom/CommunityBoard.ini` (`Name,X,Y,Z` entries), looked up by
+  `HomeBoard.java`'s `_bbsteleport` handler. Adding a CB gatekeeper destination means editing *both* that
+  ini list and the button in `main.html` — editing the teleporter XML does nothing for this button.
