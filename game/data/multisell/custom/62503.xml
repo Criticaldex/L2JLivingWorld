@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="5808" /> <!-- Party Mask -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="6394" /> <!-- Red Party Mask -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="6843" /> <!-- Cat Ears -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="6844" /> <!-- Lady's Hair Pin -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="6845" /> <!-- Pirate's Eye Patch -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="6846" /> <!-- Monocle -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="7680" /> <!-- Raccoon Ears -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="7681" /> <!-- Outlaw's Eyepatch -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="7682" /> <!-- Maiden's Hairpin -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="7683" /> <!-- Rabbit Ears -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="7695" /> <!-- Forget-me-not Hairpin -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="7696" /> <!-- Daisy Hairpin -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8177" /> <!-- Raid Challenger's Circlet -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8178" /> <!-- Raid Adventurer's Circlet -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8179" /> <!-- Raid Master's Circlet -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8180" /> <!-- Circlet of Ice Fairy Sirra -->
+	</item>
+	<item>
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="8184" /> <!-- Party Hat -->
+	</item>
+	<item>
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="8185" /> <!-- Feathered Hat -->
+	</item>
+	<item>
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="8186" /> <!-- Artisan's Goggles -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8188" /> <!-- Little Angel Wings -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8189" /> <!-- Fairy Antennae -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8560" /> <!-- Teddy Bear Hat -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8561" /> <!-- Piggy Hat -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8562" /> <!-- Jester Hat -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8563" /> <!-- Wizard Hat -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8564" /> <!-- Dapper Cap -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8565" /> <!-- Romantic Chapeau -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8567" /> <!-- Valakas Slayer Circlet -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8568" /> <!-- Antharas Slayer Circlet -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8569" /> <!-- Half Face Mask -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8912" /> <!-- Single Stem Flower -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8913" /> <!-- Butterfly Hairpin -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8914" /> <!-- Luxurious Gold Circlet -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8915" /> <!-- Luxurious Silver Circlet -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8916" /> <!-- Eye Patch -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8917" /> <!-- Goddess Circlet -->
+	</item>
+	<item>
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="8918" /> <!-- Leather Cap -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8920" /> <!-- Angel Halo -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8921" /> <!-- Demon Circlet -->
+	</item>
+	<item>
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="8922" /> <!-- Pirate Hat -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8923" /> <!-- Scar -->
+	</item>
+</list>
