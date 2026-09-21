@@ -35,7 +35,11 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   Windows path drives a bundled portable JDK 25 + MariaDB via PowerShell (`update.ps1`, `stop.ps1`,
   `Start-Server.bat`/`Stop-Server.bat` at repo root). Linux/Steam Deck path is `launcher/start.sh` /
   `launcher/stop.sh`, which download and manage their own portable JDK 25 + MariaDB under
-  `runtime-linux/` (gitignored) and track PIDs in `launcher/.linux-pids/`.
+  `runtime-linux/` (gitignored) and track PIDs in `launcher/.linux-pids/`. That directory's `.pid` files
+  were committed before the gitignore rule for it existed, so they kept reappearing as modified on every
+  `git status` despite being ignored — `.gitignore` doesn't retroactively untrack already-tracked files.
+  Fixed once via `git rm --cached`; if a similar "ignored but still showing up" file appears elsewhere,
+  check `git ls-files` for it rather than assuming the ignore rule is broken.
 - `brain/` — optional Flask microservice (`fpc_brain.py`) giving fake players/phantoms LLM-generated
   in-character chat (whisper/say/trade/shout), backed by DeepSeek's API or a local Ollama model. Off by
   default; enabled via `StartBrain=true` in `launcher.ini`. Persists lightweight per-player memory to
