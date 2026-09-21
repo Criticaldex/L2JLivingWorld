@@ -125,6 +125,36 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   (e.g. "Imperial Crusader Breastplate", not "Dragon Scale Mail"). Check both the name pattern and those
   two flags before adding an item id to a shop list.
 
+## Subclass eligibility restrictions (hardcoded in the closed engine)
+
+- `Player.ini`'s `MaxSubclass`, `BaseSubclassLevel`, `MaxSubclassLevel`, `AltSubClassWithoutQuests`, and
+  `AltSubclassEverywhere` do **not** cover the full eligibility check for "Add subclass" — there's an
+  additional, config-invisible restriction compiled into `libs/GameServer.jar`'s
+  `org.l2jmobius.gameserver.model.actor.instance.VillageMaster` (no source in this repo; found by
+  decompiling the class with `javap`, since the engine source isn't shipped here). It has two parts:
+  1. **Subclass "family" grouping** (`subclassSetMap`, built in `VillageMaster.<clinit>` from five
+     `subclasseSet1`-`subclasseSet5` `EnumSet`s of `PlayerClass`): analogous classes across the three base
+     races are mutually exclusive as subclasses — e.g. Set5 = `{SORCERER, SPELLSINGER, SPELLHOWLER}` (and
+     by extension Spellhowler's 3rd-class rename, Storm Screamer). If your main or any existing subclass
+     resolves into one of these classes, none of the others in its set can ever be added as a subclass,
+     and vice versa. Same pattern for knight types (Set1), rogue types (Set2), archer types (Set3), and
+     summoner types (Set4).
+  2. **Overlord/Warsmith are permanently unselectable** as a subclass (`neverSubclassed`), removed from the
+     candidate pool (`mainSubclassSet`) at class-init time — unrelated to and not fixed by
+     `AltSubClassWithoutQuests`/`AltSubclassEverywhere`.
+  3. Separately (not data-driven, inline logic in `VillageMaster#getSubclasses`): Elf and Dark Elf classes
+     are mutually exclusive as subclasses of each other, regardless of the above sets.
+  The in-game failure message (`game/data/html/villagemaster/SubClass_Fail.htm`) is a single generic
+  "you aren't eligible" page mentioning Mimir's Elixir/quest items — it's static boilerplate shown for
+  *any* failed eligibility check, not just missing quest items, so it does not indicate the real cause.
+- To lift restriction #1/#2 without touching the closed jar: `game/data/scripts/custom/SubclassUnlock/
+  SubclassUnlock.java` reflectively clears `VillageMaster.subclassSetMap` and re-adds
+  `neverSubclassed` (Overlord/Warsmith) into `mainSubclassSet` at server boot (datapack scripts run as
+  plain classpath code against an unnamed module, so `setAccessible(true)` on those private static fields
+  needs no `--add-opens`). Restriction #3 (Elf/Dark-Elf mutual ban) is inline bytecode, not a data field,
+  so this reflection approach can't remove it — that would require actually binary-patching the compiled
+  method in `GameServer.jar`.
+
 ## Death handling and custom skill effects
 
 - Datapack effect classes under `game/data/scripts/handlers/skill/effects/*.java` get their `onExit()`
