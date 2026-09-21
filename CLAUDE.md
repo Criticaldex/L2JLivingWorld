@@ -41,29 +41,10 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   Fixed once via `git rm --cached`; if a similar "ignored but still showing up" file appears elsewhere,
   check `git ls-files` for it rather than assuming the ignore rule is broken.
 - `brain/` — optional Flask microservice (`fpc_brain.py`) giving fake players/phantoms LLM-generated
-  in-character chat (whisper/say/trade/shout), backed by a local Ollama model or one of five OpenAI-
-  compatible cloud APIs (DeepSeek, OpenAI, Groq, OpenRouter, Mistral — pick via `setup_brain.sh`/
-  `setup_brain.bat`'s provider menu, or `--reconfigure` to switch later without losing saved keys). Off by
+  in-character chat (whisper/say/trade/shout), backed by DeepSeek's API or a local Ollama model. Off by
   default; enabled via `StartBrain=true` in `launcher.ini`. Persists lightweight per-player memory to
   `brain/memory/fpc_memory.json`; per-channel conversation context (`conversations`, `say_logs`,
   `trade_log`, `shout_log`) is in-process and TTL-pruned, not persisted.
-  **Gotcha**: upstream's `v0.1.21-patch` added this multi-provider menu (plus `--reconfigure`/`--reset`) to
-  `setup_brain.bat` (Windows) but never ported the same logic to `setup_brain.sh` (Linux/Steam Deck) — that
-  patch's `.sh` was still the old Ollama-only script with no `--reconfigure` flag at all, silently ignored
-  and falling through to the Ollama path regardless of what you asked for. Ported the `.bat`'s menu/model-
-  suggestion/key-reuse logic into `setup_brain.sh` by hand (commit after `5308e20b`) so both platforms have
-  the same provider set now. If a future upstream patch touches `setup_brain.bat` again, check whether
-  `setup_brain.sh` needs the same change manually — they are not kept in sync upstream.
-  **Also**: `brain/.env` (where every provider's API key actually lives) was tracked in git since the
-  initial commit — only placeholder/empty values were ever in it here, but it was one careless `commit -a`
-  away from leaking a real key. Untracked and gitignored as of `feb63964`; if your own clone already
-  committed a real key into it before pulling that fix, check your git history and rotate the key.
-  Provider model IDs drift over time (Groq retired `llama-3.3-70b-versatile`/`llama-3.1-8b-instant` at some
-  point after this repo's setup scripts were written, replaced by `openai/gpt-oss-120b` as the flagship
-  model) — if a configured provider starts 404ing with "model does not exist", don't trust any hardcoded
-  suggestion (including the ones in `setup_brain.sh`/`.bat`/`fpc_brain.py`); query
-  `GET https://api.groq.com/openai/v1/models` (or the equivalent for whichever provider) with the real key
-  to get the live, authoritative list.
 - `tools/l2admin/` — a single self-contained `index.html` "Server Control Panel" for editing `game/config`
   `.ini`s and the `data/` population/playstyle/clan files with a GUI, either in a browser (File System
   Access API, Chromium-only) or hosted inside the compiled Windows launcher via WebView2, using
