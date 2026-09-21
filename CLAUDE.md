@@ -92,6 +92,13 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   `multisell/custom/*.xml` files) that were fully built but never wired up from `main.html`, sitting
   as dead weight. When adding or changing a CB page, trace the actual bypass chain from `main.html`
   rather than assuming a page you can see on disk is actually reachable.
+- `game/data/multisell/custom/` had a second, larger cluster of orphans beyond the misc-pages one above:
+  a whole earlier draft of the merchant (`600010`/`600012`/`600014`/`600016`, plus `62000`-`62105`,
+  `62208`-`62211`, `62220`-`62221`, `62300`-`62303`) that was rebuilt into the current `a/b/c/s.html` +
+  `61xxx`/`62500`/`62501`/`62502` system and never deleted — none referenced from any `.html` in the repo.
+  A single "does this page link here" pass isn't enough to find all dead multisell data; cross-reference
+  every id actually used by `_bbsmultisell;<id>` across all of `merchant/*.html` against every file in
+  `multisell/custom/` to catch drafts like this that don't hang off any specific known-orphan page.
 - Multi-column button grids (`<table><tr><td>...<button width=114>...</td>...</tr></table>`) size each
   column to the widest button placed in it across *all* rows. A later row with a single, wider button in
   one `<td>` (e.g. a 145px "Back" button under a grid of 114px buttons) gets visually clipped to the
