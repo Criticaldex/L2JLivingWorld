@@ -151,14 +151,19 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   (`Player.destroyItem(ItemProcessType, objectId, count, WorldObject, boolean)` +
   `Player.addAdena(ItemProcessType, count, WorldObject, boolean)`) rather than reuse anything from the
   generic Sell flow.
-- Crafting materials and recipes are identifiable purely from item stats: `etcitem_type="MATERIAL"` /
-  `etcitem_type="RECIPE"` in `game/data/stats/items/*.xml`, exposed at runtime as
-  `((EtcItem) item.getTemplate()).getItemType() == EtcItemType.MATERIAL` (or `.RECIPE`). This is what backs
-  the CB merchant's "Sell Materials/Recipes" button: `_bbscraftsellask` (dynamic confirmation page, built by
-  `HomeBoard.getSellableCraftItems()`, listing each matching item/qty/adena value + a total, via
-  `merchant/sellcraft_ask.html`) and `_bbscraftsell` (the actual destroy + `addAdena`, gated behind the same
-  confirmation step — no undo). Named `_bbscraftsell*` rather than `_bbssell*` specifically so it doesn't
-  collide with the existing `command.startsWith("_bbssell")` branch in `HomeBoard.onCommand`.
+- The CB merchant's "Sell Junk" button (`_bbscraftsellask` → dynamic confirmation page listing item/qty/adena
+  value + total via `merchant/sellcraft_ask.html`, then `_bbscraftsell` for the actual destroy + `addAdena`,
+  gated behind that confirmation step — no undo) sells everything `isSellable()` in the player's inventory
+  **except** items also purchasable from this same merchant's own multisells (grade shops `61000`-`61055`,
+  scrolls `62501`, misc items `62500`, pets `62502`, hair accessories `62503`, quest/clan `600024` —
+  `HomeBoard.getSellableJunkItems()`/`getMerchantCatalogItemIds()`). `MultisellData` (closed, in
+  `GameServer.jar`) exposes no public "get list by id" lookup, only `separateAndSend()` (fire-and-forget) —
+  so the merchant's catalog item ids are read via reflection into its private `_entries` map, the same
+  pattern `custom/SubclassUnlock/SubclassUnlock.java` uses for `VillageMaster`'s private fields. Named
+  `_bbscraftsell*` rather than `_bbssell*` specifically so it doesn't collide with the existing
+  `command.startsWith("_bbssell")` branch in `HomeBoard.onCommand`. Since this no longer filters by item
+  type, the confirmation list can get long (every non-catalog drop/junk item at once) — the CB page table
+  has no scroll/pagination, so a very full inventory may visually overflow the fixed-height confirm page.
 
 ## Subclass eligibility restrictions (hardcoded in the closed engine)
 

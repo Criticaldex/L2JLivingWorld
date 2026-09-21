@@ -20,14 +20,18 @@
  */
 package handlers.bypass.communityboard;
 
+import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
@@ -48,10 +52,11 @@ import org.l2jmobius.gameserver.managers.PremiumManager;
 import org.l2jmobius.gameserver.model.actor.Creature;
 import org.l2jmobius.gameserver.model.actor.Player;
 import org.l2jmobius.gameserver.model.actor.Summon;
-import org.l2jmobius.gameserver.model.item.EtcItem;
 import org.l2jmobius.gameserver.model.item.enums.ItemProcessType;
 import org.l2jmobius.gameserver.model.item.instance.Item;
-import org.l2jmobius.gameserver.model.item.type.EtcItemType;
+import org.l2jmobius.gameserver.model.multisell.Entry;
+import org.l2jmobius.gameserver.model.multisell.Ingredient;
+import org.l2jmobius.gameserver.model.multisell.ListContainer;
 import org.l2jmobius.gameserver.model.skill.Skill;
 import org.l2jmobius.gameserver.model.zone.ZoneId;
 import org.l2jmobius.gameserver.network.serverpackets.MagicSkillUse;
@@ -191,7 +196,7 @@ public class HomeBoard implements IParseBoardHandler
 		}
 		else if (command.equals("_bbscraftsellask"))
 		{
-			final List<Item> items = getSellableCraftItems(player);
+			final List<Item> items = getSellableJunkItems(player);
 			final StringBuilder list = new StringBuilder();
 			int total = 0;
 			for (Item item : items)
@@ -202,16 +207,16 @@ public class HomeBoard implements IParseBoardHandler
 			}
 
 			returnHtml = HtmCache.getInstance().getHtm(player, "data/html/CommunityBoard/Custom/merchant/sellcraft_ask.html");
-			returnHtml = returnHtml.replace("%sellcraft_list%", items.isEmpty() ? "<tr><td colspan=2 align=center>You have no crafting materials or recipes to sell.</td></tr>" : list.toString());
+			returnHtml = returnHtml.replace("%sellcraft_list%", items.isEmpty() ? "<tr><td colspan=2 align=center>You have nothing sellable that isn't already in this shop.</td></tr>" : list.toString());
 			returnHtml = returnHtml.replace("%sellcraft_total%", Integer.toString(total));
 		}
 		else if (command.equals("_bbscraftsell"))
 		{
 			returnHtml = HtmCache.getInstance().getHtm(player, "data/html/CommunityBoard/Custom/merchant/main.html");
-			final List<Item> items = getSellableCraftItems(player);
+			final List<Item> items = getSellableJunkItems(player);
 			if (items.isEmpty())
 			{
-				player.sendMessage("You have no crafting materials or recipes to sell.");
+				player.sendMessage("You have nothing sellable that isn't already in this shop.");
 			}
 			else
 			{
@@ -375,28 +380,70 @@ public class HomeBoard implements IParseBoardHandler
 	}
 	
 	/**
-	 * Gets the sellable crafting materials and recipes in the given player's inventory.
+	 * Gets the sellable items in the given player's inventory that aren't otherwise purchasable from this
+	 * same merchant (grade shops, scrolls, misc items, pets, hair accessories, quest/clan items).
 	 * @param player the player
-	 * @return the list of sellable material/recipe items
+	 * @return the list of sellable, non-merchant-catalog items
 	 */
-	private static List<Item> getSellableCraftItems(Player player)
+	private static List<Item> getSellableJunkItems(Player player)
 	{
+		final Set<Integer> catalogItemIds = getMerchantCatalogItemIds();
 		final List<Item> items = new ArrayList<>();
 		for (Item item : player.getInventory().getItems())
 		{
-			if (!item.isSellable() || !(item.getTemplate() instanceof EtcItem))
-			{
-				continue;
-			}
-
-			final EtcItem etcItem = (EtcItem) item.getTemplate();
-			if ((etcItem.getItemType() == EtcItemType.MATERIAL) || (etcItem.getItemType() == EtcItemType.RECIPE))
+			if (item.isSellable() && !catalogItemIds.contains(item.getId()))
 			{
 				items.add(item);
 			}
 		}
 
 		return items;
+	}
+
+	/**
+	 * Gets the item ids sold by this merchant's own multisells (grade shops, scrolls, misc items, pets, hair
+	 * accessories, quest/clan items), read straight from the live {@link MultisellData} entries via
+	 * reflection since it exposes no public lookup by list id.
+	 * @return the set of item ids purchasable from this merchant
+	 */
+	private static Set<Integer> getMerchantCatalogItemIds()
+	{
+		final Set<Integer> multisellIds = new HashSet<>(Arrays.asList(600024, 62500, 62501, 62502, 62503));
+		for (int id = 61000; id <= 61055; id++)
+		{
+			multisellIds.add(id);
+		}
+
+		final Set<Integer> itemIds = new HashSet<>();
+		try
+		{
+			final Field entriesField = MultisellData.class.getDeclaredField("_entries");
+			entriesField.setAccessible(true);
+			@SuppressWarnings("unchecked")
+			final Map<Integer, ListContainer> entries = (Map<Integer, ListContainer>) entriesField.get(MultisellData.getInstance());
+			for (int multisellId : multisellIds)
+			{
+				final ListContainer list = entries.get(multisellId);
+				if (list == null)
+				{
+					continue;
+				}
+
+				for (Entry entry : list.getEntries())
+				{
+					for (Ingredient product : entry.getProducts())
+					{
+						itemIds.add(product.getItemId());
+					}
+				}
+			}
+		}
+		catch (Exception e)
+		{
+			LOG.warning(HomeBoard.class.getSimpleName() + ": Could not read merchant catalog item ids. " + e.getMessage());
+		}
+
+		return itemIds;
 	}
 
 	/**
