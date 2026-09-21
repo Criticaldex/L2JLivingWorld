@@ -294,11 +294,6 @@
 		<production count="10" id="727" />
 	</item>
 	<item>
-		<!-- Healing Drug -->
-		<ingredient count="500" id="57" />
-		<production count="10" id="725" />
-	</item>
-	<item>
 		<!-- Healing Potion -->
 		<ingredient count="3300" id="57" />
 		<production count="10" id="1061" />
@@ -317,11 +312,6 @@
 		<!-- Mana Potion -->
 		<ingredient count="20000" id="57" />
 		<production count="10" id="728" />
-	</item>
-	<item>
-		<!-- Mana Drug -->
-		<ingredient count="800" id="57" />
-		<production count="10" id="726" />
 	</item>
 	<item>
 		<!-- Mimir's Elixir -->

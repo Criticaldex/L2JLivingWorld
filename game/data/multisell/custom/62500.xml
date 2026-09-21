@@ -166,4 +166,13 @@
 		<ingredient count="300000" id="57" />
 		<production count="1000" id="3952" />
 	</item>
+	<!-- Potions -->
+	<item>
+		<ingredient count="20000" id="57" />
+		<production count="10" id="728" />
+	</item>
+	<item>
+		<ingredient count="100000" id="57" />
+		<production count="10" id="1540" />
+	</item>
 </list>

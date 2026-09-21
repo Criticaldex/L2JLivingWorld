@@ -27,7 +27,7 @@
 		<reuseDelay>500</reuseDelay>
 		<effects>
 			<effect name="ManaHeal">
-				<power>100</power>
+				<power>1000</power>
 			</effect>
 		</effects>
 	</skill>
