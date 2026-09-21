@@ -87,6 +87,46 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   to be compiled into `GameServer.jar` upstream (outside this repo) before the corresponding config value
   does anything — that jar is prebuilt here, not compiled from this repo's sources.
 
+## Applying upstream engine updates (`libs/GameServer.jar`)
+
+- Updates ship as "-patch" GitHub releases at `Teravibes/L2-Living-Worlds` (`gh release list --repo
+  Teravibes/L2-Living-Worlds`), e.g. `v0.1.21-patch`. Each release's `L2J-Offline-Patch.zip` is meant to be
+  dropped straight over an existing install (see its own `PATCH-README.txt`); `launcher/version.txt` here
+  tracks which one we're on.
+- `libs/GameServer.jar` inside each patch is a **fresh full rebuild**, not a binary/incremental diff — so
+  it's always cumulative. You do **not** need to apply every intermediate `-patch` release in sequence; the
+  latest one's jar already contains every earlier engine-side fix. Datapack/script/asset files bundled
+  alongside it, by contrast, are only as fresh as whatever that specific release actually touched — before
+  trusting a "just take the latest patch" shortcut for those, diff the target release's zip file list
+  against one or two versions back (`comm -23`/`comm -13` on sorted `unzip -l` name lists) to confirm no
+  in-between file was dropped from the bundle.
+- Before overwriting the jar, decompile-diff (`javap -p` on both, via `unzip <jar> 'org/l2jmobius/...'`)
+  any class whose signature a datapack script calls, and grep the new jar's class list
+  (`unzip -l old.jar | sort > a; unzip -l new.jar | sort > b; comm -13/-23 a b`) for anything removed —
+  method **removals** (not just additions) are the real compatibility risk, since scripts compile against
+  whatever's in the jar at boot. Example: the `v0.1.21-patch` jar replaced (not overloaded)
+  `ConfigLoader.init()` with `ConfigLoader.init(String)`, coupled with a new
+  `GameServerLaunchArgumentsParser` (reads system property `gameConfigPath`, defaults to `"config"` — same
+  behavior as before when unset, so no launcher change needed); the jar and
+  `game/data/scripts/handlers/chat/commands/admin/AdminReload.java` (the only caller of that method) must
+  be updated together or `.reload config` fails to compile.
+- That same release introduced a new, currently-**inert** plugin framework:
+  `org.l2jmobius.gameserver.modules.*` (`ModuleManager`, `ModuleManifestReader`, `ModuleValidator`,
+  `ModuleContext`, etc.), gated by `./config/Modules.ini` (`EnableModules`, `ModulesRoot` — defaults to a
+  `modules` subfolder under the gameserver's cwd, i.e. `game/modules/`). That ini file doesn't exist in this
+  repo, so the framework stays fully off — updating the jar alone changes nothing. `game/modules/` had to be
+  un-ignored (`!game/modules/` added after the generic bare `modules` rule in `.gitignore`, which predates
+  this feature and is a leftover from the engine's own Ant build tooling, not related to it) to keep the two
+  bundled reference modules (`hello-world`, `custom-item`) tracked. Each module is a self-contained
+  directory with a `module.json` manifest (`entrypoint`, optional `reserves`/`resources` for item-id ranges
+  and datapack roots it owns) and a `GameModule` Java entry point taking a `ModuleContext`
+  (`.config()`/`.handlers()`/`.events()`/`.logging()`) — `custom-item`'s own doc comment calls its demo item
+  "the Living World Token", i.e. this is clearly meant as the future home for this project's custom
+  features instead of hand-editing `game/data/scripts/custom/*`. Not adopted for anything yet; the two
+  bundled modules are kept only as reference/documentation of the extension point, both disabled by default
+  (each needs its own `config/module.ini` with `Enabled = True`, on top of the global `EnableModules`
+  switch).
+
 ## Community Board custom pages — gotchas
 
 - `game/data/html/CommunityBoard/Custom/` pages are plain files read on demand; there's no manifest of

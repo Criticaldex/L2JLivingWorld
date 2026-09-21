@@ -7,6 +7,7 @@ jre/
 ib_logfile*
 src.zip
 modules
+!game/modules/
 game/log/
 login/log/
 launcher/logs-linux/
