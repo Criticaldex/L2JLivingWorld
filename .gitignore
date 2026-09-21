@@ -10,3 +10,5 @@ modules
 game/log/
 login/log/
 launcher/logs-linux/
+launcher/.linux-pids/game.pid
+launcher/.linux-pids/login.pid
