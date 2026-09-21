@@ -575,9 +575,9 @@ if /i "!PROVIDER!"=="ollama" (
     set "SUGG2=gpt-4o"
     set "SUGG3=gpt-4.1-mini"
 ) else if /i "!PROVIDER!"=="groq" (
-    set "MODREC=openai/gpt-oss-120b"
-    set "SUGG1=openai/gpt-oss-120b"
-    set "SUGG2=openai/gpt-oss-20b"
+    set "MODREC=llama-3.3-70b-versatile"
+    set "SUGG1=llama-3.3-70b-versatile"
+    set "SUGG2=llama-3.1-8b-instant"
 ) else if /i "!PROVIDER!"=="openrouter" (
     set "MODREC=deepseek/deepseek-chat"
     set "SUGG1=deepseek/deepseek-chat"
