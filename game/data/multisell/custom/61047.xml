@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- S-Grade Blunts: Arcana Mace -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6579" />
+	</item>
+	<item>
+		<!-- S-Grade Blunts: Arcana Mace - Acumen -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6608" />
+	</item>
+	<item>
+		<!-- S-Grade Blunts: Arcana Mace - MP Regeneration -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6609" />
+	</item>
+	<item>
+		<!-- S-Grade Blunts: Arcana Mace - Mana Up -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6610" />
+	</item>
+	<item>
+		<!-- S-Grade Blunts: Basalt Battlehammer -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6365" />
+	</item>
+	<item>
+		<!-- S-Grade Blunts: Basalt Battlehammer - HP Drain -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6584" />
+	</item>
+	<item>
+		<!-- S-Grade Blunts: Basalt Battlehammer - HP Regeneration -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6586" />
+	</item>
+	<item>
+		<!-- S-Grade Blunts: Basalt Battlehammer - Health -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6585" />
+	</item>
+	<item>
+		<!-- S-Grade Blunts: Dragon Hunter Axe -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6369" />
+	</item>
+	<item>
+		<!-- S-Grade Blunts: Dragon Hunter Axe - HP Drain -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6598" />
+	</item>
+	<item>
+		<!-- S-Grade Blunts: Dragon Hunter Axe - HP Regeneration -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6596" />
+	</item>
+	<item>
+		<!-- S-Grade Blunts: Dragon Hunter Axe - Health -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6597" />
+	</item>
+	<item>
+		<!-- S-Grade Blunts: Imperial Staff -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6366" />
+	</item>
+	<item>
+		<!-- S-Grade Blunts: Imperial Staff - Empower -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6587" />
+	</item>
+	<item>
+		<!-- S-Grade Blunts: Imperial Staff - MP Regeneration -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6588" />
+	</item>
+	<item>
+		<!-- S-Grade Blunts: Imperial Staff - Magic Hold -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6589" />
+	</item>
+	<item>
+		<!-- S-Grade Blunts: Yablonski's Hammer -->
+		<ingredient count="35300000" id="57" />
+		<production count="1" id="165" />
+	</item>
+</list>

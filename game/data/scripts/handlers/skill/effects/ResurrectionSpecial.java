@@ -65,11 +65,11 @@ public class ResurrectionSpecial extends AbstractEffect
 		{
 			return;
 		}
-		
-		final Player caster = effector.asPlayer();
+
+		final Player caster = (effector != null) ? effector.asPlayer() : null;
 		if (effected.isPlayer())
 		{
-			player.reviveRequest(caster, false, _power);
+			player.reviveRequest(caster != null ? caster : player, false, _power);
 		}
 		
 		if (effected.isPet())

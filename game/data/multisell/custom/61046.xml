@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- S-Grade Jewels: Sealed Tateossian Earring -->
+		<ingredient count="3700000" id="57" />
+		<production count="1" id="6724" />
+	</item>
+	<item>
+		<!-- S-Grade Jewels: Sealed Tateossian Necklace -->
+		<ingredient count="4940000" id="57" />
+		<production count="1" id="6726" />
+	</item>
+	<item>
+		<!-- S-Grade Jewels: Sealed Tateossian Ring -->
+		<ingredient count="2470000" id="57" />
+		<production count="1" id="6725" />
+	</item>
+	<item>
+		<!-- S-Grade Jewels: Tateossian Earring -->
+		<ingredient count="4440000" id="57" />
+		<production count="1" id="858" />
+	</item>
+	<item>
+		<!-- S-Grade Jewels: Tateossian Necklace -->
+		<ingredient count="5920000" id="57" />
+		<production count="1" id="920" />
+	</item>
+	<item>
+		<!-- S-Grade Jewels: Tateossian Ring -->
+		<ingredient count="2960000" id="57" />
+		<production count="1" id="889" />
+	</item>
+</list>

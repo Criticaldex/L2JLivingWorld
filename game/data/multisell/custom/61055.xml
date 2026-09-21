@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<!-- S-Grade Swords: Forgotten Blade -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6364" />
+	</item>
+	<item>
+		<!-- S-Grade Swords: Forgotten Blade - Focus -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6583" />
+	</item>
+	<item>
+		<!-- S-Grade Swords: Forgotten Blade - Haste -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6581" />
+	</item>
+	<item>
+		<!-- S-Grade Swords: Forgotten Blade - Health -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6582" />
+	</item>
+	<item>
+		<!-- S-Grade Swords: Heaven's Divider -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6372" />
+	</item>
+	<item>
+		<!-- S-Grade Swords: Heavens Divider - Focus -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6607" />
+	</item>
+	<item>
+		<!-- S-Grade Swords: Heavens Divider - Haste -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6605" />
+	</item>
+	<item>
+		<!-- S-Grade Swords: Heavens Divider - Health -->
+		<ingredient count="48800000" id="57" />
+		<production count="1" id="6606" />
+	</item>
+</list>
