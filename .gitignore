@@ -8,3 +8,5 @@ ib_logfile*
 src.zip
 modules
 game/log/
+login/log/
+launcher/logs-linux/
