@@ -41,10 +41,19 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   Fixed once via `git rm --cached`; if a similar "ignored but still showing up" file appears elsewhere,
   check `git ls-files` for it rather than assuming the ignore rule is broken.
 - `brain/` — optional Flask microservice (`fpc_brain.py`) giving fake players/phantoms LLM-generated
-  in-character chat (whisper/say/trade/shout), backed by DeepSeek's API or a local Ollama model. Off by
+  in-character chat (whisper/say/trade/shout), backed by a local Ollama model or one of five OpenAI-
+  compatible cloud APIs (DeepSeek, OpenAI, Groq, OpenRouter, Mistral — pick via `setup_brain.sh`/
+  `setup_brain.bat`'s provider menu, or `--reconfigure` to switch later without losing saved keys). Off by
   default; enabled via `StartBrain=true` in `launcher.ini`. Persists lightweight per-player memory to
   `brain/memory/fpc_memory.json`; per-channel conversation context (`conversations`, `say_logs`,
   `trade_log`, `shout_log`) is in-process and TTL-pruned, not persisted.
+  **Gotcha**: upstream's `v0.1.21-patch` added this multi-provider menu (plus `--reconfigure`/`--reset`) to
+  `setup_brain.bat` (Windows) but never ported the same logic to `setup_brain.sh` (Linux/Steam Deck) — that
+  patch's `.sh` was still the old Ollama-only script with no `--reconfigure` flag at all, silently ignored
+  and falling through to the Ollama path regardless of what you asked for. Ported the `.bat`'s menu/model-
+  suggestion/key-reuse logic into `setup_brain.sh` by hand (commit after `5308e20b`) so both platforms have
+  the same provider set now. If a future upstream patch touches `setup_brain.bat` again, check whether
+  `setup_brain.sh` needs the same change manually — they are not kept in sync upstream.
 - `tools/l2admin/` — a single self-contained `index.html` "Server Control Panel" for editing `game/config`
   `.ini`s and the `data/` population/playstyle/clan files with a GUI, either in a browser (File System
   Access API, Chromium-only) or hosted inside the compiled Windows launcher via WebView2, using
