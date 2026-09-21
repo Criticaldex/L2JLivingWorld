@@ -106,8 +106,13 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
 - Multi-column button grids (`<table><tr><td>...<button width=114>...</td>...</tr></table>`) size each
   column to the widest button placed in it across *all* rows. A later row with a single, wider button in
   one `<td>` (e.g. a 145px "Back" button under a grid of 114px buttons) gets visually clipped to the
-  narrower column instead of erroring — the bypass still works, only the rendering is broken. Fix by
-  either matching the button width to the grid, or giving that `<td>` a `colspan` spanning the full grid.
+  narrower column instead of erroring — the bypass still works, only the rendering is broken: the overflow
+  portion of the button texture renders as a detached, blank bordered fragment next to the visible part.
+  **`colspan` on that `<td>` alone does not fix this** in the actual client (verified via screenshot on
+  `merchant/{a,b,c,s}.html`'s "Back to Merchant" button, which already had `colspan="3"` from an earlier fix
+  attempt — commit `0996ecc7` — and was still visibly broken). The only fix that actually works is matching
+  the button's own `width` to the grid's column width (114 here), even if that means the label looks tight;
+  keeping `colspan` alongside it is harmless but not load-bearing.
 - The Community Board gatekeeper (`CommunityBoard/Custom/gatekeeper/main.html`, `_bbsteleport;<name>`) does
   **not** read `game/data/teleporters/others/50009.xml` — that file backs the separate NPC-dialog teleporter
   ("Fiorella"). The CB gatekeeper's actual destinations are the flat `CommunityTeleportList` in
