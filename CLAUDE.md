@@ -286,16 +286,24 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   `AttackableAI.class` and would need either an upstream engine patch or binary-patching the compiled
   method (same class of problem as the subclass restrictions above, but a method body edit rather than a
   static field, so not something to attempt via reflection).
-- "Fake players don't retaliate when attacked outside a peace zone" was investigated the same way and
-  **not** resolved — `Attackable.addDamageHate()` (the hook that fires when anything takes damage) looks
-  structurally correct for a player hitting a fake player (it only skips adding hate when both sides are
-  fake players and `FakePlayerAggroFPC = False`), and `FakePlayerBehaviorManager`'s wander state machine
-  explicitly backs off (`isInCombat()`/`isAttackingNow()` guards) whenever the core AI already has the bot
-  fighting, so it isn't fighting the AI for control either. If this comes up again, don't re-derive the
-  above from scratch — instead get a live reproduction and check `game/log/` for exceptions at that
-  timestamp (a silently-swallowed exception mid-hate-processing, the same class of bug documented under
-  "Death handling" below, is the next most likely explanation) or inspect the specific NPC template
-  `FakePlayerBaseNpcId` points to for missing attack/weapon data.
+- "Fake players don't retaliate when attacked outside a peace zone" — investigated at length and never
+  pinned to a specific defect: `Attackable.addDamageHate()` (fires whenever anything takes damage) looks
+  structurally correct for a player hitting a fake player, `FakePlayerBehaviorManager`'s wander state
+  machine backs off (`isInCombat()`/`isAttackingNow()` guards) instead of fighting the AI for control, core
+  AI isn't disabled for plain auto-hunt field hunters (only `!lf`-summoned "meet" bots ever get
+  `disableCoreAI(true)`, via `FakePlayerBehaviorManager`), and `PhantomPartyManager`'s combat debug trace
+  (`//phantom debug on` / `//debug_on`, logs to the gameserver **console**, not `game/log/`) stayed
+  completely silent when a field hunter was hit by a player — proving that manager's mob-only hunting tick
+  never even looks at player attackers, so it isn't overriding anything either. With every plausible
+  blocker ruled out and no error/trace anywhere, the conclusion is that player-vs-fake-player retaliation
+  is simply **not implemented** in the closed engine, not silently broken. Fixed from the datapack side:
+  `game/data/scripts/custom/FakePlayers/FakePlayerPvpRetaliateTask.java` sweeps every fake player every
+  second and, if it currently has hate on any player (`Attackable.getAggroList()`/`getHating()`), forces
+  `Intention.ATTACK` against the highest-hate one — always overriding whatever monster it was hunting, per
+  this project's own product choice that a player hitting a fake player takes priority. Skips (and doesn't
+  fight) if either side is in a peace zone; pairs with `PeaceZoneCombatStopTask` above rather than
+  duplicating its job. If a future engine update actually implements native retaliation, this task will
+  just keep re-confirming the same intention every tick — harmless, but worth removing at that point.
 
 ## Death handling and custom skill effects
 
