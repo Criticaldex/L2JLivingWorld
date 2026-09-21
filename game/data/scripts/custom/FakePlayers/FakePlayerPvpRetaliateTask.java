@@ -40,10 +40,15 @@ import org.l2jmobius.gameserver.model.zone.ZoneId;
  * PhantomPartyManager's mob-only hunting tick - confirmed via the phantom combat debug trace staying
  * completely silent for a player attacker) do not visibly fight back. Rather than continue guessing at the
  * closed engine's silent failure, this makes retaliation happen explicitly from the datapack side: every
- * tick, any fake player that currently has hate on a player (and isn't itself dead/core-AI-disabled) is
- * pointed at the highest-hate player and told to attack, overriding whatever else it was doing (a player
- * hitting it is always the priority over any monster it was hunting). Skips starting or continuing this in
- * a peace zone; PeaceZoneCombatStopTask separately disengages any fight that ends up there anyway.
+ * tick, any fake player that currently has hate on a player (dead ones excepted) is pointed at the
+ * highest-hate player and told to attack, overriding whatever else it was doing (a player
+ * hitting it is always the priority over any monster it was hunting). Deliberately does not skip fake
+ * players with core AI disabled (FakePlayerBehaviorManager sets that on a bot summoned via !lf while it
+ * waits to be recruited/traded with) - the engine's own automatic retaliation shortcuts (thinkActive's
+ * idle-scan, onActionAttacked) check isCoreAIDisabled before acting, but the actual execution path
+ * (AbstractAI#setIntention, AttackableAI#onIntentionAttack, thinkAttack) never does, so forcing the
+ * intention here still works even for a bot stuck waiting on you mid-recruit. Skips starting or continuing
+ * this in a peace zone; PeaceZoneCombatStopTask separately disengages any fight that ends up there anyway.
  * @author Living World
  */
 public class FakePlayerPvpRetaliateTask
@@ -68,7 +73,7 @@ public class FakePlayerPvpRetaliateTask
 				}
 
 				final Npc npc = (Npc) worldObject;
-				if (!npc.isFakePlayer() || npc.isDead() || npc.isCoreAIDisabled())
+				if (!npc.isFakePlayer() || npc.isDead())
 				{
 					continue;
 				}

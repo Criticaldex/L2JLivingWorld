@@ -300,10 +300,15 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   `game/data/scripts/custom/FakePlayers/FakePlayerPvpRetaliateTask.java` sweeps every fake player every
   second and, if it currently has hate on any player (`Attackable.getAggroList()`/`getHating()`), forces
   `Intention.ATTACK` against the highest-hate one — always overriding whatever monster it was hunting, per
-  this project's own product choice that a player hitting a fake player takes priority. Skips (and doesn't
-  fight) if either side is in a peace zone; pairs with `PeaceZoneCombatStopTask` above rather than
-  duplicating its job. If a future engine update actually implements native retaliation, this task will
-  just keep re-confirming the same intention every tick — harmless, but worth removing at that point.
+  this project's own product choice that a player hitting a fake player takes priority. Deliberately does
+  **not** skip a fake player with `isCoreAIDisabled()` true (e.g. one summoned via `!lf` and currently
+  waiting to be recruited/traded with): that flag only gates the engine's own *automatic* retaliation
+  shortcuts (`thinkActive`'s idle-scan, `onActionAttacked`) — `AbstractAI.setIntention`,
+  `AttackableAI.onIntentionAttack`, and `thinkAttack` (the actual execution path) never check it, so forcing
+  the intention directly still works on a bot stuck mid-recruit. Skips (and doesn't fight) if either side is
+  in a peace zone; pairs with `PeaceZoneCombatStopTask` above rather than duplicating its job. If a future
+  engine update actually implements native retaliation, this task will just keep re-confirming the same
+  intention every tick — harmless, but worth removing at that point.
 
 ## Death handling and custom skill effects
 
