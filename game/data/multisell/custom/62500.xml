@@ -175,45 +175,17 @@
 		<ingredient count="100000" id="57" />
 		<production count="10" id="1540" />
 	</item>
-	<!-- Enchant Scrolls -->
+	<!-- Pet Shots -->
 	<item>
-		<ingredient count="1000000000" id="57" />
-		<production count="1" id="961" /> <!-- Crystal Scroll: Enchant Weapon (Grade S) -->
+		<ingredient count="20000" id="57" />
+		<production count="1000" id="6645" /> <!-- Beast Soulshot -->
 	</item>
 	<item>
-		<ingredient count="500000000" id="57" />
-		<production count="1" id="962" /> <!-- Crystal Scroll: Enchant Armor (Grade S) -->
+		<ingredient count="40000" id="57" />
+		<production count="1000" id="6646" /> <!-- Beast Spiritshot -->
 	</item>
 	<item>
-		<ingredient count="550000000" id="57" />
-		<production count="1" id="731" /> <!-- Crystal Scroll: Enchant Weapon (Grade A) -->
-	</item>
-	<item>
-		<ingredient count="275000000" id="57" />
-		<production count="1" id="732" /> <!-- Crystal Scroll: Enchant Armor (Grade A) -->
-	</item>
-	<item>
-		<ingredient count="180000000" id="57" />
-		<production count="1" id="949" /> <!-- Crystal Scroll: Enchant Weapon (Grade B) -->
-	</item>
-	<item>
-		<ingredient count="90000000" id="57" />
-		<production count="1" id="950" /> <!-- Crystal Scroll: Enchant Armor (Grade B) -->
-	</item>
-	<item>
-		<ingredient count="90000000" id="57" />
-		<production count="1" id="953" /> <!-- Crystal Scroll: Enchant Weapon (Grade C) -->
-	</item>
-	<item>
-		<ingredient count="45000000" id="57" />
-		<production count="1" id="954" /> <!-- Crystal Scroll: Enchant Armor (Grade C) -->
-	</item>
-	<item>
-		<ingredient count="20000000" id="57" />
-		<production count="1" id="957" /> <!-- Crystal Scroll: Enchant Weapon (Grade D) -->
-	</item>
-	<item>
-		<ingredient count="10000000" id="57" />
-		<production count="1" id="958" /> <!-- Crystal Scroll: Enchant Armor (Grade D) -->
+		<ingredient count="100000" id="57" />
+		<production count="1000" id="6647" /> <!-- Blessed Beast Spiritshot -->
 	</item>
 </list>

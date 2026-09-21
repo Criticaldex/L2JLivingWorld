@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<ingredient count="1000" id="57" />
+		<production count="1" id="2375" /> <!-- Wolf Collar -->
+	</item>
+	<item>
+		<ingredient count="1000" id="57" />
+		<production count="1" id="3500" /> <!-- Dragonflute of Wind (Hatchling of Wind) -->
+	</item>
+	<item>
+		<ingredient count="1000" id="57" />
+		<production count="1" id="3501" /> <!-- Dragonflute of Star (Hatchling of Twilight) -->
+	</item>
+	<item>
+		<ingredient count="1000" id="57" />
+		<production count="1" id="3502" /> <!-- Dragonflute of Twilight (Hatchling of Stars) -->
+	</item>
+	<item>
+		<ingredient count="2000" id="57" />
+		<production count="1" id="4422" /> <!-- Dragon Bugle of Wind (Wind Strider) -->
+	</item>
+	<item>
+		<ingredient count="2000" id="57" />
+		<production count="1" id="4423" /> <!-- Dragon Bugle of Star (Star Strider) -->
+	</item>
+	<item>
+		<ingredient count="2000" id="57" />
+		<production count="1" id="4424" /> <!-- Dragon Bugle of Dusk (Twilight Strider) -->
+	</item>
+	<item>
+		<ingredient count="100000" id="57" />
+		<production count="1" id="6648" /> <!-- Baby Buffalo Panpipe -->
+	</item>
+	<item>
+		<ingredient count="100000" id="57" />
+		<production count="1" id="6649" /> <!-- Baby Cougar Chime -->
+	</item>
+	<item>
+		<ingredient count="100000" id="57" />
+		<production count="1" id="6650" /> <!-- Baby Kookaburra Ocarina -->
+	</item>
+</list>

@@ -49,135 +49,23 @@
 	</item>
 	<item>
 		<ingredient count="800000" id="57" />
-		<production count="10" id="5859" />
+		<production count="10" id="5859" /> <!-- Blessed Scroll of Escape: Castle -->
 	</item>
 	<item>
 		<ingredient count="1000000" id="57" />
-		<production count="10" id="5858" />
+		<production count="10" id="5858" /> <!-- Blessed Scroll of Escape: Clan Hall -->
 	</item>
 	<item>
 		<ingredient count="500" id="57" />
 		<production count="1" id="736" />
 	</item>
 	<item>
-		<ingredient count="350000" id="57" />
-		<production count="10" id="7618" />
-	</item>
-	<item>
-		<ingredient count="350000" id="57" />
-		<production count="10" id="7619" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7132" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7119" />
-	</item>
-	<item>
-		<ingredient count="10" id="57" />
-		<production count="10" id="7556" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7121" />
-	</item>
-	<item>
-		<ingredient count="10" id="57" />
-		<production count="10" id="7558" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7118" />
-	</item>
-	<item>
-		<ingredient count="10" id="57" />
-		<production count="10" id="7555" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7125" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7126" />
-	</item>
-	<item>
-		<ingredient count="300000" id="57" />
-		<production count="10" id="7559" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7122" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7127" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7128" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7131" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7130" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7120" />
-	</item>
-	<item>
-		<ingredient count="10" id="57" />
-		<production count="10" id="7557" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7117" />
-	</item>
-	<item>
-		<ingredient count="10" id="57" />
-		<production count="10" id="7554" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7134" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7124" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7123" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7133" />
-	</item>
-	<item>
-		<ingredient count="35000" id="57" />
-		<production count="10" id="7135" />
+		<ingredient count="5000" id="57" />
+		<production count="10" id="1830" /> <!-- Scroll of Escape: Castle -->
 	</item>
 	<item>
 		<ingredient count="5000" id="57" />
-		<production count="10" id="1830" />
-	</item>
-	<item>
-		<ingredient count="5000" id="57" />
-		<production count="10" id="1829" />
-	</item>
-	<item>
-		<ingredient count="1000000" id="57" />
-		<production count="10" id="6663" />
-	</item>
-	<item>
-		<ingredient count="1000000" id="57" />
-		<production count="10" id="6664" />
+		<production count="10" id="1829" /> <!-- Scroll of Escape: Clan Hall -->
 	</item>
 	<item>
 		<ingredient count="10000000" id="57" />
@@ -230,5 +118,46 @@
 	<item>
 		<ingredient count="4500000" id="57" />
 		<production count="1" id="6578" />
+	</item>
+	<!-- Crystal Enchant Scrolls -->
+	<item>
+		<ingredient count="1000000000" id="57" />
+		<production count="1" id="961" /> <!-- Crystal Scroll: Enchant Weapon (Grade S) -->
+	</item>
+	<item>
+		<ingredient count="500000000" id="57" />
+		<production count="1" id="962" /> <!-- Crystal Scroll: Enchant Armor (Grade S) -->
+	</item>
+	<item>
+		<ingredient count="550000000" id="57" />
+		<production count="1" id="731" /> <!-- Crystal Scroll: Enchant Weapon (Grade A) -->
+	</item>
+	<item>
+		<ingredient count="275000000" id="57" />
+		<production count="1" id="732" /> <!-- Crystal Scroll: Enchant Armor (Grade A) -->
+	</item>
+	<item>
+		<ingredient count="180000000" id="57" />
+		<production count="1" id="949" /> <!-- Crystal Scroll: Enchant Weapon (Grade B) -->
+	</item>
+	<item>
+		<ingredient count="90000000" id="57" />
+		<production count="1" id="950" /> <!-- Crystal Scroll: Enchant Armor (Grade B) -->
+	</item>
+	<item>
+		<ingredient count="90000000" id="57" />
+		<production count="1" id="953" /> <!-- Crystal Scroll: Enchant Weapon (Grade C) -->
+	</item>
+	<item>
+		<ingredient count="45000000" id="57" />
+		<production count="1" id="954" /> <!-- Crystal Scroll: Enchant Armor (Grade C) -->
+	</item>
+	<item>
+		<ingredient count="20000000" id="57" />
+		<production count="1" id="957" /> <!-- Crystal Scroll: Enchant Weapon (Grade D) -->
+	</item>
+	<item>
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="958" /> <!-- Crystal Scroll: Enchant Armor (Grade D) -->
 	</item>
 </list>

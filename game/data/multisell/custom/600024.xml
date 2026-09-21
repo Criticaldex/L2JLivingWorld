@@ -35,12 +35,6 @@
 	</item>
 	<item>
 		<!-- Adena -->
-		<ingredient count="8000000" id="57" />
-		<!-- Room of Splendor Key -->
-		<production count="1" id="8056" />
-	</item>
-	<item>
-		<!-- Adena -->
 		<ingredient count="10000" id="57" />
 		<!-- Corroded Mark of Fishing -->
 		<production count="1" id="7609" />
