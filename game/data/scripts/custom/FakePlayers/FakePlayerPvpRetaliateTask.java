@@ -210,6 +210,16 @@ public class FakePlayerPvpRetaliateTask
 			return;
 		}
 
+		// This runs every REINFORCE_INTERVAL regardless of whether the previous cast/swing finished yet. A
+		// fresh doCast() while one is already in progress interrupts it (that is how a real player can also
+		// cancel/change skills mid-cast), which at a 200ms interval against skills with a real cast time
+		// looked like "casts, cancels, casts a different one" on a loop with nothing ever landing. Leave an
+		// already-busy target alone and let the current action finish naturally.
+		if (target.isCastingNow() || target.isCastingSimultaneouslyNow())
+		{
+			return;
+		}
+
 		if (!target.isRunning())
 		{
 			target.setRunning();

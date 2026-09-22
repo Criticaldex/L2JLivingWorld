@@ -360,6 +360,16 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   state, etc.) — reusing that check instead of reimplementing MP/state validation. Deliberately not trying
   to pick the "best" skill or run any rotation logic; falls back to the plain `doAttack()` when nothing
   qualifies.
+- Skill casting from `retaliate()` initially just fired `doCast()` unconditionally every `REINFORCE_INTERVAL`
+  (200ms) tick, with no awareness of whether the *previous* call was still mid-cast — `doCast()` while
+  already casting interrupts the current cast (same as a real player clicking a different skill mid-cast),
+  so anything with a real cast time (essentially everything except instant skills) looked like
+  "cast, cancel, cast a different one" on a loop with nothing ever landing. `retaliate()` now returns
+  immediately if `Creature.isCastingNow()`/`isCastingSimultaneouslyNow()` is true, leaving an in-progress
+  cast alone to finish naturally instead of re-triggering every cycle. `doAttack()` didn't need the same
+  guard — repeated calls while already mid-swing are expected to self-throttle the same way spamming the
+  attack key does for a real client, and that's consistent with the melee-only behavior already confirmed
+  working before skills were added.
 - `FakePlayerAggroPlayers` was still a no-op for auto-hunt field hunters even after retaliation worked,
   because retaliation only reacts to being hit — the config flag is supposed to make fake players
   *proactively* aggro nearby players, and (per the "two systems" split above) it structurally can't do that
