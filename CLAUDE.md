@@ -393,6 +393,17 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   instead of Hurricane against them: Wind Strike's `#effectPoints` table is `-92..-162`, Hurricane's is
   `-360..-655`. Raw `>` comparison always picked the least-negative (weakest) candidate. Fixed by comparing
   `Math.abs(getEffectPoint())` instead — magnitude, not signed value.
+- **Even `|effectPoint|` isn't a pure damage/strength scale — it also grades pure status-effect (CC)
+  skills, and retail tunes those to the same ceiling as top-end nukes.** Reported as "again use the wrong
+  skills": a recruited Necromancer (`!lf nuker`) only ever cast Sleep and Slow against the player, never a
+  damage spell. Checked `game/data/stats/skills/`: Necromancer's max-level Sleep (`id 1069`) and Slow
+  (`id 1160`) both cap their `#effectPoints` table at `-655` — identical to Death Spike's (`id 1148`) max of
+  `-655` — so ranking purely by magnitude ties CC against real damage and the winner comes down to
+  iteration order in `getAllSkills()`, not actual strength. Fixed by making `pickOffensiveSkill` prefer any
+  candidate where `Skill.isDamage()` is true over one where it isn't, ranking by magnitude only within each
+  tier; it falls back to a non-damage debuff only when the caster has no usable damage skill in its known
+  list at all (a genuine pure-support role, e.g. most Healer/Buffer-role recruits, has nothing better and
+  this is expected there — not a bug to "fix" further).
 - Skill casting from `retaliate()` initially just fired `doCast()` unconditionally every `REINFORCE_INTERVAL`
   (200ms) tick, with no awareness of whether the *previous* call was still mid-cast — `doCast()` while
   already casting interrupts the current cast (same as a real player clicking a different skill mid-cast),

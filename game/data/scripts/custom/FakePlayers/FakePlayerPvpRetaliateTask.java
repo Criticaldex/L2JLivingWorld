@@ -267,10 +267,21 @@ public class FakePlayerPvpRetaliateTask
 	 * gets MORE negative as the skill gets stronger (e.g. Wind Strike -92..-162 vs. Hurricane -360..-655),
 	 * so ranking by the raw value picked the weakest legal candidate every single time. Not running the
 	 * full rotation logic PhantomPlaystyleEngine has for monsters, just ranking candidates.
+	 * <p>
+	 * <b>effectPoint alone is not a damage/strength scale - it also grades pure status-effect (CC) skills,
+	 * and retail tunes those to the same magnitude as top-end nukes</b> (e.g. a Necromancer's max-level
+	 * Sleep and Slow both cap at effectPoint -655, identical to Death Spike's max of -655 - checked
+	 * game/data/stats/skills/ after the user reported a recruited Necromancer "nuker" only ever casting
+	 * Sleep and Slow against them, never a damage spell). Ranking purely by magnitude ties those against
+	 * real damage skills and can win on iteration order alone. Fixed by preferring any skill with
+	 * Skill.isDamage() true over one without, ranking within each tier by magnitude as before - a caster
+	 * only falls back to a non-damage debuff (Sleep/Slow/Root/etc.) when it has no usable damage skill at
+	 * all, e.g. a true support role with nothing else hostile in its known list.
 	 */
 	private Skill pickOffensiveSkill(Creature caster, Player target)
 	{
-		Skill best = null;
+		Skill bestDamage = null;
+		Skill bestAny = null;
 		for (Skill skill : caster.getAllSkills())
 		{
 			if (skill.isPassive() || skill.isToggle() || skill.isDance() || !skill.hasNegativeEffect() || !HOSTILE_TARGET_TYPES.contains(skill.getTargetType()))
@@ -296,13 +307,18 @@ public class FakePlayerPvpRetaliateTask
 			// Hostile skills' effectPoint is negative in the retail data, and gets MORE negative as the skill
 			// gets stronger (e.g. Wind Strike -92..-162 vs. Hurricane -360..-655), not less - so the raw value
 			// ranks the weakest candidate as "greatest" every time. Compare by magnitude instead.
-			if ((best == null) || (Math.abs(skill.getEffectPoint()) > Math.abs(best.getEffectPoint())))
+			if ((bestAny == null) || (Math.abs(skill.getEffectPoint()) > Math.abs(bestAny.getEffectPoint())))
 			{
-				best = skill;
+				bestAny = skill;
+			}
+
+			if (skill.isDamage() && ((bestDamage == null) || (Math.abs(skill.getEffectPoint()) > Math.abs(bestDamage.getEffectPoint()))))
+			{
+				bestDamage = skill;
 			}
 		}
 
-		return best;
+		return (bestDamage != null) ? bestDamage : bestAny;
 	}
 
 	private static final class Attacker
