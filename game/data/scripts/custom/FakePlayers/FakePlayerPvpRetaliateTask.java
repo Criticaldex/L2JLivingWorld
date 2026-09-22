@@ -39,6 +39,7 @@ import org.l2jmobius.gameserver.model.events.Containers;
 import org.l2jmobius.gameserver.model.events.EventType;
 import org.l2jmobius.gameserver.model.events.holders.actor.creature.OnCreatureDamageReceived;
 import org.l2jmobius.gameserver.model.events.listeners.ConsumerEventListener;
+import org.l2jmobius.gameserver.model.item.enums.ItemProcessType;
 import org.l2jmobius.gameserver.model.skill.Skill;
 import org.l2jmobius.gameserver.model.skill.targets.TargetType;
 import org.l2jmobius.gameserver.model.zone.ZoneId;
@@ -299,6 +300,8 @@ public class FakePlayerPvpRetaliateTask
 				continue;
 			}
 
+			ensureCastReagent(caster, skill);
+
 			if (!caster.checkDoCastConditions(skill))
 			{
 				continue;
@@ -319,6 +322,39 @@ public class FakePlayerPvpRetaliateTask
 		}
 
 		return (bestDamage != null) ? bestDamage : bestAny;
+	}
+
+	/**
+	 * checkDoCastConditions() rejects a skill outright (fails with "There are not enough necessary items to
+	 * use the skill.", confirmed by decompiling it) if the caster's inventory doesn't hold
+	 * getItemConsumeCount() of getItemConsumeId() - so a reagent-gated damage skill (e.g. Necromancer's
+	 * Death Spike, which needs a Cursed Bone) never even reaches the ranking above for a bot with an empty
+	 * inventory, silently losing to non-reagent CC like Sleep/Slow instead. Bot-controlled casters only
+	 * (Player-typed phantoms/recruits/buddies/regulars - Npc-based fake players have no inventory at all,
+	 * and asPlayer() is null for them) get topped up to the required count here, right before the
+	 * condition check, rather than editing the skill's item requirement in the XML - that would remove the
+	 * reagent cost for real players' Necromancers too, which is a balance/economy change this fix isn't
+	 * meant to make.
+	 */
+	private static void ensureCastReagent(Creature caster, Skill skill)
+	{
+		final int itemId = skill.getItemConsumeId();
+		if (itemId <= 0)
+		{
+			return;
+		}
+
+		final Player player = caster.asPlayer();
+		if (player == null)
+		{
+			return;
+		}
+
+		final int required = Math.max(skill.getItemConsumeCount(), 1);
+		if (player.getInventory().getInventoryItemCount(itemId, -1) < required)
+		{
+			player.addItem(ItemProcessType.QUEST, itemId, required, player, false);
+		}
 	}
 
 	private static final class Attacker

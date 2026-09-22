@@ -404,6 +404,19 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   tier; it falls back to a non-damage debuff only when the caster has no usable damage skill in its known
   list at all (a genuine pure-support role, e.g. most Healer/Buffer-role recruits, has nothing better and
   this is expected there — not a bug to "fix" further).
+- **Reagent-gated damage skills (e.g. Necromancer's Death Spike, which needs a Cursed Bone) never even
+  reached the `isDamage()` ranking above** for a bot with an empty inventory — `Creature.checkDoCastConditions()`
+  (decompiled) hard-rejects a skill outright if the caster doesn't hold `Skill.getItemConsumeCount()` of
+  `getItemConsumeId()`, with no way to opt out. This is what a recruited "nuker" Necromancer casting only
+  Sleep/Slow actually was: Death Spike was silently disqualified before the CC-vs-damage fix above could
+  even consider it. `pickOffensiveSkill#ensureCastReagent` tops a **Player-typed, bot-controlled** caster's
+  inventory up to the required count (via `Player.addItem(ItemProcessType.QUEST, itemId, count, player,
+  false)`, silent) right before `checkDoCastConditions` runs on each candidate — deliberately *not* done by
+  editing the skill's item requirement in `game/data/stats/skills/`, since that would remove the reagent
+  cost for real players' Necromancers too (an explicit choice — asked the user, "bots only" was picked over
+  "server-wide"). Npc-based fake players have no inventory at all (`asPlayer()` returns null for them), so
+  this is a no-op for that system; not currently an issue since Npc-based fake players don't seem to hit
+  this path in practice, but if they ever do, this helper simply won't apply to them.
 - Skill casting from `retaliate()` initially just fired `doCast()` unconditionally every `REINFORCE_INTERVAL`
   (200ms) tick, with no awareness of whether the *previous* call was still mid-cast — `doCast()` while
   already casting interrupts the current cast (same as a real player clicking a different skill mid-cast),
