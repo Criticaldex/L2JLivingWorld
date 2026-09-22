@@ -519,6 +519,33 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   last-known masks in a `Map<Player, Integer>` that's pruned every sweep to the currently-visible
   bot-controlled set, since a `Player` key is a strong reference that would otherwise leak for every
   despawned/logged-off phantom.
+- **Recruits (`!lf`) told "attack freely" stop fighting distant monsters and drop combat mid-fight.** The
+  free-hunt phrases (`"attack freely"`/`"ffa"`/`"go wild"`/etc., handled by the closed
+  `PhantomPartyManager.tryCommand`) just flip a package-private `Member.assist` flag to `false` and hand the
+  recruit to the stock `AutoPlayTaskManager` via `PhantomManager.setRecruitHunting(Player, boolean, List<Skill>)`
+  — same engine real players get from `.play`, searching up to `AutoPlay.ini`'s `LongRange` (5000) for a
+  monster. But `PhantomPartyManager.combatTick(Member)` runs an **owner-leash check unconditionally for every
+  member regardless of `assist`** (confirmed via `javap -p -c`): every ~1s tick, if the recruit is more than
+  `LEASH_RANGE` (a real `private static final int` field, `ConstantValue: 1400`) units from the party owner, it
+  calls `setRecruitHunting(npc, false)` (killing AutoPlay hunting), then `driveFollow()` (walks back, or
+  teleports if over `CATCHUP_TP_RANGE` = 2000, aborting any attack/cast mid-swing), then only re-arms hunting
+  4000ms later via a scheduled lambda (a bare inlined literal, no backing field) — and only if `assist` is
+  still `false` at that point. So a free-hunting recruit can spot a target up to 5000 units away but gets its
+  hunt cancelled and recalled the moment it drifts past 1400 units from the owner, then stalls 4s before it can
+  resume — this is the actual "stops sometimes"/"won't fight anything far away" bug, not a targeting-range
+  problem. `game/data/scripts/custom/FakePlayers/PhantomFreeHuntLeashFixTask.java` mitigates it: a 500ms sweep
+  over `World.getInstance().getPlayers()` that, for every `PhantomManager.isRecruit()` player currently back
+  within `LEASH_RANGE` of its owner (via the public `getRecruitOwner(Player)`) and not in assist mode, calls
+  `setRecruitHunting(player, true)` again — relying on `AutoPlayTaskManager.startAutoPlay` being idempotent
+  (early-returns if already running) so this is a no-op once truly hunting, and an immediate re-arm instead of
+  waiting out the flat 4s timer when caught mid leash-recall. `PhantomPartyManager` exposes no public accessor
+  for a `Member` or its `assist` flag (only the public `getRecruitOwner`), so the private `_members` map field
+  and the package-private `Member.assist` field are read via reflection — same `setAccessible(true)` pattern as
+  `custom/SubclassUnlock/SubclassUnlock.java`, just against an instance field instead of a static one (no
+  module boundary in this jar, so it works the same way). **This does not remove the leash itself** — a
+  free-hunting recruit still gets recalled/interrupted the instant it crosses 1400 units from the owner, it
+  just no longer stalls 4 extra seconds before resuming; only a closed-engine bytecode patch to `combatTick`
+  (skipping the check when `!assist`) would remove the recall/teleport behavior entirely.
 
 ## Death handling and custom skill effects
 
