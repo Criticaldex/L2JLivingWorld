@@ -333,16 +333,23 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   instead (all public). If a fake-player script needs to check "is this Creature bot-controlled" again,
   check both — `isFakePlayer()` for Npc-based, the four `PhantomManager` methods for Player-based — never
   just one. Remembers the last player to hit each fake player for 8 seconds,
-  and every 400ms forces `Intention.ATTACK` against that player — always overriding whatever the fake
-  player (or `PhantomPartyManager`, for phantoms) was otherwise having it do, since a player hitting it is
-  meant to take priority. The 400ms interval is deliberately faster than `PhantomPartyManager`'s own
-  1-second tick (confirmed via its `startTicking()` bytecode: `ThreadPool.scheduleAtFixedRate(..., 1000,
-  1000)`) specifically to win the tug-of-war over the target/intention most of the time — it does not fully
-  eliminate it, so don't be surprised by an occasional stutter back to following/hunting between hits.
-  Skips (and won't start) any of this in a peace zone; pairs with `PeaceZoneCombatStopTask` rather than
-  duplicating its job. If a future engine update actually implements native retaliation for either system,
-  this task will just keep re-confirming the same already-correct intention every cycle — harmless, but
-  worth removing at that point.
+  and every 200ms both sets `Intention.ATTACK` against that player and calls `Creature.doAttack()` directly
+  — always overriding whatever the fake player (or `PhantomPartyManager`, for phantoms) was otherwise having
+  it do, since a player hitting it is meant to take priority. Live-tested via `//phantom debug on` and the
+  startup/first-hit log lines below: `setIntention` alone only landed **one** hit before
+  `PhantomPartyManager`'s own 1-second tick (confirmed via its `startTicking()` bytecode:
+  `ThreadPool.scheduleAtFixedRate(..., 1000, 1000)`) reclaimed the target, then the phantom went straight
+  back to its monster with no further reaction — `setIntention` is apparently a no-op while the AI is mid-
+  action from PhantomPartyManager's own commands (casting, moving), so it only "got through" on the one
+  lucky window it wasn't busy. Calling `doAttack()` directly forces the swing regardless of that busy state;
+  200ms (vs. the original 400ms) buys more chances per PhantomPartyManager cycle. This still isn't a clean
+  fix — it's out-racing a 1-second tick from outside the closed class that owns it — so don't be surprised
+  if it still stutters under heavier PhantomPartyManager activity; if `//phantom debug on` needs revisiting
+  after future changes here, that trace is *mob-combat-only* and will show nothing for a player attacker
+  either way (see above). Skips (and won't start) any of this in a peace zone; pairs with
+  `PeaceZoneCombatStopTask` rather than duplicating its job. If a future engine update actually implements
+  native retaliation for either system, this task will just keep re-confirming the same already-correct
+  intention every cycle — harmless, but worth removing at that point.
 - Both `PeaceZoneCombatStopTask` and `FakePlayerPvpRetaliateTask` log an `INFO` line on successful startup
   (`"...: started, ..."`), and the latter also logs once per new retaliation episode
   (`"...: <target> hit by <attacker>, forcing retaliation."`, not per-tick, so it won't spam). This was

@@ -65,7 +65,7 @@ import org.l2jmobius.gameserver.model.zone.ZoneId;
 public class FakePlayerPvpRetaliateTask
 {
 	private static final Logger LOGGER = Logger.getLogger(FakePlayerPvpRetaliateTask.class.getName());
-	private static final long REINFORCE_INTERVAL = 400;
+	private static final long REINFORCE_INTERVAL = 200;
 	private static final long MEMORY_MS = 8000;
 
 	private final Map<Creature, Attacker> _recentAttackers = new ConcurrentHashMap<>();
@@ -147,6 +147,11 @@ public class FakePlayerPvpRetaliateTask
 		}
 
 		target.getAI().setIntention(Intention.ATTACK, attacker);
+		// setIntention alone is a no-op once PhantomPartyManager's own tick has the AI mid-action (casting a
+		// buff, moving to its hunting target, etc.), which is exactly when a player attack needs to cut in -
+		// so also trigger the attack directly rather than only queuing the intention and hoping it is honored
+		// before PhantomPartyManager's next 1-second tick reasserts its own target.
+		target.doAttack(attacker);
 	}
 
 	private static final class Attacker
