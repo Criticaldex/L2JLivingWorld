@@ -383,12 +383,16 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   `skill.getTargetType()` alongside `hasNegativeEffect()` rather than trusting that flag alone.
 - `pickOffensiveSkill` originally returned the *first* candidate found in `Creature.getAllSkills()`'s
   arbitrary iteration order, which read as "weak random skills, not the strongest debuffs/damage" to a
-  player watching. Now ranks every candidate by `Skill.getEffectPoint()` and keeps the highest — the same
-  value the closed engine's own Phantom managers (`PhantomBuddyManager`/`PhantomManager`/
-  `PhantomPartyManager` all reference it internally, confirmed via `grep -rla getEffectPoint`) use to
-  compare skill priority, so this piggybacks on the same "how strong is this skill" signal retail data
-  already encodes per-skill, rather than inventing a new heuristic (e.g. `getPower()`, which is more
-  damage-formula-specific and wouldn't rank pure debuffs sensibly).
+  player watching. Now ranks every candidate by `Skill.getEffectPoint()` — the same value the closed
+  engine's own Phantom managers (`PhantomBuddyManager`/`PhantomManager`/`PhantomPartyManager` all reference
+  it internally, confirmed via `grep -rla getEffectPoint`) use to compare skill priority, rather than
+  inventing a new heuristic (e.g. `getPower()`, which is more damage-formula-specific and wouldn't rank pure
+  debuffs sensibly). **First attempt picked the raw-highest value and still got it backwards**: for hostile
+  skills, retail `effectPoint` is *negative* and gets *more negative* as the skill gets stronger — checked
+  the actual skill XML (`game/data/stats/skills/`) after the user reported a Spellhowler using Wind Strike
+  instead of Hurricane against them: Wind Strike's `#effectPoints` table is `-92..-162`, Hurricane's is
+  `-360..-655`. Raw `>` comparison always picked the least-negative (weakest) candidate. Fixed by comparing
+  `Math.abs(getEffectPoint())` instead — magnitude, not signed value.
 - Skill casting from `retaliate()` initially just fired `doCast()` unconditionally every `REINFORCE_INTERVAL`
   (200ms) tick, with no awareness of whether the *previous* call was still mid-cast — `doCast()` while
   already casting interrupts the current cast (same as a real player clicking a different skill mid-cast),

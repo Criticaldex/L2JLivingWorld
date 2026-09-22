@@ -259,11 +259,14 @@ public class FakePlayerPvpRetaliateTask
 	 * against a Monster - its own pick() method takes one as a required parameter - so it has no path for
 	 * casting at a player attacker at all. This picks the strongest known, off-cooldown, affordable,
 	 * in-range skill whose target type is genuinely hostile (HOSTILE_TARGET_TYPES, not just
-	 * hasNegativeEffect() - see that constant's comment), ranked by getEffectPoint() - the same value the
+	 * hasNegativeEffect() - see that constant's comment), ranked by |getEffectPoint()| - the same value the
 	 * closed engine's own Phantom managers (PhantomBuddyManager/PhantomManager/PhantomPartyManager) use
 	 * internally to compare skill priority - rather than just returning the first candidate found in
 	 * getAllSkills()' arbitrary iteration order (which read as "weak random skills" to a player watching).
-	 * Not running the full rotation logic PhantomPlaystyleEngine has for monsters, just ranking candidates.
+	 * The magnitude, not the raw signed value: hostile skills' effectPoint in retail data is negative and
+	 * gets MORE negative as the skill gets stronger (e.g. Wind Strike -92..-162 vs. Hurricane -360..-655),
+	 * so ranking by the raw value picked the weakest legal candidate every single time. Not running the
+	 * full rotation logic PhantomPlaystyleEngine has for monsters, just ranking candidates.
 	 */
 	private Skill pickOffensiveSkill(Creature caster, Player target)
 	{
@@ -290,7 +293,10 @@ public class FakePlayerPvpRetaliateTask
 				continue;
 			}
 
-			if ((best == null) || (skill.getEffectPoint() > best.getEffectPoint()))
+			// Hostile skills' effectPoint is negative in the retail data, and gets MORE negative as the skill
+			// gets stronger (e.g. Wind Strike -92..-162 vs. Hurricane -360..-655), not less - so the raw value
+			// ranks the weakest candidate as "greatest" every time. Compare by magnitude instead.
+			if ((best == null) || (Math.abs(skill.getEffectPoint()) > Math.abs(best.getEffectPoint())))
 			{
 				best = skill;
 			}
