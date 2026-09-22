@@ -257,13 +257,17 @@ public class FakePlayerPvpRetaliateTask
 	/**
 	 * PhantomPlaystyleEngine (the existing skill-rotation AI for phantoms/hunters) only ever picks skills
 	 * against a Monster - its own pick() method takes one as a required parameter - so it has no path for
-	 * casting at a player attacker at all. This picks any known, off-cooldown, affordable, in-range skill
-	 * whose target type is genuinely hostile (HOSTILE_TARGET_TYPES, not just hasNegativeEffect() - see that
-	 * constant's comment) instead of reimplementing that engine's rotation logic; it is not trying to choose
-	 * the "best" skill, just something better than pure auto-attack.
+	 * casting at a player attacker at all. This picks the strongest known, off-cooldown, affordable,
+	 * in-range skill whose target type is genuinely hostile (HOSTILE_TARGET_TYPES, not just
+	 * hasNegativeEffect() - see that constant's comment), ranked by getEffectPoint() - the same value the
+	 * closed engine's own Phantom managers (PhantomBuddyManager/PhantomManager/PhantomPartyManager) use
+	 * internally to compare skill priority - rather than just returning the first candidate found in
+	 * getAllSkills()' arbitrary iteration order (which read as "weak random skills" to a player watching).
+	 * Not running the full rotation logic PhantomPlaystyleEngine has for monsters, just ranking candidates.
 	 */
 	private Skill pickOffensiveSkill(Creature caster, Player target)
 	{
+		Skill best = null;
 		for (Skill skill : caster.getAllSkills())
 		{
 			if (skill.isPassive() || skill.isToggle() || skill.isDance() || !skill.hasNegativeEffect() || !HOSTILE_TARGET_TYPES.contains(skill.getTargetType()))
@@ -286,10 +290,13 @@ public class FakePlayerPvpRetaliateTask
 				continue;
 			}
 
-			return skill;
+			if ((best == null) || (skill.getEffectPoint() > best.getEffectPoint()))
+			{
+				best = skill;
+			}
 		}
 
-		return null;
+		return best;
 	}
 
 	private static final class Attacker

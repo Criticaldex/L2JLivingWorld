@@ -381,6 +381,14 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   the attacker. Fixed with an explicit allowlist, `HOSTILE_TARGET_TYPES`
   (`ONE`/`AURA`/`AREA`/`FRONT_AURA`/`FRONT_AREA`/`BEHIND_AURA`/`BEHIND_AREA`/`ENEMY_SUMMON`), checked via
   `skill.getTargetType()` alongside `hasNegativeEffect()` rather than trusting that flag alone.
+- `pickOffensiveSkill` originally returned the *first* candidate found in `Creature.getAllSkills()`'s
+  arbitrary iteration order, which read as "weak random skills, not the strongest debuffs/damage" to a
+  player watching. Now ranks every candidate by `Skill.getEffectPoint()` and keeps the highest — the same
+  value the closed engine's own Phantom managers (`PhantomBuddyManager`/`PhantomManager`/
+  `PhantomPartyManager` all reference it internally, confirmed via `grep -rla getEffectPoint`) use to
+  compare skill priority, so this piggybacks on the same "how strong is this skill" signal retail data
+  already encodes per-skill, rather than inventing a new heuristic (e.g. `getPower()`, which is more
+  damage-formula-specific and wouldn't rank pure debuffs sensibly).
 - Skill casting from `retaliate()` initially just fired `doCast()` unconditionally every `REINFORCE_INTERVAL`
   (200ms) tick, with no awareness of whether the *previous* call was still mid-cast — `doCast()` while
   already casting interrupts the current cast (same as a real player clicking a different skill mid-cast),
