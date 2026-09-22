@@ -519,6 +519,20 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   last-known masks in a `Map<Player, Integer>` that's pruned every sweep to the currently-visible
   bot-controlled set, since a `Player` key is a strong reference that would otherwise leak for every
   despawned/logged-off phantom.
+- **Recruits invited via `!lf` reportedly weren't getting the full-buff treatment `PhantomFullBuffTask`
+  gives roaming phantom field hunters**, even though its bot-detection already covers `isRecruit()` — the
+  code path is identical for both. The one asymmetry found: the sweep explicitly skipped any player
+  `isInsideZone(ZoneId.PEACE)`, and a `!lf` recruit spawns wherever its owner currently is — usually town —
+  while auto-hunt field hunters spawn directly in their designated hunting zones and are essentially never
+  in a peace zone. Removed that skip (buffing via `Skill.applyEffects` has no combat implications either
+  way, and pre-buffing in town before heading out is normal — it's exactly what the real Scheme Buffer NPC
+  is for). **Not decompile-confirmed** — this is the one plausible mechanical difference found by reading
+  the script, not a verified root cause; if recruits still come up short on buffs after this, look
+  elsewhere (e.g. whether `PhantomBuffs.isCaster()` misclassifies a specific recruit build, or spawn-time
+  skill-list gaps for recruited-but-not-yet-partied members). Kept as its own isolated commit, separate
+  from the mob-combat reagent fix it originally shipped bundled with (`1aeb88cd`) — that bundling made the
+  user's later revert of the reagent fix also silently undo this one, since `git revert` operates per
+  commit, not per logical change.
 
 ## Death handling and custom skill effects
 
