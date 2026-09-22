@@ -20,7 +20,9 @@
  */
 package custom.FakePlayers;
 
+import java.util.EnumSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,6 +40,7 @@ import org.l2jmobius.gameserver.model.events.EventType;
 import org.l2jmobius.gameserver.model.events.holders.actor.creature.OnCreatureDamageReceived;
 import org.l2jmobius.gameserver.model.events.listeners.ConsumerEventListener;
 import org.l2jmobius.gameserver.model.skill.Skill;
+import org.l2jmobius.gameserver.model.skill.targets.TargetType;
 import org.l2jmobius.gameserver.model.zone.ZoneId;
 
 /**
@@ -74,6 +77,12 @@ public class FakePlayerPvpRetaliateTask
 	private static final long MEMORY_MS = 8000;
 	private static final long AGGRO_SCAN_INTERVAL = 1500;
 	private static final int AGGRO_RANGE = 500;
+	// hasNegativeEffect() alone is not reliable - a PARTY/SELF/CLAN-targeted support skill can still carry
+	// that flag (e.g. some sacrifice-HP-to-heal-party skills), and doCast() then applies it per the skill's
+	// OWN target type regardless of what target we set, landing back on the attacker if the caster is still
+	// partied with them (a recruited buddy attacking its own owner). Only genuinely single/area-hostile
+	// target types are safe to actually fire at an explicit enemy target.
+	private static final Set<TargetType> HOSTILE_TARGET_TYPES = EnumSet.of(TargetType.ONE, TargetType.AURA, TargetType.AREA, TargetType.FRONT_AURA, TargetType.FRONT_AREA, TargetType.BEHIND_AURA, TargetType.BEHIND_AREA, TargetType.ENEMY_SUMMON);
 
 	private final Map<Creature, Attacker> _recentAttackers = new ConcurrentHashMap<>();
 
@@ -248,15 +257,16 @@ public class FakePlayerPvpRetaliateTask
 	/**
 	 * PhantomPlaystyleEngine (the existing skill-rotation AI for phantoms/hunters) only ever picks skills
 	 * against a Monster - its own pick() method takes one as a required parameter - so it has no path for
-	 * casting at a player attacker at all. This picks any known, off-cooldown, affordable, in-range
-	 * offensive skill instead of reimplementing that engine's rotation logic; it is not trying to choose the
-	 * "best" skill, just something better than pure auto-attack.
+	 * casting at a player attacker at all. This picks any known, off-cooldown, affordable, in-range skill
+	 * whose target type is genuinely hostile (HOSTILE_TARGET_TYPES, not just hasNegativeEffect() - see that
+	 * constant's comment) instead of reimplementing that engine's rotation logic; it is not trying to choose
+	 * the "best" skill, just something better than pure auto-attack.
 	 */
 	private Skill pickOffensiveSkill(Creature caster, Player target)
 	{
 		for (Skill skill : caster.getAllSkills())
 		{
-			if (skill.isPassive() || skill.isToggle() || skill.isDance() || !skill.hasNegativeEffect())
+			if (skill.isPassive() || skill.isToggle() || skill.isDance() || !skill.hasNegativeEffect() || !HOSTILE_TARGET_TYPES.contains(skill.getTargetType()))
 			{
 				continue;
 			}

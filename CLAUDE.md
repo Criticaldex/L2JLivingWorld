@@ -372,7 +372,14 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   (`calculateDistance2D`/`getCastRange()`), and passes the engine's own `checkDoCastConditions(Skill)` (MP,
   state, etc.) — reusing that check instead of reimplementing MP/state validation. Deliberately not trying
   to pick the "best" skill or run any rotation logic; falls back to the plain `doAttack()` when nothing
-  qualifies.
+  qualifies. **`hasNegativeEffect()` alone let support skills through** ("the skills they use are weird,
+  sometimes they heal me"): a skill can be `TargetType.PARTY`/`SELF`/`CLAN`/etc. and still carry
+  `hasNegativeEffect()` (e.g. a sacrifice-HP-to-heal-party skill), and `doCast()` resolves the actual target
+  from the *skill's own* target type, not whatever `setTarget()` we called — so a party-typed "offensive"
+  skill from a recruited buddy still partied with the attacker (its own owner, mid-test) lands right back on
+  the attacker. Fixed with an explicit allowlist, `HOSTILE_TARGET_TYPES`
+  (`ONE`/`AURA`/`AREA`/`FRONT_AURA`/`FRONT_AREA`/`BEHIND_AURA`/`BEHIND_AREA`/`ENEMY_SUMMON`), checked via
+  `skill.getTargetType()` alongside `hasNegativeEffect()` rather than trusting that flag alone.
 - Skill casting from `retaliate()` initially just fired `doCast()` unconditionally every `REINFORCE_INTERVAL`
   (200ms) tick, with no awareness of whether the *previous* call was still mid-cast — `doCast()` while
   already casting interrupts the current cast (same as a real player clicking a different skill mid-cast),
