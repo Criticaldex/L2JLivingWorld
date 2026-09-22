@@ -64,4 +64,279 @@
 		<ingredient count="10000" id="57" />
 		<production count="100" id="7582" /> <!-- Baby Spice (Baby Buffalo/Cougar/Kookaburra food) -->
 	</item>
+	<!-- Wolf Armor -->
+	<item>
+		<ingredient count="5649" id="57" />
+		<production count="1" id="3894" /> <!-- Wolf's Ring Mail -->
+	</item>
+	<item>
+		<ingredient count="7000" id="57" />
+		<production count="1" id="2506" /> <!-- Wolf's Leather Armor -->
+	</item>
+	<item>
+		<ingredient count="18000" id="57" />
+		<production count="1" id="3891" /> <!-- Wolf's Hide Armor -->
+	</item>
+	<item>
+		<ingredient count="32000" id="57" />
+		<production count="1" id="3892" /> <!-- Wolf's Hard Leather Armor -->
+	</item>
+	<item>
+		<ingredient count="55000" id="57" />
+		<production count="1" id="3893" /> <!-- Wolf's Wooden Armor -->
+	</item>
+	<item>
+		<ingredient count="130000" id="57" />
+		<production count="1" id="3895" /> <!-- Wolf's Bone Armor -->
+	</item>
+	<item>
+		<ingredient count="200000" id="57" />
+		<production count="1" id="3896" /> <!-- Wolf's Scale Mail -->
+	</item>
+	<item>
+		<ingredient count="260000" id="57" />
+		<production count="1" id="3897" /> <!-- Wolf's Bronze Armor -->
+	</item>
+	<item>
+		<ingredient count="330000" id="57" />
+		<production count="1" id="3898" /> <!-- Wolf's Plate Mail -->
+	</item>
+	<item>
+		<ingredient count="420000" id="57" />
+		<production count="1" id="3899" /> <!-- Wolf's Steel Armor -->
+	</item>
+	<item>
+		<ingredient count="640000" id="57" />
+		<production count="1" id="3900" /> <!-- Wolf's Luxury Plate -->
+	</item>
+	<item>
+		<ingredient count="938705" id="57" />
+		<production count="1" id="5216" /> <!-- Wolf's Level 75 Armor -->
+	</item>
+	<item>
+		<ingredient count="940000" id="57" />
+		<production count="1" id="3901" /> <!-- Wolf's Mithril Armor -->
+	</item>
+	<!-- Wolf Weapons -->
+	<item>
+		<ingredient count="14000" id="57" />
+		<production count="1" id="2505" /> <!-- Iron Canine -->
+	</item>
+	<item>
+		<ingredient count="34000" id="57" />
+		<production count="1" id="3439" /> <!-- Shining Canine -->
+	</item>
+	<item>
+		<ingredient count="61000" id="57" />
+		<production count="1" id="3902" /> <!-- Ghost Canine -->
+	</item>
+	<item>
+		<ingredient count="61084" id="57" />
+		<production count="1" id="5217" /> <!-- Wolf's Level 75 Weapon -->
+	</item>
+	<item>
+		<ingredient count="100000" id="57" />
+		<production count="1" id="3903" /> <!-- Mithril Canine -->
+	</item>
+	<item>
+		<ingredient count="160000" id="57" />
+		<production count="1" id="3904" /> <!-- Sylvan Canine -->
+	</item>
+	<item>
+		<ingredient count="240000" id="57" />
+		<production count="1" id="3905" /> <!-- Orikarukon Canine -->
+	</item>
+	<item>
+		<ingredient count="350000" id="57" />
+		<production count="1" id="3906" /> <!-- Fang of Saltydog -->
+	</item>
+	<item>
+		<ingredient count="450000" id="57" />
+		<production count="1" id="3907" /> <!-- Fang of Cerberus -->
+	</item>
+	<item>
+		<ingredient count="570000" id="57" />
+		<production count="1" id="3908" /> <!-- Fang of Coyote -->
+	</item>
+	<item>
+		<ingredient count="720000" id="57" />
+		<production count="1" id="3909" /> <!-- Crystallized Ice Canine -->
+	</item>
+	<item>
+		<ingredient count="1100000" id="57" />
+		<production count="1" id="3910" /> <!-- Fang of the Blue Wolf -->
+	</item>
+	<item>
+		<ingredient count="1500000" id="57" />
+		<production count="1" id="3911" /> <!-- Fang of Fenrir -->
+	</item>
+	<!-- Hatchling Armor -->
+	<item>
+		<ingredient count="200000" id="57" />
+		<production count="1" id="3912" /> <!-- Hatchling's Soft Leather -->
+	</item>
+	<item>
+		<ingredient count="310000" id="57" />
+		<production count="1" id="3913" /> <!-- Hatchling's Scale Mail -->
+	</item>
+	<item>
+		<ingredient count="420000" id="57" />
+		<production count="1" id="3914" /> <!-- Hatchling's Brigandine -->
+	</item>
+	<item>
+		<ingredient count="570000" id="57" />
+		<production count="1" id="3915" /> <!-- Hatchling's Bronze Coat -->
+	</item>
+	<item>
+		<ingredient count="760000" id="57" />
+		<production count="1" id="3916" /> <!-- Hatchling's Steel Coat -->
+	</item>
+	<item>
+		<ingredient count="1100000" id="57" />
+		<production count="1" id="3917" /> <!-- Hatchling's Shadowplate -->
+	</item>
+	<item>
+		<ingredient count="1600000" id="57" />
+		<production count="1" id="3918" /> <!-- Hatchling's Mithril Coat -->
+	</item>
+	<item>
+		<ingredient count="2300000" id="57" />
+		<production count="1" id="5182" /> <!-- Hatchling's Gorgon Coat -->
+	</item>
+	<item>
+		<ingredient count="3400000" id="57" />
+		<production count="1" id="5183" /> <!-- Hatchling's Ophidian Plate -->
+	</item>
+	<item>
+		<ingredient count="4900000" id="57" />
+		<production count="1" id="5184" /> <!-- Hatchling's Crimson Plate -->
+	</item>
+	<item>
+		<ingredient count="5628000" id="57" />
+		<production count="1" id="4234" /> <!-- Hatchling's Level 65 Armor -->
+	</item>
+	<item>
+		<ingredient count="7300000" id="57" />
+		<production count="1" id="5185" /> <!-- Hatchling's Draconic Plate -->
+	</item>
+	<item>
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="5186" /> <!-- Hatchling's Inferno Plate -->
+	</item>
+	<item>
+		<ingredient count="19073000" id="57" />
+		<production count="1" id="4235" /> <!-- Hatchling's Level 75 Armor -->
+	</item>
+	<!-- Hatchling Weapons -->
+	<item>
+		<ingredient count="197143" id="57" />
+		<production count="1" id="3919" /> <!-- Serpent Fang -->
+	</item>
+	<item>
+		<ingredient count="310000" id="57" />
+		<production count="1" id="3920" /> <!-- Viperbite -->
+	</item>
+	<item>
+		<ingredient count="420000" id="57" />
+		<production count="1" id="3921" /> <!-- Shadow Fang -->
+	</item>
+	<item>
+		<ingredient count="570000" id="57" />
+		<production count="1" id="3922" /> <!-- Alya Fang -->
+	</item>
+	<item>
+		<ingredient count="760000" id="57" />
+		<production count="1" id="3923" /> <!-- Torturer -->
+	</item>
+	<item>
+		<ingredient count="1100000" id="57" />
+		<production count="1" id="3924" /> <!-- Unuk Alhay Fang -->
+	</item>
+	<item>
+		<ingredient count="1600000" id="57" />
+		<production count="1" id="3925" /> <!-- Antiplague -->
+	</item>
+	<item>
+		<ingredient count="2300000" id="57" />
+		<production count="1" id="5187" /> <!-- Serpentine Grinder -->
+	</item>
+	<item>
+		<ingredient count="3400000" id="57" />
+		<production count="1" id="5188" /> <!-- Fang of Dahak -->
+	</item>
+	<item>
+		<ingredient count="4900000" id="57" />
+		<production count="1" id="5189" /> <!-- Crimson Blood Fang -->
+	</item>
+	<item>
+		<ingredient count="5628000" id="57" />
+		<production count="1" id="4237" /> <!-- Hatchling's Level 65 Weapon -->
+	</item>
+	<item>
+		<ingredient count="7300000" id="57" />
+		<production count="1" id="5190" /> <!-- Draconic Chopper -->
+	</item>
+	<item>
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="5191" /> <!-- Diabolic Grinder -->
+	</item>
+	<item>
+		<ingredient count="19073000" id="57" />
+		<production count="1" id="4238" /> <!-- Hatchling's Level 75 Weapon -->
+	</item>
+	<!-- Strider Armor -->
+	<item>
+		<ingredient count="1600000" id="57" />
+		<production count="1" id="5170" /> <!-- Mithril Panzer Coat -->
+	</item>
+	<item>
+		<ingredient count="2300000" id="57" />
+		<production count="1" id="5171" /> <!-- Brigadine Panzer Coat -->
+	</item>
+	<item>
+		<ingredient count="3400000" id="57" />
+		<production count="1" id="5172" /> <!-- Draconic Panzer Coat -->
+	</item>
+	<item>
+		<ingredient count="4900000" id="57" />
+		<production count="1" id="5173" /> <!-- Blood Panzer Coat -->
+	</item>
+	<item>
+		<ingredient count="7300000" id="57" />
+		<production count="1" id="5174" /> <!-- Ophidian Panzer Coat -->
+	</item>
+	<item>
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="5175" /> <!-- Inferno Panzer Coat -->
+	</item>
+	<!-- Strider Weapons -->
+	<item>
+		<ingredient count="1600000" id="57" />
+		<production count="1" id="5176" /> <!-- Serpentine Spike -->
+	</item>
+	<item>
+		<ingredient count="2300000" id="57" />
+		<production count="1" id="5177" /> <!-- Drake Horn -->
+	</item>
+	<item>
+		<ingredient count="3400000" id="57" />
+		<production count="1" id="5178" /> <!-- Assault Alicorn -->
+	</item>
+	<item>
+		<ingredient count="4900000" id="57" />
+		<production count="1" id="5179" /> <!-- Draconic Slicer -->
+	</item>
+	<item>
+		<ingredient count="7300000" id="57" />
+		<production count="1" id="5180" /> <!-- Ohpdian Lance -->
+	</item>
+	<item>
+		<ingredient count="10000000" id="57" />
+		<production count="1" id="5181" /> <!-- Diamond Drill -->
+	</item>
+	<!-- Baby Pet Armor -->
+	<item>
+		<ingredient count="200000" id="57" />
+		<production count="1" id="8541" /> <!-- Little Harness -->
+	</item>
 </list>
