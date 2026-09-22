@@ -105,6 +105,25 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
 - New Java functionality for the population/phantom system (e.g. new fields the l2admin panel exposes) has
   to be compiled into `GameServer.jar` upstream (outside this repo) before the corresponding config value
   does anything — that jar is prebuilt here, not compiled from this repo's sources.
+- **The "Scheme Buffer" NPC (`id 50008`, `type="SchemeBuffer"`, template in
+  `game/data/stats/npcs/custom/SchemeBuffer.xml`) is a stock feature, not something built for this repo** —
+  it's already spawned in most towns/hunting-zone hub spots across `game/data/spawns/**/*.xml` (Aden, Giran,
+  Oren, Dion, Rune, Goddard, both elf/dark-elf/orc/dwarven villages, etc. — `grep -rn '"50008"'
+  game/data/spawns/` finds every instance). It reads the same `FIGHTER_GROUP`/`MAGE_GROUP` (and other
+  category) buff lists from `game/data/SchemeBufferSkills.xml` that `PhantomFullBuffTask.java` reuses (see
+  "Fake player combat AI gaps" below), priced/limited via `game/config/Custom/SchemeBuffer.ini`
+  (`BufferMaxSchemesPerChar`, `BufferItemId`, `BufferStaticCostPerBuff`). Adding one to a new location is
+  just a new `<npc id="50008" x=".." y=".." z=".." heading=".." respawnDelay="60" />` spawn entry near
+  wherever it's wanted (`status attackable="false"` in its template, so no combat-balance concerns) — no
+  script or config change needed. Added one to the Aden Colosseum next to the "Arena Director" (`id 31226`,
+  `game/data/spawns/Aden/AdenNPCs.xml`) per user request, offset a short distance from the director spawn
+  rather than placed at its exact coordinates.
+- Same deal for subclass certification: `type="VillageMasterPriest"`/title `"High Priest"` NPCs (e.g.
+  `id 30857` "Orven", already spawned once in Aden proper) are the stock Interlude subclass-change masters
+  — see "Subclass eligibility restrictions" above for what they actually gate. Duplicating an existing
+  town's instance at a new spot (another `<npc id="30857" .../>` spawn line) is enough; no new NPC
+  definition needed. Added a second `id 30857` instance next to the Colosseum's Arena Director/Scheme
+  Buffer cluster per user request, for subclass changes right at the arena rather than a walk back to town.
 
 ## Applying upstream engine updates (`libs/GameServer.jar`)
 

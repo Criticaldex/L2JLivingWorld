@@ -87,6 +87,8 @@
 		<npc id="31862" x="112624" y="14032" z="10080" heading="0" respawnDelay="60" /> <!-- Angelic Vortex -->
 		<npc id="31226" x="147508" y="47042" z="-3400" heading="49000" respawnDelay="60" /> <!-- Arena Director -->
 		<npc id="31226" x="151484" y="46383" z="-3400" heading="16000" respawnDelay="60" /> <!-- Arena Director -->
+		<npc id="50008" x="147568" y="47102" z="-3400" heading="49000" respawnDelay="60" /> <!-- Scheme Buffer -->
+		<npc id="30857" x="147448" y="46982" z="-3400" heading="49000" respawnDelay="60" /> <!-- Orven, High Priest (subclass) -->
 		<npc id="31031" x="151539" y="46381" z="-3350" heading="16384" respawnDelay="5" /> <!-- Broadcasting Tower -->
 		<npc id="31031" x="147446" y="47033" z="-3350" heading="16384" respawnDelay="5" /> <!-- Broadcasting Tower -->
 		<npc id="31147" x="174473" y="52854" z="-4360" heading="48500" respawnDelay="60" /> <!-- Sobling -->
