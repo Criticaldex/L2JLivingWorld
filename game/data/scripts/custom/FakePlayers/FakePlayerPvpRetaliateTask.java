@@ -73,6 +73,7 @@ public class FakePlayerPvpRetaliateTask
 	{
 		Containers.Global().addListener(new ConsumerEventListener(Containers.Global(), EventType.ON_CREATURE_DAMAGE_RECEIVED, (OnCreatureDamageReceived event) -> onDamageReceived(event), this));
 		ThreadPool.scheduleAtFixedRate(this::reinforce, REINFORCE_INTERVAL, REINFORCE_INTERVAL);
+		LOGGER.info("FakePlayerPvpRetaliateTask: started, listening for ON_CREATURE_DAMAGE_RECEIVED, reinforcing every " + REINFORCE_INTERVAL + "ms.");
 	}
 
 	private void onDamageReceived(OnCreatureDamageReceived event)
@@ -82,6 +83,11 @@ public class FakePlayerPvpRetaliateTask
 		if ((target == null) || (attacker == null) || !target.isFakePlayer() || !attacker.isPlayer() || attacker.isFakePlayer())
 		{
 			return;
+		}
+
+		if (!_recentAttackers.containsKey(target))
+		{
+			LOGGER.info("FakePlayerPvpRetaliateTask: " + target.getName() + " hit by " + attacker.getName() + ", forcing retaliation.");
 		}
 
 		_recentAttackers.put(target, new Attacker(attacker.asPlayer(), System.currentTimeMillis()));

@@ -50,6 +50,7 @@ public class PeaceZoneCombatStopTask
 	private PeaceZoneCombatStopTask()
 	{
 		ThreadPool.scheduleAtFixedRate(this::checkFakePlayers, CHECK_INTERVAL, CHECK_INTERVAL);
+		LOGGER.info("PeaceZoneCombatStopTask: started, sweeping every " + CHECK_INTERVAL + "ms.");
 	}
 
 	private void checkFakePlayers()
