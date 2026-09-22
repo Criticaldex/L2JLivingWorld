@@ -74,7 +74,7 @@ public class FakePlayerPvpRetaliateTask
 {
 	private static final Logger LOGGER = Logger.getLogger(FakePlayerPvpRetaliateTask.class.getName());
 	private static final long REINFORCE_INTERVAL = 200;
-	private static final long MEMORY_MS = 8000;
+	private static final long MEMORY_MS = 30000;
 	private static final long AGGRO_SCAN_INTERVAL = 1500;
 	private static final int AGGRO_RANGE = 500;
 	// hasNegativeEffect() alone is not reliable - a PARTY/SELF/CLAN-targeted support skill can still carry

@@ -345,7 +345,8 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   `PhantomManager.getInstance().isPhantom(player)`/`isRecruit(player)`/`isBuddy(player)`/`isRegular(player)`
   instead (all public). If a fake-player script needs to check "is this Creature bot-controlled" again,
   check both — `isFakePlayer()` for Npc-based, the four `PhantomManager` methods for Player-based — never
-  just one. Remembers the last player to hit each fake player for 8 seconds,
+  just one. Remembers the last player to hit each fake player for `MEMORY_MS` (30s, raised from an initial
+  8s at the user's request — "if I stop attacking they continue mob farming" too soon),
   and every 200ms both sets `Intention.ATTACK` against that player and calls `Creature.doAttack()` directly
   — always overriding whatever the fake player (or `PhantomPartyManager`, for phantoms) was otherwise having
   it do, since a player hitting it is meant to take priority. Live-tested via `//phantom debug on` and the
