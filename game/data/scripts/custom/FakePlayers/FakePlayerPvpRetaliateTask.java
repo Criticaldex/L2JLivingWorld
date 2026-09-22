@@ -20,104 +20,116 @@
  */
 package custom.FakePlayers;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.l2jmobius.commons.threads.ThreadPool;
 import org.l2jmobius.gameserver.ai.Intention;
-import org.l2jmobius.gameserver.model.World;
-import org.l2jmobius.gameserver.model.WorldObject;
-import org.l2jmobius.gameserver.model.actor.Attackable;
 import org.l2jmobius.gameserver.model.actor.Creature;
-import org.l2jmobius.gameserver.model.actor.Npc;
 import org.l2jmobius.gameserver.model.actor.Player;
+import org.l2jmobius.gameserver.model.events.Containers;
+import org.l2jmobius.gameserver.model.events.EventType;
+import org.l2jmobius.gameserver.model.events.holders.actor.creature.OnCreatureDamageReceived;
+import org.l2jmobius.gameserver.model.events.listeners.ConsumerEventListener;
 import org.l2jmobius.gameserver.model.zone.ZoneId;
 
 /**
- * A player attacking a fake player is supposed to trigger the normal NPC hate/combat system
- * (Attackable#addDamage -> addDamageHate -> thinkActive's getMostHated/Intention.ATTACK), but in practice
- * fake players (including plain auto-hunt field hunters with no core AI disabled and nothing to do with
- * PhantomPartyManager's mob-only hunting tick - confirmed via the phantom combat debug trace staying
- * completely silent for a player attacker) do not visibly fight back. Rather than continue guessing at the
- * closed engine's silent failure, this makes retaliation happen explicitly from the datapack side: every
- * tick, any fake player that currently has hate on a player (dead ones excepted) is pointed at the
- * highest-hate player and told to attack, overriding whatever else it was doing (a player
- * hitting it is always the priority over any monster it was hunting). Deliberately does not skip fake
- * players with core AI disabled (FakePlayerBehaviorManager sets that on a bot summoned via !lf while it
- * waits to be recruited/traded with) - the engine's own automatic retaliation shortcuts (thinkActive's
- * idle-scan, onActionAttacked) check isCoreAIDisabled before acting, but the actual execution path
- * (AbstractAI#setIntention, AttackableAI#onIntentionAttack, thinkAttack) never does, so forcing the
- * intention here still works even for a bot stuck waiting on you mid-recruit. Skips starting or continuing
- * this in a peace zone; PeaceZoneCombatStopTask separately disengages any fight that ends up there anyway.
+ * Two entirely different closed-engine systems answer to "fake player" here, and neither retaliates
+ * against a player attacker on its own:
+ * <ul>
+ * <li>Ambient/vending fake players (FakePlayerBehaviorManager) are real Npc/Attackable instances, so in
+ * theory the generic Attackable#addDamage -> addDamageHate -> thinkActive#getMostHated/Intention.ATTACK
+ * chain should fire - but is not observed to.</li>
+ * <li>Recruited buddies (!lf, PhantomManager#spawnPartyMember/spawnFriendRegular) and auto-hunt field
+ * hunters (PhantomManager#spawnPhantom, PhantomAutoHuntingZones) are actual Player instances
+ * (PhantomPartyManager$Member.npc is declared as Player, not Npc), puppeteered every tick by
+ * PhantomPartyManager. A Player has no aggro list at all - that is an Attackable-only concept - and
+ * PlayerAI has no onActionAttacked override (it inherits CreatureAI's trivial clientStartAutoAttack-only
+ * version), so there is structurally no mechanism for a Player-typed phantom to decide to fight back;
+ * PhantomPartyManager's own tick only ever reads Player/Monster combat state to drive its OWN hunting and
+ * follow logic, never to react to an attacker (confirmed empty via the //phantom debug on trace).
+ * </ul>
+ * This works uniformly across both by listening to the generic EventType.ON_CREATURE_DAMAGE_RECEIVED
+ * (fires for any Creature, Player or Npc) rather than relying on Attackable's aggro list, remembering the
+ * last player to hit each fake player for a short window, and repeatedly forcing Intention.ATTACK against
+ * them - always overriding whatever else the fake player (or, for phantoms, PhantomPartyManager) was
+ * having it do, since a player hitting it is the priority here. The reinforcement sweep runs faster than
+ * PhantomPartyManager's own 1-second tick specifically to win that tug-of-war over who the target/intention
+ * is. Skips (and does not start or continue) any of this in a peace zone; PeaceZoneCombatStopTask
+ * separately disengages any Attackable-based fight that ends up there anyway.
  * @author Living World
  */
 public class FakePlayerPvpRetaliateTask
 {
 	private static final Logger LOGGER = Logger.getLogger(FakePlayerPvpRetaliateTask.class.getName());
-	private static final long CHECK_INTERVAL = 1000;
+	private static final long REINFORCE_INTERVAL = 400;
+	private static final long MEMORY_MS = 8000;
+
+	private final Map<Creature, Attacker> _recentAttackers = new ConcurrentHashMap<>();
 
 	private FakePlayerPvpRetaliateTask()
 	{
-		ThreadPool.scheduleAtFixedRate(this::checkFakePlayers, CHECK_INTERVAL, CHECK_INTERVAL);
+		Containers.Global().addListener(new ConsumerEventListener(Containers.Global(), EventType.ON_CREATURE_DAMAGE_RECEIVED, (OnCreatureDamageReceived event) -> onDamageReceived(event), this));
+		ThreadPool.scheduleAtFixedRate(this::reinforce, REINFORCE_INTERVAL, REINFORCE_INTERVAL);
 	}
 
-	private void checkFakePlayers()
+	private void onDamageReceived(OnCreatureDamageReceived event)
+	{
+		final Creature target = event.getTarget();
+		final Creature attacker = event.getAttacker();
+		if ((target == null) || (attacker == null) || !target.isFakePlayer() || !attacker.isPlayer() || attacker.isFakePlayer())
+		{
+			return;
+		}
+
+		_recentAttackers.put(target, new Attacker(attacker.asPlayer(), System.currentTimeMillis()));
+		retaliate(target, attacker.asPlayer());
+	}
+
+	private void reinforce()
 	{
 		try
 		{
-			for (WorldObject worldObject : World.getInstance().getVisibleObjects())
+			final long now = System.currentTimeMillis();
+			_recentAttackers.entrySet().removeIf(entry -> (now - entry.getValue().time) > MEMORY_MS);
+			for (Map.Entry<Creature, Attacker> entry : _recentAttackers.entrySet())
 			{
-				if (!(worldObject instanceof Npc) || !(worldObject instanceof Attackable))
-				{
-					continue;
-				}
-
-				final Npc npc = (Npc) worldObject;
-				if (!npc.isFakePlayer() || npc.isDead())
-				{
-					continue;
-				}
-
-				final Player attacker = mostHatedPlayer((Attackable) npc);
-				if ((attacker == null) || npc.isInsideZone(ZoneId.PEACE) || attacker.isInsideZone(ZoneId.PEACE))
-				{
-					continue;
-				}
-
-				if (!npc.isRunning())
-				{
-					npc.setRunning();
-				}
-
-				npc.getAI().setIntention(Intention.ATTACK, attacker);
+				retaliate(entry.getKey(), entry.getValue().player);
 			}
 		}
 		catch (Exception e)
 		{
-			LOGGER.log(Level.WARNING, "FakePlayerPvpRetaliateTask: error while sweeping fake players.", e);
+			LOGGER.log(Level.WARNING, "FakePlayerPvpRetaliateTask: error while reinforcing retaliation.", e);
 		}
 	}
 
-	private Player mostHatedPlayer(Attackable attackable)
+	private void retaliate(Creature target, Player attacker)
 	{
-		Player best = null;
-		long bestHate = 0;
-		for (Creature creature : attackable.getAggroList().keySet())
+		if (target.isDead() || target.isInsideZone(ZoneId.PEACE) || attacker.isInsideZone(ZoneId.PEACE))
 		{
-			if (!creature.isPlayer())
-			{
-				continue;
-			}
-
-			final long hate = attackable.getHating(creature);
-			if ((hate > 0) && ((best == null) || (hate > bestHate)))
-			{
-				best = creature.asPlayer();
-				bestHate = hate;
-			}
+			return;
 		}
 
-		return best;
+		if (!target.isRunning())
+		{
+			target.setRunning();
+		}
+
+		target.getAI().setIntention(Intention.ATTACK, attacker);
+	}
+
+	private static final class Attacker
+	{
+		private final Player player;
+		private final long time;
+
+		private Attacker(Player player, long time)
+		{
+			this.player = player;
+			this.time = time;
+		}
 	}
 
 	public static void main(String[] args)

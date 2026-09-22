@@ -286,29 +286,55 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   `AttackableAI.class` and would need either an upstream engine patch or binary-patching the compiled
   method (same class of problem as the subclass restrictions above, but a method body edit rather than a
   static field, so not something to attempt via reflection).
-- "Fake players don't retaliate when attacked outside a peace zone" — investigated at length and never
-  pinned to a specific defect: `Attackable.addDamageHate()` (fires whenever anything takes damage) looks
-  structurally correct for a player hitting a fake player, `FakePlayerBehaviorManager`'s wander state
-  machine backs off (`isInCombat()`/`isAttackingNow()` guards) instead of fighting the AI for control, core
-  AI isn't disabled for plain auto-hunt field hunters (only `!lf`-summoned "meet" bots ever get
-  `disableCoreAI(true)`, via `FakePlayerBehaviorManager`), and `PhantomPartyManager`'s combat debug trace
-  (`//phantom debug on` / `//debug_on`, logs to the gameserver **console**, not `game/log/`) stayed
-  completely silent when a field hunter was hit by a player — proving that manager's mob-only hunting tick
-  never even looks at player attackers, so it isn't overriding anything either. With every plausible
-  blocker ruled out and no error/trace anywhere, the conclusion is that player-vs-fake-player retaliation
-  is simply **not implemented** in the closed engine, not silently broken. Fixed from the datapack side:
-  `game/data/scripts/custom/FakePlayers/FakePlayerPvpRetaliateTask.java` sweeps every fake player every
-  second and, if it currently has hate on any player (`Attackable.getAggroList()`/`getHating()`), forces
-  `Intention.ATTACK` against the highest-hate one — always overriding whatever monster it was hunting, per
-  this project's own product choice that a player hitting a fake player takes priority. Deliberately does
-  **not** skip a fake player with `isCoreAIDisabled()` true (e.g. one summoned via `!lf` and currently
-  waiting to be recruited/traded with): that flag only gates the engine's own *automatic* retaliation
-  shortcuts (`thinkActive`'s idle-scan, `onActionAttacked`) — `AbstractAI.setIntention`,
-  `AttackableAI.onIntentionAttack`, and `thinkAttack` (the actual execution path) never check it, so forcing
-  the intention directly still works on a bot stuck mid-recruit. Skips (and doesn't fight) if either side is
-  in a peace zone; pairs with `PeaceZoneCombatStopTask` above rather than duplicating its job. If a future
-  engine update actually implements native retaliation, this task will just keep re-confirming the same
-  intention every tick — harmless, but worth removing at that point.
+- **"Fake player" is not one system — there are two entirely different closed-engine implementations**,
+  and this matters a lot for any combat-AI investigation:
+  1. Ambient/vending population (`EnableFakePlayers`/`FakePlayerBehavior` in `FakePlayers.ini`, driven by
+     `FakePlayerBehaviorManager`) — these are real `Npc`/`Attackable` instances. `FAKE_PLAYER_AGGRO_PLAYERS`
+     etc. are read only by `AttackableAI` (confirmed via `grep -rla FAKE_PLAYER_AGGRO_PLAYERS` across every
+     decompiled class), so they only ever affect this system.
+  2. Phantoms — both recruited buddies (`!lf`, `PhantomManager#spawnPartyMember`/`spawnFriendRegular`) *and*
+     auto-hunt field hunters (`PhantomManager#spawnPhantom`, `PhantomAutoHuntingZones`) — are actual
+     **`Player`** instances (`PhantomPartyManager$Member.npc` is declared as `Player`, not `Npc`), fully
+     puppeteered every tick by `PhantomPartyManager`. `FakePlayerAggroPlayers` has **zero** effect on these;
+     don't waste time toggling it while testing phantom retaliation.
+  Any fix or investigation into "why doesn't a fake player fight back" has to know which of these two it's
+  actually looking at, or it'll trace the wrong class entirely (early sessions on this burned a lot of time
+  doing exactly that).
+- **Peace-zone gap (system 1, Npc-based):** the closed `AttackableAI` only checks `ZoneId.PEACE`/`NO_PVP` at
+  the moment a fight *starts* (`isAggressiveTowards()`, and `lambda$thinkActive$0` — the only place
+  `FAKE_PLAYER_AGGRO_PLAYERS` is read). `thinkAttack()` — the ~1200-line method driving every attack tick
+  once hate already exists — has zero zone checks anywhere, so a fight that starts outside town (or is
+  enabled via `FakePlayerAggroPlayers`) keeps going if either side crosses into a peace zone. Fixed with
+  `game/data/scripts/custom/FakePlayers/PeaceZoneCombatStopTask.java`: a 3-second sweep
+  (`ThreadPool.scheduleAtFixedRate`) over every `isInCombat()` fake player, force-disengaging
+  (`abortAttack`/`abortCast`/`clearAggroList`/`setIntention(ACTIVE)`) any whose own zone or current target's
+  zone is `PEACE`. A datapack mitigation, not a real fix — the actual bug is a method body in the closed
+  `AttackableAI.class`, not something reflection can patch (unlike the subclass restrictions above, which
+  are a static field).
+- **No retaliation at all against a player attacker (both systems):** for system 1 (Npc-based),
+  `Attackable.addDamageHate()` looks structurally correct and `FakePlayerBehaviorManager` defers to
+  ongoing combat instead of fighting the AI for control, so on paper it should "just work" — it wasn't
+  confirmed broken, just never observed working either. For system 2 (Player-based phantoms/hunters), the
+  answer is structural, not a bug: a `Player` has no aggro list at all (`Attackable`-only concept), and
+  `PlayerAI` has no `onActionAttacked` override (inherits `CreatureAI`'s trivial
+  `clientStartAutoAttack()`-only version) — there is no mechanism for a real-player-shaped bot to decide to
+  fight back on its own. `PhantomPartyManager`'s own tick only reads *Player/Monster* combat state to drive
+  its own hunting/follow logic, never to react to "something is attacking me" (confirmed via
+  `//phantom debug on` / `//debug_on`, which logs to the gameserver **console** — not `game/log/` — and
+  stays completely silent for a player attacker). Fixed uniformly for both systems by
+  `game/data/scripts/custom/FakePlayers/FakePlayerPvpRetaliateTask.java`: listens globally
+  (`Containers.Global()`) for `EventType.ON_CREATURE_DAMAGE_RECEIVED` (fires for any `Creature`, Player or
+  Npc, unlike the Attackable-only events), remembers the last player to hit each fake player for 8 seconds,
+  and every 400ms forces `Intention.ATTACK` against that player — always overriding whatever the fake
+  player (or `PhantomPartyManager`, for phantoms) was otherwise having it do, since a player hitting it is
+  meant to take priority. The 400ms interval is deliberately faster than `PhantomPartyManager`'s own
+  1-second tick (confirmed via its `startTicking()` bytecode: `ThreadPool.scheduleAtFixedRate(..., 1000,
+  1000)`) specifically to win the tug-of-war over the target/intention most of the time — it does not fully
+  eliminate it, so don't be surprised by an occasional stutter back to following/hunting between hits.
+  Skips (and won't start) any of this in a peace zone; pairs with `PeaceZoneCombatStopTask` rather than
+  duplicating its job. If a future engine update actually implements native retaliation for either system,
+  this task will just keep re-confirming the same already-correct intention every cycle — harmless, but
+  worth removing at that point.
 
 ## Death handling and custom skill effects
 
