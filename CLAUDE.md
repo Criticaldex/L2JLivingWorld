@@ -499,6 +499,26 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   bots that die constantly in normal combat, at scale — removed `1410` from both `FIGHTER_GROUP` and
   `MAGE_GROUP` here (script-local arrays only; `SchemeBufferSkills.xml` itself, and what the real-player
   Scheme Buffer NPC grants, is untouched).
+- **Abnormal visual effects (Sleep's closed-eyes, Silence's icon, etc.) never appeared on Player-typed
+  phantoms/recruits/buddies/regulars for observers**, even though the debuff itself lands and applies
+  server-side (confirmed by testing the same skill against a real player, where it displayed correctly).
+  Traced the generic engine path (decompiled): `BuffInfo.addAbnormalVisualEffects()` →
+  `Creature.updateAbnormalEffect()` → for a `Player` that's `broadcastUserInfo()` → `broadcastCharInfo()` —
+  which opens with `if (isOnlineInt() == 0) return;`, a silent no-op. `Player.isOnlineInt()` requires both
+  `_isOnline == true` **and** a non-null `_client` (`GameClient`) — a real network session. A Player-typed
+  bot has no `GameClient` at all, so `isOnlineInt()` is always `0` and this broadcast never fires for any of
+  them. (Their initial visibility on spawn works via a separate one-time packet `PhantomManager` sends
+  itself — that's why they're visible at all; it's only *later* incremental state changes, like a debuff's
+  visual starting or ending, that never propagate.) By contrast `Npc.updateAbnormalEffect()` (used by
+  Npc-based fake players) has no such gate — confirmed via decompile it always sends `FakePlayerInfo`/
+  `NpcInfo` — which is exactly why this is specific to the Player-typed side of the system.
+  `game/data/scripts/custom/FakePlayers/PhantomVisualSyncTask.java` works around it: polls every
+  bot-controlled `Player`'s `Creature.getAbnormalVisualEffects()` bitmask every 500ms, and whenever it
+  changes since the last check, manually constructs and sends a fresh `CharInfo` packet to nearby real
+  players itself — bypassing `isOnlineInt()` entirely rather than trying to fix/fake that check. Tracks
+  last-known masks in a `Map<Player, Integer>` that's pruned every sweep to the currently-visible
+  bot-controlled set, since a `Player` key is a strong reference that would otherwise leak for every
+  despawned/logged-off phantom.
 
 ## Death handling and custom skill effects
 
