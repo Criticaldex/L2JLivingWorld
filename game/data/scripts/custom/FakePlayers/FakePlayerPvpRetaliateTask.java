@@ -147,10 +147,13 @@ public class FakePlayerPvpRetaliateTask
 	 * AttackableAI, which never drives a Player-typed phantom) - the Npc-based fake players get their own
 	 * (buggy, drop-defense-gated) proactive aggro natively, but auto-hunt field hunters never proactively go
 	 * after a player at all. This adds that for them specifically (PhantomManager#isPhantom - not recruited
-	 * buddies/regulars, which stay passive/friendly), gated on the same config flag so it is off by default:
-	 * a hunter with nothing else going on that finds a real, non-GM, non-dead player within range starts
-	 * "retaliating" against them exactly like it would against an actual attacker, peace-zone check
-	 * included from the start rather than after the fact.
+	 * buddies/regulars, which stay passive/friendly), gated on the same config flag so it is off by default.
+	 * Deliberately does not require the hunter to be idle first - a hunter is basically always mid-fight
+	 * with a monster (that is its whole purpose), so gating on "not already in combat" meant this almost
+	 * never fired; it finds a real, non-GM, non-dead player within range regardless of what it is currently
+	 * doing and starts "retaliating" against them exactly like it would against an actual attacker (which
+	 * already always overrides its monster target - see retaliate()), peace-zone check included from the
+	 * start rather than after the fact.
 	 */
 	private void checkProactiveAggro()
 	{
@@ -170,7 +173,7 @@ public class FakePlayerPvpRetaliateTask
 				}
 
 				final Player hunter = (Player) worldObject;
-				if (!phantomManager.isPhantom(hunter) || hunter.isDead() || hunter.isInCombat() || hunter.isInsideZone(ZoneId.PEACE) || _recentAttackers.containsKey(hunter))
+				if (!phantomManager.isPhantom(hunter) || hunter.isDead() || hunter.isInsideZone(ZoneId.PEACE) || _recentAttackers.containsKey(hunter))
 				{
 					continue;
 				}

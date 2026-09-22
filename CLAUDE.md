@@ -292,7 +292,16 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   target that walked into town. Now uses the same `isBotControlled()` detection (`isFakePlayer()` for
   Npc-based, `PhantomManager.isPhantom`/`isRecruit`/`isBuddy`/`isRegular` for Player-based) as
   `FakePlayerPvpRetaliateTask`, so it covers both. `clearAggroList()` is skipped for `Player` targets since
-  it is `Attackable`-only and a `Player` has no aggro list at all.
+  it is `Attackable`-only and a `Player` has no aggro list at all. Interval tightened again, 500ms → 200ms,
+  after live testing still showed hits landing in town. **There is a hard limit here that tightening the
+  interval cannot fully close**: `lambda$thinkActive$0` (the buggy `FakePlayerAggroPlayers`-driven
+  drop-defense aggro) calls `addDamageHate` directly and does *not* check `isCoreAIDisabled()` anywhere, so
+  disabling core AI preventively while a bot stands in a peace zone — which would otherwise be the clean
+  fix — does nothing to stop this specific path (confirmed by re-reading the decompiled method; not worth
+  re-deriving this again). The decision-to-attack and the first swing can both happen within a single AI
+  tick, faster than any external poll can react, so an occasional single hit before disengagement is a real
+  limitation of patching this from outside the closed `AttackableAI`, not a bug in this task — the only real
+  fix left is an upstream engine patch or binary-patching the compiled method.
 - **"Fake player" is not one system — there are two entirely different closed-engine implementations**,
   and this matters a lot for any combat-AI investigation:
   1. Ambient/vending population (`EnableFakePlayers`/`FakePlayerBehavior` in `FakePlayers.ini`, driven by
@@ -379,10 +388,14 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   *proactively* aggro nearby players, and (per the "two systems" split above) it structurally can't do that
   for Phantom-typed hunters since `AttackableAI` (the only reader of that flag) never drives a Player-typed
   phantom. `FakePlayerPvpRetaliateTask#checkProactiveAggro` (a separate 1.5s scan, gated on the same flag)
-  adds this for them specifically: any `PhantomManager.isPhantom()` hunter that's idle (not dead, not
-  already in combat, not in a peace zone) and finds a real, non-GM, non-dead, non-peace-zone player within
-  500 units starts "retaliating" against them through the exact same `retaliate()` path as being hit —
-  recruited buddies/regulars are deliberately excluded (`isPhantom` only, not the other three
+  adds this for them specifically: any `PhantomManager.isPhantom()` hunter (not dead, not in a peace zone)
+  that finds a real, non-GM, non-dead, non-peace-zone player within 500 units starts "retaliating" against
+  them through the exact same `retaliate()` path as being hit. **Originally also required `!isInCombat()`**
+  — i.e. the hunter had to be idle first — which defeated the purpose: a field hunter is essentially always
+  mid-fight with a monster, so that condition almost never passed and this looked like it did nothing.
+  Removed; a busy hunter now gets redirected to a nearby player exactly like `retaliate()` already always
+  overrides its monster target when actually hit. Recruited buddies/regulars are deliberately excluded
+  (`isPhantom` only, not the other three
   `isBotControlled` checks) since they're meant to stay friendly to everyone but their owner's attacker.
 - Both `PeaceZoneCombatStopTask` and `FakePlayerPvpRetaliateTask` log an `INFO` line on successful startup
   (`"...: started, ..."`), and the latter also logs once per new retaliation episode
