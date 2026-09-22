@@ -27,6 +27,7 @@ import java.util.logging.Logger;
 
 import org.l2jmobius.commons.threads.ThreadPool;
 import org.l2jmobius.gameserver.ai.Intention;
+import org.l2jmobius.gameserver.managers.PhantomManager;
 import org.l2jmobius.gameserver.model.actor.Creature;
 import org.l2jmobius.gameserver.model.actor.Player;
 import org.l2jmobius.gameserver.model.events.Containers;
@@ -80,7 +81,7 @@ public class FakePlayerPvpRetaliateTask
 	{
 		final Creature target = event.getTarget();
 		final Creature attacker = event.getAttacker();
-		if ((target == null) || (attacker == null) || !target.isFakePlayer() || !attacker.isPlayer() || attacker.isFakePlayer())
+		if ((target == null) || (attacker == null) || !isBotControlled(target) || !attacker.isPlayer() || isBotControlled(attacker))
 		{
 			return;
 		}
@@ -92,6 +93,28 @@ public class FakePlayerPvpRetaliateTask
 
 		_recentAttackers.put(target, new Attacker(attacker.asPlayer(), System.currentTimeMillis()));
 		retaliate(target, attacker.asPlayer());
+	}
+
+	/**
+	 * Npc-based fake players set isFakePlayer(); Player-typed phantoms/recruits/buddies/regulars never do -
+	 * they only set a private Player.isBuddyBot field with no public getter, so PhantomManager's own
+	 * isPhantom/isRecruit/isBuddy/isRegular checks are the only way to identify them from outside.
+	 */
+	private static boolean isBotControlled(Creature creature)
+	{
+		if (creature.isFakePlayer())
+		{
+			return true;
+		}
+
+		final Player player = creature.asPlayer();
+		if (player == null)
+		{
+			return false;
+		}
+
+		final PhantomManager phantomManager = PhantomManager.getInstance();
+		return phantomManager.isPhantom(player) || phantomManager.isRecruit(player) || phantomManager.isBuddy(player) || phantomManager.isRegular(player);
 	}
 
 	private void reinforce()

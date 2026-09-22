@@ -324,7 +324,15 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   stays completely silent for a player attacker). Fixed uniformly for both systems by
   `game/data/scripts/custom/FakePlayers/FakePlayerPvpRetaliateTask.java`: listens globally
   (`Containers.Global()`) for `EventType.ON_CREATURE_DAMAGE_RECEIVED` (fires for any `Creature`, Player or
-  Npc, unlike the Attackable-only events), remembers the last player to hit each fake player for 8 seconds,
+  Npc, unlike the Attackable-only events). **Gotcha that cost a full debugging round-trip**: the first
+  version filtered targets with `Creature.isFakePlayer()` alone, which is only ever set by the Npc-based
+  system (`Npc`/`FakePlayerBehaviorManager`) — Player-typed phantoms/recruits/buddies/regulars only set a
+  *private* `Player.isBuddyBot` field with no public getter, so `isFakePlayer()` is always false for them
+  and the listener silently never matched a single hit. Detecting them needs
+  `PhantomManager.getInstance().isPhantom(player)`/`isRecruit(player)`/`isBuddy(player)`/`isRegular(player)`
+  instead (all public). If a fake-player script needs to check "is this Creature bot-controlled" again,
+  check both — `isFakePlayer()` for Npc-based, the four `PhantomManager` methods for Player-based — never
+  just one. Remembers the last player to hit each fake player for 8 seconds,
   and every 400ms forces `Intention.ATTACK` against that player — always overriding whatever the fake
   player (or `PhantomPartyManager`, for phantoms) was otherwise having it do, since a player hitting it is
   meant to take priority. The 400ms interval is deliberately faster than `PhantomPartyManager`'s own
