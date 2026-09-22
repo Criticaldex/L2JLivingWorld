@@ -188,4 +188,17 @@
 		<ingredient count="100000" id="57" />
 		<production count="1000" id="6647" /> <!-- Blessed Beast Spiritshot -->
 	</item>
+	<!-- Crafting Materials -->
+	<item>
+		<ingredient count="400000" id="57" />
+		<production count="1000" id="3031" /> <!-- Spirit Ore -->
+	</item>
+	<item>
+		<ingredient count="250000" id="57" />
+		<production count="1000" id="1785" /> <!-- Soul Ore -->
+	</item>
+	<item>
+		<ingredient count="100000" id="57" />
+		<production count="1000" id="5589" /> <!-- Energy Stone -->
+	</item>
 </list>
