@@ -223,6 +223,19 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   before an in-game identify step; the real sellable item is a separate id with the set's real name
   (e.g. "Imperial Crusader Breastplate", not "Dragon Scale Mail"). Check both the name pattern and those
   two flags before adding an item id to a shop list.
+- Same "name pattern lies" trap for the Pets shop (`multisell/custom/62502.xml`): several stock player armor
+  pieces are literally named after wolves ("Wolf Helmet" id 505, "Wolf Boots" id 556, "Blue Wolf
+  Breastplate" id 358, "Wolf Gaiters" id 384, "Wolf Shield" id 635, the whole "Blue Wolf" armor set ids
+  2380-2487/5717-5736, "Fang of the Blue Wolf" id 3910's own set-mate weapons, etc.) but are ordinary
+  player-equippable gear with `<player races="..."/>` conditions, not pet equipment. The real, actually
+  pet-wearable items all carry `<set name="for_npc" val="true" />` plus a
+  `<conditions><player categoryType="WOLF|HATCHLING_GROUP|STRIDER|BABY_PET_GROUP|..." /></conditions>`
+  restriction — that combination (not the name) is the only reliable filter; grep item stats for
+  `categoryType=` to enumerate the genuine set. Also found one apparent data-quality artifact while doing
+  this: item `4236` "Gara Item" is `for_npc`/`HATCHLING_GROUP`-restricted with an identical price and stat
+  block to `4235` "Hatchling's Level 75 Armor" but has no proper display name — looks like an unused/
+  untranslated duplicate from the upstream Interlude dataset, not real shop-worthy content; excluded it
+  when populating the Pets shop for this reason.
 - The `merchant/main.html` "Sell" button (`_bbssell;<page>`, handled in `HomeBoard.java`) doesn't do any
   selling itself — it just sends the client's generic `SellList` packet, which opens the native client sell
   dialog over whatever inventory the player has. There's no server-side concept of "what this shop buys
