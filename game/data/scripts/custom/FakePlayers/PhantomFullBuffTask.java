@@ -31,6 +31,7 @@ import org.l2jmobius.gameserver.model.World;
 import org.l2jmobius.gameserver.model.WorldObject;
 import org.l2jmobius.gameserver.model.actor.Player;
 import org.l2jmobius.gameserver.model.skill.Skill;
+import org.l2jmobius.gameserver.model.zone.ZoneId;
 
 /**
  * PhantomBuffs.applyFullBuffs() (called once, on spawn) only ever grants its own hardcoded
@@ -182,7 +183,7 @@ public class PhantomFullBuffTask
 				}
 
 				final Player player = (Player) worldObject;
-				if (player.isDead() || !isBotControlled(phantomManager, player))
+				if (player.isDead() || player.isInsideZone(ZoneId.PEACE) || !isBotControlled(phantomManager, player))
 				{
 					continue;
 				}

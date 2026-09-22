@@ -546,31 +546,6 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   free-hunting recruit still gets recalled/interrupted the instant it crosses 1400 units from the owner, it
   just no longer stalls 4 extra seconds before resuming; only a closed-engine bytecode patch to `combatTick`
   (skipping the check when `!assist`) would remove the recall/teleport behavior entirely.
-- **`ensureCastReagent`'s reagent top-up (see the Necromancer/Death Spike entry above) only ever fixed the
-  PvP-retaliation skill-picker, not normal monster combat.** It lives inside `FakePlayerPvpRetaliateTask
-  #pickOffensiveSkill`, only ever called from `retaliate()` — i.e. only when a bot is fighting a *player*
-  (hit by one, or via `checkProactiveAggro`'s field-hunter-only proactive aggro). Every bot-controlled
-  `Player`'s normal monster combat goes through the closed `PhantomPlaystyleEngine.pick()` instead, which
-  this datapack has no hook into, and `checkDoCastConditions()` rejects a reagent-gated skill there exactly
-  the same way. Confirmed live by the user: a recruited Necromancer used Death Spike against *them*
-  (the retaliation path) but never against mobs. `game/data/scripts/custom/FakePlayers/
-  PhantomReagentSupplyTask.java` generalizes the fix instead of duplicating it into the closed path (which
-  isn't possible): a 10s sweep over every bot-controlled `Player` (same `isFakePlayer`/`PhantomManager`
-  four-check detection as the other scripts in this package) that pre-stocks `REAGENT_STOCK` (20) of any
-  consumable item referenced by any of its known skills — regardless of which skill-picker eventually tries
-  to cast it, and well ahead of any specific cast attempt, unlike `ensureCastReagent`'s just-in-time top-up
-  to the bare minimum count.
-- **Recruits invited via `!lf` reportedly weren't getting the full-buff treatment `PhantomFullBuffTask`
-  gives roaming phantom field hunters**, even though its bot-detection already covers `isRecruit()` — the
-  code path is identical for both. The one asymmetry found: the sweep explicitly skipped any player
-  `isInsideZone(ZoneId.PEACE)`, and a `!lf` recruit spawns wherever its owner currently is — usually town —
-  while auto-hunt field hunters spawn directly in their designated hunting zones and are essentially never
-  in a peace zone. Removed that skip (buffing via `Skill.applyEffects` has no combat implications either
-  way, and pre-buffing in town before heading out is normal — it's exactly what the real Scheme Buffer NPC
-  is for). **Not decompile-confirmed like the items above** — this is the one plausible mechanical
-  difference found by reading the script, not a verified root cause; if recruits still come up short on
-  buffs after this, look elsewhere (e.g. whether `PhantomBuffs.isCaster()` misclassifies a specific recruit
-  build, or spawn-time skill-list gaps for recruited-but-not-yet-partied members).
 
 ## Death handling and custom skill effects
 
