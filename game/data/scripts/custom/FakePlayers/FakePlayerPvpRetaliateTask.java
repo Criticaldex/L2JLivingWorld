@@ -27,7 +27,10 @@ import java.util.logging.Logger;
 
 import org.l2jmobius.commons.threads.ThreadPool;
 import org.l2jmobius.gameserver.ai.Intention;
+import org.l2jmobius.gameserver.config.custom.FakePlayersConfig;
 import org.l2jmobius.gameserver.managers.PhantomManager;
+import org.l2jmobius.gameserver.model.World;
+import org.l2jmobius.gameserver.model.WorldObject;
 import org.l2jmobius.gameserver.model.actor.Creature;
 import org.l2jmobius.gameserver.model.actor.Player;
 import org.l2jmobius.gameserver.model.events.Containers;
@@ -69,6 +72,8 @@ public class FakePlayerPvpRetaliateTask
 	private static final Logger LOGGER = Logger.getLogger(FakePlayerPvpRetaliateTask.class.getName());
 	private static final long REINFORCE_INTERVAL = 200;
 	private static final long MEMORY_MS = 8000;
+	private static final long AGGRO_SCAN_INTERVAL = 1500;
+	private static final int AGGRO_RANGE = 500;
 
 	private final Map<Creature, Attacker> _recentAttackers = new ConcurrentHashMap<>();
 
@@ -76,7 +81,8 @@ public class FakePlayerPvpRetaliateTask
 	{
 		Containers.Global().addListener(new ConsumerEventListener(Containers.Global(), EventType.ON_CREATURE_DAMAGE_RECEIVED, (OnCreatureDamageReceived event) -> onDamageReceived(event), this));
 		ThreadPool.scheduleAtFixedRate(this::reinforce, REINFORCE_INTERVAL, REINFORCE_INTERVAL);
-		LOGGER.info("FakePlayerPvpRetaliateTask: started, listening for ON_CREATURE_DAMAGE_RECEIVED, reinforcing every " + REINFORCE_INTERVAL + "ms.");
+		ThreadPool.scheduleAtFixedRate(this::checkProactiveAggro, AGGRO_SCAN_INTERVAL, AGGRO_SCAN_INTERVAL);
+		LOGGER.info("FakePlayerPvpRetaliateTask: started, listening for ON_CREATURE_DAMAGE_RECEIVED, reinforcing every " + REINFORCE_INTERVAL + "ms, scanning for proactive aggro every " + AGGRO_SCAN_INTERVAL + "ms.");
 	}
 
 	private void onDamageReceived(OnCreatureDamageReceived event)
@@ -134,6 +140,67 @@ public class FakePlayerPvpRetaliateTask
 		{
 			LOGGER.log(Level.WARNING, "FakePlayerPvpRetaliateTask: error while reinforcing retaliation.", e);
 		}
+	}
+
+	/**
+	 * FakePlayerAggroPlayers has no effect at all on the Phantom system (the closed engine only reads it in
+	 * AttackableAI, which never drives a Player-typed phantom) - the Npc-based fake players get their own
+	 * (buggy, drop-defense-gated) proactive aggro natively, but auto-hunt field hunters never proactively go
+	 * after a player at all. This adds that for them specifically (PhantomManager#isPhantom - not recruited
+	 * buddies/regulars, which stay passive/friendly), gated on the same config flag so it is off by default:
+	 * a hunter with nothing else going on that finds a real, non-GM, non-dead player within range starts
+	 * "retaliating" against them exactly like it would against an actual attacker, peace-zone check
+	 * included from the start rather than after the fact.
+	 */
+	private void checkProactiveAggro()
+	{
+		if (!FakePlayersConfig.FAKE_PLAYER_AGGRO_PLAYERS)
+		{
+			return;
+		}
+
+		try
+		{
+			final PhantomManager phantomManager = PhantomManager.getInstance();
+			for (WorldObject worldObject : World.getInstance().getVisibleObjects())
+			{
+				if (!(worldObject instanceof Player))
+				{
+					continue;
+				}
+
+				final Player hunter = (Player) worldObject;
+				if (!phantomManager.isPhantom(hunter) || hunter.isDead() || hunter.isInCombat() || hunter.isInsideZone(ZoneId.PEACE) || _recentAttackers.containsKey(hunter))
+				{
+					continue;
+				}
+
+				final Player victim = findNearbyRealPlayer(hunter);
+				if (victim != null)
+				{
+					LOGGER.info("FakePlayerPvpRetaliateTask: " + hunter.getName() + " proactively aggroing " + victim.getName() + ".");
+					_recentAttackers.put(hunter, new Attacker(victim, System.currentTimeMillis()));
+					retaliate(hunter, victim);
+				}
+			}
+		}
+		catch (Exception e)
+		{
+			LOGGER.log(Level.WARNING, "FakePlayerPvpRetaliateTask: error while scanning for proactive aggro.", e);
+		}
+	}
+
+	private Player findNearbyRealPlayer(Player hunter)
+	{
+		for (Player candidate : World.getInstance().getVisibleObjectsInRange(hunter, Player.class, AGGRO_RANGE))
+		{
+			if (!isBotControlled(candidate) && !candidate.isDead() && !candidate.isGM() && !candidate.isInsideZone(ZoneId.PEACE))
+			{
+				return candidate;
+			}
+		}
+
+		return null;
 	}
 
 	private void retaliate(Creature target, Player attacker)

@@ -45,7 +45,7 @@ import org.l2jmobius.gameserver.model.zone.ZoneId;
 public class PeaceZoneCombatStopTask
 {
 	private static final Logger LOGGER = Logger.getLogger(PeaceZoneCombatStopTask.class.getName());
-	private static final long CHECK_INTERVAL = 3000;
+	private static final long CHECK_INTERVAL = 500;
 
 	private PeaceZoneCombatStopTask()
 	{

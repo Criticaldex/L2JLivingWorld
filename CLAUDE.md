@@ -279,7 +279,7 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   anywhere in it. So once a fake player starts hating a player (e.g. with `FakePlayerAggroPlayers = True`,
   or simply because the fight started outside town and either side then walked into a peace zone), nothing
   in the AI stops it from continuing to fight there. `game/data/scripts/custom/FakePlayers/
-  PeaceZoneCombatStopTask.java` is a datapack-side workaround for this: a 3-second sweep
+  PeaceZoneCombatStopTask.java` is a datapack-side workaround for this: a sweep (originally 3s, tightened to 500ms after live testing showed visible hits landing in town before the slower interval caught up)
   (`ThreadPool.scheduleAtFixedRate`) over every fake player currently `isInCombat()`, force-disengaging
   (`abortAttack`/`abortCast`/`clearAggroList`/`setIntention(ACTIVE)`) any whose own zone or current
   target's zone is `PEACE`. It's a mitigation, not a real fix — the actual bug is in the closed
@@ -305,7 +305,7 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   `FAKE_PLAYER_AGGRO_PLAYERS` is read). `thinkAttack()` — the ~1200-line method driving every attack tick
   once hate already exists — has zero zone checks anywhere, so a fight that starts outside town (or is
   enabled via `FakePlayerAggroPlayers`) keeps going if either side crosses into a peace zone. Fixed with
-  `game/data/scripts/custom/FakePlayers/PeaceZoneCombatStopTask.java`: a 3-second sweep
+  `game/data/scripts/custom/FakePlayers/PeaceZoneCombatStopTask.java`: a sweep (originally 3s, tightened to 500ms after live testing showed visible hits landing in town before the slower interval caught up)
   (`ThreadPool.scheduleAtFixedRate`) over every `isInCombat()` fake player, force-disengaging
   (`abortAttack`/`abortCast`/`clearAggroList`/`setIntention(ACTIVE)`) any whose own zone or current target's
   zone is `PEACE`. A datapack mitigation, not a real fix — the actual bug is a method body in the closed
@@ -360,6 +360,16 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   state, etc.) — reusing that check instead of reimplementing MP/state validation. Deliberately not trying
   to pick the "best" skill or run any rotation logic; falls back to the plain `doAttack()` when nothing
   qualifies.
+- `FakePlayerAggroPlayers` was still a no-op for auto-hunt field hunters even after retaliation worked,
+  because retaliation only reacts to being hit — the config flag is supposed to make fake players
+  *proactively* aggro nearby players, and (per the "two systems" split above) it structurally can't do that
+  for Phantom-typed hunters since `AttackableAI` (the only reader of that flag) never drives a Player-typed
+  phantom. `FakePlayerPvpRetaliateTask#checkProactiveAggro` (a separate 1.5s scan, gated on the same flag)
+  adds this for them specifically: any `PhantomManager.isPhantom()` hunter that's idle (not dead, not
+  already in combat, not in a peace zone) and finds a real, non-GM, non-dead, non-peace-zone player within
+  500 units starts "retaliating" against them through the exact same `retaliate()` path as being hit —
+  recruited buddies/regulars are deliberately excluded (`isPhantom` only, not the other three
+  `isBotControlled` checks) since they're meant to stay friendly to everyone but their owner's attacker.
 - Both `PeaceZoneCombatStopTask` and `FakePlayerPvpRetaliateTask` log an `INFO` line on successful startup
   (`"...: started, ..."`), and the latter also logs once per new retaliation episode
   (`"...: <target> hit by <attacker>, forcing retaliation."`, not per-tick, so it won't spam). This was
