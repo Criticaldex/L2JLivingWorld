@@ -350,6 +350,16 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   `PeaceZoneCombatStopTask` rather than duplicating its job. If a future engine update actually implements
   native retaliation for either system, this task will just keep re-confirming the same already-correct
   intention every cycle — harmless, but worth removing at that point.
+- Once auto-attack retaliation was confirmed working, the follow-up ask was "use skills too, not just
+  auto-attack." `PhantomPlaystyleEngine` (the existing skill-rotation AI phantoms/hunters normally use) has
+  no path for this — its `pick()` method takes a `Monster` as a required parameter, so it structurally
+  cannot select a skill to cast at a player. `FakePlayerPvpRetaliateTask#pickOffensiveSkill` picks any known
+  skill that isn't passive/toggle/dance, has `hasNegativeEffect()` (covers direct-damage skills and
+  debuffs alike), isn't on cooldown (`Creature.hasSkillReuse(id)`), is in range
+  (`calculateDistance2D`/`getCastRange()`), and passes the engine's own `checkDoCastConditions(Skill)` (MP,
+  state, etc.) — reusing that check instead of reimplementing MP/state validation. Deliberately not trying
+  to pick the "best" skill or run any rotation logic; falls back to the plain `doAttack()` when nothing
+  qualifies.
 - Both `PeaceZoneCombatStopTask` and `FakePlayerPvpRetaliateTask` log an `INFO` line on successful startup
   (`"...: started, ..."`), and the latter also logs once per new retaliation episode
   (`"...: <target> hit by <attacker>, forcing retaliation."`, not per-tick, so it won't spam). This was

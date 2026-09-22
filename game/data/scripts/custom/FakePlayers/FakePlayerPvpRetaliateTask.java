@@ -34,6 +34,7 @@ import org.l2jmobius.gameserver.model.events.Containers;
 import org.l2jmobius.gameserver.model.events.EventType;
 import org.l2jmobius.gameserver.model.events.holders.actor.creature.OnCreatureDamageReceived;
 import org.l2jmobius.gameserver.model.events.listeners.ConsumerEventListener;
+import org.l2jmobius.gameserver.model.skill.Skill;
 import org.l2jmobius.gameserver.model.zone.ZoneId;
 
 /**
@@ -54,12 +55,13 @@ import org.l2jmobius.gameserver.model.zone.ZoneId;
  * </ul>
  * This works uniformly across both by listening to the generic EventType.ON_CREATURE_DAMAGE_RECEIVED
  * (fires for any Creature, Player or Npc) rather than relying on Attackable's aggro list, remembering the
- * last player to hit each fake player for a short window, and repeatedly forcing Intention.ATTACK against
- * them - always overriding whatever else the fake player (or, for phantoms, PhantomPartyManager) was
- * having it do, since a player hitting it is the priority here. The reinforcement sweep runs faster than
- * PhantomPartyManager's own 1-second tick specifically to win that tug-of-war over who the target/intention
- * is. Skips (and does not start or continue) any of this in a peace zone; PeaceZoneCombatStopTask
- * separately disengages any Attackable-based fight that ends up there anyway.
+ * last player to hit each fake player for a short window, and repeatedly forcing Intention.ATTACK plus a
+ * direct doAttack()/doCast() against them - always overriding whatever else the fake player (or, for
+ * phantoms, PhantomPartyManager) was having it do, since a player hitting it is the priority here. The
+ * reinforcement sweep runs faster than PhantomPartyManager's own 1-second tick specifically to win that
+ * tug-of-war over who the target/intention is. Skips (and does not start or continue) any of this in a
+ * peace zone; PeaceZoneCombatStopTask separately disengages any Attackable-based fight that ends up there
+ * anyway.
  * @author Living World
  */
 public class FakePlayerPvpRetaliateTask
@@ -149,9 +151,55 @@ public class FakePlayerPvpRetaliateTask
 		target.getAI().setIntention(Intention.ATTACK, attacker);
 		// setIntention alone is a no-op once PhantomPartyManager's own tick has the AI mid-action (casting a
 		// buff, moving to its hunting target, etc.), which is exactly when a player attack needs to cut in -
-		// so also trigger the attack directly rather than only queuing the intention and hoping it is honored
-		// before PhantomPartyManager's next 1-second tick reasserts its own target.
-		target.doAttack(attacker);
+		// so also trigger the attack/cast directly rather than only queuing the intention and hoping it is
+		// honored before PhantomPartyManager's next 1-second tick reasserts its own target.
+		target.setTarget(attacker);
+		final Skill skill = pickOffensiveSkill(target, attacker);
+		if (skill != null)
+		{
+			target.doCast(skill);
+		}
+		else
+		{
+			target.doAttack(attacker);
+		}
+	}
+
+	/**
+	 * PhantomPlaystyleEngine (the existing skill-rotation AI for phantoms/hunters) only ever picks skills
+	 * against a Monster - its own pick() method takes one as a required parameter - so it has no path for
+	 * casting at a player attacker at all. This picks any known, off-cooldown, affordable, in-range
+	 * offensive skill instead of reimplementing that engine's rotation logic; it is not trying to choose the
+	 * "best" skill, just something better than pure auto-attack.
+	 */
+	private Skill pickOffensiveSkill(Creature caster, Player target)
+	{
+		for (Skill skill : caster.getAllSkills())
+		{
+			if (skill.isPassive() || skill.isToggle() || skill.isDance() || !skill.hasNegativeEffect())
+			{
+				continue;
+			}
+
+			if (caster.hasSkillReuse(skill.getId()))
+			{
+				continue;
+			}
+
+			if (caster.calculateDistance2D(target) > skill.getCastRange())
+			{
+				continue;
+			}
+
+			if (!caster.checkDoCastConditions(skill))
+			{
+				continue;
+			}
+
+			return skill;
+		}
+
+		return null;
 	}
 
 	private static final class Attacker
