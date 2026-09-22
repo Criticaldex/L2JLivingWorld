@@ -424,6 +424,30 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   gave no way to tell whether either script had loaded at all — neither logged anything on success at the
   time, so "no errors" and "not working" looked identical. When something in this pair seems not to be
   firing, check for these lines first before re-deriving the mechanism from bytecode again.
+- After confirming retaliation/skill-selection worked, the user asked whether phantoms are buffed, then
+  asked to check what buffs they get, then explicitly asked for "everything a well-buffed real player would
+  have." The closed `PhantomBuffs.applyFullBuffs(Player, boolean)` only grants its own hardcoded
+  `PREBUFF_COMMON`/`PREBUFF_MELEE`/`PREBUFF_CASTER`/`PREBUFF_BERSERKER` arrays once, on spawn — a short
+  starter kit, nowhere near a real support-buffed party member's ~50 buffs, and never reapplied once
+  anything expires. `game/data/scripts/custom/FakePlayers/PhantomFullBuffTask.java` adds a periodic (15s)
+  sweep that tops every bot-controlled `Player` (same `isFakePlayer()`/`PhantomManager.isPhantom`/
+  `isRecruit`/`isBuddy`/`isRegular` detection as the other two scripts in this package) up to this server's
+  own `game/data/SchemeBufferSkills.xml` `FIGHTER_GROUP`/`MAGE_GROUP` buff lists (archetype picked via
+  `PhantomBuffs.isCaster(Player)`, also public) — reusing the exact "full buff" preset this server's own
+  Community Board buffer already gives real players, rather than inventing a new list. IDs are hardcoded as
+  `int[]` in the script (mirroring how `PhantomBuffs` itself hardcodes its arrays) since there's no
+  XML-parsing precedent anywhere else in `custom/` scripts. Applies each missing/expiring buff via
+  `Skill.applyEffects(player, player)` sourced from `SkillData.getInstance().getSkill(id,
+  getMaxLevel(id))` — the same low-level primitive confirmed (via decompile) inside `PhantomBuffs.applyBuffs()`
+  itself, bypassing skill-known/MP/cast-time since these are NPC-driven `Player` instances, not real casts.
+  Uses `PhantomBuffs.needsBuff(Player, Skill, int)` (public, and the exact check `PhantomBuffs` uses
+  internally) rather than a naive `isAffectedBySkill(id)` test, since several buffs in each group share an
+  `AbnormalType` slot with each other (e.g. weapon-mastery variants) — `needsBuff` correctly skips
+  reapplying when an equal-or-stronger buff sharing that slot is already active with time left, instead of
+  thrashing it every sweep. **Could not be compiled locally against `libs/GameServer.jar`** — this
+  environment's `javac` is JDK 17, the jar's class files are version 69 (JDK 25) — so every API call used
+  here was instead individually confirmed via `javap -p` before writing the script; real verification is
+  booting the server and checking `game/log/` for compile errors, per the "Running the server" section above.
 
 ## Death handling and custom skill effects
 
