@@ -25,21 +25,26 @@ import java.util.logging.Logger;
 
 import org.l2jmobius.commons.threads.ThreadPool;
 import org.l2jmobius.gameserver.ai.Intention;
+import org.l2jmobius.gameserver.managers.PhantomManager;
 import org.l2jmobius.gameserver.model.World;
 import org.l2jmobius.gameserver.model.WorldObject;
 import org.l2jmobius.gameserver.model.actor.Attackable;
 import org.l2jmobius.gameserver.model.actor.Creature;
-import org.l2jmobius.gameserver.model.actor.Npc;
+import org.l2jmobius.gameserver.model.actor.Player;
 import org.l2jmobius.gameserver.model.zone.ZoneId;
 
 /**
  * The closed-source combat AI only checks ZoneId.PEACE/NO_PVP when a fake player first decides to go
  * hostile (AttackableAI#isAggressiveTowards, and the FakePlayerAggroPlayers-gated target pick in
- * AttackableAI#lambda$thinkActive$0) - once hate exists, AttackableAI#thinkAttack (which drives every
- * attack tick) never re-checks either side's zone. So a fight that starts outside town keeps going if
- * either the fake player or its target crosses into a peace zone. This periodically sweeps every
- * in-combat fake player and force-disengages it if it, or whatever it is currently targeting, is inside
- * a peace zone. A workaround from the datapack side; the actual fix belongs in the closed AttackableAI.
+ * AttackableAI#lambda$thinkActive$0) - once hate/intention exists, AttackableAI#thinkAttack (which drives
+ * every attack tick) never re-checks either side's zone. So a fight that starts outside town keeps going
+ * if either the fake player or its target crosses into a peace zone. This periodically sweeps every
+ * in-combat fake player - both Npc-based (isFakePlayer()) and Player-typed Phantoms/recruits/buddies
+ * (PhantomManager.isPhantom/isRecruit/isBuddy/isRegular, same detection as FakePlayerPvpRetaliateTask) -
+ * and force-disengages it if it, or whatever it is currently targeting, is inside a peace zone. Covering
+ * only Npc originally let a Player-typed phantom's already-set Intention.ATTACK keep swinging at a target
+ * that walked into town, since nothing was watching that type at all. A workaround from the datapack side;
+ * the actual fix belongs in the closed AttackableAI.
  * @author Living World
  */
 public class PeaceZoneCombatStopTask
@@ -59,20 +64,20 @@ public class PeaceZoneCombatStopTask
 		{
 			for (WorldObject worldObject : World.getInstance().getVisibleObjects())
 			{
-				if (!(worldObject instanceof Npc))
+				if (!(worldObject instanceof Creature))
 				{
 					continue;
 				}
 
-				final Npc npc = (Npc) worldObject;
-				if (!npc.isFakePlayer() || !npc.isInCombat())
+				final Creature creature = (Creature) worldObject;
+				if (!isBotControlled(creature) || !creature.isInCombat())
 				{
 					continue;
 				}
 
-				if (npc.isInsideZone(ZoneId.PEACE) || isTargetInPeaceZone(npc))
+				if (creature.isInsideZone(ZoneId.PEACE) || isTargetInPeaceZone(creature))
 				{
-					stopCombat(npc);
+					stopCombat(creature);
 				}
 			}
 		}
@@ -82,23 +87,45 @@ public class PeaceZoneCombatStopTask
 		}
 	}
 
-	private boolean isTargetInPeaceZone(Npc npc)
+	/**
+	 * Npc-based fake players set isFakePlayer(); Player-typed phantoms/recruits/buddies/regulars never do -
+	 * they only set a private Player.isBuddyBot field with no public getter, so PhantomManager's own
+	 * isPhantom/isRecruit/isBuddy/isRegular checks are the only way to identify them from outside.
+	 */
+	private static boolean isBotControlled(Creature creature)
 	{
-		final WorldObject target = npc.getTarget();
+		if (creature.isFakePlayer())
+		{
+			return true;
+		}
+
+		final Player player = creature.asPlayer();
+		if (player == null)
+		{
+			return false;
+		}
+
+		final PhantomManager phantomManager = PhantomManager.getInstance();
+		return phantomManager.isPhantom(player) || phantomManager.isRecruit(player) || phantomManager.isBuddy(player) || phantomManager.isRegular(player);
+	}
+
+	private boolean isTargetInPeaceZone(Creature creature)
+	{
+		final WorldObject target = creature.getTarget();
 		return (target instanceof Creature) && ((Creature) target).isInsideZone(ZoneId.PEACE);
 	}
 
-	private void stopCombat(Npc npc)
+	private void stopCombat(Creature creature)
 	{
-		npc.abortAttack();
-		npc.abortCast();
-		if (npc instanceof Attackable)
+		creature.abortAttack();
+		creature.abortCast();
+		if (creature instanceof Attackable)
 		{
-			((Attackable) npc).clearAggroList();
+			((Attackable) creature).clearAggroList();
 		}
 
-		npc.setTarget(null);
-		npc.getAI().setIntention(Intention.ACTIVE);
+		creature.setTarget(null);
+		creature.getAI().setIntention(Intention.ACTIVE);
 	}
 
 	public static void main(String[] args)

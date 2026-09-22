@@ -279,13 +279,20 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   anywhere in it. So once a fake player starts hating a player (e.g. with `FakePlayerAggroPlayers = True`,
   or simply because the fight started outside town and either side then walked into a peace zone), nothing
   in the AI stops it from continuing to fight there. `game/data/scripts/custom/FakePlayers/
-  PeaceZoneCombatStopTask.java` is a datapack-side workaround for this: a sweep (originally 3s, tightened to 500ms after live testing showed visible hits landing in town before the slower interval caught up)
-  (`ThreadPool.scheduleAtFixedRate`) over every fake player currently `isInCombat()`, force-disengaging
-  (`abortAttack`/`abortCast`/`clearAggroList`/`setIntention(ACTIVE)`) any whose own zone or current
-  target's zone is `PEACE`. It's a mitigation, not a real fix — the actual bug is in the closed
-  `AttackableAI.class` and would need either an upstream engine patch or binary-patching the compiled
-  method (same class of problem as the subclass restrictions above, but a method body edit rather than a
-  static field, so not something to attempt via reflection).
+  PeaceZoneCombatStopTask.java` is a datapack-side workaround for this: a sweep (originally 3s, tightened to
+  500ms after live testing showed visible hits landing in town before the slower interval caught up)
+  (`ThreadPool.scheduleAtFixedRate`) over every in-combat fake player, force-disengaging
+  (`abortAttack`/`abortCast`/`clearAggroList`/`setIntention(ACTIVE)`) any whose own zone or current target's
+  zone is `PEACE`. It's a mitigation, not a real fix — the actual bug is in the closed `AttackableAI.class`
+  and would need either an upstream engine patch or binary-patching the compiled method (same class of
+  problem as the subclass restrictions above, but a method body edit rather than a static field, so not
+  something to attempt via reflection). **Originally only checked `instanceof Npc`**, so once phantom PvP
+  retaliation started setting `Intention.ATTACK` on Player-typed hunters/buddies, those fights had nothing
+  watching for a peace-zone crossing at all — a phantom's already-set intention just kept swinging at a
+  target that walked into town. Now uses the same `isBotControlled()` detection (`isFakePlayer()` for
+  Npc-based, `PhantomManager.isPhantom`/`isRecruit`/`isBuddy`/`isRegular` for Player-based) as
+  `FakePlayerPvpRetaliateTask`, so it covers both. `clearAggroList()` is skipped for `Player` targets since
+  it is `Attackable`-only and a `Player` has no aggro list at all.
 - **"Fake player" is not one system — there are two entirely different closed-engine implementations**,
   and this matters a lot for any combat-AI investigation:
   1. Ambient/vending population (`EnableFakePlayers`/`FakePlayerBehavior` in `FakePlayers.ini`, driven by
@@ -304,13 +311,10 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   the moment a fight *starts* (`isAggressiveTowards()`, and `lambda$thinkActive$0` — the only place
   `FAKE_PLAYER_AGGRO_PLAYERS` is read). `thinkAttack()` — the ~1200-line method driving every attack tick
   once hate already exists — has zero zone checks anywhere, so a fight that starts outside town (or is
-  enabled via `FakePlayerAggroPlayers`) keeps going if either side crosses into a peace zone. Fixed with
-  `game/data/scripts/custom/FakePlayers/PeaceZoneCombatStopTask.java`: a sweep (originally 3s, tightened to 500ms after live testing showed visible hits landing in town before the slower interval caught up)
-  (`ThreadPool.scheduleAtFixedRate`) over every `isInCombat()` fake player, force-disengaging
-  (`abortAttack`/`abortCast`/`clearAggroList`/`setIntention(ACTIVE)`) any whose own zone or current target's
-  zone is `PEACE`. A datapack mitigation, not a real fix — the actual bug is a method body in the closed
-  `AttackableAI.class`, not something reflection can patch (unlike the subclass restrictions above, which
-  are a static field).
+  enabled via `FakePlayerAggroPlayers`) keeps going if either side crosses into a peace zone. Same root
+  cause and fix (`PeaceZoneCombatStopTask.java`) as documented in more detail above, in the "Fake player
+  combat AI gaps" entry for this file — that entry also covers why it now needs to check Player-typed
+  phantoms too, not just Npc.
 - **No retaliation at all against a player attacker (both systems):** for system 1 (Npc-based),
   `Attackable.addDamageHate()` looks structurally correct and `FakePlayerBehaviorManager` defers to
   ongoing combat instead of fighting the AI for control, so on paper it should "just work" — it wasn't
