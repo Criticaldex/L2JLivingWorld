@@ -491,6 +491,14 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   environment's `javac` is JDK 17, the jar's class files are version 69 (JDK 25) — so every API call used
   here was instead individually confirmed via `javap -p` before writing the script; real verification is
   booting the server and checking `game/log/` for compile errors, per the "Running the server" section above.
+  **`SchemeBufferSkills.xml`'s two groups both include `id 1410` "Salvation"** — not a real buff, it's
+  `ResurrectionSpecial` (auto-revive-in-place on death, retaining buffs), the exact skill named in "Death
+  handling and custom skill effects" below as already fragile (`ResurrectionSpecial.java`'s `onExit()` can
+  NPE when `effector.asPlayer()` is null, aborting the rest of the engine's `doDie()` and leaving the client
+  desynced until relog). Granting it to every phantom/recruit via `applyEffects` would arm that effect on
+  bots that die constantly in normal combat, at scale — removed `1410` from both `FIGHTER_GROUP` and
+  `MAGE_GROUP` here (script-local arrays only; `SchemeBufferSkills.xml` itself, and what the real-player
+  Scheme Buffer NPC grants, is untouched).
 
 ## Death handling and custom skill effects
 
