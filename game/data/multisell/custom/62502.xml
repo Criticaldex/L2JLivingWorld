@@ -43,4 +43,25 @@
 		<ingredient count="100000" id="57" />
 		<production count="1" id="6650" /> <!-- Baby Kookaburra Ocarina -->
 	</item>
+	<!-- Pet Food -->
+	<item>
+		<ingredient count="10000" id="57" />
+		<production count="100" id="2515" /> <!-- Food For Wolves -->
+	</item>
+	<item>
+		<ingredient count="15000" id="57" />
+		<production count="100" id="4038" /> <!-- Food For Hatchling -->
+	</item>
+	<item>
+		<ingredient count="20000" id="57" />
+		<production count="100" id="5168" /> <!-- Food for Strider -->
+	</item>
+	<item>
+		<ingredient count="30000" id="57" />
+		<production count="100" id="5169" /> <!-- Deluxe Food for Strider -->
+	</item>
+	<item>
+		<ingredient count="10000" id="57" />
+		<production count="100" id="7582" /> <!-- Baby Spice (Baby Buffalo/Cougar/Kookaburra food) -->
+	</item>
 </list>
