@@ -335,6 +335,13 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   duplicating its job. If a future engine update actually implements native retaliation for either system,
   this task will just keep re-confirming the same already-correct intention every cycle — harmless, but
   worth removing at that point.
+- Both `PeaceZoneCombatStopTask` and `FakePlayerPvpRetaliateTask` log an `INFO` line on successful startup
+  (`"...: started, ..."`), and the latter also logs once per new retaliation episode
+  (`"...: <target> hit by <attacker>, forcing retaliation."`, not per-tick, so it won't spam). This was
+  added *after* a debugging session where a fresh `java0.log` from live testing showed zero errors but also
+  gave no way to tell whether either script had loaded at all — neither logged anything on success at the
+  time, so "no errors" and "not working" looked identical. When something in this pair seems not to be
+  firing, check for these lines first before re-deriving the mechanism from bytecode again.
 
 ## Death handling and custom skill effects
 
