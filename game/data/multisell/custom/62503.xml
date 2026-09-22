@@ -167,4 +167,8 @@
 		<ingredient count="500000" id="57" />
 		<production count="1" id="8923" /> <!-- Scar -->
 	</item>
+	<item>
+		<ingredient count="5000000" id="57" />
+		<production count="1" id="6408" /> <!-- Formal Wear (Wedding Dress on females, Tuxedo on males) -->
+	</item>
 </list>
