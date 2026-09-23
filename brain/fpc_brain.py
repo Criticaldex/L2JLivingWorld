@@ -812,6 +812,7 @@ def deal_note_from_headers():
     lines.append("- Always say prices and amounts in short form like 45k or 1.2kk, never the full number like 45000.")
     # Java's negotiation decision drives what the bot says next: it does not re-decide the price itself.
     allowed_shop_tag = ""
+    closing_tags_allowed = False
     if decision == "ACCEPT" and not needs_count:
         lines.append(f"- The player asked for {fmt_amount(last_counter)} each and YOU HAVE AGREED to that price. "
                      "Confirm the deal in a natural, friendly way and ask where they want to meet. Do NOT propose a "
@@ -827,9 +828,12 @@ def deal_note_from_headers():
     else:
         lines.append(f"- If the player agrees price and meeting place, use this exact shop tag: {shop_tag}")
         allowed_shop_tag = shop_tag
-    return "\n".join(lines), allowed_shop_tag
+        closing_tags_allowed = True
+    return "\n".join(lines), allowed_shop_tag, closing_tags_allowed
 
 _SHOP_TAG_LOOSE_RE = re.compile(r"\[\[\s*SHOP\s*:.*?\]\]", re.IGNORECASE | re.DOTALL)
+_MEET_TAG_RE = re.compile(r"\[\[\s*MEET\s*:\s*([a-zA-Z]+)\s*\]\]", re.IGNORECASE)
+_MEET_TAG_VALUES = {"gatekeeper", "warehouse", "shop", "cancel"}
 
 def enforce_shop_tag(reply, allowed_shop_tag):
     """The model does not always reproduce the shop tag byte-for-byte - e.g. it has folded a quantity into
@@ -846,6 +850,28 @@ def enforce_shop_tag(reply, allowed_shop_tag):
     stripped = _SHOP_TAG_LOOSE_RE.sub("", reply).strip()
     return f"{stripped}\n{allowed_shop_tag}" if allowed_shop_tag else stripped
 
+def enforce_meet_tag(reply, allowed):
+    """Same failure mode as enforce_shop_tag(), for the MEET tag: the persona prompt says "end with ONE
+    exact MEET tag" only once price/place/quantity are actually agreed, but nothing ever enforced either
+    half of that - observed live producing THREE at once ([[MEET:gatekeeper]] [[MEET:warehouse]]
+    [[MEET:shop]]) in a reply that was still asking "how many you got", i.e. before quantity was even
+    settled. Unlike the SHOP tag there is no single canonical value to substitute - the destination is the
+    model's own judgment call, not something derivable from trusted headers - so this only ever removes,
+    never rewrites: drop every MEET tag outright if none is allowed this turn, otherwise keep just the
+    first one whose value is one of the four the persona prompt actually defines and drop the rest
+    (including any tag using a value the prompt never defined)."""
+    matches = list(_MEET_TAG_RE.finditer(reply))
+    if not matches:
+        return reply
+    keep = None
+    if allowed:
+        keep = next((m for m in matches if m.group(1).lower() in _MEET_TAG_VALUES), None)
+    result = _MEET_TAG_RE.sub("", reply).strip()
+    if keep:
+        tag = f"[[MEET:{keep.group(1).lower()}]]"
+        result = f"{result}\n{tag}" if result else tag
+    return result
+
 @app.route("/chat", methods=["POST"])
 def chat():
     fpc = request.headers.get("X-FPC", "a player")
@@ -860,7 +886,7 @@ def chat():
                 "and if asked where you are or where to meet, answer truthfully with that.") if location else ""
     message = request.get_data(as_text=True)
     voice, temperature = _voice(fpc)  # this bot's stable personality + creativity
-    deal_note, allowed_shop_tag = deal_note_from_headers()
+    deal_note, allowed_shop_tag, closing_tags_allowed = deal_note_from_headers()
     reply = ""
     try:
         if mode == "ITEM":
@@ -900,9 +926,10 @@ def chat():
                       "agreed yet, ask how many they want. Say prices in short form like 45k, never 45000. "
                       "Use memory naturally if relevant, but do not act like a stalker. "
                       "Do NOT pick or agree a meeting place yourself yet, and do NOT add any tag.")
-            # OFFER always precedes any agreement, so no shop tag is legal yet - drop one outright if the model
-            # adds it anyway despite the instruction above.
-            reply = enforce_shop_tag(sanitize(call_llm(system, [{"role": "user", "content": prompt}], 70, temperature)), "")
+            # OFFER always precedes any agreement, so neither tag is legal yet - drop either outright if the
+            # model adds one anyway despite the instruction above.
+            reply = sanitize(call_llm(system, [{"role": "user", "content": prompt}], 70, temperature))
+            reply = enforce_meet_tag(enforce_shop_tag(reply, ""), False)
             # Seed the private memory so the follow-up conversation remembers this deal.
             hist.append({"role": "assistant", "content": reply})
             remember_from_exchange(player, message, reply, "OFFER")
@@ -978,7 +1005,8 @@ def chat():
             system = (whisper_persona(fpc, voice) + loc_note + identity_note() + memory_note(player, ("trade", "party", "social"), k=8)
                       + deal_note + knowledge_note(message)
                       + f"\n\nRecent public trade chat you saw:\n{recent}")
-            reply = enforce_shop_tag(sanitize(call_llm(system, list(hist), 80, temperature)), allowed_shop_tag)
+            reply = sanitize(call_llm(system, list(hist), 80, temperature))
+            reply = enforce_meet_tag(enforce_shop_tag(reply, allowed_shop_tag), closing_tags_allowed)
             hist.append({"role": "assistant", "content": reply})
             remember_from_exchange(player, message, reply, "WHISPER")
         elif mode == "FRIEND":

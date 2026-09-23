@@ -78,8 +78,19 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   headers()` now also returns the canonical tag it already builds from the trusted `X-Deal-*` headers, and
   `enforce_shop_tag()` treats *any* `[[SHOP:...]]`-shaped fragment in the reply as pure intent to close the
   deal, replacing it with that canonical tag (or dropping it if a tag wasn't actually legal that turn).
-  `[[MEET:...]]` tags are simpler (a single bare word) and haven't been observed failing this way, but the
-  same fragility is structurally possible there too if it ever is.
+  **The `[[MEET:...]]` tag hit the same class of bug independently, right after this fix shipped** — the
+  model produced *three* at once (`[[MEET:gatekeeper]] [[MEET:warehouse]] [[MEET:shop]]`) in a reply that was
+  still asking "how many you got", i.e. before the persona's own "only once price/place/quantity are agreed"
+  condition was even met, and nothing enforced either half of that rule. Unlike `SHOP` there is no canonical
+  value to substitute for `MEET` — the destination is the model's own judgment call — so `enforce_meet_tag()`
+  only ever removes: drop every `MEET` tag if none is allowed this turn (mirrors `deal_note_from_headers()`'s
+  own `closing_tags_allowed` — not `needs_count`, not a rejected counteroffer), otherwise keep just the first
+  tag whose value is one of the four the persona prompt actually defines (`gatekeeper`/`warehouse`/`shop`/
+  `cancel`) and drop the rest, including any tag using a value the prompt never defined. Applied at the same
+  two call sites as `enforce_shop_tag()` (`OFFER` always disallows both tags; `WHISPER` gates on the same
+  condition as the shop tag). If a similar multi-tag or off-turn leak ever shows up for a `PARTY`/`BUDDY` mode
+  tag (`FOLLOW`/`STAY`/`TP`/`GRACE`/`BUFF`/`DISBAND`/`ASSIST`/`FREE`), it is the identical unenforced-tag
+  root cause and wants the identical fix shape, not a new investigation from scratch.
 - `tools/l2admin/` — a single self-contained `index.html` "Server Control Panel" for editing `game/config`
   `.ini`s and the `data/` population/playstyle/clan files with a GUI, either in a browser (File System
   Access API, Chromium-only) or hosted inside the compiled Windows launcher via WebView2, using
