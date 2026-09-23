@@ -562,6 +562,33 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   still too far — the next 200ms `reinforce()` tick re-checks and attacks once close enough. This is the
   same class of problem as the peace-zone and skill-selection gaps above: a primitive that assumes its
   caller already did the range/positioning legwork the real AI normally does first.
+- **Tried and reverted (`0993b46a`, revert `c935c1f8`) — do not give phantoms a real `GameClient` to fix
+  `getClient() == null` bugs.** The immediate motivation was real and is still unfixed: real-player kills
+  against phantoms/recruits/buddies/regulars are supposed to count toward the killer's PvP/PK counter like
+  killing a real player would, and decompiling `Player.class` confirmed `Playable.doDie(killer)`
+  unconditionally calls `killer.onKillUpdatePvPKarma(victim)` regardless of whether the victim is
+  bot-controlled - it picks `increasePkKillsAndKarma()` (no anti-feed check, already works today) for an
+  *unflagged* victim, or `increasePvpKills()` for a *PvP-flagged/karma-bearing* one, and that second path
+  calls `AntiFeedManager.check(killer, victim)`, which does `victimPlayer.getClient().isDetached()` - a
+  `NullPointerException` for a phantom (no `GameClient` at all), uncaught, thrown before `setPvpKills()`
+  ever runs, and propagating out of `Playable.doDie()` far enough to also skip `notifyAction(DEATH)`/
+  `updateEffectIcons()`. So: PK-ing an unflagged phantom already counts; landing the kill on one that had
+  already retaliated (and so picked up its own PvP flag) silently never counts. The attempted fix
+  (`custom/FakePlayers/PhantomGameClientTask.java`, now deleted) gave every bot-controlled `Player` a
+  connection-less `GameClient` backed by a `FakeConnection` with `null` for its `ConnectionConfig`. That
+  broke the entire server on next boot — confirmed from live `java0.log`, not just theory this time:
+  `Player.sendPacket()` → `Client.writePacket()` → `Client.packetCanBeDropped()` →
+  `Connection.dropPackets()` dereferences `_config` directly, and it was `null`. Since a phantom having a
+  non-null client makes the engine treat it as a legitimate packet-writable "known player" everywhere
+  (`updateUserInfo`/`broadcastModifiedStats` whenever *any* nearby player's stats change, `PhantomFullBuffTask`
+  buffing it, `setTarget`/`moveToLocation`/`stopMove`/`decayMe` broadcasts, etc.), this NPE fired constantly
+  and cascaded into `Player.deleteMe()` during logout/character-select, breaking login entirely - "cannot
+  even enter the game." Giving phantoms a `GameClient` touches far too much shared engine machinery to fix
+  narrowly this way; if the underlying `getClient() == null` problem needs fixing again (this same root
+  cause also affects the abnormal-visual-effect broadcast, worked around instead by `PhantomVisualSyncTask`
+  polling and sending packets manually), fix the *specific* call site instead of giving phantoms a real
+  client - e.g. reflectively wrapping/short-circuiting just `AntiFeedManager.check()`'s result for a
+  bot-controlled victim, not making `getClient()` return non-null globally.
 
 ## Death handling and custom skill effects
 
