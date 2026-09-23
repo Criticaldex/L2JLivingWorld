@@ -29,7 +29,6 @@
 		<buff id="1397" level="3" price="0" desc="Decreases MP consumption rate." /> <!-- Clarity -->
 		<buff id="1043" level="1" price="0" desc="Temporary holy enhancement of physical attack." /> <!-- Holy Weapon -->
 		<buff id="1257" level="3" price="0" desc="Increases weight limit." /> <!-- Decrease Weight -->
-		<buff id="1410" level="1" price="0" desc="Retains buffs after death." /> <!-- Salvation -->
 	</category>
 	<category type="Dances">
 		<buff id="271" level="1" price="0" desc="Increases P. Atk." /> <!-- Dance of the Warrior -->
@@ -120,7 +119,6 @@
 		<buff id="270" level="1" price="0" desc="Increases resistance to dark magic." /> <!-- Song of Invocation -->
 		<buff id="1392" level="3" price="0" desc="Increases resistance to sacred attacks." /> <!-- Holy Resistance -->
 		<buff id="1393" level="3" price="0" desc="Increases resistance to dark attacks." /> <!-- Unholy Resistance -->
-		<buff id="1410" level="1" price="0" desc="Retains buffs after death." /> <!-- Salvation -->
 		<buff id="1044" level="3" price="0" desc="Temporarily increases HP recovery." /> <!-- Regeneration -->
 		<buff id="265" level="1" price="0" desc="Increases HP regeneration." /> <!-- Song of Life -->
 		<buff id="266" level="1" price="0" desc="Increases Evasion." /> <!-- Song of Water -->
@@ -169,7 +167,6 @@
 		<buff id="270" level="1" price="0" desc="Increases resistance to dark magic." /> <!-- Song of Invocation -->
 		<buff id="1392" level="3" price="0" desc="Increases resistance to sacred attacks." /> <!-- Holy Resistance -->
 		<buff id="1393" level="3" price="0" desc="Increases resistance to dark attacks." /> <!-- Unholy Resistance -->
-		<buff id="1410" level="1" price="0" desc="Retains buffs after death." /> <!-- Salvation -->
 		<buff id="1044" level="3" price="0" desc="Temporarily increases HP recovery." /> <!-- Regeneration -->
 		<buff id="265" level="1" price="0" desc="Increases HP regeneration." /> <!-- Song of Life -->
 		<buff id="266" level="1" price="0" desc="Increases Evasion." /> <!-- Song of Water -->
