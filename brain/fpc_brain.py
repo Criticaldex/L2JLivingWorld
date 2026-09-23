@@ -785,7 +785,7 @@ def deal_note_from_headers():
     last_counter = request.headers.get("X-Deal-Last-Counter", "").strip()
 
     if not side or not item or not unit:
-        return "", ""
+        return "", "", False
 
     if side == "SELL":
         action = "You are selling this item to the player."
