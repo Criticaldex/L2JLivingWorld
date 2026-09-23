@@ -562,38 +562,6 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   still too far — the next 200ms `reinforce()` tick re-checks and attacks once close enough. This is the
   same class of problem as the peace-zone and skill-selection gaps above: a primitive that assumes its
   caller already did the range/positioning legwork the real AI normally does first.
-- **Killing a phantom/recruit/buddy/regular didn't count toward the real killer's PvP/PK counter — but only
-  sometimes.** Decompiled `Player.class`: `Playable.doDie(killer)` unconditionally calls
-  `killer.onKillUpdatePvPKarma(victim)` for any death where the killer resolves to a real `Player` — it
-  does not care whether the victim is bot-controlled. That method picks one of two branches: an *unflagged,
-  0-karma* victim goes through `increasePkKillsAndKarma()`, which has **no anti-feed check at all** and
-  already worked correctly for phantom victims before any of this was touched. A *PvP-flagged or
-  karma-bearing* victim goes through `increasePvpKills()`, which calls
-  `AntiFeedManager.check(killer, victim)` — and that method does `victimPlayer.getClient().isDetached()`.
-  Player-typed phantoms have no `GameClient` at all (`getClient()` returns `null`, the same root fact
-  already behind the abnormal-visual-effect bug above), so this is a **NullPointerException**, uncaught,
-  thrown before `increasePvpKills()` ever reaches `setPvpKills()`. It propagates out of `Playable.doDie()`
-  itself, silently skipping the tail of the death sequence too (`notifyAction(DEATH)`, `updateEffectIcons()`)
-  — same failure class as the `ResurrectionSpecial` NPE above. Net effect: PK-ing an unflagged phantom
-  always worked; landing the kill on one that had already retaliated (and so picked up its own PvP flag via
-  the same generic engine mechanism a real player would) silently never counted and could leave its death
-  animation desynced for observers.
-- Fixed at the root rather than patching this one call site: `custom/FakePlayers/PhantomGameClientTask.java`
-  gives every bot-controlled `Player` a real (but connection-less) `GameClient` once, so `getClient()` stops
-  returning `null` anywhere in the engine, not just for `AntiFeedManager`. `GameClient`'s own constructor
-  unconditionally calls `connection.getRemoteAddress()` to seed its `_ip` field, and its superclass
-  `Client`'s constructor rejects a null/closed connection outright (`IllegalArgumentException`,
-  decompile-confirmed) — so a literal `null` connection doesn't work. `Connection` itself only stores its
-  four constructor arguments without dereferencing them (decompile-confirmed), so a `FakeConnection`
-  subclass overriding just `getRemoteAddress()`/`isOpen()` (neither is `final`) satisfies both constructors
-  without ever touching a real socket channel. **This does have one confirmed side effect, not just a
-  theoretical one**: `PhantomPartyManager#findResTarget()` explicitly prefers resurrecting a party member
-  whose `getClient()` is non-null over a phantom party member, specifically so a phantom healer prioritizes
-  the real human owner. Since every bot now also has a (fake) client, that heuristic degrades to "whichever
-  dead member comes first in iteration order" whenever more than one party member is bot-controlled — a
-  phantom could occasionally get rezzed ahead of its human owner. Accepted as a trade-off for fixing the
-  PvP/PK crash; if that ordering ever matters enough to fix, it would need its own narrower workaround
-  rather than reverting this.
 
 ## Death handling and custom skill effects
 
