@@ -64,22 +64,6 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   suggestion (including the ones in `setup_brain.sh`/`.bat`/`fpc_brain.py`); query
   `GET https://api.groq.com/openai/v1/models` (or the equivalent for whichever provider) with the real key
   to get the live, authoritative list.
-  **Also**: bots "setting up shop" (and MEET-tag travel) works by having the LLM end its chat reply with a
-  machine-readable tag (`[[SHOP:SELL:<item>:<price>]]`, `[[MEET:<spot>]]`, etc.) that the closed engine's
-  `org.l2jmobius.gameserver.managers.FakePlayerChatParsing` (in `libs/GameServer.jar`, no source in this
-  repo — found by `javap`/`strings` on the class) then regex-matches and acts on, stripping it from the
-  displayed text. That regex is strict — for `SHOP`, `\[\[\s*SHOP\s*:\s*(SELL|BUY)\s*:\s*([^:\]]+?)\s*:\s*
-  (\d+)\s*(kk|k)?\s*\]\]` — nothing but optional whitespace is allowed between the price and the closing
-  `]]`. `fpc_brain.py` used to trust the LLM to reproduce the tag it was told to use byte-for-byte; when it
-  didn't (observed live: it folded a quantity into the price field, producing
-  `[[SHOP:SELL:hp pots:146k x 500]]`), the regex silently failed to match, nothing stripped the tag, and the
-  raw bracket text got displayed as literal chat instead of opening a store — "the bot sends the command to
-  chat instead of running it." Fixed by never trusting the LLM's tag text as authoritative: `deal_note_from_
-  headers()` now also returns the canonical tag it already builds from the trusted `X-Deal-*` headers, and
-  `enforce_shop_tag()` treats *any* `[[SHOP:...]]`-shaped fragment in the reply as pure intent to close the
-  deal, replacing it with that canonical tag (or dropping it if a tag wasn't actually legal that turn).
-  `[[MEET:...]]` tags are simpler (a single bare word) and haven't been observed failing this way, but the
-  same fragility is structurally possible there too if it ever is.
 - `tools/l2admin/` — a single self-contained `index.html` "Server Control Panel" for editing `game/config`
   `.ini`s and the `data/` population/playstyle/clan files with a GUI, either in a browser (File System
   Access API, Chromium-only) or hosted inside the compiled Windows launcher via WebView2, using
