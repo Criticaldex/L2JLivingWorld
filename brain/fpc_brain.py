@@ -771,6 +771,9 @@ def fmt_amount(value):
     return str(n)
 
 def deal_note_from_headers():
+    """Returns (note_text, allowed_shop_tag). allowed_shop_tag is the exact, canonical tag the model was told
+    to use if - and only if - a shop tag is actually legal this turn (still negotiating/rejecting means it is
+    not); enforce_shop_tag() uses it to replace whatever tag-shaped text the model actually produced."""
     side = request.headers.get("X-Deal-Side", "").strip().upper()
     item = request.headers.get("X-Deal-Item", "").strip()
     count = request.headers.get("X-Deal-Count", "").strip()
@@ -782,7 +785,7 @@ def deal_note_from_headers():
     last_counter = request.headers.get("X-Deal-Last-Counter", "").strip()
 
     if not side or not item or not unit:
-        return ""
+        return "", ""
 
     if side == "SELL":
         action = "You are selling this item to the player."
@@ -808,6 +811,7 @@ def deal_note_from_headers():
         lines.append(f"- Total price is about {fmt_amount(total)} adena.")
     lines.append("- Always say prices and amounts in short form like 45k or 1.2kk, never the full number like 45000.")
     # Java's negotiation decision drives what the bot says next: it does not re-decide the price itself.
+    allowed_shop_tag = ""
     if decision == "ACCEPT" and not needs_count:
         lines.append(f"- The player asked for {fmt_amount(last_counter)} each and YOU HAVE AGREED to that price. "
                      "Confirm the deal in a natural, friendly way and ask where they want to meet. Do NOT propose a "
@@ -822,7 +826,25 @@ def deal_note_from_headers():
         pass  # holding the line on price - no shop tag until they come up to your price
     else:
         lines.append(f"- If the player agrees price and meeting place, use this exact shop tag: {shop_tag}")
-    return "\n".join(lines)
+        allowed_shop_tag = shop_tag
+    return "\n".join(lines), allowed_shop_tag
+
+_SHOP_TAG_LOOSE_RE = re.compile(r"\[\[\s*SHOP\s*:.*?\]\]", re.IGNORECASE | re.DOTALL)
+
+def enforce_shop_tag(reply, allowed_shop_tag):
+    """The model does not always reproduce the shop tag byte-for-byte - e.g. it has folded a quantity into
+    the price field, producing "[[SHOP:SELL:hp pots:146k x 500]]", which the Java-side parser's strict regex
+    (item/price only, no extra words before the closing ']]') rejects. When that happens nothing strips the
+    malformed tag, so the raw bracket text leaks straight into chat instead of opening a store - the bot never
+    "sets up shop", it just says the broken tag out loud.
+    Rather than trust free-form LLM text to match that regex, treat any shop-tag-shaped fragment in the reply
+    as pure *intent* to close the deal, and always substitute the canonical tag built from the trusted
+    X-Deal-* headers (allowed_shop_tag) - or drop it outright if a tag was not actually legal this turn
+    (still negotiating or the player's offer was rejected)."""
+    if not _SHOP_TAG_LOOSE_RE.search(reply):
+        return reply
+    stripped = _SHOP_TAG_LOOSE_RE.sub("", reply).strip()
+    return f"{stripped}\n{allowed_shop_tag}" if allowed_shop_tag else stripped
 
 @app.route("/chat", methods=["POST"])
 def chat():
@@ -838,7 +860,7 @@ def chat():
                 "and if asked where you are or where to meet, answer truthfully with that.") if location else ""
     message = request.get_data(as_text=True)
     voice, temperature = _voice(fpc)  # this bot's stable personality + creativity
-    deal_note = deal_note_from_headers()
+    deal_note, allowed_shop_tag = deal_note_from_headers()
     reply = ""
     try:
         if mode == "ITEM":
@@ -878,7 +900,9 @@ def chat():
                       "agreed yet, ask how many they want. Say prices in short form like 45k, never 45000. "
                       "Use memory naturally if relevant, but do not act like a stalker. "
                       "Do NOT pick or agree a meeting place yourself yet, and do NOT add any tag.")
-            reply = sanitize(call_llm(system, [{"role": "user", "content": prompt}], 70, temperature))
+            # OFFER always precedes any agreement, so no shop tag is legal yet - drop one outright if the model
+            # adds it anyway despite the instruction above.
+            reply = enforce_shop_tag(sanitize(call_llm(system, [{"role": "user", "content": prompt}], 70, temperature)), "")
             # Seed the private memory so the follow-up conversation remembers this deal.
             hist.append({"role": "assistant", "content": reply})
             remember_from_exchange(player, message, reply, "OFFER")
@@ -954,7 +978,7 @@ def chat():
             system = (whisper_persona(fpc, voice) + loc_note + identity_note() + memory_note(player, ("trade", "party", "social"), k=8)
                       + deal_note + knowledge_note(message)
                       + f"\n\nRecent public trade chat you saw:\n{recent}")
-            reply = sanitize(call_llm(system, list(hist), 80, temperature))
+            reply = enforce_shop_tag(sanitize(call_llm(system, list(hist), 80, temperature)), allowed_shop_tag)
             hist.append({"role": "assistant", "content": reply})
             remember_from_exchange(player, message, reply, "WHISPER")
         elif mode == "FRIEND":
