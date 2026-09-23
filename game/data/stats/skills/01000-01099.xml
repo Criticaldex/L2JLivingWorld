@@ -1493,9 +1493,6 @@
 		<enchant2 name="magicLevel">#enchMagicLvl</enchant2>
 		<enchant2 name="mpConsume">#ench2mpConsume</enchant2>
 		<enchant2 name="mpInitialConsume">#ench2mpInitialConsume</enchant2>
-		<conditions msgId="113" addName="1">
-			<target race="UNDEAD" />
-		</conditions>
 		<effects>
 			<effect name="MagicalDamage" />
 		</effects>

@@ -1,16 +1,43 @@
 {
+  "dafny": {
+    "party": [],
+    "player": "Dafny",
+    "social": [],
+    "trade": [
+      {
+        "seen": 1790198038,
+        "text": "Player uses trade chat to sell items."
+      },
+      {
+        "seen": 1790198074,
+        "text": "Player often uses warehouse as a meeting point."
+      },
+      {
+        "seen": 1790198104,
+        "text": "Player often uses gatekeeper as a meeting point."
+      },
+      {
+        "seen": 1790198170,
+        "text": "Player agreed to meet at gatekeeper."
+      },
+      {
+        "seen": 1790198170,
+        "text": "Player usually completes trade negotiations normally."
+      }
+    ]
+  },
   "zell": {
     "party": [],
     "player": "Zell",
     "social": [
       {
-        "seen": 1789506140,
+        "seen": 1790198718,
         "text": "Player has been friendly/appreciative."
       }
     ],
     "trade": [
       {
-        "seen": 1789506213,
+        "seen": 1790198681,
         "text": "Player often uses warehouse as a meeting point."
       }
     ]
