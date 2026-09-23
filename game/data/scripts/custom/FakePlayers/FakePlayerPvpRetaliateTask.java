@@ -245,6 +245,18 @@ public class FakePlayerPvpRetaliateTask
 		// honored before PhantomPartyManager's next 1-second tick reasserts its own target.
 		target.setTarget(attacker);
 		final Skill skill = pickOffensiveSkill(target, attacker);
+		final int range = (skill != null) ? skill.getCastRange() : target.getPhysicalAttackRange();
+		// Creature#doAttack()/doCast() perform the swing/cast unconditionally - decompile-confirmed neither
+		// one contains a range check or approach step, that logic normally lives in the AI's own thinkAttack()
+		// loop, which this task bypasses by calling them directly. Without this check, a melee phantom that
+		// is out of weapon range just stands still and "swings" at nothing every REINFORCE_INTERVAL - visible
+		// to the attacker as attacking from out of range instead of closing the distance first.
+		if (target.calculateDistance2D(attacker) > range)
+		{
+			target.moveToLocation(attacker.getX(), attacker.getY(), attacker.getZ(), range);
+			return;
+		}
+
 		if (skill != null)
 		{
 			target.doCast(skill);

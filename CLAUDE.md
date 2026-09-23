@@ -546,6 +546,22 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   from the mob-combat reagent fix it originally shipped bundled with (`1aeb88cd`) — that bundling made the
   user's later revert of the reagent fix also silently undo this one, since `git revert` operates per
   commit, not per logical change.
+- **Melee-class phantoms/hunters retaliating against a real player attacker swung from out of weapon range
+  instead of closing the distance first** ("turn around and attack from range" — moving away far enough
+  made them approach, but at moderate out-of-range distance they just stood still and swung). Root cause,
+  decompile-confirmed (`javap -p -c` on `Creature.class`): `Creature.doAttack()`/`doCast()` contain **no
+  range check or approach step at all** — that logic normally lives entirely in the AI's own
+  `thinkAttack()` think-cycle (`PlayerAI.thinkAttack()`, private), which decides whether to move closer
+  before ever calling `doAttack()`. `FakePlayerPvpRetaliateTask#retaliate()` bypasses that think-cycle on
+  purpose (see the class javadoc on why — to win the tug-of-war with `PhantomPartyManager`'s own 1s tick)
+  and calls `doAttack()`/`doCast()` directly every `REINFORCE_INTERVAL` (200ms), so nothing was ever
+  checking distance before swinging. Fixed by checking `target.calculateDistance2D(attacker)` against the
+  chosen action's range (`skill.getCastRange()` if `pickOffensiveSkill` found one, else
+  `target.getPhysicalAttackRange()` for the melee fallback) before acting, and calling the public
+  `Creature.moveToLocation(x, y, z, offset)` (with `offset` = that same range) instead of attacking when
+  still too far — the next 200ms `reinforce()` tick re-checks and attacks once close enough. This is the
+  same class of problem as the peace-zone and skill-selection gaps above: a primitive that assumes its
+  caller already did the range/positioning legwork the real AI normally does first.
 
 ## Death handling and custom skill effects
 
@@ -559,3 +575,38 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   return `null` (original caster not resolvable as a Player anymore), which then NPEs deep inside the
   engine's `reviveRequest()`. Any effect's `onExit()`/`onStart()` must treat `effector` as possibly null
   or non-Player — a crash there is a death-sequence bug, not just a lost buff.
+- **Salvation (skill id 1410) was also being handed out for free by the real Scheme Buffer/CB buffer**
+  (`game/data/SchemeBufferSkills.xml` had it in all three of its `Buffs`/`MAGE_GROUP`/`FIGHTER_GROUP`
+  categories), not just granted to phantoms — so any real player using the buffer could hit the
+  `ResurrectionSpecial.java` NPE above on death, not only bot-controlled characters. Removed all three
+  `<buff id="1410" .../>` entries (kept the skill itself and Cardinal's own `skillTrees/3rdClass/
+  Cardinal.xml` entry untouched — real Cardinals still learn and cast it normally at level 79; only the
+  free buffer grant is gone). This is a separate fix from the `PhantomFullBuffTask.java` exclusion
+  documented above — that one only stopped phantoms/recruits from getting it via that specific script,
+  it never touched what the real-player-facing Scheme Buffer NPC offers.
+
+## Skill duration overrides (`Player.ini`'s `SkillDurationList`)
+
+- `game/config/Player.ini`'s `EnableModifySkillDuration` + `SkillDurationList` (`skillid,seconds;...`) is
+  how most Scheme Buffer/CB buffer buffs get their "1 hour" duration instead of their much shorter retail
+  `abnormalTime` (typically 300–1200s depending on the skill) — confirmed by decompiling `Skill.class`
+  (`javap -p -c`): at skill-load time, if `ENABLE_MODIFY_SKILL_DURATION` is true, the operate type isn't
+  `T` (toggle), and the skill's id is a key in `SKILL_DURATION_LIST`, it **replaces** `_abnormalTime` with
+  the configured value for base levels (`< 100`), or **adds** it on top of the retail value for enchant
+  levels (100–140). This runs once per `Skill` object at load, so it applies uniformly to every caller
+  that shares that cached skill instance — self-cast, Scheme Buffer, `PhantomFullBuffTask`, etc. — there's
+  no per-caller special-casing to look for.
+- It's a hand-maintained **id allowlist**, not a blanket "extend every buff" switch — a skill missing from
+  the list silently keeps its short retail duration with no error/log anywhere. Found this the hard way:
+  Blessing/Gift of Seraphim and Blessing/Gift of Queen (ids 4699/4700/4702/4703, the summon-tier buffs in
+  `SchemeBufferSkills.xml`'s `Special` category alongside Prophecy/Chant of Victory/Magnus' Chant) were
+  simply never added when whoever built that list put it together, so they still ran their retail
+  level-scaling `abnormalTime` (120s at level 1 up to 285s at level 13 — reads as "~4 min" in-game) while
+  every sibling buff in the same category sat at a full hour. Added `4699,3600;4700,3600;4702,3600;
+  4703,3600` to the list. If another Scheme Buffer buff is ever reported as "shorter than the rest",
+  check this list for the skill id before assuming an engine bug — it's almost certainly just missing.
+- `game/config/Player.ini` has **no `//reload config` support** — `AdminReload.java` has no `"player"`
+  case — so edits here only take effect on the next full GameServer restart, not live. A `Player.ini.bak-*`
+  found alongside the live file showed a much shorter `SkillDurationList` (Songs category only) from a
+  recent-past edit; if a `SkillDurationList` change still doesn't seem to apply in-game, confirm the
+  server has actually been restarted since the edit before re-investigating the mechanism itself.
