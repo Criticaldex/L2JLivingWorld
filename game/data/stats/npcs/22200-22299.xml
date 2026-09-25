@@ -182,6 +182,12 @@
 					<item id="8627" min="1" max="1" chance="61.2068" /> <!-- Elixir of Life (S-Grade) -->
 					<item id="8955" min="1" max="1" chance="2.3452" /> <!-- Green Primeval Crystal -->
 				</group>
+				<group chance="0.01">
+					<item id="6577" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Weapon (Grade S) -->
+				</group>
+				<group chance="0.02">
+					<item id="6578" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Armor (Grade S) -->
+				</group>
 			</drop>
 		</dropLists>
 		<collision>
@@ -358,6 +364,12 @@
 					<item id="8880" min="1" max="1" chance="7.367" /> <!-- Spellbook: Summon Spectral Knight -->
 					<item id="8954" min="1" max="1" chance="5.4523" /> <!-- Blue Primeval Crystal -->
 				</group>
+				<group chance="0.01">
+					<item id="6577" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Weapon (Grade S) -->
+				</group>
+				<group chance="0.02">
+					<item id="6578" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Armor (Grade S) -->
+				</group>
 			</drop>
 		</dropLists>
 		<collision>
@@ -512,6 +524,12 @@
 				<group chance="100">
 					<item id="8884" min="1" max="1" chance="2.1429" /> <!-- Spellbook: Spell Turning -->
 				</group>
+				<group chance="0.01">
+					<item id="6577" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Weapon (Grade S) -->
+				</group>
+				<group chance="0.02">
+					<item id="6578" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Armor (Grade S) -->
+				</group>
 			</drop>
 		</dropLists>
 		<collision>
@@ -663,6 +681,12 @@
 					<item id="5538" min="1" max="1" chance="72.8331" /> <!-- Dragon Grinder Edge -->
 					<item id="8954" min="1" max="1" chance="27.1669" /> <!-- Blue Primeval Crystal -->
 				</group>
+				<group chance="0.01">
+					<item id="6577" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Weapon (Grade S) -->
+				</group>
+				<group chance="0.02">
+					<item id="6578" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Armor (Grade S) -->
+				</group>
 			</drop>
 		</dropLists>
 		<collision>
@@ -719,6 +743,12 @@
 					<item id="5514" min="1" max="1" chance="9.08177" /> <!-- Sealed Gauntlets of Nightmare Design -->
 					<item id="5515" min="1" max="1" chance="27.2453" /> <!-- Sealed Majestic Gauntlets Design -->
 					<item id="8954" min="1" max="1" chance="13.6227" /> <!-- Blue Primeval Crystal -->
+				</group>
+				<group chance="0.01">
+					<item id="6577" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Weapon (Grade S) -->
+				</group>
+				<group chance="0.02">
+					<item id="6578" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Armor (Grade S) -->
 				</group>
 			</drop>
 			<spoil>
@@ -805,6 +835,12 @@
 					<item id="8956" min="1" max="1" chance="3.0282" /> <!-- Red Primeval Crystal -->
 					<item id="8762" min="1" max="1" chance="18.4455" /> <!-- Top-Grade Life Stone: level 76 -->
 				</group>
+				<group chance="0.01">
+					<item id="6577" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Weapon (Grade S) -->
+				</group>
+				<group chance="0.02">
+					<item id="6578" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Armor (Grade S) -->
+				</group>
 			</drop>
 		</dropLists>
 		<collision>
@@ -880,6 +916,12 @@
 					<item id="8905" min="1" max="1" chance="5.63" /> <!-- Ancient Spellbook: Purification Field -->
 					<item id="8627" min="1" max="1" chance="80.7918" /> <!-- Elixir of Life (S-Grade) -->
 					<item id="8633" min="1" max="1" chance="13.5782" /> <!-- Elixir of Mental Strength (S-Grade) -->
+				</group>
+				<group chance="0.01">
+					<item id="6577" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Weapon (Grade S) -->
+				</group>
+				<group chance="0.02">
+					<item id="6578" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Armor (Grade S) -->
 				</group>
 			</drop>
 		</dropLists>
@@ -958,6 +1000,12 @@
 					<item id="8908" min="1" max="1" chance="7.113" /> <!-- Ancient Spellbook: Mass Recharge -->
 					<item id="8954" min="1" max="1" chance="7.1131" /> <!-- Blue Primeval Crystal -->
 				</group>
+				<group chance="0.01">
+					<item id="6577" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Weapon (Grade S) -->
+				</group>
+				<group chance="0.02">
+					<item id="6578" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Armor (Grade S) -->
+				</group>
 			</drop>
 			<spoil>
 				<item id="4042" min="1" max="3" chance="30" /> <!-- Enria -->
@@ -1012,6 +1060,12 @@
 				<group chance="100">
 					<item id="8906" min="1" max="1" chance="0.2133" /> <!-- Ancient Spellbook: Miracle -->
 				</group>
+				<group chance="0.01">
+					<item id="6577" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Weapon (Grade S) -->
+				</group>
+				<group chance="0.02">
+					<item id="6578" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Armor (Grade S) -->
+				</group>
 			</drop>
 		</dropLists>
 		<collision>
@@ -1062,6 +1116,12 @@
 					<item id="8633" min="1" max="1" chance="4.65623" /> <!-- Elixir of Mental Strength (S-Grade) -->
 					<item id="8627" min="1" max="1" chance="11.8663" /> <!-- Elixir of Life (S-Grade) -->
 					<item id="8955" min="1" max="1" chance="1.86249" /> <!-- Green Primeval Crystal -->
+				</group>
+				<group chance="0.01">
+					<item id="6577" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Weapon (Grade S) -->
+				</group>
+				<group chance="0.02">
+					<item id="6578" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Armor (Grade S) -->
 				</group>
 			</drop>
 			<spoil>
@@ -1115,6 +1175,12 @@
 					<item id="8955" min="1" max="1" chance="4.12222" /> <!-- Green Primeval Crystal -->
 					<item id="8956" min="1" max="1" chance="1.37407" /> <!-- Red Primeval Crystal -->
 				</group>
+				<group chance="0.01">
+					<item id="6577" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Weapon (Grade S) -->
+				</group>
+				<group chance="0.02">
+					<item id="6578" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Armor (Grade S) -->
+				</group>
 			</drop>
 			<spoil>
 				<item id="1875" min="1" max="3" chance="68" /> <!-- Stone of Purity -->
@@ -1159,6 +1225,12 @@
 					<item id="8954" min="1" max="1" chance="3.71895" /> <!-- Blue Primeval Crystal -->
 					<item id="8955" min="1" max="1" chance="3.71895" /> <!-- Green Primeval Crystal -->
 				</group>
+				<group chance="0.01">
+					<item id="6577" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Weapon (Grade S) -->
+				</group>
+				<group chance="0.02">
+					<item id="6578" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Armor (Grade S) -->
+				</group>
 			</drop>
 		</dropLists>
 		<collision>
@@ -1202,6 +1274,12 @@
 					<item id="8955" min="1" max="1" chance="3.97037" /> <!-- Green Primeval Crystal -->
 					<item id="8956" min="1" max="1" chance="3.97037" /> <!-- Red Primeval Crystal -->
 					<item id="8752" min="1" max="1" chance="2.44241" /> <!-- High-Grade Life Stone: level 76 -->
+				</group>
+				<group chance="0.01">
+					<item id="6577" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Weapon (Grade S) -->
+				</group>
+				<group chance="0.02">
+					<item id="6578" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Armor (Grade S) -->
 				</group>
 			</drop>
 			<spoil>
@@ -1263,6 +1341,12 @@
 				</group>
 				<group chance="100">
 					<item id="8898" min="1" max="1" chance="0.2571" /> <!-- Ancient Tactical Manual: Symbol of the Assassin -->
+				</group>
+				<group chance="0.01">
+					<item id="6577" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Weapon (Grade S) -->
+				</group>
+				<group chance="0.02">
+					<item id="6578" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Armor (Grade S) -->
 				</group>
 			</drop>
 		</dropLists>
@@ -1333,6 +1417,12 @@
 				<group chance="100">
 					<item id="8878" min="1" max="1" chance="2.1429" /> <!-- Spellbook: Summon Feline King -->
 				</group>
+				<group chance="0.01">
+					<item id="6577" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Weapon (Grade S) -->
+				</group>
+				<group chance="0.02">
+					<item id="6578" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Armor (Grade S) -->
+				</group>
 			</drop>
 		</dropLists>
 		<collision>
@@ -1396,6 +1486,12 @@
 				</group>
 				<group chance="100">
 					<item id="8879" min="1" max="1" chance="2.1429" /> <!-- Spellbook: Summon Magnus the Unicorn -->
+				</group>
+				<group chance="0.01">
+					<item id="6577" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Weapon (Grade S) -->
+				</group>
+				<group chance="0.02">
+					<item id="6578" min="1" max="1" chance="100" /> <!-- Blessed Scroll: Enchant Armor (Grade S) -->
 				</group>
 			</drop>
 		</dropLists>
