@@ -278,6 +278,23 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   "Wolf's Level 75 Weapon" (pet infrastructure despite having no `<conditions>` block), the exact duplicate
   ids `5795`-`5798` (icon-for-icon dupes of `5791`-`5794`), and `7560` "Monster Only (Fishing Rod)" (a tool,
   not a combat-weapon-shaped fashion item).
+- **This repo already has a full Transmogrification system** — not something to build from scratch if asked
+  for "fashion"/"look" features. `game/data/scripts/custom/Transmog/Transmog.java` + the `Zumzi` NPC
+  (`900009`, spawned in `game/data/spawns/Giran/GiranNPCs.xml`), config at `game/config/Custom/Transmog.ini`
+  (`TransmogEnabled = True` by default). Mechanism: `Transmog.onPlayerItemAdd()` listens for
+  `ON_PLAYER_ITEM_ADD` on *any* equipment-slot item a player acquires (loot, quest, GM grant, CB merchant
+  purchase — anything that routes through the normal inventory-add path) and adds it to a per-player (or
+  per-account, if `TransmogShareAccount = True`) in-memory + `character_transmogs`-table appearance
+  collection, keyed by `ItemTemplate.getDisplayId()`. At Zumzi, a player can apply any collected appearance
+  to their currently-equipped item in that body slot — stats stay the real item's, only the visual changes.
+  **`onPlayerItemAdd()` unconditionally skips every item where `ItemTemplate.isForNpc()` is true** — which
+  matters a lot given the `for_npc` monster-weapon family described above: none of those would ever register
+  into a player's collection on their own. Fixed for the 52 ids sold on the Monster Weapons tab via a
+  hardcoded `MONSTER_WEAPON_TRANSMOG_IDS` allowlist inside `Transmog.java` that carves them out of the
+  `isForNpc()` skip — every other `for_npc` item (pet gear, raw NPC props) is still excluded as before. This
+  allowlist has to be hand-kept in sync with `multisell/custom/62504.xml`'s item list; if that shop's
+  contents change, update both files or new/removed monster weapons will silently fall out of sync with what
+  can actually be transmogged.
 - Community Board HTML has a **hard 12270-character cap**, enforced client-side in the closed
   `HtmlUtil.sendCBHtml` (decompiled via `javap -p -c`): it splits the page across up to three `ShowBoard`
   packets of ≤4090 chars each, and if the full HTML is ≥12270 chars it discards it entirely and shows
