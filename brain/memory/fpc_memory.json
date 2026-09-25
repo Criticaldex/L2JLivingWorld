@@ -37,7 +37,31 @@
     ],
     "trade": [
       {
-        "seen": 1790198681,
+        "seen": 1790278790,
+        "text": "Player cancelled or backed out of a meetup/trade."
+      },
+      {
+        "seen": 1790279182,
+        "text": "Player uses trade chat to sell items."
+      },
+      {
+        "seen": 1790279272,
+        "text": "Player agreed to meet at gatekeeper."
+      },
+      {
+        "seen": 1790279272,
+        "text": "Player often uses gatekeeper as a meeting point."
+      },
+      {
+        "seen": 1790279272,
+        "text": "Player usually completes trade negotiations normally."
+      },
+      {
+        "seen": 1790279337,
+        "text": "Player is okay meeting near shops."
+      },
+      {
+        "seen": 1790370571,
         "text": "Player often uses warehouse as a meeting point."
       }
     ]
