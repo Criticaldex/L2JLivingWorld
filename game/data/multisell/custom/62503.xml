@@ -171,4 +171,120 @@
 		<ingredient count="5000000" id="57" />
 		<production count="1" id="6408" /> <!-- Formal Wear (Wedding Dress on females, Tuxedo on males) -->
 	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="6834" /> <!-- Circlet of Innadril -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="6835" /> <!-- Circlet of Dion -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="6836" /> <!-- Goddard Circlet -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="6837" /> <!-- Circlet of Oren -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="6838" /> <!-- Circlet of Gludio -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="6839" /> <!-- Circlet of Giran -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="6840" /> <!-- Circlet of Aden -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="6841" /> <!-- The Lord's Crown -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="6842" /> <!-- Wings of Destiny Circlet -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="7059" /> <!-- Golden Festival Mask -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="7060" /> <!-- Tateossian Hairband -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="7694" /> <!-- Noblesse Tiara -->
+	</item>
+	<item>
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="7836" /> <!-- Santa's Hat -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="7837" /> <!-- Sayha's White Mask -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="7839" /> <!-- Gran Kain's Black Mask -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8181" /> <!-- Academy Circlet -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8182" /> <!-- Circlet of Rune -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8183" /> <!-- Circlet of Schuttgart -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8187" /> <!-- Demon Horns -->
+	</item>
+	<item>
+		<ingredient count="500000" id="57" />
+		<production count="1" id="8552" /> <!-- Mask of Spirits -->
+	</item>
+	<item>
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="8557" /> <!-- Blue Party Hat -->
+	</item>
+	<item>
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="8559" /> <!-- Diadem -->
+	</item>
+	<item>
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="8566" /> <!-- Iron Circlet -->
+	</item>
+	<item>
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="8910" /> <!-- Black Feather Mask -->
+	</item>
+	<item>
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="8919" /> <!-- First Mate's Hat -->
+	</item>
+	<item>
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="8936" /> <!-- Santa's Antlers -->
+	</item>
+	<item>
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="9158" /> <!-- Gold Circlet of Redemption -->
+	</item>
+	<item>
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="9159" /> <!-- Silver Circlet of Salvation -->
+	</item>
+	<item>
+		<ingredient count="2000000" id="57" />
+		<production count="1" id="9160" /> <!-- Pig Wrangler's Cap -->
+	</item>
 </list>
