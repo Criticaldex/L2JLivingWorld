@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/multisell.xsd">
+	<npcs>
+		<npc>-1</npc> <!-- CB -->
+	</npcs>
+	<item>
+		<ingredient count="15000000" id="57" />
+		<production count="1" id="7834" /> <!-- Art of Battle Axe -->
+	</item>
+	<item>
+		<ingredient count="3000000" id="57" />
+		<production count="1" id="5791" /> <!-- Tomb Guard A -->
+	</item>
+	<item>
+		<ingredient count="3000000" id="57" />
+		<production count="1" id="5792" /> <!-- Tomb Guard B -->
+	</item>
+	<item>
+		<ingredient count="8000000" id="57" />
+		<production count="1" id="5793" /> <!-- Tomb Savant A -->
+	</item>
+	<item>
+		<ingredient count="8000000" id="57" />
+		<production count="1" id="5794" /> <!-- Tomb Savant B -->
+	</item>
+	<item>
+		<ingredient count="8000000" id="57" />
+		<production count="1" id="9136" /> <!-- Sword of Valakas (1-Handed) -->
+	</item>
+	<item>
+		<ingredient count="3000000" id="57" />
+		<production count="1" id="9137" /> <!-- Sword of Valakas (2-Handed) -->
+	</item>
+	<item>
+		<ingredient count="3000000" id="57" />
+		<production count="1" id="8527" /> <!-- For Monsters Only (Reinforced Bow) -->
+	</item>
+	<item>
+		<ingredient count="3000000" id="57" />
+		<production count="1" id="8528" /> <!-- For Monsters Only (Doom Hammer) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8529" /> <!-- For Monsters Only (Knife) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8530" /> <!-- For Monsters Only (Squire's Sword) -->
+	</item>
+	<item>
+		<ingredient count="3000000" id="57" />
+		<production count="1" id="8531" /> <!-- For Monsters Only (Bone Staff) -->
+	</item>
+	<item>
+		<ingredient count="3000000" id="57" />
+		<production count="1" id="8532" /> <!-- For Monsters Only (Spinebone Sword) -->
+	</item>
+	<item>
+		<ingredient count="3000000" id="57" />
+		<production count="1" id="8533" /> <!-- For Monsters Only (Crimson Sword) -->
+	</item>
+	<item>
+		<ingredient count="3000000" id="57" />
+		<production count="1" id="4028" /> <!-- Giant Cannon -->
+	</item>
+	<item>
+		<ingredient count="8000000" id="57" />
+		<production count="1" id="5800" /> <!-- Nephilim Lord -->
+	</item>
+	<item>
+		<ingredient count="8000000" id="57" />
+		<production count="1" id="5801" /> <!-- For NPC (Dusk) -->
+	</item>
+	<item>
+		<ingredient count="8000000" id="57" />
+		<production count="1" id="5802" /> <!-- For NPC (Dawn) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8203" /> <!-- Monster Only (Venom Sword) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8204" /> <!-- Monster Only (Follower of Frintezza Calibur) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8205" /> <!-- Monster Only (Heretic Priest Sigil) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8206" /> <!-- Monster Only (Heretic Priest Sword) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8207" /> <!-- Monster Only (Heretic Private Axe) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8208" /> <!-- Monster Only (Heretic Private Staff) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8209" /> <!-- Monster Only (Lidia Von Helmann Sword) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8211" /> <!-- Monster Only (Monk Warrior Sword) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8212" /> <!-- Monster Only (Solina Brother Mace) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8213" /> <!-- Monster Only (Solina Father Mace) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8214" /> <!-- Monster Only (Solina Priest Pole) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8215" /> <!-- Monster Only (Zombie Enlisted Man Sword) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8216" /> <!-- Monster Only (Zombie Enlisted Man Claw) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8217" /> <!-- Monster Only (Zombie Gateguard Spear) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8218" /> <!-- Monster Only (Zombie Laborer Axe) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8219" /> <!-- Monster Only (Zombie Laborer Sword) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8220" /> <!-- Monster Only (Grail Apostle Bow) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8221" /> <!-- Monster Only (Grail Apostle Spear) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="8222" /> <!-- Monster Only (Follower of Frintezza Tran Calibur) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="6715" /> <!-- Monster Only (Silenos Archer) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="6716" /> <!-- Monster Only (Silenos Shaman) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="6717" /> <!-- Monster Only (Einhasad Warrior) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="6718" /> <!-- Monster Only (Einhasad Shaman) -->
+	</item>
+	<item>
+		<ingredient count="8000000" id="57" />
+		<production count="1" id="6719" /> <!-- Monster Only (Ketra Orc Chieftain) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="6720" /> <!-- Monster Only (Shadow of Halisha) -->
+	</item>
+	<item>
+		<ingredient count="15000000" id="57" />
+		<production count="1" id="6722" /> <!-- Monster Only (Ahrimanes) -->
+	</item>
+	<item>
+		<ingredient count="3000000" id="57" />
+		<production count="1" id="6723" /> <!-- Monster Only (Vampire Warrior) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="6917" /> <!-- Monster Only (Poison Sting) -->
+	</item>
+	<item>
+		<ingredient count="3000000" id="57" />
+		<production count="1" id="3937" /> <!-- Giant Bar -->
+	</item>
+	<item>
+		<ingredient count="3000000" id="57" />
+		<production count="1" id="3938" /> <!-- Giant Rod -->
+	</item>
+	<item>
+		<ingredient count="3000000" id="57" />
+		<production count="1" id="3939" /> <!-- Lady's Fan -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="6918" /> <!-- Monster Only (Shield of Silenos) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="6919" /> <!-- Monster Only (Shield of Ketra Orc) -->
+	</item>
+	<item>
+		<ingredient count="1000000" id="57" />
+		<production count="1" id="6721" /> <!-- Monster Only (Shield of Imperial Warlord Zombie) -->
+	</item>
+</list>

@@ -402,7 +402,7 @@ public class HomeBoard implements IParseBoardHandler
 	
 	/**
 	 * Gets the sellable items in the given player's inventory that aren't otherwise purchasable from this
-	 * same merchant (grade shops, scrolls, misc items, pets, hair accessories, quest/clan items).
+	 * same merchant (grade shops, scrolls, misc items, pets, hair accessories, monster weapons, quest/clan items).
 	 * @param player the player
 	 * @return the list of sellable, non-merchant-catalog items
 	 */
@@ -423,13 +423,13 @@ public class HomeBoard implements IParseBoardHandler
 
 	/**
 	 * Gets the item ids sold by this merchant's own multisells (grade shops, scrolls, misc items, pets, hair
-	 * accessories, quest/clan items), read straight from the live {@link MultisellData} entries via
+	 * accessories, monster weapons, quest/clan items), read straight from the live {@link MultisellData} entries via
 	 * reflection since it exposes no public lookup by list id.
 	 * @return the set of item ids purchasable from this merchant
 	 */
 	private static Set<Integer> getMerchantCatalogItemIds()
 	{
-		final Set<Integer> multisellIds = new HashSet<>(Arrays.asList(600024, 62500, 62501, 62502, 62503));
+		final Set<Integer> multisellIds = new HashSet<>(Arrays.asList(600024, 62500, 62501, 62502, 62503, 62504));
 		for (int id = 61000; id <= 61055; id++)
 		{
 			multisellIds.add(id);
