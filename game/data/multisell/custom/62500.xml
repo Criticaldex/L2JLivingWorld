@@ -299,4 +299,13 @@
 		<ingredient count="14500" id="57" />
 		<production count="1" id="4624" /> <!-- Greater Dye of WIT (Wit+4 Men-4) -->
 	</item>
+	<!-- Fireworks -->
+	<item>
+		<ingredient count="5000" id="57" />
+		<production count="1000" id="6406" /> <!-- Firework -->
+	</item>
+	<item>
+		<ingredient count="15000" id="57" />
+		<production count="1000" id="6407" /> <!-- Large Firework -->
+	</item>
 </list>
