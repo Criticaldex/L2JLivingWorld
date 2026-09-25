@@ -24,6 +24,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -60,6 +61,14 @@ import org.l2jmobius.gameserver.util.HtmlUtil;
 public class Transmog extends Script
 {
 	private static final int NPC = 900009;
+
+	/**
+	 * for_npc weapon/shield ids sold on the CB merchant's "Monster Weapons" tab (multisell/custom/62504.xml).
+	 * Kept in sync with that file by hand; onPlayerItemAdd() normally skips every for_npc item, but these are
+	 * intentionally player-purchasable so they should still register into the transmog collection.
+	 */
+	private static final Set<Integer> MONSTER_WEAPON_TRANSMOG_IDS = new HashSet<>(Arrays.asList(7834, 5791, 5792, 5793, 5794, 9136, 9137, 8527, 8528, 8529, 8530, 8531, 8532, 8533, 4028, 5800, 5801, 5802, 8203, 8204, 8205, 8206, 8207, 8208, 8209, 8211, 8212, 8213, 8214, 8215, 8216, 8217, 8218, 8219, 8220, 8221, 8222, 6715, 6716, 6717, 6718, 6719, 6720, 6722, 6723, 6917, 3937, 3938, 3939, 6918, 6919, 6721));
+
 	private static final Map<Integer, Map<Integer, Set<Integer>>> PLAYER_TRANSMOGS = new ConcurrentHashMap<>();
 	private static final String LOAD_SQL = "SELECT itemId FROM character_transmogs WHERE owner=? ORDER BY itemId ASC;";
 	private static final String SAVE_SQL = "REPLACE INTO character_transmogs (owner,itemId) VALUE (?,?)";
@@ -229,7 +238,7 @@ public class Transmog extends Script
 	public void onPlayerItemAdd(OnPlayerItemAdd event)
 	{
 		final ItemTemplate itemTemplate = event.getItem().getTemplate();
-		if ((itemTemplate instanceof EtcItem) || itemTemplate.isForNpc())
+		if ((itemTemplate instanceof EtcItem) || (itemTemplate.isForNpc() && !MONSTER_WEAPON_TRANSMOG_IDS.contains(itemTemplate.getId())))
 		{
 			return;
 		}
