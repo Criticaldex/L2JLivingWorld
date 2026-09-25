@@ -251,13 +251,33 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   value + total via `merchant/sellcraft_ask.html`, then `_bbscraftsell` for the actual destroy + `addAdena`,
   gated behind that confirmation step — no undo) sells everything `isSellable()` in the player's inventory
   **except** items also purchasable from this same merchant's own multisells (grade shops `61000`-`61055`,
-  scrolls `62501`, misc items `62500`, pets `62502`, hair accessories `62503`, quest/clan `600024` —
-  `HomeBoard.getSellableJunkItems()`/`getMerchantCatalogItemIds()`). `MultisellData` (closed, in
-  `GameServer.jar`) exposes no public "get list by id" lookup, only `separateAndSend()` (fire-and-forget) —
-  so the merchant's catalog item ids are read via reflection into its private `_entries` map, the same
-  pattern `custom/SubclassUnlock/SubclassUnlock.java` uses for `VillageMaster`'s private fields. Named
-  `_bbscraftsell*` rather than `_bbssell*` specifically so it doesn't collide with the existing
-  `command.startsWith("_bbssell")` branch in `HomeBoard.onCommand`.
+  scrolls `62501`, misc items `62500`, pets `62502`, hair accessories `62503`, monster weapons `62504`,
+  quest/clan `600024` — `HomeBoard.getSellableJunkItems()`/`getMerchantCatalogItemIds()`). `MultisellData`
+  (closed, in `GameServer.jar`) exposes no public "get list by id" lookup, only `separateAndSend()`
+  (fire-and-forget) — so the merchant's catalog item ids are read via reflection into its private `_entries`
+  map, the same pattern `custom/SubclassUnlock/SubclassUnlock.java` uses for `VillageMaster`'s private
+  fields. Named `_bbscraftsell*` rather than `_bbssell*` specifically so it doesn't collide with the existing
+  `command.startsWith("_bbssell")` branch in `HomeBoard.onCommand`. **Whenever a new multisell page is added
+  to this merchant, its id must also be added to `getMerchantCatalogItemIds()`'s hardcoded list** — it isn't
+  derived from `main.html`'s buttons automatically, so forgetting this step means "Sell Junk" will happily
+  bulk-sell whatever the new shop sells for a fraction of its price the moment a player buys one.
+- The item DB has a whole family of `for_npc`-flagged `Weapon`-type items (shared icon
+  `icon.weapon_monster_i00`) that exist purely to give specific monster/boss NPCs their unique weapon or
+  shield model — e.g. `9136`/`9137` "Sword of Valakas", `6918`/`6919` "Shield of Silenos"/"Shield of Ketra
+  Orc", and dozens of "Monster Only (X)"/"For NPC (X)" boss-flavor pieces. Unlike the pet-armor `for_npc`
+  items (which are equip-gated via `<conditions><player categoryType="..."/></conditions>`), **none of these
+  carry any equip condition** — they're just as equippable by a real player character as any other weapon,
+  which is what makes them usable as "monster weapon" fashion/trophy items. Added 52 of them (swords, axes,
+  maces, bows, daggers, poles, dual weapons, 3 shields) to a new CB merchant tab
+  (`multisell/custom/62504.xml`, "Monster Weapons" button on `merchant/main.html`), priced by grade since a
+  few (Sword of Valakas, "Ahrimanes") carry real, non-trivial stats — this was a deliberate choice (asked the
+  user: keep real stats vs. cosmetic-only subset) rather than assuming they should be neutered. Deliberately
+  excluded from that same `for_npc` weapon family: the "Canine"/"Fang of X" series and the `5176`-`5191`
+  dragon/strider-flavored series (these are pet weapon skins for the Wolf/Strider pet sets, matching the
+  pet-armor pattern below, not player fashion), `4237`/`4238` Hatchling weapons (same reason), `5217`
+  "Wolf's Level 75 Weapon" (pet infrastructure despite having no `<conditions>` block), the exact duplicate
+  ids `5795`-`5798` (icon-for-icon dupes of `5791`-`5794`), and `7560` "Monster Only (Fishing Rod)" (a tool,
+  not a combat-weapon-shaped fashion item).
 - Community Board HTML has a **hard 12270-character cap**, enforced client-side in the closed
   `HtmlUtil.sendCBHtml` (decompiled via `javap -p -c`): it splits the page across up to three `ShowBoard`
   packets of ≤4090 chars each, and if the full HTML is ≥12270 chars it discards it entirely and shows
