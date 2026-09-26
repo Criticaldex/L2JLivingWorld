@@ -96,7 +96,7 @@ public class WannaPwn implements IVoicedCommandHandler
 			final StringBuilder directions = new StringBuilder();
 			if (deltaY != 0)
 			{
-				directions.append(Math.abs(deltaY)).append(' ').append(deltaY > 0 ? "North" : "South");
+				directions.append(Math.abs(deltaY)).append(' ').append(deltaY > 0 ? "South" : "North");
 			}
 
 			if (deltaX != 0)
