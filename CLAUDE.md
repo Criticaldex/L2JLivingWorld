@@ -711,8 +711,13 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
 - `game/data/scripts/handlers/chat/commands/voiced/WannaPwn.java` (`.wannapwn <player>`) replies with a
   target player's coordinates, a "near <nearest known teleport name>" label, and compass-direction deltas
   from the caster's current position — e.g. `"Target Foo, near Goddard (12345, -6789, -3200). Move 1500
-  North, 800 East to reach Foo from your current position."`. Two closed-engine data sources are merged for
-  the "near X" label — no new data files, useful again for any future "where is X" tooling:
+  North, 800 East to reach Foo from your current position."`. **In this engine's world coordinate system,
+  +Y is South and -Y is North** (confirmed the hard way — the first version had this backwards, reported
+  as a live in-game bug and fixed in a follow-up commit). +X is East, -X is West (that axis was correct
+  from the start). Any future feature doing its own north/south math from raw X/Y should double-check
+  against this rather than assuming the more common map-convention of +Y = North. Two closed-engine data
+  sources are merged for the "near X" label — no new data files, useful again for any future "where is X"
+  tooling:
   - **Community Board teleport list**: `org.l2jmobius.gameserver.config.custom.CommunityBoardConfig
     .COMMUNITY_AVAILABLE_TELEPORTS` is a public `Map<String, Location>` parsed from `CommunityTeleportList`
     in `game/config/Custom/CommunityBoard.ini` — the exact same map `HomeBoard.java`'s `_bbsteleport`
