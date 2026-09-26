@@ -18,7 +18,6 @@ package handlers.skill.targets;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.logging.Logger;
 
 import org.l2jmobius.gameserver.handler.ITargetTypeHandler;
 import org.l2jmobius.gameserver.model.WorldObject;
@@ -32,17 +31,12 @@ import org.l2jmobius.gameserver.network.SystemMessageId;
  */
 public class One implements ITargetTypeHandler
 {
-	private static final Logger LOGGER = Logger.getLogger(One.class.getName());
-
 	@Override
 	public List<WorldObject> getTargetList(Skill skill, Creature creature, boolean onlyFirst, Creature target)
 	{
 		// Check for null target or any other invalid target
 		if ((target == null) || target.isDead() || ((target == creature) && skill.hasNegativeEffect()))
 		{
-			// TEMP DEBUG: diagnosing "incorrect target" reports on debuffs against non-flagged players.
-			LOGGER.info("One target debug: caster=" + creature.getName() + " skill=" + skill.getId() + "(" + skill.getName() + ") hasNegativeEffect=" + skill.hasNegativeEffect()
-				+ " target=" + (target == null ? "null" : target.getName()) + " targetIsDead=" + (target != null && target.isDead()) + " targetEqualsCaster=" + (target == creature));
 			creature.sendPacket(SystemMessageId.THAT_IS_THE_INCORRECT_TARGET);
 			return Collections.emptyList();
 		}
