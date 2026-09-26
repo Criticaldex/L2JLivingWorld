@@ -201,6 +201,11 @@
 		<ingredient count="100000" id="57" />
 		<production count="1000" id="5589" /> <!-- Energy Stone -->
 	</item>
+	<!-- Life Stones -->
+	<item>
+		<ingredient count="4800000" id="57" />
+		<production count="1" id="8762" /> <!-- Top-Grade Life Stone: level 76 -->
+	</item>
 	<!-- Dyes (+1/-1) -->
 	<item>
 		<ingredient count="35000" id="57" />
