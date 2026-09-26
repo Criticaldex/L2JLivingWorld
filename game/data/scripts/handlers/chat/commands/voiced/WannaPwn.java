@@ -24,7 +24,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.l2jmobius.gameserver.config.custom.CommunityBoardConfig;
-import org.l2jmobius.gameserver.data.xml.MapRegionData;
 import org.l2jmobius.gameserver.data.xml.TeleporterData;
 import org.l2jmobius.gameserver.handler.IVoicedCommandHandler;
 import org.l2jmobius.gameserver.model.Location;
@@ -49,6 +48,13 @@ public class WannaPwn implements IVoicedCommandHandler
 	{
 		30006, 30059, 30080, 30134, 30146, 30177, 30233, 30256, 30320, 30540,
 		30576, 30836, 30848, 30878, 30899, 31275, 31320, 31698, 31699, 31964
+	};
+
+	// Every gatekeeper teleport list worth naming as a landmark, not just the plain-fee menu -
+	// NOBLES_TOKEN/NOBLES_ADENA cover farm/dungeon spots (e.g. Stakato Nest) that NORMAL lacks.
+	private static final String[] GATEKEEPER_LIST_NAMES =
+	{
+		"NORMAL", "NOBLES_TOKEN", "NOBLES_ADENA"
 	};
 
 	private static Map<String, Location> allTeleports;
@@ -104,21 +110,11 @@ public class WannaPwn implements IVoicedCommandHandler
 			}
 
 			final String moveText = directions.length() > 0 ? directions.toString() : "0";
-			final String nearestTown = MapRegionData.getInstance().getClosestTownName(targetPlayer);
 			final Map.Entry<String, Location> nearestTeleport = findNearestTeleport(targetPlayer.getX(), targetPlayer.getY());
+			final String nearLabel = nearestTeleport != null ? nearestTeleport.getKey() : "an unknown location";
 
-			final StringBuilder message = new StringBuilder();
-			message.append("Target ").append(targetName).append(", near ").append(nearestTown);
-			message.append(" @ ").append(targetPlayer.getX()).append(", ").append(targetPlayer.getY()).append(", ").append(targetPlayer.getZ()).append('.');
-			if (nearestTeleport != null)
-			{
-				final Location loc = nearestTeleport.getValue();
-				message.append(" Nearest teleport: ").append(nearestTeleport.getKey());
-				message.append(" @ ").append(loc.getX()).append(", ").append(loc.getY()).append(", ").append(loc.getZ()).append('.');
-			}
-
-			message.append(" Move ").append(moveText).append(" to reach ").append(targetName).append(" from your current position.");
-			player.sendMessage(message.toString());
+			final String message = "Target " + targetName + ", near " + nearLabel + " (" + targetPlayer.getX() + ", " + targetPlayer.getY() + ", " + targetPlayer.getZ() + "). Move " + moveText + " to reach " + targetName + " from your current position.";
+			player.sendMessage(message);
 		}
 
 		return true;
@@ -126,7 +122,7 @@ public class WannaPwn implements IVoicedCommandHandler
 
 	/**
 	 * Finds the nearest known teleport destination to the given world coordinates, searching both the
-	 * Community Board's teleport list and every real Gatekeeper NPC's normal-fee teleport list.
+	 * Community Board's teleport list and every real Gatekeeper NPC's teleport lists.
 	 * @param x the target X coordinate
 	 * @param y the target Y coordinate
 	 * @return the nearest name/location entry, or {@code null} if no teleport destinations are known
@@ -153,7 +149,7 @@ public class WannaPwn implements IVoicedCommandHandler
 
 	/**
 	 * Lazily builds and caches the merged set of known teleport destinations: the Community Board's
-	 * teleport list plus every real Gatekeeper NPC's normal-fee teleport list. Built once per server
+	 * teleport list plus every real Gatekeeper NPC's teleport lists. Built once per server
 	 * lifetime since none of this data changes at runtime outside of an admin reload.
 	 * @return the merged, name-deduplicated teleport map
 	 */
@@ -164,15 +160,18 @@ public class WannaPwn implements IVoicedCommandHandler
 			final Map<String, Location> merged = new HashMap<>(CommunityBoardConfig.COMMUNITY_AVAILABLE_TELEPORTS);
 			for (int npcId : GATEKEEPER_NPC_IDS)
 			{
-				final TeleportHolder holder = TeleporterData.getInstance().getHolder(npcId, "NORMAL");
-				if (holder == null)
+				for (String listName : GATEKEEPER_LIST_NAMES)
 				{
-					continue;
-				}
+					final TeleportHolder holder = TeleporterData.getInstance().getHolder(npcId, listName);
+					if (holder == null)
+					{
+						continue;
+					}
 
-				for (TeleportLocation location : holder.getLocations())
-				{
-					merged.putIfAbsent(location.getName(), location);
+					for (TeleportLocation location : holder.getLocations())
+					{
+						merged.putIfAbsent(location.getName(), location);
+					}
 				}
 			}
 
