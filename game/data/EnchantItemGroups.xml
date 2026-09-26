@@ -3,28 +3,32 @@
 	<!-- General armor enchant group. -->
 	<enchantRateGroup name="ARMOR_GROUP">
 		<current enchant="0-2" chance="100" />
-		<current enchant="3-15" chance="66" />
+		<current enchant="3-5" chance="75" />
+		<current enchant="6-15" chance="67" />
 		<current enchant="16-65535" chance="0" />
 	</enchantRateGroup>
 
 	<!-- General full armor enchant group. -->
 	<enchantRateGroup name="FULL_ARMOR_GROUP">
 		<current enchant="0-3" chance="100" />
-		<current enchant="4-15" chance="66" />
+		<current enchant="4-5" chance="75" />
+		<current enchant="6-15" chance="67" />
 		<current enchant="16-65535" chance="0" />
 	</enchantRateGroup>
 
 	<!-- General fighter weapon enchant group. -->
 	<enchantRateGroup name="FIGHTER_WEAPON_GROUP">
 		<current enchant="0-2" chance="100" />
-		<current enchant="3-15" chance="66" />
+		<current enchant="3-5" chance="75" />
+		<current enchant="6-15" chance="67" />
 		<current enchant="16-65535" chance="0" />
 	</enchantRateGroup>
 
 	<!-- General mage weapon enchant group. -->
 	<enchantRateGroup name="MAGE_WEAPON_GROUP">
 		<current enchant="0-2" chance="100" />
-		<current enchant="3-15" chance="66" />
+		<current enchant="3-5" chance="75" />
+		<current enchant="6-15" chance="67" />
 		<current enchant="16-65535" chance="0" />
 	</enchantRateGroup>
 
