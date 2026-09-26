@@ -705,3 +705,43 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
     closed config loader validates/clamps that range, and `3` is the lowest value guaranteed to actually
     apply. Like the rest of `GrandBoss.ini`, this isn't in `AdminReload.java`'s reload list, so it needs a
     full restart to take effect.
+
+## Locating players and named world locations (`.wannapwn`, and reusable for anything similar)
+
+- `game/data/scripts/handlers/chat/commands/voiced/WannaPwn.java` (`.wannapwn <player>`) replies with a
+  target player's coordinates, a human-readable "near X" label, the closest known teleport destination, and
+  compass-direction deltas from the caster's current position. Three closed-engine APIs made this a
+  reuse-only feature — no new data files, useful again for any future "where is X" tooling:
+  - **Human-readable town name from coordinates**: `org.l2jmobius.gameserver.data.xml.MapRegionData
+    .getInstance().getClosestTownName(Creature)` returns a plain `String` (already used identically in
+    `handlers/chat/commands/admin/AdminZone.java`). Falls back to the hardcoded string `"Aden Castle Town"`
+    for genuinely off-grid coordinates (rare) rather than null/empty. Resolves against the base-world map
+    even for a `Creature` sitting inside an instance (same x/y, different `instanceId`) — cosmetic-only
+    quirk, not a bug, since instance mismatch needs its own separate check anyway for reachability.
+  - **Community Board teleport list**: `org.l2jmobius.gameserver.config.custom.CommunityBoardConfig
+    .COMMUNITY_AVAILABLE_TELEPORTS` is a public `Map<String, Location>` parsed from `CommunityTeleportList`
+    in `game/config/Custom/CommunityBoard.ini` — the exact same map `HomeBoard.java`'s `_bbsteleport`
+    bypass reads to teleport players. ~17 entries (major towns + a few farm/dungeon hubs).
+  - **Gatekeeper NPC teleport lists — no bulk accessor, must iterate per-NPC**:
+    `org.l2jmobius.gameserver.data.xml.TeleporterData.getInstance().getHolder(int npcId, String listName)`
+    → `TeleportHolder.getLocations()` → `List<TeleportLocation>` (`TeleportLocation extends Location`,
+    plus `getName()`). Decompiling `TeleporterData` confirms it only exposes `load()`,
+    `getTeleporterCount()`, and `getHolder(int, String)` — **no "get every gatekeeper's list at once"
+    method exists**, so building any "all known teleport destinations" feature means iterating every real
+    town-Gatekeeper NPC id yourself. The `listName` key is the `<teleport name="...">` XML attribute if
+    present, else the `type` attribute (`"NORMAL"` for the plain-fee menu every town Gatekeeper has;
+    `NOBLES_TOKEN`/`NOBLES_ADENA` are separate lists on the same NPC; `chamberlain/*.xml` uses `"OTHER"`
+    for castle-siege-function teleport crystals — a different concept, deliberately not merged into this
+    pool). **No single Gatekeeper's list is close to complete** — sizes range 1–18 entries per NPC file
+    under `game/data/teleporters/town/*.xml` (20 files, filename = npc id:
+    `30006, 30059, 30080, 30134, 30146, 30177, 30233, 30256, 30320, 30540, 30576, 30836, 30848, 30878,
+    30899, 31275, 31320, 31698, 31699, 31964`), while the union of all 20 files' `"NORMAL"` lists is
+    **98 distinct location names** including dungeon/farm spots (Cruma Tower, Giran Harbor, Ivory Tower,
+    Ruins of Agony, Dragon Valley, ...) that no single gatekeeper lists at all. **Coordinates for the same
+    named location drift by single/double-digit units between different Gatekeeper files** (retail
+    data-entry noise, e.g. "The Town of Giran" is `z=-3404` in one file and `z=-3400` in another) — dedupe
+    any merged pool **by location name**, not exact x/y/z, or you'll get near-duplicate entries for the
+    same real spot. `WannaPwn.java`'s merged cache is built lazily once per server lifetime (a
+    `private static Map<String, Location>`, since none of this data changes at runtime outside an admin
+    reload) and prefers the Community Board's entry over a same-named Gatekeeper entry on collision
+    (`putIfAbsent` after seeding from the CB map first).
