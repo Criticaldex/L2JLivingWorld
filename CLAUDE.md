@@ -674,3 +674,34 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   found alongside the live file showed a much shorter `SkillDurationList` (Songs category only) from a
   recent-past edit; if a `SkillDurationList` change still doesn't seem to apply in-game, confirm the
   server has actually been restarted since the edit before re-investigating the mechanism itself.
+
+## Grand bosses (Antharas/Valakas) don't stand in their lairs by default — this is by design
+
+- A grand boss having DB status `ALIVE` (the default seed in `db_installer/sql/game/grandboss_data.sql`,
+  `status` column default `0`) does **not** mean it's visibly spawned at its lair coordinates. Only
+  Antharas and Valakas work this way (confirmed by reading every grand boss AI script under
+  `game/data/scripts/ai/bosses/`) — Baium wakes in ~50ms once triggered (then an 8s cinematic before
+  Archangels spawn), Core/Orfen/Queen Ant/Zaken have no ritual at all (just walk into their dungeon), and
+  Frintezza's only "timer" is an unrelated 30-minute post-trigger party-join window
+  (`Frintezza.java`, hardcoded, not config-exposed).
+  - **Antharas** (`ai/bosses/Antharas/Antharas.java`): when `ALIVE`, spawns hidden at `ANTHARAS_IDLE_LOCATION`,
+    not the real lair. A player needs a **Portal Stone** (item `3865`, sold on the CB merchant's
+    Quest/Clan tab, `multisell/custom/600024.xml`, for 1 adena — reads like a placeholder test price worth
+    revisiting) and talks to the Heart of Antharas / teleport cube NPC with it, which starts
+    `AntharasWaitTime` minutes (`GrandBoss.ini`) before he actually appears in the lair.
+  - **Valakas**: same shape, different chain, split across `ai/bosses/Valakas/Valakas.java` (which itself
+    has no code that ever sets `STATUS_WAITING`) and `ai/others/ValakasTeleporters/ValakasTeleporters.java`
+    (which does — easy to miss if you only read `Valakas.java`). Needs a **Vacualite Floating Stone**
+    (item `7267`, same CB Quest/Clan tab, 100,000 adena) used at "Watcher of Valakas Klein" (NPC `31540`)
+    to enter the Hall of Flames, then "Heart of Volcano" (NPC `31385`) to actually trigger `ValakasWaitTime`
+    minutes before he spawns.
+  - Once killed, both go fully absent for `IntervalOf{Antharas,Valakas}Spawn` hours ± `RandomOf...` hours
+    (`GrandBoss.ini`, default 264±8h = ~11 days) — by far the most likely reason either "isn't spawned" on
+    a server that's been running a while, not a bug. Check live status without touching the DB via the
+    `admin` GM command **`//grandboss 29019`** (Antharas) / **`//grandboss 29028`** (Valakas) — shows
+    Alive/Waiting/In Fight/Dead and, if dead, the exact respawn timestamp (`AdminGrandBoss.java`).
+  - `AntharasWaitTime`/`ValakasWaitTime` are documented in `GrandBoss.ini` as "Range 3-60" (minutes) — cut
+    to `3` (from retail's `20`) per user request; didn't try `0` since the ini's own comment implies the
+    closed config loader validates/clamps that range, and `3` is the lowest value guaranteed to actually
+    apply. Like the rest of `GrandBoss.ini`, this isn't in `AdminReload.java`'s reload list, so it needs a
+    full restart to take effect.
