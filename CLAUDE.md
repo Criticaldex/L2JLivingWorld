@@ -164,6 +164,49 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   bundled modules are kept only as reference/documentation of the extension point, both disabled by default
   (each needs its own `config/module.ini` with `Enabled = True`, on top of the global `EnableModules`
   switch).
+- **`libs/GameServer.jar` currently carries a hand-applied binary patch that is NOT part of any upstream
+  `-patch` release** — a single-byte bytecode edit inside `org.l2jmobius.gameserver.model.actor
+  .Player.isAutoAttackable(Creature)`, changing its final fallback branch (reached only when the target
+  has no clan/party/duel/olympiad/siege/faction relationship with the attacker) from
+  `return getKarma() > 0 || _pvpFlag > 0` to unconditionally `return true`. Practical effect: any player
+  can now be targeted by any hostile single-target skill (`TargetType.ONE` — nearly every debuff) by any
+  other player without either side already being PvP-flagged/karma-flagged, and without Ctrl — done per
+  explicit user request ("I want to use my debuffs against players" / "I want to cast even if he's not
+  [flagged]"), after confirming via `//grandboss`-style decompile investigation (see the "checkUseMagicConditions"
+  trail below) that no `.ini` config lever exists for this and Ctrl-forced-cast wasn't actually bypassing
+  it in practice for skill casts. **This means `libs/GameServer.jar` will silently diverge from any future
+  upstream `-patch` release's jar** — the "Applying upstream engine updates" section above's normal
+  "just drop the new jar in" workflow would revert this patch with no warning (no compile error, no log
+  line — it would just silently start requiring PvP-flag/karma again). If a future upstream update is
+  applied, re-locate and re-apply this same single-byte flip (or decide it's no longer wanted) — do not
+  assume the existing jar's behavior carries over.
+  - How the patch was made, for reproducing or extending it: extracted `Player.class` from the jar,
+    decompiled `isAutoAttackable` with `javap -p -c`, found the exact byte fingerprint of the terminal
+    `getKarma()/_pvpFlag` check via its surrounding instructions (`aload_0; getfield _pvpFlag; ifle L;
+    iconst_1; ireturn; iconst_0; ireturn`), located it as a unique byte sequence in the raw `.class` file
+    with a small Python script, flipped the single `iconst_0` (`0x03`) opcode to `iconst_1` (`0x04`)
+    at that exact offset (both are 1-byte, zero-operand opcodes, so no method length/offset/exception-table/
+    stack-map-frame recomputation was needed — about as safe as a bytecode patch gets), then used
+    `jar uf GameServer.jar org/l2jmobius/gameserver/model/actor/Player.class` (run from a directory holding
+    that same relative path with only the patched class in it) to reinsert the class with correctly
+    recomputed CRC32/zip metadata rather than splicing raw bytes into the archive. Verified via
+    `javap -p -c` diff (before vs. after) that exactly one instruction changed and nothing else, and via
+    `unzip -t`/`unzip -lv` that the jar's zip integrity, entry count (2185), and every other entry's
+    size/CRC were unaffected.
+  - Deliberately scoped to `Player.isAutoAttackable` specifically, not `Player.canAttackCreature` (the
+    similarly-shaped melee-attack permission check, with its own separate `pvpFlag`/`karma` fallback at
+    the end) — the user's ask was specifically about debuffs/skills, so melee-attack PvP-initiation rules
+    were left untouched. If melee is ever reported as having the same "can't engage a non-flagged player"
+    friction, that's a second, separate patch target, not something this change already covers.
+  - The root-cause trail that led here (in case the "incorrect target" message comes up again): that exact
+    message is a datapack-side (readable, in `handlers/skill/targets/One.java` and sibling target-type
+    handlers) check for `target == null || target.isDead() || (target == creature && skill.hasNegativeEffect())`
+    — it is NOT related to the PvP-flag rule at all. A live test with temporary logging added to `One.java`
+    (added, used once, then removed — see commit history around this change) showed zero log hits during a
+    reproduction that still failed silently, proving the real block was earlier, in the closed-engine
+    `Player.checkUseMagicConditions` → `isAutoAttackable` chain patched here — not in `One.java`. Don't
+    assume "incorrect target" always means what `One.java` says it means; confirm with the same kind of
+    live evidence before re-deriving this chain from scratch.
 
 ## Community Board custom pages — gotchas
 
