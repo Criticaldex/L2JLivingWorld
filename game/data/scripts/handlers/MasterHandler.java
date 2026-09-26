@@ -217,6 +217,7 @@ import handlers.chat.commands.voiced.Offline;
 import handlers.chat.commands.voiced.OfflinePlay;
 import handlers.chat.commands.voiced.Online;
 import handlers.chat.commands.voiced.Premium;
+import handlers.chat.commands.voiced.WannaPwn;
 import handlers.chat.commands.voiced.Wedding;
 import handlers.items.BeastSoulShot;
 import handlers.items.BeastSpice;
@@ -525,6 +526,7 @@ public class MasterHandler
 			// CastleHandler.class,
 			// ClanHandler.class,
 			ExperienceGain.class,
+			WannaPwn.class,
 			WeddingConfig.ALLOW_WEDDING ? Wedding.class : null,
 			AutoPlayConfig.ENABLE_AUTO_PLAY ? AutoPlay.class : null,
 			BankingConfig.BANKING_SYSTEM_ENABLED ? Banking.class : null,
