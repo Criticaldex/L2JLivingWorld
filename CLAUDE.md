@@ -304,6 +304,16 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   to this merchant, its id must also be added to `getMerchantCatalogItemIds()`'s hardcoded list** — it isn't
   derived from `main.html`'s buttons automatically, so forgetting this step means "Sell Junk" will happily
   bulk-sell whatever the new shop sells for a fraction of its price the moment a player buys one.
+- **Raid boss jewelry (Earring of Antharas `6656`, Necklace of Valakas `6657`, Ring of Baium `6658`,
+  Earring of Zaken `6659`, Ring of Queen Ant `6660`, Earring of Orfen `6661`, Ring of Core `6662`, Necklace
+  of Frintezza `8191`) is excluded from "Sell Junk" via a separate hardcoded `BOSS_JEWELRY_ITEM_IDS` set in
+  `HomeBoard.getSellableJunkItems()`**, not via the merchant-catalog mechanism above — none of these items
+  are flagged `is_sellable="false"` in their own item stats (checked: none have that flag), and none are
+  sold by any of this merchant's shops, so without this explicit exclusion they'd be `isSellable()==true`
+  and get silently swept into a junk sale at half their reference price. If another valuable-but-not-in-any-
+  shop item category is ever reported as "got sold by Sell Junk when it shouldn't have been," it's this
+  same gap — either add it to `BOSS_JEWELRY_ITEM_IDS` (if conceptually similar) or a new sibling exclusion
+  set, don't assume `isSellable()` alone is a safe signal for "this is junk."
 - The item DB has a whole family of `for_npc`-flagged `Weapon`-type items (shared icon
   `icon.weapon_monster_i00`) that exist purely to give specific monster/boss NPCs their unique weapon or
   shield model — e.g. `9136`/`9137` "Sword of Valakas", `6918`/`6919` "Shield of Silenos"/"Shield of Ketra

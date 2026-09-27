@@ -400,11 +400,17 @@ public class HomeBoard implements IParseBoardHandler
 		return false;
 	}
 	
+	// Raid boss jewelry (Earring/Necklace/Ring of Antharas, Valakas, Baium, Zaken, Queen Ant, Orfen, Core,
+	// Frintezza) - valuable raid drops, never sold by this merchant, but not flagged non-sellable in their
+	// own item stats either, so they'd otherwise get swept into "Sell Junk" like any other loose item.
+	private static final Set<Integer> BOSS_JEWELRY_ITEM_IDS = new HashSet<>(Arrays.asList(6656, 6657, 6658, 6659, 6660, 6661, 6662, 8191));
+
 	/**
 	 * Gets the sellable items in the given player's inventory that aren't otherwise purchasable from this
-	 * same merchant (grade shops, scrolls, misc items, pets, hair accessories, monster weapons, quest/clan items).
+	 * same merchant (grade shops, scrolls, misc items, pets, hair accessories, monster weapons, quest/clan
+	 * items), excluding raid boss jewelry regardless of catalog membership.
 	 * @param player the player
-	 * @return the list of sellable, non-merchant-catalog items
+	 * @return the list of sellable, non-merchant-catalog, non-boss-jewelry items
 	 */
 	private static List<Item> getSellableJunkItems(Player player)
 	{
@@ -412,7 +418,7 @@ public class HomeBoard implements IParseBoardHandler
 		final List<Item> items = new ArrayList<>();
 		for (Item item : player.getInventory().getItems())
 		{
-			if (item.isSellable() && !catalogItemIds.contains(item.getId()))
+			if (item.isSellable() && !catalogItemIds.contains(item.getId()) && !BOSS_JEWELRY_ITEM_IDS.contains(item.getId()))
 			{
 				items.add(item);
 			}
