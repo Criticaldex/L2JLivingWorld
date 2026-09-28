@@ -22,6 +22,8 @@ package handlers.bypass.communityboard;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.l2jmobius.gameserver.cache.HtmCache;
 import org.l2jmobius.gameserver.config.OlympiadConfig;
@@ -45,6 +47,8 @@ import org.l2jmobius.gameserver.model.olympiad.Olympiad;
  */
 public class OlympiadRankingBoard implements IParseBoardHandler
 {
+	private static final Logger LOGGER = Logger.getLogger(OlympiadRankingBoard.class.getName());
+
 	private static final String NAVIGATION_PATH = "data/html/CommunityBoard/Custom/navigation.html";
 	private static final String MAIN_PATH = "data/html/CommunityBoard/Custom/olympiad/main.html";
 	private static final String CLASS_PATH = "data/html/CommunityBoard/Custom/olympiad/class.html";
@@ -58,23 +62,44 @@ public class OlympiadRankingBoard implements IParseBoardHandler
 	@Override
 	public boolean onCommand(String command, Player player)
 	{
-		final String navigation = HtmCache.getInstance().getHtm(player, NAVIGATION_PATH);
-		String html;
-		if (command.startsWith("_bbsolympiadclass;"))
+		try
 		{
-			final int classId = Integer.parseInt(command.substring("_bbsolympiadclass;".length()));
-			html = HtmCache.getInstance().getHtm(player, CLASS_PATH);
-			html = html.replace("%classname%", formatClassName(classId));
-			html = html.replace("%rankings%", buildRankingRows(classId));
+			final String navigation = HtmCache.getInstance().getHtm(player, NAVIGATION_PATH);
+			String html;
+			if (command.startsWith("_bbsolympiadclass;"))
+			{
+				final int classId = Integer.parseInt(command.substring("_bbsolympiadclass;".length()));
+				html = HtmCache.getInstance().getHtm(player, CLASS_PATH);
+				if (html == null)
+				{
+					LOGGER.warning("OlympiadRankingBoard: missing HTML at " + CLASS_PATH);
+					return true;
+				}
+
+				html = html.replace("%classname%", formatClassName(classId));
+				html = html.replace("%rankings%", buildRankingRows(classId));
+			}
+			else
+			{
+				html = HtmCache.getInstance().getHtm(player, MAIN_PATH);
+				if (html == null)
+				{
+					LOGGER.warning("OlympiadRankingBoard: missing HTML at " + MAIN_PATH);
+					return true;
+				}
+
+				html = html.replace("%classlist%", buildClassList());
+			}
+
+			html = html.replace("%navigation%", navigation);
+			CommunityBoardHandler.separateAndSend(html, player);
 		}
-		else
+		catch (Exception e)
 		{
-			html = HtmCache.getInstance().getHtm(player, MAIN_PATH);
-			html = html.replace("%classlist%", buildClassList());
+			LOGGER.log(Level.WARNING, "OlympiadRankingBoard: error handling command '" + command + "'.", e);
+			player.sendMessage("The Olympiad rankings board is temporarily unavailable.");
 		}
 
-		html = html.replace("%navigation%", navigation);
-		CommunityBoardHandler.separateAndSend(html, player);
 		return true;
 	}
 
