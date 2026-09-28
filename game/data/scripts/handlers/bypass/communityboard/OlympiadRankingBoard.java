@@ -27,6 +27,7 @@ import java.util.logging.Logger;
 
 import org.l2jmobius.gameserver.cache.HtmCache;
 import org.l2jmobius.gameserver.config.OlympiadConfig;
+import org.l2jmobius.gameserver.data.sql.CharInfoTable;
 import org.l2jmobius.gameserver.handler.CommunityBoardHandler;
 import org.l2jmobius.gameserver.handler.IParseBoardHandler;
 import org.l2jmobius.gameserver.managers.PhantomOlympiadRules;
@@ -154,11 +155,13 @@ public class OlympiadRankingBoard implements IParseBoardHandler
 			return "<tr><td align=\"center\">No ranked competitors yet for this class.</td></tr>";
 		}
 
-		final StringBuilder sb = new StringBuilder(names.size() * 40);
+		final StringBuilder sb = new StringBuilder(names.size() * 50);
 		int rank = 1;
 		for (String name : names)
 		{
-			sb.append("<tr><td width=40>").append(rank).append(".</td><td width=260>").append(name).append("</td></tr>");
+			final int objectId = CharInfoTable.getInstance().getIdByName(name);
+			final int points = (objectId > 0) ? Olympiad.getInstance().getNoblePoints(objectId) : 0;
+			sb.append("<tr><td width=40>").append(rank).append(".</td><td width=200>").append(name).append("</td><td width=80>").append(points).append(" pts</td></tr>");
 			rank++;
 		}
 
