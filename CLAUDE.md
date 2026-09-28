@@ -301,6 +301,31 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
     default), the brand-new `PhantomOlympiad.ini`, `tools/l2admin/index.html`, and the new
     `game/modules/alt-companion/` module (`.alt <name>` command, `Enabled = True` by default in its own
     `module.ini`, already logs its own load line via `context.logging()`).
+- **A third hand-applied binary patch, in `org.l2jmobius.gameserver.model.olympiad.OlympiadGame.removals()`**
+  — NOP'd out the `aload_2; invokevirtual Player.stopAllEffectsExceptThoseThatLastThroughDeath()` call (the
+  4 bytes `2C B6 xx xx` → 4 `NOP`s, net-zero stack effect, no stack-map-frame recomputation needed, same
+  class of safe patch as the two below). `removals()` is called at Olympiad match start and normally strips
+  every combatant's buffs — retail-accurate, but it created a real asymmetry: `PhantomManager
+  .prepareOlympiadFight()` then parks a bot's normal AI and switches it onto the native
+  `AutoUseTaskManager`, which self-rebuffs the bot within seconds via its own 300ms tick (decompile
+  confirmed), while a real player has no equivalent fast rebuff and stays stripped for the whole match. Two
+  other approaches were tried and abandoned first, in order: (1) a `ClassBalance.ini`-driven P.Atk debuff
+  for archer classes specifically while `isInOlympiadMode()` — worked, but was scoped to the wrong layer
+  (nerfed a symptom of the buff asymmetry, not the asymmetry itself) and was reverted; (2) a sweep task
+  clearing bot-controlled players' `AutoUseSettingsHolder.getAutoBuffs()` every 200ms to stop them
+  self-rebuffing — technically worked but only "mostly" (races the native 300ms tick, so an occasional buff
+  still lands) and was reverted as unnecessarily fragile once the simpler fix was clear. **Scoped precisely
+  to match-entry only** — `OlympiadGame.cleanEffects()` (a separate call to the same
+  `stopAllEffectsExceptThoseThatLastThroughDeath()` method, used for the end-of-match cleanup before
+  `portPlayersBack()`) is a second, distinct call site in the same class and is deliberately untouched, so
+  buffs still get cleared when a match *ends* — only the entry strip is disabled. Nothing else in
+  `removals()` (clan/castle-residential/hero skill removal, abort cast, clear invisibility) was touched
+  either. Confirmed via `javap -c` diff that exactly one instruction block changed, and jar integrity
+  (2207 entries, zero `unzip -t` errors) — same verification method as the other two patches. **Same
+  standing warning applies**: this jar now carries three hand-applied binary patches
+  (`Player.isAutoAttackable`, `Player.checkPvpSkill`, `OlympiadGame.removals()`) that a future upstream
+  `-patch` jar drop-in would silently revert with no compile error or log line — re-locate and re-apply all
+  three (or decide any are no longer wanted) before trusting a new jar's behavior.
 
 ## Community Board custom pages — gotchas
 
