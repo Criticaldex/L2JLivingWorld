@@ -71,6 +71,7 @@ import handlers.bypass.communityboard.HomeBoard;
 import handlers.bypass.communityboard.HomepageBoard;
 import handlers.bypass.communityboard.MailBoard;
 import handlers.bypass.communityboard.MemoBoard;
+import handlers.bypass.communityboard.OlympiadRankingBoard;
 import handlers.bypass.communityboard.RegionBoard;
 import handlers.bypass.npc.Augment;
 import handlers.bypass.npc.Buy;
@@ -469,6 +470,7 @@ public class MasterHandler
 			HomepageBoard.class,
 			MailBoard.class,
 			MemoBoard.class,
+			OlympiadRankingBoard.class,
 			RegionBoard.class,
 		},
 		{
