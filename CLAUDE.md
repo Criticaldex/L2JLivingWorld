@@ -335,6 +335,20 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
 
 ## Community Board custom pages — gotchas
 
+- **A new `IParseBoardHandler` implementation (a new dynamic CB page/tab, as opposed to a static `.html`
+  file) does nothing on its own — it must also be added to `MasterHandler.java`'s Community Board array**
+  (the same array `ClanBoard`/`DropSearchBoard`/`FriendsBoard`/`HomeBoard`/etc. are already listed in,
+  plus the matching import). Missing this isn't a compile error and doesn't log anything — the class
+  exists and is perfectly valid Java, it's just never handed to `CommunityBoardHandler`, so the bypass
+  command it registers is never wired up server-side at all. Symptom: clicking the button sends the
+  bypass, the server has nothing registered for it, and the client-side CB window just hangs waiting for a
+  response that will never come — indistinguishable from a real freeze/crash without checking this list
+  specifically (a full server restart does *not* fix it, since the omission is in the registration list
+  itself, not something caching/reload would pick up differently). Added while building the Olympiad
+  ranking tab (`OlympiadRankingBoard.java`) and initially missed this exact step — same class of oversight
+  as the `WannaPwn` voiced-command registration gotcha under "Applying upstream engine updates" above, just
+  for the CB handler list instead of the voiced-command list. Check this list first whenever a *new* CB
+  page (not an edit to an existing one) "does nothing" or hangs when clicked.
 - `game/data/html/CommunityBoard/Custom/` pages are plain files read on demand; there's no manifest of
   "which pages are reachable." A page only shows up in-game if some other reachable page has a `bypass`
   button pointing at it — nothing enforces that the graph stays connected. This repo had a whole cluster
