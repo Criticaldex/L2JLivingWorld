@@ -315,17 +315,23 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   clearing bot-controlled players' `AutoUseSettingsHolder.getAutoBuffs()` every 200ms to stop them
   self-rebuffing — technically worked but only "mostly" (races the native 300ms tick, so an occasional buff
   still lands) and was reverted as unnecessarily fragile once the simpler fix was clear. **Scoped precisely
-  to match-entry only** — `OlympiadGame.cleanEffects()` (a separate call to the same
+  to match-entry only when first applied** — `OlympiadGame.cleanEffects()` (a separate call to the same
   `stopAllEffectsExceptThoseThatLastThroughDeath()` method, used for the end-of-match cleanup before
-  `portPlayersBack()`) is a second, distinct call site in the same class and is deliberately untouched, so
-  buffs still get cleared when a match *ends* — only the entry strip is disabled. Nothing else in
-  `removals()` (clan/castle-residential/hero skill removal, abort cast, clear invisibility) was touched
-  either. Confirmed via `javap -c` diff that exactly one instruction block changed, and jar integrity
-  (2207 entries, zero `unzip -t` errors) — same verification method as the other two patches. **Same
-  standing warning applies**: this jar now carries three hand-applied binary patches
-  (`Player.isAutoAttackable`, `Player.checkPvpSkill`, `OlympiadGame.removals()`) that a future upstream
-  `-patch` jar drop-in would silently revert with no compile error or log line — re-locate and re-apply all
-  three (or decide any are no longer wanted) before trusting a new jar's behavior.
+  `portPlayersBack()`) is a second, distinct call site in the same class, left untouched at first so buffs
+  still cleared when a match *ended* — only the entry strip was disabled initially. **Per a follow-up user
+  request, this second call site was NOP'd too** (identical technique: unique fingerprint
+  `aload_2; invokevirtual #189` immediately before the next call in that method,
+  `Player.clearCharges()`, found at a different constant-pool index than the one following `removals()`'s
+  call site — re-locate fresh each time rather than assuming both occurrences sit at the same relative
+  offset), so buffs are no longer stripped on the way *out* of a match either. Nothing else in either
+  method (clan/castle-residential/hero skill removal, abort cast, clear invisibility, charge clearing,
+  Agathion handling) was touched. Confirmed via `javap -c` diff each time that exactly one instruction block
+  changed, and jar integrity (2207 entries, zero `unzip -t` errors) — same verification method as the other
+  patches. **Same standing warning applies, now for four patches**: this jar carries
+  `Player.isAutoAttackable`, `Player.checkPvpSkill`, `OlympiadGame.removals()`, and
+  `OlympiadGame.cleanEffects()` — a future upstream `-patch` jar drop-in would silently revert all four with
+  no compile error or log line. Re-locate and re-apply all four (or decide any are no longer wanted) before
+  trusting a new jar's behavior.
 
 ## Community Board custom pages — gotchas
 
@@ -950,7 +956,7 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   `couple.marry()` in the "accept" case) by re-writing the same row with the literal string `"true"`
   immediately after `marry()` runs, so the next read round-trips correctly. **Deliberately not a fourth
   binary patch** to `Couple.marry()`/`Couple(int)` — unlike the three single-instruction patches this jar
-  already carries (`isAutoAttackable`, `checkPvpSkill`, `OlympiadGame.removals()`), correctly fixing this at
+  already carries (`isAutoAttackable`, `checkPvpSkill`, `OlympiadGame.removals()`/`cleanEffects()`), correctly fixing this at
   the source would mean adding new bytecode logic and constant-pool entries (swapping `setBoolean()` for a
   conditional `setString()`, or making the read side tolerant of `"1"`), not just enabling an
   already-present branch — a much larger, riskier class of patch. Doing it from datapack code we can
