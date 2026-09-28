@@ -926,3 +926,35 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
     not a generic town label — but it's the simpler choice if a future feature only needs "near X" text.
     Falls back to the hardcoded string `"Aden Castle Town"` for genuinely off-grid coordinates rather than
     null/empty.
+
+## Wedding system — married flag doesn't survive a relog/restart (closed engine, JDBC type mismatch)
+
+- Reported as "2 days in a row I have to marry the same guy" — the couple/engagement persists correctly
+  (same partner, no need to re-engage), but the *married* status specifically resets every login. Root
+  cause, confirmed by decompiling both `libs/GameServer.jar` and the bundled
+  `libs/mysql-connector-j-9.5.0.jar`: `Couple.marry()` persists the flag via
+  `PreparedStatement.setBoolean()` against `mods_wedding`'s `married` column, which is `VARCHAR(5)`
+  (`db_installer/sql/game/mods_wedding.sql`), not a real boolean type. MySQL has no native boolean wire
+  type — `NativeQueryBindings.setBoolean()` binds it as `MysqlType.BOOLEAN`, and since the target column is
+  a string, MySQL's own numeric-to-string conversion writes the literal text `"1"`, never the word
+  `"true"`. Every read path (`Couple(int)`'s loading constructor — used both by `CoupleManager.load()` at
+  boot and again on every login via the closed `EnterWorld` packet handler) reads that same column back
+  with `getString()` + `Boolean.parseBoolean()`, which only recognizes the exact (case-insensitive) string
+  `"true"` — `"1"` parses to `false`. A fresh marriage works for the rest of that login (`Wedding.java` also
+  calls `setMarried(true)` directly, in memory), but the moment either player logs out and back in, or the
+  server restarts, `EnterWorld` re-derives `isMarried()` from the freshly-reloaded `Couple` row and both
+  come back unmarried. **Divorce/staying unmarried is unaffected** — MySQL's `"0"` also parses to `false`
+  via `Boolean.parseBoolean`, so it's specifically the true case that gets lost, not the mechanism in
+  general.
+- Fixed in `game/data/scripts/custom/events/Wedding/Wedding.java` (`fixMarriedFlag()`, called right after
+  `couple.marry()` in the "accept" case) by re-writing the same row with the literal string `"true"`
+  immediately after `marry()` runs, so the next read round-trips correctly. **Deliberately not a fourth
+  binary patch** to `Couple.marry()`/`Couple(int)` — unlike the three single-instruction patches this jar
+  already carries (`isAutoAttackable`, `checkPvpSkill`, `OlympiadGame.removals()`), correctly fixing this at
+  the source would mean adding new bytecode logic and constant-pool entries (swapping `setBoolean()` for a
+  conditional `setString()`, or making the read side tolerant of `"1"`), not just enabling an
+  already-present branch — a much larger, riskier class of patch. Doing it from datapack code we can
+  actually maintain was the better trade here.
+- **Any couple already married before this fix has a `married` column stuck at `"1"` and needs a one-time
+  manual correction** — this fix only corrects the value going forward, on the next successful "accept"
+  flow. Run once against the live DB: `UPDATE mods_wedding SET married = 'true' WHERE married = '1';`.

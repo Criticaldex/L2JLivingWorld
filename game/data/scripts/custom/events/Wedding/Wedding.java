@@ -16,6 +16,13 @@
  */
 package custom.events.Wedding;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import org.l2jmobius.commons.database.DatabaseFactory;
 import org.l2jmobius.gameserver.config.custom.WeddingConfig;
 import org.l2jmobius.gameserver.managers.CoupleManager;
 import org.l2jmobius.gameserver.model.World;
@@ -37,6 +44,8 @@ import org.l2jmobius.gameserver.util.Broadcast;
  */
 public class Wedding extends Script
 {
+	private static final Logger LOGGER = Logger.getLogger(Wedding.class.getName());
+
 	// NPC
 	private static final int MANAGER_ID = 50007;
 	
@@ -130,6 +139,7 @@ public class Wedding extends Script
 					player.setMarryAccepted(true);
 					final Couple couple = CoupleManager.getInstance().getCouple(player.getCoupleId());
 					couple.marry();
+					fixMarriedFlag(couple.getId());
 					
 					// Messages to the couple
 					player.sendMessage("Congratulations you are married!");
@@ -192,6 +202,41 @@ public class Wedding extends Script
 		return html;
 	}
 	
+	/**
+	 * Couple.marry() persists the married flag via PreparedStatement.setBoolean() against mods_wedding's
+	 * married VARCHAR(5) column. MySQL has no native boolean wire type - the bundled mysql-connector-j
+	 * driver binds it as MysqlType.BOOLEAN, which the server implicitly converts to a plain TINYINT(1) and
+	 * then, since the target column is a string type, to the text "1" (confirmed by decompiling
+	 * NativeQueryBindings.setBoolean() and ClientPreparedStatement.setBoolean() - the value is bound as a
+	 * Boolean under MysqlType.BOOLEAN, MySQL's own numeric-to-string conversion for that type is "1"/"0",
+	 * never the words "true"/"false"). Every read path (Couple(int)'s constructor, used both by
+	 * CoupleManager.load() at boot and on every re-login via EnterWorld) reads that same column back with
+	 * getString() + Boolean.parseBoolean(), which only recognizes the literal (case-insensitive) string
+	 * "true" - "1" parses to false. So a fresh marriage works for the rest of that login (Wedding.java
+	 * also calls player.setMarried(true)/partner.setMarried(true) directly, in memory), but the moment
+	 * either logs out and back in - or the server restarts - EnterWorld re-derives isMarried() from the
+	 * freshly-reloaded Couple row, reads back the mis-stored "1", and both players are unmarried again.
+	 * divorce() isn't affected by this - false round-trips fine, since MySQL's "0" also parses to false via
+	 * Boolean.parseBoolean(), it's specifically the true case that gets lost. Rather than binary-patching
+	 * Couple.marry()/Couple(int) (not a simple opcode/NOP flip like the jar's other patches - it would need
+	 * new bytecode logic and constant-pool additions, not just enabling an existing branch), this overwrites
+	 * the same row immediately after marry() with the literal string "true" so it round-trips correctly on
+	 * the next read, from datapack code we can actually maintain.
+	 */
+	private static void fixMarriedFlag(int coupleId)
+	{
+		try (Connection con = DatabaseFactory.getConnection();
+			PreparedStatement statement = con.prepareStatement("UPDATE mods_wedding SET married = 'true' WHERE id = ?"))
+		{
+			statement.setInt(1, coupleId);
+			statement.execute();
+		}
+		catch (SQLException e)
+		{
+			LOGGER.log(Level.WARNING, "Wedding: could not persist married flag for couple " + coupleId + ".", e);
+		}
+	}
+
 	private static boolean isWearingFormalWear(Player player)
 	{
 		if (WeddingConfig.WEDDING_FORMALWEAR)
