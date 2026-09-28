@@ -207,6 +207,40 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
     `Player.checkUseMagicConditions` → `isAutoAttackable` chain patched here — not in `One.java`. Don't
     assume "incorrect target" always means what `One.java` says it means; confirm with the same kind of
     live evidence before re-deriving this chain from scratch.
+  - **Correction, found later: the trail above was incomplete — `isAutoAttackable` is only HALF the gate for
+    a single-target debuff, and the patch above alone did not fix skill-casting on a non-flagged player.**
+    User reported debuffs still failing even when both sides were confirmed flagged, not in a peace zone,
+    and not partied/clanned. Re-decompiling `checkUseMagicConditions` end to end: it actually contains
+    **two** separate `TargetType`-keyed switches sharing the same synthetic `Player$1.$SwitchMap$...
+    TargetType` array (confirmed by decompiling `Player$1`'s static initializer directly — it assigns
+    case numbers 1-16 to `AURA, FRONT_AURA, BEHIND_AURA, GROUND, SELF, AURA_CORPSE_MOB, COMMAND_CHANNEL,
+    AURA_FRIENDLY, PARTY, CLAN, PARTY_CLAN, AREA_SUMMON, PET, SERVITOR, SUMMON, UNLOCKABLE` in that exact
+    order; `TargetType.ONE` is never a `case` label in either switch, so its slot in the array is left at
+    the Java default `0`, which always falls through to `default` in both switches). First switch: calls
+    `isAutoAttackable(target)` first and skips the whole switch if it returns true (which the patch above
+    guarantees) — so that gate is fully bypassed by the existing patch, as intended. But right after, a
+    **second, separate switch** (cases 1,2,3,4,5,9,10,11,12 skip straight through; cases 6,7,8 and
+    `default` — which is where `ONE` lands — call `Player.checkPvpSkill(WorldObject, Skill)` if
+    `target.isPlayable()` and the caster isn't a GM with `allowPeaceAttack()`) is the *real* second gate,
+    and `isAutoAttackable` has no bearing on it at all. `checkPvpSkill` has its own independent logic:
+    always-allow for same duel / same Olympiad match / both sides inside a `PVP` zone; always-deny if the
+    target is in a `PEACE` zone (checked unconditionally, before any flag logic); a narrow same-party/clan/
+    ally special case (only allowed if it's an AoE damage skill, Ctrl-targeted, on your current target);
+    and otherwise, for two unrelated players, the exact same shape of fallback as `isAutoAttackable`:
+    `target.getPvpFlag() > 0 || target.getKarma() > 0` — just in a completely different method, with no
+    `.ini` lever either (confirmed via decompile, no `Config` class field read anywhere in the method) and
+    with `AltValidateTriggerSkills` (`Player.ini`, default `False`) being a red herring — enabling it only
+    makes things *more* restrictive, and it governs triggered/proc skills, not primary casts. Patched with
+    the identical technique as the `isAutoAttackable` fix: found the unique byte fingerprint for the
+    fallback's final `iconst_0` (`aload_3; invokevirtual getPvpFlag; ifgt L; aload_3; invokevirtual
+    getKarma; ifle M; iconst_1; goto N; iconst_0 [M]; ireturn`), flipped it to `iconst_1`, verified via
+    `javap -c` diff (exactly one instruction changed) and `unzip -t`/entry count (2207, matching the
+    `v0.1.25` jar). **Both patches now have to be re-applied together** any time the jar is replaced —
+    `isAutoAttackable` alone was never sufficient for skill casts, only for melee-adjacent
+    targeting/right-click eligibility; `checkPvpSkill` is what actually gates `TargetType.ONE` debuffs.
+    Deliberately left everything else in `checkPvpSkill` untouched (peace-zone deny, duel/Olympiad/PvP-zone
+    allow, siege-ally block, the narrow party/clan AoE case) — only the "two unrelated players" fallback
+    was flipped, mirroring the same scoping discipline as the `isAutoAttackable` patch.
 - **Applied `v0.1.22`→`v0.1.25` (jumped straight to `v0.1.25-patch`'s jar/files, per the cumulative-jar rule
   above; confirmed via `comm -23` on sorted file lists across all four releases that nothing was touched in
   an intermediate release and then dropped from later ones, so `v0.1.25-patch`'s zip alone is file-complete
