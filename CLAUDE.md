@@ -207,6 +207,66 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
     `Player.checkUseMagicConditions` → `isAutoAttackable` chain patched here — not in `One.java`. Don't
     assume "incorrect target" always means what `One.java` says it means; confirm with the same kind of
     live evidence before re-deriving this chain from scratch.
+- **Applied `v0.1.22`→`v0.1.25` (jumped straight to `v0.1.25-patch`'s jar/files, per the cumulative-jar rule
+  above; confirmed via `comm -23` on sorted file lists across all four releases that nothing was touched in
+  an intermediate release and then dropped from later ones, so `v0.1.25-patch`'s zip alone is file-complete
+  back to our `v0.1.21` baseline).** `launcher/version.txt` now `v0.1.25`. The `isAutoAttackable` binary
+  patch above was (as predicted) silently absent from the fresh jar — re-applied the identical single-byte
+  flip; the fingerprint's file offset moved (unique match at offset 213979 in this build) and the jar's
+  total entry count is now 2207 (not the `v0.1.21`-era 2185), so don't reuse either number from a stale jar
+  build when reproducing this — re-locate the fingerprint fresh every time.
+  - **Upstream added a full native "Phantom PvP" system directly in the jar** (`PhantomPvpManager`,
+    `PvpFlagTaskManager`, `PvpConfig`, plus heavy rewrites of `PhantomManager`/`PhantomPartyManager`/
+    `PhantomBuddyManager`), config-driven via a new `PhantomPvp*` block in `FakePlayers.ini`
+    (`PhantomPvpEnabled`, `SelfDefense`, `ReactToFlagged`, `PartyDefense`, `ClanDefense`,
+    `BetweenPhantoms`, `Duels`, `OpenWorldGank` [default off], plus level-gap/cooldown/flee tuning).
+    Decompile-confirmed this supersedes two of our own workaround scripts, both **deleted**:
+    `FakePlayerPvpRetaliateTask.java` (self-defense/party-defense/skill-picking, previously racing
+    `PhantomPartyManager`'s 1s tick from outside) and the Player-phantom half of
+    `PeaceZoneCombatStopTask.java` (native `PhantomManager`/`PhantomPartyManager` now call
+    `Player.isInsideZone(ZoneId.PEACE)`/`NO_PVP` inline at 10+ call sites in the new PvP code paths,
+    confirmed via decompile) — its user feedback was that the peace-zone task "never worked" anyway, so
+    the whole file was removed rather than trimmed to keep just the Npc-based half (meaning the closed
+    `AttackableAI.thinkAttack()` peace-zone gap documented under "Fake player combat AI gaps" below is
+    once again fully unmitigated for the Npc-based ambient population — nothing currently patches it).
+  - **The `AntiFeedManager.check()` NPE risk (see the reverted `GameClient` attempt further below) is
+    STILL PRESENT in the `v0.1.25` jar** — decompile-confirmed `victim.getClient().isDetached()` still has
+    no null-guard on `getClient()` itself for the victim argument. Native Phantom PvP flags/karma-tags
+    phantoms far more often now than before, so this is a live, *more* exposed risk than it was pre-patch,
+    not something this upgrade fixed. Added `custom/FakePlayers/PhantomPvpDebugLogTask.java` (temporary,
+    named and javadoc'd as such — delete once confirmed) to log from both `ON_CREATURE_DEATH` and
+    `ON_CREATURE_KILLED` whenever a flagged/karma-bearing bot-controlled phantom dies; if only one of the
+    two fires for the same death, that's this NPE aborting `Playable.doDie()` partway through.
+  - **`brain/fpc_brain.py` needed a wholesale replacement, not a line-level merge** — upstream's own
+    comment (`FPC-071`) says the runtime trade-tag protocol moved from the legacy
+    `[[SHOP:SELL:item:price]]` payload to a bare `[[SHOP]]` tag ("the server no longer reads" the old one),
+    i.e. the new jar's Java side expects a different wire format than our old file spoke. Our three
+    historical fixes on that file (the `deal_note_from_headers()` tuple-arity 500 crash, `[[SHOP:]]`/
+    `[[MEET:]]` tag-leak fixes) were patches against code this rewrite replaced outright — not portable,
+    and moot (their new `deal_note_from_headers()` returns a plain string, not a tuple, so that crash
+    class can't recur). Only one fix still applied after taking their file wholesale: the Groq default
+    model id (`llama-3.3-70b-versatile` → `openai/gpt-oss-120b`, per the Groq gotcha in the brain section
+    below) — upstream's copy still has the retired id. `requirements.txt` (now pinned) and
+    `brain/knowledge/50_items.txt` (fixed a factual error: Interlude has no Blessed Soulshot, "bss" means
+    Blessed Spiritshot) were also safe wholesale replacements. **`setup_brain.sh`/`.bat` needed no changes
+    at all this round** — diffed `.bat` against upstream's and the only difference was the same Groq id we
+    already had fixed; upstream hasn't touched the setup-wizard logic since `v0.1.21-patch`, so there was
+    nothing new to re-port into `.sh` this time (contrast with the `v0.1.21-patch` gotcha above, where
+    upstream had touched `.bat` and left `.sh` behind — check for this every time, it won't always be a
+    no-op).
+  - `game/data/scripts/handlers/MasterHandler.java` was otherwise byte-identical to upstream's copy across
+    `v0.1.22`→`v0.1.25` (no real content change in this window) but overwriting it wholesale would have
+    silently deregistered our own `.wannapwn` admin command (see "Locating players" section below) — it's
+    not in upstream's file at all. Merged by taking upstream's copy and re-adding just the `WannaPwn`
+    import + `WannaPwn.class,` registration line. **Any future jar/script update needs the same check** —
+    diff `MasterHandler.java` before overwriting, don't assume it's purely upstream content.
+  - New files this round with no local customization to lose, taken wholesale: `NpcStatMultipliers.ini`
+    (upstream now defaults `EnableNpcStatMultipliers = True`, nerfing raid/grand bosses to 75%
+    HP/P.Atk/M.Atk — a balance default, not a fix, confirm this is actually wanted), `Olympiad.ini`
+    (upstream default switched to a weekly Olympiad period, `OlympiadPeriod = WEEK` — also a balance
+    default), the brand-new `PhantomOlympiad.ini`, `tools/l2admin/index.html`, and the new
+    `game/modules/alt-companion/` module (`.alt <name>` command, `Enabled = True` by default in its own
+    `module.ini`, already logs its own load line via `context.logging()`).
 
 ## Community Board custom pages — gotchas
 
