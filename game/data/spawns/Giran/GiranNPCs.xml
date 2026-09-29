@@ -2,14 +2,6 @@
 <list enabled="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/spawns.xsd">
 	<spawn name="GiranNPCs">
 		<npc id="30080" x="83396" y="147904" z="-3404" heading="16384" respawnDelay="60" /> <!-- Clarissa -->
-		<npc id="50009" x="83436" y="147934" z="-3404" heading="16384" respawnDelay="60" /> <!-- Global Gatekeeper -->
-		<npc id="900009" x="83496" y="147934" z="-3404" heading="49152" respawnDelay="60" /> <!-- Transmog -->
-		<npc id="50008" x="83436" y="147874" z="-3404" heading="16384" respawnDelay="60" /> <!-- Scheme Buffer -->
-		<npc id="50007" x="83796" y="147904" z="-3404" heading="16384" respawnDelay="60" /> <!-- Wedding Manager -->
-		<npc id="1003000" x="83796" y="148104" z="-3404" heading="16384" respawnDelay="60" /> <!-- Noblesse Master -->
-		<npc id="70010" x="83796" y="148304" z="-3404" heading="16384" respawnDelay="60" /> <!-- TvT Manager -->
-		<npc id="70011" x="83796" y="148504" z="-3404" heading="16384" respawnDelay="60" /> <!-- Deathmatch Manager -->
-		<npc id="70012" x="83796" y="148704" z="-3404" heading="16384" respawnDelay="60" /> <!-- Capture the Flag Manager -->
 		<npc id="30990" x="83331" y="147905" z="-3400" heading="16700" respawnDelay="5" /> <!-- Lottery Ticket Seller -->
 		<npc id="31081" x="83369" y="149273" z="-3400" heading="32500" respawnDelay="60" /> <!-- Priest of Dawn -->
 		<npc id="31419" x="84576" y="148530" z="-3392" heading="65062" respawnDelay="60" /> <!-- Lorel -->

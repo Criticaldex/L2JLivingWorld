@@ -124,6 +124,45 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   town's instance at a new spot (another `<npc id="30857" .../>` spawn line) is enough; no new NPC
   definition needed. Added a second `id 30857` instance next to the Colosseum's Arena Director/Scheme
   Buffer cluster per user request, for subclass changes right at the arena rather than a walk back to town.
+- **Aden is now the server's main hub town, not Giran** — per user request, the whole "hub cluster" that used
+  to sit next to Giran's `id 30080` "Clarissa" teleporter (`game/data/spawns/Giran/GiranNPCs.xml`) was moved
+  wholesale into `game/data/spawns/Aden/AdenNPCs.xml`, re-centered next to Aden's existing Grand Olympiad
+  Manager (`id 31688`, `x=147392 y=27408 z=-2203`) instead of Aden's old town-entrance Global
+  Gatekeeper/Scheme Buffer spot (which was ~1600 units away near Elisa/the Lottery Ticket Seller — those two
+  were relocated, not duplicated). The **static** cluster now spawned there: Global Gatekeeper (`50009`),
+  Scheme Buffer (`50008`), Transmog/Zumzi (`900009`), Wedding Manager (`50007`) — offset 50-150 units from the
+  Olympiad Manager, mirroring the tight-cluster layout Giran used around Clarissa. Giran's `GiranNPCs.xml` now
+  only keeps Clarissa herself
+  (the Heart of Antharas' Lair teleporter — unrelated to the hub, left untouched) and the Lottery Ticket
+  Seller; it lost its Global Gatekeeper/Scheme Buffer *at that specific spot* (Giran still has a second,
+  separate Global Gatekeeper + Scheme Buffer pair near the Harbor/Minerva cluster and its own Grand Olympiad
+  Manager near Elisa's old counterpart — those were deliberately left alone since they're a different, older
+  spawn cluster, not the one being relocated). Transmog and Wedding Manager had no other spawn anywhere else
+  in the repo before this change (verified via `grep -rn '"900009"'\|'"50007"'  game/data/spawns/`), i.e. they
+  were genuinely Giran-only. The **Noblesse Master** (`id 1003000`, config-gated by
+  `game/config/Custom/NoblessMaster.ini`) was removed outright per user request rather than moved — its
+  spawn entry is gone from both towns; the underlying `NoblessMaster.java` script/config/`.htm` files were
+  left in place (untouched, just unreachable with no spawn), so re-adding it later is just one spawn line.
+  **Not verified in-game** — these are hand-picked offsets from decompiled/known-good coordinates, not a
+  live-tested placement; if any NPC in the new Aden cluster turns out clipped into scenery/a building, nudge
+  its `x`/`y` a bit rather than assuming the whole approach is wrong (same caveat as the Colosseum Scheme
+  Buffer addition above).
+- **The TvT/Deathmatch/CtF Managers (`70010`/`70011`/`70012`) are NOT static spawns at all** — despite living
+  next to Clarissa in the old Giran layout, they were never entries in `GiranNPCs.xml`; each event script
+  (`game/data/scripts/custom/events/{TeamVsTeam/TvT.java, Deathmatch/Deathmatch.java,
+  CaptureTheFlag/CtF.java}`) spawns its own manager NPC on demand via `addSpawn(MANAGER, MANAGER_SPAWN_LOC,
+  ...)` when registration opens (`REGISTRATION_TIME` minutes before the match) and despawns it
+  (`MANAGER_NPC_INSTANCE.deleteMe()`) once the event starts/ends — a first pass at this change wrongly added
+  static XML spawn entries for these ids in `AdenNPCs.xml`, which would have created permanent duplicate
+  NPCs alongside the dynamic one; removed again. All three scripts hardcoded the exact same
+  `MANAGER_SPAWN_LOC = new Location(83425, 148585, -3406, 32938)` (Giran, next to the old hub cluster) —
+  updated all three to `new Location(147312, 27260, -2203, 32938)` (Aden, next to the Grand Olympiad
+  Manager) so the on-demand manager now spawns in Aden instead. Also updated each script's one hardcoded
+  `Broadcast.toAllOnlinePlayers("... register at Giran ... Manager.")` line to say Aden. CtF's actual match
+  arena (`BLUE_TEAM_HEADQUARTERS_LOC`/`RED_TEAM_HEADQUARTERS_LOC`/`BLUE_BUFFER_SPAWN_LOC`/
+  `RED_BUFFER_SPAWN_LOC`) was already in the Aden Colosseum and untouched by this change — only the
+  registration-manager spawn point moved. If a future upstream update rewrites these event scripts, check
+  whether `MANAGER_SPAWN_LOC` reverted to the Giran coordinate before assuming the Aden-hub move still holds.
 
 ## Applying upstream engine updates (`libs/GameServer.jar`)
 

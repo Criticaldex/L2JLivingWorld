@@ -10,8 +10,7 @@
 		<npc id="31829" x="147132" y="25936" z="-2016" heading="49000" respawnDelay="60" /> <!-- Adventure Guildsman -->
 		<npc id="30990" x="146738" y="25756" z="-2008" heading="0" respawnDelay="5" /> <!-- Lottery Ticket Seller -->
 		<npc id="30848" x="146737" y="25807" z="-2013" heading="0" respawnDelay="60" /> <!-- Elisa -->
-		<npc id="50009" x="146777" y="25837" z="-2013" heading="0" respawnDelay="60" /> <!-- Global Gatekeeper -->
-		<npc id="50008" x="146777" y="25777" z="-2013" heading="0" respawnDelay="60" /> <!-- Scheme Buffer -->		<npc id="31739" x="147792" y="26368" z="-2107" heading="33000" respawnDelay="60" /> <!-- Talien -->
+		<npc id="31739" x="147792" y="26368" z="-2107" heading="33000" respawnDelay="60" /> <!-- Talien -->
 		<npc id="35442" x="150194" y="23758" z="-2136" heading="33500" respawnDelay="60" /> <!-- Jacques -->
 		<npc id="35441" x="150416" y="23605" z="-2112" heading="0" respawnDelay="60" /> <!-- Dianne -->
 		<npc id="35569" x="149494" y="23219" z="-2136" heading="0" respawnDelay="60" /> <!-- Daniel -->
@@ -78,6 +77,10 @@
 		<npc id="30868" x="147456" y="27488" z="-2204" heading="16384" respawnDelay="60" /> <!-- Sir Eric Rodemai -->
 		<npc id="31688" x="147392" y="27408" z="-2203" heading="16500" respawnDelay="60" /> <!-- Grand Olympiad Manager -->
 		<npc id="31690" x="147504" y="27408" z="-2203" heading="16500" respawnDelay="60" /> <!-- Monument of Heroes -->
+		<npc id="50009" x="147352" y="27300" z="-2203" heading="16500" respawnDelay="60" /> <!-- Global Gatekeeper -->
+		<npc id="900009" x="147412" y="27300" z="-2203" heading="16500" respawnDelay="60" /> <!-- Transmog -->
+		<npc id="50008" x="147352" y="27340" z="-2203" heading="16500" respawnDelay="60" /> <!-- Scheme Buffer -->
+		<npc id="50007" x="147272" y="27300" z="-2203" heading="16500" respawnDelay="60" /> <!-- Wedding Manager -->
 		<npc id="31520" x="146336" y="27088" z="-2208" heading="0" respawnDelay="60" /> <!-- Leikar -->
 		<npc id="30837" x="146787" y="26255" z="-2189" heading="32768" respawnDelay="60" /> <!-- Woodrow -->
 		<npc id="30838" x="146046" y="27293" z="-2189" heading="49152" respawnDelay="60" /> <!-- Woodley -->

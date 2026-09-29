@@ -121,7 +121,7 @@ public class TvT extends Event
 	private static final int INSTANCE_ID = 3049;
 	private static final int BLUE_DOOR_ID = 24190002;
 	private static final int RED_DOOR_ID = 24190003;
-	private static final Location MANAGER_SPAWN_LOC = new Location(83425, 148585, -3406, 32938);
+	private static final Location MANAGER_SPAWN_LOC = new Location(147312, 27260, -2203, 32938);
 	private static final Location BLUE_BUFFER_SPAWN_LOC = new Location(147450, 46913, -3400, 49000);
 	private static final Location RED_BUFFER_SPAWN_LOC = new Location(151545, 46528, -3400, 16000);
 	private static final Location BLUE_SPAWN_LOC = new Location(147447, 46722, -3416);
@@ -1099,7 +1099,7 @@ public class TvT extends Event
 		
 		// Send message to players.
 		Broadcast.toAllOnlinePlayers("TvT Event: Registration opened for " + REGISTRATION_TIME + " minutes.");
-		Broadcast.toAllOnlinePlayers("TvT Event: You can register at Giran TvT Event Manager.");
+		Broadcast.toAllOnlinePlayers("TvT Event: You can register at Aden TvT Event Manager.");
 		
 		// @formatter:off
 		final int[] warnings = {10, 5, 4, 3, 2, 1};

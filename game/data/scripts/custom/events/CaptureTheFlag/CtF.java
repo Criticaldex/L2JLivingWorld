@@ -160,7 +160,7 @@ public class CtF extends Event
 	private static Item RED_TEAM_CARRIER_R_HAND = null;
 	/** The Red Team flag carrier left hand item. */
 	private static Item RED_TEAM_CARRIER_L_HAND = null;
-	private static final Location MANAGER_SPAWN_LOC = new Location(83425, 148585, -3406, 32938);
+	private static final Location MANAGER_SPAWN_LOC = new Location(147312, 27260, -2203, 32938);
 	private static final Location BLUE_BUFFER_SPAWN_LOC = new Location(147450, 46913, -3400, 49000);
 	private static final ZoneForm BLUE_SPAWN_LOC = ZoneManager.getInstance().getZoneByName("blue_team_spawn").getZone();
 	private static final ZoneType BLUE_PEACE_ZONE = ZoneManager.getInstance().getZoneByName("colosseum_peace1");
@@ -1460,7 +1460,7 @@ public class CtF extends Event
 		
 		// Send message to players.
 		Broadcast.toAllOnlinePlayers("CtF Event: Registration opened for " + REGISTRATION_TIME + " minutes.");
-		Broadcast.toAllOnlinePlayers("CtF Event: You can register at Giran CtF Event Manager.");
+		Broadcast.toAllOnlinePlayers("CtF Event: You can register at Aden CtF Event Manager.");
 		
 		// @formatter:off
 		final int[] warnings = {10, 5, 4, 3, 2, 1};

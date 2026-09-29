@@ -103,7 +103,7 @@ public class Deathmatch extends Event
 	private static final int INSTANCE_ID = 3049;
 	private static final int BLUE_DOOR_ID = 24190002;
 	private static final int RED_DOOR_ID = 24190003;
-	private static final Location MANAGER_SPAWN_LOC = new Location(83425, 148585, -3406, 32938);
+	private static final Location MANAGER_SPAWN_LOC = new Location(147312, 27260, -2203, 32938);
 	private static final ZoneForm SPAWN_1 = ZoneManager.getInstance().getZoneByName("colosseum_battle1").getZone();
 	private static final ZoneForm SPAWN_2 = ZoneManager.getInstance().getZoneByName("colosseum_battle2").getZone();
 	private static final ZoneForm SPAWN_3 = ZoneManager.getInstance().getZoneByName("colosseum_battle3").getZone();
@@ -850,7 +850,7 @@ public class Deathmatch extends Event
 		
 		// Send message to players.
 		Broadcast.toAllOnlinePlayers("Deathmatch Event: Registration opened for " + REGISTRATION_TIME + " minutes.");
-		Broadcast.toAllOnlinePlayers("Deathmatch Event: You can register at Giran Event Manager.");
+		Broadcast.toAllOnlinePlayers("Deathmatch Event: You can register at Aden Event Manager.");
 		
 		// @formatter:off
 		final int[] warnings = {10, 5, 4, 3, 2, 1};
