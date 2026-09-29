@@ -906,6 +906,36 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   recent-past edit; if a `SkillDurationList` change still doesn't seem to apply in-game, confirm the
   server has actually been restarted since the edit before re-investigating the mechanism itself.
 
+## Lifestone augmentation rates (`Player.ini`'s "Augmenting" section) — `RetailLikeAugmentation` silently disables the per-grade Skill/Glow knobs
+
+- Two independent rate mechanisms live in the same ini block and only one is ever active at a time, gated
+  by a single boolean: **`RetailLikeAugmentation`**. Confirmed by decompiling `AugmentationData
+  .generateRandomAugmentation()` (`javap -p -c` on `libs/GameServer.jar`, JDK 17's `javap` parses this
+  particular class fine despite the version-69 gotcha noted elsewhere in this file) — the method branches
+  on `PlayerConfig.RETAIL_LIKE_AUGMENTATION` right at the top:
+  - `True` (the shipped default): only reads the four `RetailLikeAugmentation{NoGrade,Mid,High,Top}
+    GradeChance` lists (yellow/blue/purple/red % split per grade, must sum to 100; purple+red = skill
+    chance).
+  - `False`: only reads `AugmentationNGSkillChance`/`MidSkillChance`/`HighSkillChance`/`TopSkillChance`
+    and the matching `*GlowChance` knobs.
+  **The other set is not merely "lower priority" — it is never read at all** in whichever mode you're not
+  in. A user report of "we set custom augment rates and they're not there anymore" traced back to exactly
+  this: `RetailLikeAugmentation = True` was set, so any custom `AugmentationXSkillChance`/`XGlowChance`
+  values were silently dead config the whole time — and `git log -p -- game/config/Player.ini` showed the
+  entire Augmenting section, including the `RetailLikeAugmentation*GradeChance` lists, byte-identical to
+  the very first commit (`99fdb9fe`) with no other backup file holding different numbers, so whatever
+  custom values existed were never actually committed anywhere in this repo either.
+- First fix attempt flipped `RetailLikeAugmentation` to `False` and raised the flat `AugmentationXSkillChance`
+  knobs instead — reverted once the user clarified they specifically meant **"purple and red"**, which is
+  retail-color terminology that only exists in the `RetailLikeAugmentation = True` branch; the flat
+  non-retail mode has no color concept at all, so that fix didn't address the actual request despite also
+  raising skill chance numerically. Left `AugmentationXSkillChance`/`XGlowChance` back at stock
+  (`15/30/45/60` and `0/40/70/100`) since they're dead config again with `RetailLikeAugmentation = True`.
+  **Actual fix**: kept `RetailLikeAugmentation = True` and raised all four
+  `RetailLikeAugmentation{NoGrade,Mid,High,Top}GradeChance` lists from stock `55,35,7,3` (10% purple+red)
+  to `20,10,40,30` (70% purple+red) per user request. Same restart caveat as `SkillDurationList` above
+  applies — this needs a full GameServer restart to take effect, not `//reload config`.
+
 ## Grand bosses (Antharas/Valakas) don't stand in their lairs by default — this is by design
 
 - A grand boss having DB status `ALIVE` (the default seed in `db_installer/sql/game/grandboss_data.sql`,
