@@ -858,6 +858,67 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   client - e.g. reflectively wrapping/short-circuiting just `AntiFeedManager.check()`'s result for a
   bot-controlled victim, not making `getClient()` return non-null globally.
 
+## Bots farming the Manor system for castle treasury income (`ManorBotBuyerTask.java`)
+
+- Added `game/data/scripts/custom/FakePlayers/ManorBotBuyerTask.java` per user request ("I want the bots to
+  use manor system in Aden where I'm castle lord... so I can get some adena in castle vault"). Decompiling
+  `RequestBuySeed`/`RequestProcureCropList`/`CastleManorManager.changeMode()` in `libs/GameServer.jar`
+  established the actual money mechanics first: **buying a seed is the only manor action that credits the
+  castle treasury** (`Castle.addToTreasuryNoTax(price*count)`, called per unit sold). Selling crops back
+  never touches the treasury at all — it mints reward items to the seller and burns a 5% cash-out fee as a
+  pure sink. So this script only ever makes bots *buy* seeds; a full buy→sow→harvest→sell loop was
+  considered and deliberately dropped, since the sell half adds real complexity for zero treasury benefit.
+- Only **Player-typed** bots (phantoms/hunters/recruits/buddies/regulars, detected via
+  `PhantomManager.isPhantom/isRecruit/isBuddy/isRegular` — the same two-part `isBotControlled` idiom every
+  other script in this directory uses) can participate. Npc-based ambient fake players have no
+  inventory/adena at all (`asPlayer()` returns `null` for them, same gotcha documented above under "Fake
+  player combat AI gaps") — structurally unusable for this, and since `World.getInstance().getPlayers()`
+  only ever returns real `Player` instances anyway, the `isFakePlayer()` half of that check is dead code
+  here in practice (kept anyway, purely for consistency with the rest of this script family).
+- **`CastleManorManager.updateCurrentProduction(int, Collection<SeedProduction>)` looks like a "set the live
+  seed offer" method from its name, but decompiling it (`javap -p -c`) shows it's actually just a DB
+  persistence helper** — it only runs a batch `UPDATE castle_manor_production SET amount = ? WHERE
+  castle_id = ? AND seed_id = ? AND next_period = 0` for rows that **already exist**. It never touches the
+  in-memory `_production` map and cannot create a brand-new offer. On a fresh install `castle_manor_procure`/
+  `castle_manor_production` are seeded empty for every castle, so there is nothing to buy from at all until
+  something creates a first offer. Don't reuse this method expecting it to inject new seed data — it will
+  silently no-op when there's no existing row to match.
+- The **only** normal way a fresh offer gets created is the real lord's client submitting
+  `RequestSetSeed` → the public `CastleManorManager.setNextSeedProduction(...)`, followed by the
+  MODIFIABLE→MAINTENANCE→APPROVED period transition inside `changeMode()` (daily cycle, driven by
+  `game/config/General.ini`'s `AltManorRefreshTime`/`AltManorApproveTime`/`AltManorMaintenanceMin` — default
+  MODIFIABLE opens 20:00, APPROVED goes live 06:00). **Deliberately not used here**: that APPROVED
+  transition pre-debits the treasury by the full theoretical `getManorCost()` of whatever was configured
+  (seed sale value + crop buy-back value) and only refunds the unsold portion at the next MAINTENANCE swap —
+  a real risk of temporarily (or, if a timing assumption here is ever wrong, for longer) draining the vault,
+  which is the opposite of this feature's entire purpose.
+- Instead, this script **reflectively writes directly into `CastleManorManager`'s private final
+  `_production` map** (`CastleManorManager.class.getDeclaredField("_production")` +
+  `setAccessible(true)`) — the exact same map `getSeedProduction()`/`getSeedProduct()` read from at runtime,
+  and the same map the manager's own public `storeMe()` persists to `castle_manor_production` (confirmed via
+  decompile: `storeMe()` does a full `DELETE FROM castle_manor_production` + re-`INSERT` of everything
+  currently in `_production`/`_productionNext`, safe to call after mutating `_production` for just Aden
+  since every other castle's legitimately-configured data is still sitting in that same map, untouched, and
+  gets faithfully re-persisted alongside it). This is the same class of reflection already established
+  elsewhere in this datapack for private fields with no public setter — `SubclassUnlock.java` on
+  `VillageMaster.subclassSetMap`, `HomeBoard.java` on `MultisellData`'s private `_entries`. Never touching
+  `_productionNext` means `changeMode()`'s upfront debit logic has nothing to charge for, ever — this
+  design can only add money to the vault, never risk draining it.
+- **`SeedProduction`'s public constructor parameter order is `(seedId, amount, price, startAmount)`, NOT
+  `(seedId, price, startAmount, amount)`** — easy to get backwards from the field declaration order alone
+  (`_seedId`, `_price`, `_startAmount`, `_amount` — fields are declared in one order, the constructor
+  assigns them in a different order). Confirmed by decompiling the constructor bytecode directly
+  (`javap -p -c`), not by trusting the field list. Get this wrong and every seed's price/quantity would be
+  silently swapped with no compile error.
+- Every seed's live stock is refilled to `Seed.getSeedLimit()` (quantity) at `Seed.getSeedMaxPrice()` (both
+  public, decompile-confirmed) whenever the *entire* current offer for Aden is exhausted (not per-seed —
+  simpler, and "top up the whole basket once it's empty" was judged close enough to "auto-configure every
+  period" for this use case). Each sweep (60s) has already-online bot-controlled players buy a batch
+  (~10% of a seed's limit, so roughly 10 sweeps to drain one seed) from a random currently-live seed,
+  minting the exact purchase cost onto the chosen bot via `addAdena` immediately before `reduceAdena` spends
+  it (a bare `reduceAdena` would otherwise almost always fail, since these bots don't naturally carry any
+  adena) — no seed item is ever granted, since there's no sow/harvest/sell step to consume it.
+
 ## Death handling and custom skill effects
 
 - Datapack effect classes under `game/data/scripts/handlers/skill/effects/*.java` get their `onExit()`
