@@ -406,11 +406,8 @@
 
 	<!-- Spellsinger line: water. Pack AoEs ahead of the single-target rotation. -->
 	<playstyle name="Mystic Muse" classIds="27,103">
-		<skill id="1177" name="Wind Strike"        use="PULL"     when="ALWAYS" />
-		<skill id="1071" name="Surrender To Water" use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" />
-		<skill id="1174" name="Frost Wall"         use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" />
-		<skill id="1181" name="Flame Strike"       use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" maxLevel="45" />
 		<skill id="1235" name="Hydro Blast"        use="ROTATION" when="ALWAYS" />
+		<skill id="1181" name="Flame Strike"       use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" maxLevel="45" />
 		<skill id="1237" name="Ice Dagger"         use="ROTATION" when="MP_ABOVE" mpAbove="35" maxLevel="69" />
 		<skill id="1175" name="Aqua Swirl"         use="ROTATION" when="MP_ABOVE" mpAbove="35" maxLevel="45" />
 		<skill id="1184" name="Ice Bolt"           use="ROTATION" when="MP_ABOVE" mpAbove="30" maxLevel="45" />
@@ -418,13 +415,8 @@
 
 	<!-- Spellhowler line: wind. Pack AoEs ahead of the single-target rotation. -->
 	<playstyle name="Storm Screamer" classIds="40,110">
-		<skill id="1177" name="Wind Strike"       use="PULL"     when="ALWAYS" />
-		<skill id="1074" name="Surrender To Wind" use="DEBUFF"   when="DEBUFF_MISSING,DURABLE_TARGET" />
-		<skill id="1176" name="Tempest"           use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" />
-		<skill id="1181" name="Flame Strike"      use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" maxLevel="45" />
 		<skill id="1239" name="Hurricane"         use="ROTATION" when="ALWAYS" />
-		<skill id="1064" name="Silence"           use="CONTROL"  when="DEBUFF_MISSING,DURABLE_TARGET" paceMs="10000" />
-		<skill id="1160" name="Slow"              use="CONTROL"  when="DEBUFF_MISSING,DURABLE_TARGET" paceMs="8000" />
+		<skill id="1181" name="Flame Strike"      use="AOE"      when="MOBS_NEAR" mobsAtLeast="3" maxLevel="45" />
 		<skill id="1234" name="Vampiric Claw"     use="ROTATION" when="MP_ABOVE" mpAbove="35" maxLevel="69" />
 		<skill id="1178" name="Twister"           use="ROTATION" when="MP_ABOVE" mpAbove="35" maxLevel="45" />
 		<skill id="1184" name="Ice Bolt"          use="ROTATION" when="MP_ABOVE" mpAbove="30" maxLevel="45" />
