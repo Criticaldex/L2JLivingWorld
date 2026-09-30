@@ -1,4 +1,15 @@
 {
+  "asfar": {
+    "party": [],
+    "player": "Asfar",
+    "social": [],
+    "trade": [
+      {
+        "seen": 1790703250,
+        "text": "Player uses trade chat to sell items."
+      }
+    ]
+  },
   "dafny": {
     "party": [],
     "player": "Dafny",
