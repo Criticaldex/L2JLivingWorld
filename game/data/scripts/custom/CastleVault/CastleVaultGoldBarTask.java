@@ -20,6 +20,7 @@
  */
 package custom.CastleVault;
 
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -48,6 +49,10 @@ public class CastleVaultGoldBarTask
 	private static final int CASTLE_ID = 5; // Aden
 	private static final long GOLD_BAR_THRESHOLD = 1_000_000_000L;
 	private static final int GOLD_BAR_ITEM_ID = 3470;
+
+	// Drained by CastleTaxTracker so it can tell this task's own withdrawals apart from real castle tax
+	// when reconstructing tax income from treasury deltas (see CastleTaxTracker's own javadoc).
+	private static final AtomicLong WITHDRAWN_SINCE_LAST_CHECK = new AtomicLong();
 
 	private CastleVaultGoldBarTask()
 	{
@@ -90,12 +95,22 @@ public class CastleVaultGoldBarTask
 			}
 
 			warehouse.addItem(ItemProcessType.REWARD, GOLD_BAR_ITEM_ID, bars, null, null);
+			WITHDRAWN_SINCE_LAST_CHECK.addAndGet(withdrawAmount);
 			LOGGER.info("CastleVaultGoldBarTask: converted " + withdrawAmount + " Adena from Aden's treasury into " + bars + " Gold Bar(s) in " + owner.getName() + "'s guild warehouse.");
 		}
 		catch (Exception e)
 		{
 			LOGGER.log(Level.WARNING, "CastleVaultGoldBarTask: error while sweeping.", e);
 		}
+	}
+
+	/**
+	 * @return the total this task has withdrawn from Aden's treasury since the last call, then resets the
+	 * counter to zero. Called by CastleTaxTracker only - not intended for general use.
+	 */
+	public static long drainWithdrawnSinceLastCheck()
+	{
+		return WITHDRAWN_SINCE_LAST_CHECK.getAndSet(0);
 	}
 
 	public static void main(String[] args)

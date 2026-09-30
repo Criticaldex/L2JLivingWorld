@@ -70,6 +70,7 @@
 		<npc id="30841" x="148860" y="27959" z="-2253" heading="16384" respawnDelay="60" /> <!-- Carson -->
 		<npc id="30767" x="148560" y="27104" z="-2208" heading="33000" respawnDelay="60" /> <!-- Auctioneer -->
 		<npc id="31828" x="148496" y="26544" z="-2208" heading="16500" respawnDelay="60" /> <!-- Adventure Guildsman -->
+		<npc id="35274" x="148045" y="26582" z="-2200" heading="16384" respawnDelay="60" /> <!-- Logan, Aden Castle Chamberlain -->
 		<npc id="30843" x="148859" y="27258" z="-2216" heading="49152" respawnDelay="60" /> <!-- Romp -->
 		<npc id="30845" x="148960" y="26145" z="-2218" heading="24576" respawnDelay="60" /> <!-- Klump -->
 		<npc id="30844" x="148155" y="26254" z="-2217" heading="0" respawnDelay="60" /> <!-- Walderal -->

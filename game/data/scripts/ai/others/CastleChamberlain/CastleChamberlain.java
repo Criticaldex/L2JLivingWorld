@@ -58,6 +58,8 @@ import org.l2jmobius.gameserver.network.serverpackets.ExShowSeedSetting;
 import org.l2jmobius.gameserver.network.serverpackets.NpcHtmlMessage;
 import org.l2jmobius.gameserver.util.FormatUtil;
 
+import custom.CastleVault.CastleTaxTracker;
+
 /**
  * Castle Chamberlain AI.
  * @author malyelfik
@@ -809,7 +811,7 @@ public class CastleChamberlain extends Script
 					
 					final NpcHtmlMessage html = getHtmlPacket(player, npc, "castlemanagevault.html");
 					html.replace("%tax_income%", FormatUtil.formatAdena(castle.getTreasury()));
-					html.replace("%tax_income_reserved%", "0"); // TODO: Implement me!
+					html.replace("%tax_income_reserved%", FormatUtil.formatAdena(CastleTaxTracker.getTaxIncome(castle.getResidenceId())));
 					html.replace("%seed_income%", FormatUtil.formatAdena(seedIncome));
 					player.sendPacket(html);
 				}

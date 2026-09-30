@@ -147,6 +147,21 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   live-tested placement; if any NPC in the new Aden cluster turns out clipped into scenery/a building, nudge
   its `x`/`y` a bit rather than assuming the whole approach is wrong (same caveat as the Colosseum Scheme
   Buffer addition above).
+- **Added a second Castle Chamberlain to Aden's town hub, near the Adventure Guildsman** (`id 35274`,
+  "Logan" — the stock Aden-specific Chamberlain; the 9 castles each have their own uniquely-named/ID'd
+  Chamberlain, registered as a single generic `CastleChamberlain.java` script keyed off all 9 ids at once
+  via `@Id({35100, 35142, 35184, 35226, 35274, 35316, 35363, 35509, 35555})` — cross-referenced each id's
+  existing `game/data/spawns/Castles/*.xml` spawn to confirm 35274 is specifically Aden's), per user
+  request, at `x=148045 y=26582 z=-2200 heading=16384` in `AdenNPCs.xml`. Logan already has a stock spawn
+  inside the actual castle keep (`game/data/spawns/Castles/Aden.xml:19`, `x=147412 y=3355 z=-46`, a
+  completely different, keep-interior coordinate space) — this is a second, convenience-only duplicate in
+  the town hub itself, not a relocation, same pattern as the Colosseum Scheme Buffer/VillageMaster
+  duplicates above. Heading `16384` = facing south: derived from decompiling
+  `LocationUtil.calculateHeadingFrom(int,int,int,int)` (`atan2(dy,dx)` in degrees, `× 182.044444` to convert
+  to the 0-65536 heading range) and this repo's already-established `+Y = South` world-axis convention (see
+  the `.wannapwn` section below) — `atan2` gives 90° for pure `+Y` movement, `90 × 182.044444 = 16384`
+  exactly. Cross-checked against Logan's own existing keep spawn (`heading="16389"`, 5 units off — normal
+  retail data-entry noise) as independent confirmation this formula/convention is right.
 - **Duplicated the same Global Gatekeeper/Scheme Buffer/Transmog/Wedding Manager cluster next to Rune's own
   Grand Olympiad Manager** (`id 31688`, `x=36048 y=-48208 z=-1095`, `game/data/spawns/Rune/RuneNPCs.xml`),
   per user request — this is an *addition*, not a relocation: Rune already had its own, unrelated Global
@@ -1037,6 +1052,43 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   being minted," check castle ownership (`clan_data.hasCastle`) before assuming this script is broken.
 - If `getTreasury()` is ever ≥ 2,000,000,000 in one sweep (e.g. a huge single deposit), `bars` will be
   computed as 2 (or more) and both are withdrawn/minted in the same sweep — not capped to one per tick.
+
+## Real castle tax income tracking (`CastleTaxTracker.java`) — the Chamberlain's "tax collected" was a hardcoded stub
+
+- `game/data/scripts/ai/others/CastleChamberlain/CastleChamberlain.java`'s manage-vault page
+  (`castlemanagevault.html`'s `%tax_income_reserved%`, labeled "Tax revenue collected so far" in-game) was
+  **hardcoded to the literal string `"0"` with a `// TODO: Implement me!` comment** — it never reflected
+  anything real, regardless of tax rate, purchases, or castle ownership. This was found live while
+  debugging "why doesn't buying from Lorenzo/Woodrow increase tax revenue" — the actual treasury total
+  (`%tax_income%`, "There is currently X Adena in the castle vault", same page) WAS increasing correctly
+  the whole time (confirmed via `CastleVaultGoldBarTask` successfully converting a real 1B-Adena chunk of
+  it); the *other* line on that page was simply dead.
+- The closed engine has no field or event that isolates "how much of this treasury came from tax" —
+  `Castle.getTreasury()` is just the raw running balance, mixing tax with anything else that ever touched
+  it (Manor bot seed income, manual Chamberlain vault withdrawals, etc.), and there's no
+  `ON_CASTLE_TREASURY_CHANGED`-style event to hook. `game/data/scripts/custom/CastleVault/
+  CastleTaxTracker.java` reconstructs it indirectly instead: every 60s, for every castle, it diffs
+  `getTreasury()` against the previous sweep's reading, then — for Aden only — subtracts whatever
+  `ManorBotBuyerTask.drainIncomeSinceLastCheck()` added (that task's own seed-buying income, not tax) and
+  adds back whatever `CastleVaultGoldBarTask.drainWithdrawnSinceLastCheck()` removed (its own withdrawals);
+  what's left is attributed to real tax and accumulated into a per-castle running total. Both `drain*()`
+  methods are new `AtomicLong`-backed getters added to those two tasks specifically so this tracker could
+  tell its own scripts' money movements apart from everything else — **any future script that also
+  credits/debits Aden's treasury directly needs the same `drain*SinceLastCheck()` pattern added and wired
+  into `CastleTaxTracker.sweep()`, or it will get silently misattributed as "tax."**
+- For castles other than Aden, the formula simplifies to just the raw treasury delta, since this datapack
+  doesn't touch any other castle's treasury at all — so for those, "tax income" is actually accurate by
+  construction, not an approximation.
+- A negative delta (e.g. a lord manually withdrawing adena via the Chamberlain's own vault "Withdraw"
+  button, `CastleChamberlain.java` around line 855) is **ignored, not subtracted** — this tracks cumulative
+  tax *collected over time*, not the current balance, so spending it later shouldn't erase history. The
+  tradeoff: a withdrawal and a real tax credit landing in the same 60s sweep window can partially cancel
+  out in the diff, undercounting that specific window. Acceptable for "roughly how much tax have we made,"
+  not exact accounting.
+- **Not persisted anywhere — resets to 0 on every GameServer restart**, consistent with
+  `ManorBotBuyerTask`/`CastleVaultGoldBarTask` not persisting their own in-memory counters either. If
+  someone wants this to survive restarts, it would need a new DB-backed counter (e.g. a new column, or a
+  simple key-value table) — not implemented, no strong need identified yet.
 
 ## Death handling and custom skill effects
 

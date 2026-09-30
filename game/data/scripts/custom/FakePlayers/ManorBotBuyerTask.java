@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -76,6 +77,11 @@ public class ManorBotBuyerTask
 	private static final double BATCH_FRACTION = 0.1; // ~10 sweeps to exhaust one seed's full stock
 
 	private static final Random RANDOM = new Random();
+
+	// Drained by custom.CastleVault.CastleTaxTracker to tell apart this task's own income from real castle
+	// tax when it reconstructs tax income from treasury deltas (the closed engine doesn't expose that split
+	// itself - see CastleTaxTracker's own javadoc).
+	private static final AtomicLong INCOME_SINCE_LAST_CHECK = new AtomicLong();
 
 	private final Field productionField;
 
@@ -166,7 +172,17 @@ public class ManorBotBuyerTask
 		}
 
 		castle.addToTreasuryNoTax(cost);
+		INCOME_SINCE_LAST_CHECK.addAndGet(cost);
 		LOGGER.info("ManorBotBuyerTask: " + buyer.getName() + " bought " + batch + "x seed " + seedProduction.getId() + " for " + cost + " adena - credited to Aden treasury.");
+	}
+
+	/**
+	 * @return the total this task has credited to Aden's treasury since the last call, then resets the
+	 * counter to zero. Called by custom.CastleVault.CastleTaxTracker only - not intended for general use.
+	 */
+	public static long drainIncomeSinceLastCheck()
+	{
+		return INCOME_SINCE_LAST_CHECK.getAndSet(0);
 	}
 
 	@SuppressWarnings("unchecked")
