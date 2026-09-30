@@ -42,6 +42,7 @@ import org.l2jmobius.commons.threads.ThreadPool;
 import org.l2jmobius.gameserver.cache.HtmCache;
 import org.l2jmobius.gameserver.config.custom.CommunityBoardConfig;
 import org.l2jmobius.gameserver.config.custom.PremiumSystemConfig;
+import org.l2jmobius.gameserver.data.SpawnTable;
 import org.l2jmobius.gameserver.data.sql.ClanTable;
 import org.l2jmobius.gameserver.data.xml.ExperienceData;
 import org.l2jmobius.gameserver.data.xml.MultisellData;
@@ -51,6 +52,7 @@ import org.l2jmobius.gameserver.handler.IParseBoardHandler;
 import org.l2jmobius.gameserver.managers.PcCafePointsManager;
 import org.l2jmobius.gameserver.managers.PremiumManager;
 import org.l2jmobius.gameserver.model.actor.Creature;
+import org.l2jmobius.gameserver.model.actor.Npc;
 import org.l2jmobius.gameserver.model.actor.Player;
 import org.l2jmobius.gameserver.model.actor.Summon;
 import org.l2jmobius.gameserver.model.item.enums.ItemProcessType;
@@ -59,6 +61,7 @@ import org.l2jmobius.gameserver.model.multisell.Entry;
 import org.l2jmobius.gameserver.model.multisell.Ingredient;
 import org.l2jmobius.gameserver.model.multisell.ListContainer;
 import org.l2jmobius.gameserver.model.skill.Skill;
+import org.l2jmobius.gameserver.model.spawns.Spawn;
 import org.l2jmobius.gameserver.model.zone.ZoneId;
 import org.l2jmobius.gameserver.network.serverpackets.MagicSkillUse;
 import org.l2jmobius.gameserver.network.serverpackets.SellList;
@@ -77,6 +80,9 @@ public class HomeBoard implements IParseBoardHandler
 	// The CB page HTML is capped by the client at ~12270 characters (HtmlUtil.sendCBHtml); this keeps the
 	// sell-junk confirmation list well under that regardless of how cluttered the player's inventory is.
 	private static final int MAX_SELLCRAFT_LIST_ROWS = 40;
+
+	// Lorenzo, Aden — real type="Merchant" npc, used only to resolve Aden's castle for CB purchase tax (see getAdenTaxNpc()).
+	private static final int ADEN_TAX_NPC_ID = 30840;
 	
 	private static final String[] COMMANDS =
 	{
@@ -182,7 +188,7 @@ public class HomeBoard implements IParseBoardHandler
 			final int multisellId = Integer.parseInt(buypassOptions[0]);
 			final String page = buypassOptions[1];
 			returnHtml = HtmCache.getInstance().getHtm(player, "data/html/CommunityBoard/Custom/" + page + ".html");
-			ThreadPool.schedule(() -> MultisellData.getInstance().separateAndSend(multisellId, player, null, false), 100);
+			ThreadPool.schedule(() -> MultisellData.getInstance().separateAndSend(multisellId, player, getAdenTaxNpc(), false), 100);
 		}
 		else if (command.startsWith("_bbsexcmultisell"))
 		{
@@ -191,7 +197,7 @@ public class HomeBoard implements IParseBoardHandler
 			final int multisellId = Integer.parseInt(buypassOptions[0]);
 			final String page = buypassOptions[1];
 			returnHtml = HtmCache.getInstance().getHtm(player, "data/html/CommunityBoard/Custom/" + page + ".html");
-			ThreadPool.schedule(() -> MultisellData.getInstance().separateAndSend(multisellId, player, null, true), 100);
+			ThreadPool.schedule(() -> MultisellData.getInstance().separateAndSend(multisellId, player, getAdenTaxNpc(), true), 100);
 		}
 		else if (command.startsWith("_bbssell"))
 		{
@@ -404,6 +410,18 @@ public class HomeBoard implements IParseBoardHandler
 	// Frintezza) - valuable raid drops, never sold by this merchant, but not flagged non-sellable in their
 	// own item stats either, so they'd otherwise get swept into "Sell Junk" like any other loose item.
 	private static final Set<Integer> BOSS_JEWELRY_ITEM_IDS = new HashSet<>(Arrays.asList(6656, 6657, 6658, 6659, 6660, 6661, 6662, 8191));
+
+	/**
+	 * Resolves a live Npc reference in Aden so multisell purchases made through this Community Board go
+	 * through the engine's normal castle-tax path (which requires a non-null npc whose getCastle() resolves
+	 * correctly) instead of silently skipping tax entirely.
+	 * @return the currently-spawned Lorenzo instance, or null if not currently spawned (e.g. respawn window)
+	 */
+	private static Npc getAdenTaxNpc()
+	{
+		final Spawn spawn = SpawnTable.getInstance().getAnySpawn(ADEN_TAX_NPC_ID);
+		return spawn != null ? spawn.getLastSpawn() : null;
+	}
 
 	/**
 	 * Gets the sellable items in the given player's inventory that aren't otherwise purchasable from this

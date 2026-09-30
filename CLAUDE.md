@@ -548,6 +548,77 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   shown/paid is always computed from the full unfiltered list, only the *display* is capped. Any other
   dynamically-built CB page that lists per-inventory-item or per-row data (not just this one) needs the same
   cap-and-summarize treatment if the row count isn't bounded by design.
+- **CB merchant purchases (`_bbsmultisell`/`_bbsexcmultisell` in `HomeBoard.java`) silently generated zero
+  castle tax, forever, regardless of Aden's configured tax rate** — both call sites passed `null` as the
+  `Npc` argument to `MultisellData.getInstance().separateAndSend(multisellId, player, npc, exclusive)`.
+  Decompile-confirmed (`javap -p -c` on `libs/GameServer.jar`): `PreparedListContainer`'s constructor skips
+  its entire tax-setup block (which calls `npc.getCastle()`/`getTaxRate()`) whenever `npc == null`, so
+  `Entry.getTaxAmount()` stays `0` and `MultiSellChoose`'s treasury-credit block (gated on
+  `getTaxAmount() > 0`) never fires — no error, no log, just permanently disabled taxation for every CB
+  purchase. Fixed by resolving a live reference to Lorenzo (`id 30840`, `type="Merchant"`, already spawned
+  in Aden at `AdenNPCs.xml:88`) via `SpawnTable.getInstance().getAnySpawn(30840).getLastSpawn()`
+  (`HomeBoard.getAdenTaxNpc()`) and passing that instead of `null` at both call sites. Confirmed safe:
+  `ListContainer.isNpcAllowed(int)` gates which npcs a given multisell list accepts, but every CB custom
+  multisell file already declares `<npcs><npc>-1</npc></npcs>` (e.g. `multisell/custom/61000.xml:3-4`) — a
+  wildcard sentinel checked first in `MultisellData.separateAndSend`, so passing a real npc instead of null
+  can't trip any list's npc restriction.
+  - **Related, more general findings from the same investigation** (useful for any future "make X generate
+    castle tax" request, not just this one): private-store tax does not exist anywhere in this engine build
+    — exhaustively grepped every class-file constant pool under `org/l2jmobius/gameserver/` for
+    `getTaxPercent`/`getTaxRate`/`addToTreasury`, and none of `RequestPrivateStoreBuy/Sell`,
+    `SetPrivateStoreList*`, or `TradeList` reference `Castle` at all; it was simply never ported/implemented,
+    not disabled by config. **Selling to an NPC never generates tax either**, regardless of location —
+    `RequestSellItem.runImpl()` calls `Player.addAdena()` directly with zero `Castle` interaction. Only
+    **buying** taxes a castle, via `Merchant.getCastle().addToTreasury()` in both `RequestBuyItem` (regular
+    NPC shop) and `MultiSellChoose` (multisell) — and per-merchant tax rate/castle assignment comes from
+    `game/data/MerchantPriceConfig.xml`'s zone-based `priceConfig` → `castleId` mapping (resolved once at
+    `Merchant.onSpawn()` via `ZoneManager`, cached on the instance as `_mpc`), not from any per-npc XML
+    attribute — `defaultPriceConfig="18"` is the fallback for a merchant that isn't inside *any* configured
+    zone, and belongs to a *different* castle (Gludio), so a badly-placed custom merchant could end up
+    silently taxing the wrong castle entirely if its spawn point falls outside every known town zone.
+  - **A second, unrelated blocker was found live while testing this fix, worth remembering for any future
+    "castle X isn't earning tax/treasury" report**: `Castle.addToTreasury(long)` (decompiled) opens with
+    `if (_ownerId <= 0) return;` — a silent no-op if the castle has no recognized owner clan. `_ownerId` is
+    loaded once at boot from `SELECT clan_id FROM clan_data WHERE hasCastle = ?`; a castle handed to a clan
+    via a GM command rather than a real siege win will generally NOT have updated `clan_data.hasCastle` (no
+    script in this datapack ever writes that column — confirmed via repo-wide grep, it's engine-internal,
+    normally only touched by siege conclusion), leaving `_ownerId == 0` and every `addToTreasury()` call on
+    that castle a permanent no-op regardless of tax rate, buyer, or npc. Fix is a live DB update
+    (`UPDATE clan_data SET hasCastle = <castle id> WHERE clan_id = <owning clan>`, clearing any other clan
+    already holding that value first) plus a full GameServer restart — no `//reload` covers castle ownership.
+    This guard does **not** affect `addToTreasuryNoTax()` (used by `ManorBotBuyerTask.java` for the Manor
+    seed-buying income) — that method has no ownership check, which is exactly why Manor bot income already
+    worked on this server before castle ownership was ever correctly set, while regular shop/CB purchase tax
+    silently didn't.
+  - **Correction, found later: the `_ownerId` guard above was NOT the actual blocker for this server** —
+    the user confirmed `clan_data.hasCastle = 5` correctly points to their clan (verified via a live
+    `mysql`/`mariadb` query) AND did a full GameServer restart afterward, yet buying from real Aden
+    merchants (Lorenzo `30840`, Woodrow `30837`) still credited zero tax to the vault. Re-decompiling end to
+    end (`Castle.addToTreasury`, `getTaxPercent`/`setTaxPercent`/`getTaxRate`, `MerchantPriceConfig
+    .getCastleTaxRate()`) confirmed all of those are correct and live (no staleness, no second guard) — the
+    real suspect is `Npc.getCastle()` itself (decompiled `javap -p -c` on `Npc.class`): it resolves the
+    castle via `TownManager.getTown(x,y,z)` → `TownZone.getTaxById()` → `CastleManager.getCastleIndex(id)`
+    **only the first time it's ever called on that specific `Npc` instance**, then caches the resulting
+    list-index in a private `_castleIndex` field (constructor-initialized to the sentinel `-2`, per
+    `javap`) for the rest of that instance's lifetime — every subsequent call just returns
+    `getCastles().get(_castleIndex))` with no re-check, ever, and there is no reload/reset for it, only a
+    fresh `Npc` object (a real respawn, or a full server restart) gets a fresh `-2` and recomputes. If
+    whatever code path FIRST calls `getCastle()` on Lorenzo/Woodrow during this engine's boot sequence runs
+    before `ZoneManager` has finished loading `custom_town.xml`'s `TownZone`s, `TownManager.getTown()`
+    returns `null`, and the method falls back to `CastleManager.findNearestCastleIndex()` (nearest castle by
+    raw distance) instead — silently caching the WRONG castle's index forever, with the merchant's own
+    `MerchantPriceConfig`-based tax *rate* still correctly showing Aden's 15% (that lookup is separate and
+    NOT cached the same way), producing exactly the observed symptom: correct rate, zero credited. **Not yet
+    confirmed, only a strong hypothesis** — `game/data/scripts/custom/CastleTaxDebug/
+    AdenCastleZoneBootTraceTask.java` is a TEMPORARY diagnostic script (delete once this is resolved) that
+    logs, at server boot and at +5s/+15s/+30s/+60s, both `TownManager.getTown()`'s live result for
+    Lorenzo's exact coordinates and Lorenzo's own (possibly already wrongly-cached) `getCastle()` result —
+    if `getCastle()` shows a non-Aden `residenceId` even at +60s (long after zones must be loaded), the bug
+    is the caching itself, not a one-time boot race; if `getTown()` is null early but valid later, that
+    times the race precisely. Check `game/log/` for lines prefixed `AdenCastleZoneBootTrace:` after a
+    restart. If confirmed, the fix would need to live in the closed engine (binary patch to stop caching, or
+    to force a fresh lookup) — not something a datapack script can correct on its own, since `_castleIndex`
+    has no public setter.
 
 ## Subclass eligibility restrictions (hardcoded in the closed engine)
 
@@ -948,6 +1019,24 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   buddies/regulars are a separate spawn path (tied to their owner, not this population/radius mechanic) and
   aren't affected by this gate the same way, but they only exist while their owner is online and partied
   either way.
+
+## Castle vault → Gold Bar conversion (`CastleVaultGoldBarTask.java`)
+
+- `game/data/scripts/custom/CastleVault/CastleVaultGoldBarTask.java` sweeps every 60s and, for every full
+  1,000,000,000 Adena sitting in Aden's (`CASTLE_ID = 5`) treasury, withdraws it and mints one Gold Bar
+  (item `3470` — the same item the stock Banking voiced command trades 1-for-1 against
+  `BankingConfig.BANKING_SYSTEM_ADENA`, see the Banking section elsewhere in this doc) directly into the
+  owning clan's guild warehouse (`Castle.getOwner().getWarehouse()`).
+- Withdrawal uses `Castle.addToTreasuryNoTax(long)` with a **negative** amount — decompile-confirmed
+  (`javap -p -c`) this method already handles that correctly (negates the delta, refuses and returns
+  `false` without side effects if `_treasury` is short, otherwise subtracts and persists via the same
+  `UPDATE castle SET treasury=?` the positive/deposit path uses), so no new reflection or Castle API was
+  needed for the withdrawal half — only the deposit half (`ManorBotBuyerTask.java`) existed before this.
+- Like every other `addToTreasury*` call, this is a no-op while the castle has no recognized owner
+  (`_ownerId <= 0`, see the Community Board section above) — if a future report says "gold bars aren't
+  being minted," check castle ownership (`clan_data.hasCastle`) before assuming this script is broken.
+- If `getTreasury()` is ever ≥ 2,000,000,000 in one sweep (e.g. a huge single deposit), `bars` will be
+  computed as 2 (or more) and both are withdrawn/minted in the same sweep — not capped to one per tick.
 
 ## Death handling and custom skill effects
 
