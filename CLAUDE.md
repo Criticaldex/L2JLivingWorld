@@ -147,6 +147,17 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   live-tested placement; if any NPC in the new Aden cluster turns out clipped into scenery/a building, nudge
   its `x`/`y` a bit rather than assuming the whole approach is wrong (same caveat as the Colosseum Scheme
   Buffer addition above).
+- **Duplicated the same Global Gatekeeper/Scheme Buffer/Transmog/Wedding Manager cluster next to Rune's own
+  Grand Olympiad Manager** (`id 31688`, `x=36048 y=-48208 z=-1095`, `game/data/spawns/Rune/RuneNPCs.xml`),
+  per user request — this is an *addition*, not a relocation: Rune already had its own, unrelated Global
+  Gatekeeper (`50009`) + Scheme Buffer (`50008`) pair ~2400 units away near `31699` "Stanislava"
+  (the town's teleporter-crystal hub), left untouched, same "leave the older, different cluster alone"
+  precedent as Giran's own separate Harbor/Minerva GG+SB pair above. Rune's `31690` "Monument of Heroes" sits
+  only 60 units due south of the Olympiad Manager, so — unlike Aden, where the hub cluster went south and
+  Monument of Heroes was safely off to the side on the x-axis instead — the new cluster here was offset
+  **north** (`y=-48100`, `+108` from the manager) to stay clear of it: Global Gatekeeper `36008,-48100,-1095`,
+  Transmog `36068,-48100,-1095`, Scheme Buffer `36008,-48140,-1095`, Wedding Manager `35928,-48100,-1095`.
+  Same not-live-tested caveat as the Aden cluster applies.
 - **The TvT/Deathmatch/CtF Managers (`70010`/`70011`/`70012`) are NOT static spawns at all** — despite living
   next to Clarissa in the old Giran layout, they were never entries in `GiranNPCs.xml`; each event script
   (`game/data/scripts/custom/events/{TeamVsTeam/TvT.java, Deathmatch/Deathmatch.java,
@@ -918,6 +929,25 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   minting the exact purchase cost onto the chosen bot via `addAdena` immediately before `reduceAdena` spends
   it (a bare `reduceAdena` would otherwise almost always fail, since these bots don't naturally carry any
   adena) — no seed item is ever granted, since there's no sow/harvest/sell step to consume it.
+- **This task generates zero income while the server is otherwise idle, even with `PhantomAutoHuntingZones`
+  enabled and the GameServer process fully up** — its bot pool depends entirely on `PhantomManager`'s own
+  ambient-population activation, which is proximity-gated, not always-on. Decompile-confirmed
+  (`PhantomManager.supervise()`/`updatePopulations()`/`isAnyoneNear()`, `javap -p -c` on `libs/GameServer.jar`):
+  every ~1s tick, `supervise()` builds `onlineObservers()` (every non-offline, non-dead `Player` currently in
+  `World.getInstance().getPlayers()` — real players *and* already-spawned bot `Player`s both count), then for
+  each hunting-zone `Population` (from `PhantomPopulations.xml`, `radius`/`center` per zone) checks whether any
+  observer is within `radius + 2000` units of that zone's center (`isAnyoneNear`). Only then does `activate()`
+  actually spawn that zone's field-hunter phantoms; after 30s with nobody near, `deactivate()` despawns them
+  again. `ManorBotBuyerTask.getOnlineBots()` only ever sees phantoms that are actually spawned right now — so
+  with zero real players anywhere near any zone, every `Population` sits deactivated, `getOnlineBots()` is
+  empty, and the sweep is a pure no-op (observed live: Castle Vault's "revenue from sale of seed" stayed at 0
+  until a real player logged in and came within range of a zone, at which point hunters spawned and income
+  started). One already-active zone's own phantoms count as observers too, but zones are usually too far
+  apart for that to bootstrap a *different*, distant zone on its own — in practice this still means "at least
+  one real player physically near a hunting zone," not "server process is running." `!lf`-recruited
+  buddies/regulars are a separate spawn path (tied to their owner, not this population/radius mechanic) and
+  aren't affected by this gate the same way, but they only exist while their owner is online and partied
+  either way.
 
 ## Death handling and custom skill effects
 

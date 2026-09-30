@@ -71,6 +71,10 @@
 		<npc id="50009" x="38424" y="-48034" z="-1151" heading="49000" respawnDelay="60" /> <!-- Global Gatekeeper -->
 		<npc id="50008" x="38424" y="-48094" z="-1151" heading="49000" respawnDelay="60" /> <!-- Scheme Buffer -->		<npc id="31688" x="36048" y="-48208" z="-1095" heading="0" respawnDelay="60" /> <!-- Grand Olympiad Manager -->
 		<npc id="31690" x="36048" y="-48268" z="-1095" heading="0" respawnDelay="60" /> <!-- Monument of Heroes -->
+		<npc id="50009" x="36008" y="-48100" z="-1095" heading="49000" respawnDelay="60" /> <!-- Global Gatekeeper -->
+		<npc id="900009" x="36068" y="-48100" z="-1095" heading="49000" respawnDelay="60" /> <!-- Transmog -->
+		<npc id="50008" x="36008" y="-48140" z="-1095" heading="49000" respawnDelay="60" /> <!-- Scheme Buffer -->
+		<npc id="50007" x="35928" y="-48100" z="-1095" heading="49000" respawnDelay="60" /> <!-- Wedding Manager -->
 		<npc id="31836" x="37552" y="-47440" z="-1127" heading="16500" respawnDelay="60" /> <!-- Adventure Guildsman -->
 		<npc id="31324" x="38368" y="-47096" z="-1143" heading="33000" respawnDelay="60" /> <!-- Andromeda -->
 		<npc id="31321" x="38368" y="-46912" z="-1131" heading="33000" respawnDelay="60" /> <!-- Siegmund -->
