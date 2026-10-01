@@ -1052,6 +1052,24 @@ PhantomPlaystyles.xml`, `PhantomPopulations.xml`, `FakePlayerBehavior.xml`, `Fak
   being minted," check castle ownership (`clan_data.hasCastle`) before assuming this script is broken.
 - If `getTreasury()` is ever ≥ 2,000,000,000 in one sweep (e.g. a huge single deposit), `bars` will be
   computed as 2 (or more) and both are withdrawn/minted in the same sweep — not capped to one per tick.
+- **Minted Gold Bars disappeared from the clan warehouse after a server restart** — the first version of
+  this task called `warehouse.addItem(...)` and nothing else. Decompile-confirmed
+  (`javap -p -c` on `ItemContainer`/`Item`): `ItemContainer.addItem(ItemProcessType, int, int, Player,
+  Object)` only ever adds the created/updated `Item` to the container's in-memory `_items` set — it never
+  touches the database by itself. The usual follow-up, `ItemContainer.updateDatabase()`, is gated on
+  `getOwner() != null`; for `ClanWarehouse` specifically, `getOwner()` returns
+  `clan.getLeader().getPlayer()` — `null` whenever the clan leader isn't online at that exact moment. Since
+  this task's 60s sweep has no reason to coincide with the leader being online, the gold bar was routinely
+  minted, shown correctly for the rest of that session, and then silently never written to the `items`
+  table — gone on the next restart, with no error anywhere. Fixed by capturing the `Item` `addItem(...)`
+  returns and calling `goldBar.updateDatabase(true)` on that specific instance directly — decompile-
+  confirmed `Item.updateDatabase(boolean)` persists unconditionally based only on the item's own
+  `_existsInDb`/`_ownerId`/`_loc`/`_count` fields, with no online-owner dependency at all, so it works
+  regardless of whether anyone's logged in. **Any future script that mints items into a `ClanWarehouse` (or
+  any container whose `getOwner()` can go null) needs this same explicit per-item `updateDatabase(true)`
+  call — don't rely on the container-level `updateDatabase()` convenience method for anything that isn't
+  guaranteed to run while a relevant player is online.** Gold bars minted before this fix are unrecoverable
+  (they only ever existed in memory) — if that matters, they'd need a manual GM item grant to compensate.
 
 ## Real castle tax income tracking (`CastleTaxTracker.java`) — the Chamberlain's "tax collected" was a hardcoded stub
 

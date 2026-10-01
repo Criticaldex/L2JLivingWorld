@@ -28,6 +28,7 @@ import org.l2jmobius.commons.threads.ThreadPool;
 import org.l2jmobius.gameserver.managers.CastleManager;
 import org.l2jmobius.gameserver.model.clan.Clan;
 import org.l2jmobius.gameserver.model.item.enums.ItemProcessType;
+import org.l2jmobius.gameserver.model.item.instance.Item;
 import org.l2jmobius.gameserver.model.itemcontainer.ItemContainer;
 import org.l2jmobius.gameserver.model.siege.Castle;
 
@@ -94,7 +95,16 @@ public class CastleVaultGoldBarTask
 				return;
 			}
 
-			warehouse.addItem(ItemProcessType.REWARD, GOLD_BAR_ITEM_ID, bars, null, null);
+			final Item goldBar = warehouse.addItem(ItemProcessType.REWARD, GOLD_BAR_ITEM_ID, bars, null, null);
+			if (goldBar != null)
+			{
+				// ItemContainer.addItem() only adds to the in-memory item set - it never persists on its own, and
+				// ItemContainer.updateDatabase() (the usual follow-up) is gated on getOwner() != null, which for a
+				// ClanWarehouse is clan.getLeader().getPlayer() - null whenever the leader isn't online. Updating
+				// the specific Item directly persists unconditionally (decompile-confirmed: Item.updateDatabase(boolean)
+				// only depends on the item's own _existsInDb/_ownerId/_loc/_count fields, not on any online check).
+				goldBar.updateDatabase(true);
+			}
 			WITHDRAWN_SINCE_LAST_CHECK.addAndGet(withdrawAmount);
 			LOGGER.info("CastleVaultGoldBarTask: converted " + withdrawAmount + " Adena from Aden's treasury into " + bars + " Gold Bar(s) in " + owner.getName() + "'s guild warehouse.");
 		}
